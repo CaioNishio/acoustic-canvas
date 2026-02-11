@@ -109,7 +109,7 @@ const HomePage = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="text-white/50 mt-7 text-lg max-w-md leading-relaxed">
+            <p className="text-secondary mt-7 text-lg max-w-md leading-relaxed">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
