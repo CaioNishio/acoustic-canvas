@@ -14,44 +14,11 @@ export default {
   	},
   	extend: {
   		fontFamily: {
-  			display: [
-  				'Outfit',
-  				'sans-serif'
-  			],
-  			body: [
-  				'Sora',
-  				'sans-serif'
-  			],
-  			sans: [
-  				'Source Sans Pro',
-  				'ui-sans-serif',
-  				'system-ui',
-  				'sans-serif',
-  				'Apple Color Emoji',
-  				'Segoe UI Emoji',
-  				'Segoe UI Symbol',
-  				'Noto Color Emoji'
-  			],
-  			serif: [
-  				'Source Serif Pro',
-  				'ui-serif',
-  				'Georgia',
-  				'Cambria',
-  				'Times New Roman',
-  				'Times',
-  				'serif'
-  			],
-  			mono: [
-  				'Source Code Pro',
-  				'ui-monospace',
-  				'SFMono-Regular',
-  				'Menlo',
-  				'Monaco',
-  				'Consolas',
-  				'Liberation Mono',
-  				'Courier New',
-  				'monospace'
-  			]
+  			display: ['Outfit', 'sans-serif'],
+  			body: ['Plus Jakarta Sans', 'Sora', 'sans-serif'],
+  			sans: ['Plus Jakarta Sans', 'Sora', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			serif: ['Outfit', 'ui-serif', 'Georgia', 'serif'],
+  			mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
   		},
   		colors: {
   			border: 'hsl(var(--border))',

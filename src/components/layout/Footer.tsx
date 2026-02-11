@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Youtube, Facebook, Linkedin } from "lucide-react";
+import { Instagram, Phone } from "lucide-react";
 import logo from "@/assets/logo-sonar.png";
 
 export default function Footer() {
@@ -13,10 +13,8 @@ export default function Footer() {
               Soluções profissionais em tratamento acústico para todos os tipos de ambientes.
             </p>
             <div className="flex items-center gap-3 mt-4">
-              <a href="#" className="text-white/40 hover:text-secondary transition-colors"><Instagram size={16} /></a>
-              <a href="#" className="text-white/40 hover:text-secondary transition-colors"><Youtube size={16} /></a>
-              <a href="#" className="text-white/40 hover:text-secondary transition-colors"><Facebook size={16} /></a>
-              <a href="#" className="text-white/40 hover:text-secondary transition-colors"><Linkedin size={16} /></a>
+              <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-secondary transition-colors"><Instagram size={16} /></a>
+              <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-secondary transition-colors"><Phone size={16} /></a>
             </div>
           </div>
           <div>
@@ -42,8 +40,8 @@ export default function Footer() {
           <div>
             <h4 className="font-display text-sm font-semibold text-secondary mb-3">Contato</h4>
             <ul className="space-y-2 text-sm text-white/60">
-              <li>contato@sonaracusticos.com.br</li>
-              <li>(11) 99999-0000</li>
+              <li><a href="mailto:contato@sonaracusticos.com.br" className="hover:text-white transition-colors">contato@sonaracusticos.com.br</a></li>
+              <li><a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">(11) 96748-4000</a></li>
               <li>São Paulo, SP</li>
             </ul>
           </div>

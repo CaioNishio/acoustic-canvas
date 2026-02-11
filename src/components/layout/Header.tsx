@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, Instagram, Youtube, Facebook, Linkedin, Phone, Search } from "lucide-react";
+import { Menu, X, ArrowRight, Instagram, Phone, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-sonar.png";
 import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
@@ -105,10 +105,8 @@ export default function Header() {
       <div className="bg-[hsl(205,78%,12%)] text-white">
         <div className="container mx-auto flex items-center justify-between h-9 px-4 text-xs">
           <div className="hidden md:flex items-center gap-4">
-            <a href="#" className="hover:text-secondary transition-colors"><Instagram size={14} /></a>
-            <a href="#" className="hover:text-secondary transition-colors"><Youtube size={14} /></a>
-            <a href="#" className="hover:text-secondary transition-colors"><Facebook size={14} /></a>
-            <a href="#" className="hover:text-secondary transition-colors"><Linkedin size={14} /></a>
+            <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors"><Instagram size={14} /></a>
+            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors"><Phone size={14} /></a>
           </div>
           <div className="flex items-center gap-1.5 mx-auto md:mx-0">
             <Phone size={12} className="text-secondary" />
