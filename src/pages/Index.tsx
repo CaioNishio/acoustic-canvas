@@ -102,14 +102,14 @@ const HomePage = () => {
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent text-muted rounded-3xl opacity-40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent text-muted rounded-3xl opacity-100 bg-transparent" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
             <p className="text-secondary tracking-[0.4em] uppercase mb-6 text-base font-light">
               Projetado por Especialistas. Aprovado por Profissionais.
             </p>
-            <h1 className="md:text-6xl leading-[1.05] text-white font-serif lg:text-7xl text-justify text-5xl font-extralight">
+            <h1 className="md:text-6xl leading-[1.05] text-white font-serif text-justify text-5xl font-extralight lg:text-8xl my-[79px] px-0 py-0 mx-0 bg-primary-foreground">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
             <p className="text-white/50 mt-7 text-lg max-w-md leading-relaxed">
@@ -145,8 +145,8 @@ const HomePage = () => {
 
       {/* ===== Spaces — horizontal navigation ===== */}
       <section className="py-16 opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground bg-transparent">
-        <div className="container mx-auto px-6 border-4 border-destructive opacity-100">
-          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-bold">
+        <div className="container mx-auto px-6 border-4 opacity-100 border-transparent">
+          <motion.p {...fadeUp} className="text-center uppercase tracking-[0.3em] mb-8 text-secondary-foreground text-xl font-normal">
             Soluções para cada ambiente
           </motion.p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -279,7 +279,7 @@ const HomePage = () => {
       <AcousticDots />
 
       {/* ===== Why us — with image ===== */}
-      <section className="py-24 px-6 text-white bg-sky-900">
+      <section className="py-24 px-6 text-white bg-gray-800">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div {...fadeUp}>
