@@ -13,13 +13,13 @@ export default {
   		}
   	},
   	extend: {
-  		fontFamily: {
-  			display: ['DM Sans', 'sans-serif'],
-  			body: ['DM Sans', 'sans-serif'],
-  			sans: ['DM Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-  			serif: ['DM Sans', 'ui-serif', 'Georgia', 'serif'],
-  			mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-  		},
+		fontFamily: {
+			display: ['Sora', 'Plus Jakarta Sans', 'sans-serif'],
+			body: ['Plus Jakarta Sans', 'Sora', 'sans-serif'],
+			sans: ['Plus Jakarta Sans', 'Sora', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+			serif: ['Sora', 'ui-serif', 'Georgia', 'serif'],
+			mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+		},
   		colors: {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
