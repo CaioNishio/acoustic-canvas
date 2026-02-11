@@ -1,3 +1,11 @@
+import bafflesColoridos from "@/assets/gallery/baffles-coloridos.jpg";
+import forroCorporativo from "@/assets/gallery/forro-corporativo.jpg";
+import escritorioPaineis from "@/assets/gallery/escritorio-paineis.png";
+import academiaBaffles from "@/assets/gallery/academia-baffles.jpeg";
+import academiaTeto from "@/assets/gallery/academia-teto.jpeg";
+import salaAulaBaffles from "@/assets/gallery/sala-aula-baffles.jpeg";
+import nuvemAcustica from "@/assets/gallery/nuvem-acustica.webp";
+
 export interface Project {
   slug: string;
   title: string;
@@ -17,11 +25,8 @@ export const projects: Project[] = [
     category: "Estúdio",
     location: "São Paulo, SP",
     description: "Tratamento acústico completo do estúdio de gravação e sala de controle. O projeto incluiu absorvedores nas primeiras reflexões, bass traps nos cantos e difusores na parede traseira da sala de controle.",
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800",
-    gallery: [
-      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800",
-      "https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?w=800",
-    ],
+    image: bafflesColoridos,
+    gallery: [bafflesColoridos, nuvemAcustica],
     materials: ["Painel Absorvedor Premium", "Bass Trap Corner", "Difusor Skyline"],
     testimonial: {
       text: "A diferença na precisão do monitoramento foi impressionante. O estúdio ficou com uma acústica de referência internacional.",
@@ -35,10 +40,8 @@ export const projects: Project[] = [
     category: "Igreja",
     location: "Curitiba, PR",
     description: "Projeto acústico para templo com 800 lugares. Foco na inteligibilidade da fala e clareza musical, reduzindo o tempo de reverberação de 3.2s para 1.4s.",
-    image: "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=800",
-    gallery: [
-      "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=800",
-    ],
+    image: salaAulaBaffles,
+    gallery: [salaAulaBaffles],
     materials: ["Forro Acústico Modular", "Painel Absorvedor Premium", "Bass Trap Corner"],
     testimonial: {
       text: "Agora os fiéis conseguem entender perfeitamente a pregação. A música também ganhou clareza sem perder a sensação de amplitude.",
@@ -52,10 +55,8 @@ export const projects: Project[] = [
     category: "Corporativo",
     location: "Florianópolis, SC",
     description: "Open office de 500m² com tratamento para redução de ruído e criação de zonas acústicas. Integração perfeita com o design do escritório.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
-    gallery: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
-    ],
+    image: escritorioPaineis,
+    gallery: [escritorioPaineis, forroCorporativo],
     materials: ["Forro Acústico Modular", "Painel Tecido Slim", "Revestimento Ripado Acústico"],
   },
   {
@@ -64,10 +65,8 @@ export const projects: Project[] = [
     category: "Residencial",
     location: "Barueri, SP",
     description: "Sala de home theater com tratamento acústico completo. Absorvedores nas primeiras reflexões, bass traps e difusores traseiros para experiência cinematográfica imersiva.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-    gallery: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-    ],
+    image: academiaTeto,
+    gallery: [academiaTeto, academiaBaffles],
     materials: ["Painel Absorvedor Premium", "Bass Trap Corner", "Revestimento Ripado Acústico"],
     testimonial: {
       text: "A experiência do home theater mudou completamente. O som ficou envolvente e limpo, como um cinema de verdade.",

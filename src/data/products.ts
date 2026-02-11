@@ -1,3 +1,10 @@
+import bafflesColoridos from "@/assets/gallery/baffles-coloridos.jpg";
+import forroCorporativo from "@/assets/gallery/forro-corporativo.jpg";
+import hexagonaisTeto from "@/assets/gallery/hexagonais-teto.png";
+import escritorioPaineis from "@/assets/gallery/escritorio-paineis.png";
+import nuvemAcustica from "@/assets/gallery/nuvem-acustica.webp";
+import forroIndustrial from "@/assets/gallery/forro-industrial.jpg";
+
 export interface Product {
   slug: string;
   name: string;
@@ -29,11 +36,8 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Absorção sonora de alta performance para ambientes profissionais.",
     description: "O Painel Absorvedor Premium é projetado para oferecer máxima absorção sonora em médias e altas frequências. Ideal para estúdios de gravação, salas de reunião e home theaters. Revestido em tecido acústico de alta qualidade, disponível em diversas cores.",
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600",
-    gallery: [
-      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800",
-      "https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?w=800",
-    ],
+    image: bafflesColoridos,
+    gallery: [bafflesColoridos, nuvemAcustica],
     specs: [
       { label: "NRC", value: "0.95" },
       { label: "Espessura", value: "50mm" },
@@ -52,10 +56,8 @@ export const products: Product[] = [
     thickness: "100mm",
     shortDescription: "Controle de graves em cantos e junções de paredes.",
     description: "Bass Trap Corner projetado para absorção eficiente de baixas frequências. Instalação em cantos verticais para máximo aproveitamento do espaço e controle modal.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600",
-    gallery: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800",
-    ],
+    image: hexagonaisTeto,
+    gallery: [hexagonaisTeto],
     specs: [
       { label: "NRC", value: "0.85" },
       { label: "Espessura", value: "100mm" },
@@ -74,10 +76,8 @@ export const products: Product[] = [
     thickness: "75mm",
     shortDescription: "Difusão sonora para ambientes que exigem clareza acústica.",
     description: "O Difusor Skyline oferece difusão bidimensional de alta qualidade. Fabricado em madeira maciça com acabamento premium. Ideal para salas de controle, auditórios e salas de concerto.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600",
-    gallery: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
-    ],
+    image: nuvemAcustica,
+    gallery: [nuvemAcustica],
     specs: [
       { label: "Faixa de Difusão", value: "800Hz - 8kHz" },
       { label: "Profundidade", value: "75mm" },
@@ -96,10 +96,8 @@ export const products: Product[] = [
     thickness: "25mm",
     shortDescription: "Sistema de forro com absorção integrada.",
     description: "Forro acústico modular com design clean e alta absorção. Sistema de fixação rápida com grid metálico. Ideal para escritórios, igrejas e ambientes de grande porte.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600",
-    gallery: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
-    ],
+    image: forroCorporativo,
+    gallery: [forroCorporativo, forroIndustrial],
     specs: [
       { label: "NRC", value: "0.80" },
       { label: "Espessura", value: "25mm" },
@@ -118,10 +116,8 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Revestimento de parede com estética premium e absorção.",
     description: "Revestimento ripado que combina estética sofisticada com performance acústica. As ripas em madeira natural criam um visual premium enquanto o núcleo absorvente trata a acústica do ambiente.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600",
-    gallery: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-    ],
+    image: escritorioPaineis,
+    gallery: [escritorioPaineis],
     specs: [
       { label: "NRC", value: "0.70" },
       { label: "Espessura Total", value: "50mm" },
@@ -140,10 +136,8 @@ export const products: Product[] = [
     thickness: "25mm",
     shortDescription: "Painel ultrafino para tratamento acústico discreto.",
     description: "Painel acústico slim com apenas 25mm de espessura. Ideal para ambientes onde o espaço é limitado. Revestido em tecido premium com mais de 30 opções de cores.",
-    image: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600",
-    gallery: [
-      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800",
-    ],
+    image: forroIndustrial,
+    gallery: [forroIndustrial],
     specs: [
       { label: "NRC", value: "0.65" },
       { label: "Espessura", value: "25mm" },
