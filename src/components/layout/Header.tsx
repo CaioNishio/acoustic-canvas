@@ -117,7 +117,7 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <div className="backdrop-blur-md border-b shadow-2xs rounded-xl text-primary-foreground bg-sidebar border-primary-foreground border-0 opacity-75 px-0 my-0 border-double mx-0 py-0">
+      <div className="bg-[hsl(205,78%,15%)] backdrop-blur-md shadow-lg text-primary-foreground px-0 my-0 mx-0 py-0" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
         <div className="container h-20 lg:h-28 text-primary-foreground shadow-md my-0 flex-row px-0 py-0 mx-[12px] flex items-start justify-between gap-0">
           <Link to="/" className="flex items-center flex-shrink-0 mr-6">
             <img alt="Sonar Acústicos" className="h-16 lg:h-36 w-auto opacity-100 border-primary-foreground object-cover" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" />
