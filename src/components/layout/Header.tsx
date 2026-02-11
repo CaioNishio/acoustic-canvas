@@ -69,8 +69,8 @@ export default function Header() {
   };
 
   const navItemClass = (key: MenuKey) =>
-    `px-4 py-2 text-sm font-medium transition-colors rounded-full ${
-      activeMenu === key ? "bg-secondary text-secondary-foreground" : "text-foreground hover:text-primary"
+    `px-5 py-2.5 text-sm font-medium transition-all duration-200 ${
+      activeMenu === key ? "text-foreground border-b-2 border-primary" : "text-muted-foreground hover:text-foreground border-b-2 border-transparent"
     }`;
 
   return (
@@ -100,7 +100,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/80 backdrop-blur-sm rounded-full px-2 py-1 border border-border/40 shadow-sm">
+          <nav className="hidden lg:flex items-center gap-0 bg-card backdrop-blur-sm px-1 py-0.5 border-b border-border/30">
             <div
               onMouseEnter={() => openMenu("produtos")}
               onMouseLeave={scheduleClose}
