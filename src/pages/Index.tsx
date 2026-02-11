@@ -1,115 +1,156 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Volume2, Shield, Ruler, Headphones, Star, CheckCircle, Users } from "lucide-react";
+import { ArrowRight, Calculator, Ruler, Wrench, Palette, Star, Users, CheckCircle, Phone } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-import SectionHeading from "@/components/shared/SectionHeading";
-import ProductCard from "@/components/shared/ProductCard";
-import { products } from "@/data/products";
-import { solutions } from "@/data/solutions";
 
-// Hero images
+// Hero & showcase images
+import heroEstudioAzul from "@/assets/gallery/hero-estudio-azul.png";
 import heroMdf from "@/assets/gallery/hero-mdf-vazado.jpg";
 import heroDifusores from "@/assets/gallery/hero-difusores-madeira.jpg";
 import heroNuvens from "@/assets/gallery/hero-nuvens-acusticas.jpg";
-import heroEstudioDark from "@/assets/gallery/hero-estudio-dark.jpeg";
 import heroForro from "@/assets/gallery/hero-forro-industrial.jpg";
 import heroBafflesColor from "@/assets/gallery/hero-baffles-coloridos.jpeg";
-import heroEstudioAzul from "@/assets/gallery/hero-estudio-azul.png";
-import heroHomeStudio from "@/assets/gallery/hero-home-studio.jpeg";
 import heroBafflesAzuis from "@/assets/gallery/hero-baffles-azuis.jpg";
 import heroForroCorp from "@/assets/gallery/hero-forro-corporativo.jpg";
+import heroHomeStudio from "@/assets/gallery/hero-home-studio.jpeg";
+import heroEstudioDark from "@/assets/gallery/hero-estudio-dark.jpeg";
 
-// Existing gallery images
 import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
 import imgSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.png";
 import imgNuvem from "@/assets/gallery/nuvem-acustica.webp";
 import imgEscritorio from "@/assets/gallery/escritorio-paineis.png";
 import imgAcademiaBaffles from "@/assets/gallery/academia-baffles.jpeg";
 import imgEscritorioAzuis from "@/assets/gallery/escritorio-paineis-azuis.jpeg";
+import imgSalaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
+
+const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 const spaces = [
   { label: "Estúdios", path: "/solucoes/estudios", image: heroEstudioAzul },
   { label: "Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
   { label: "Auditórios", path: "/solucoes/auditorios", image: heroMdf },
   { label: "Corporativo", path: "/solucoes/corporativo", image: heroForroCorp },
-  { label: "Todos os Espaços", path: "/solucoes", image: heroBafflesColor },
+  { label: "Residencial", path: "/solucoes/residencial", image: heroHomeStudio },
 ];
 
-const features = [
-  { icon: Volume2, title: "Alta Absorção", desc: "NRC até 0.95 para controle sonoro profissional" },
-  { icon: Shield, title: "Certificação A2", desc: "Materiais com classificação de resistência ao fogo" },
-  { icon: Ruler, title: "Sob Medida", desc: "Projetos personalizados para cada ambiente" },
-  { icon: Headphones, title: "Consultoria", desc: "Análise acústica profissional inclusa" },
+const processSteps = [
+  {
+    icon: Calculator,
+    title: "Calculadora Acústica",
+    desc: "Insira as dimensões do seu ambiente e receba uma recomendação inteligente de quantidade e tipo de material — com visualização 3D em tempo real.",
+    image: imgSalaReuniao,
+    cta: "Testar Calculadora",
+    path: "/calculadora",
+  },
+  {
+    icon: Ruler,
+    title: "Medição & Projeto",
+    desc: "Nossa equipe analisa o espaço, identifica os pontos críticos de reflexão e projeta a solução acústica ideal com base em normas técnicas.",
+    image: imgEstudio,
+    cta: "Solicitar Análise",
+    path: "/orcamento",
+  },
+  {
+    icon: Palette,
+    title: "Personalização",
+    desc: "Mais de 40 cores, acabamentos em tecido, MDF ou madeira natural. Cada projeto é único — combinando performance acústica e design de interiores.",
+    image: heroDifusores,
+    cta: "Ver Cores",
+    path: "/produtos",
+  },
+  {
+    icon: Wrench,
+    title: "Instalação Profissional",
+    desc: "Instalação realizada por equipe especializada em todo o Brasil, com acabamento impecável e garantia de resultado acústico.",
+    image: heroBafflesColor,
+    cta: "Fale Conosco",
+    path: "/contato",
+  },
 ];
 
-const stats = [
-  { value: "500+", label: "Projetos Realizados" },
-  { value: "98%", label: "Clientes Satisfeitos" },
-  { value: "12", label: "Anos de Experiência" },
-  { value: "40+", label: "Cores Disponíveis" },
+const portfolioGrid = [
+  { img: heroEstudioAzul, label: "Estúdio Musical", span: "md:col-span-2 md:row-span-2" },
+  { img: heroBafflesAzuis, label: "Baffles Suspensos", span: "" },
+  { img: heroMdf, label: "Painéis MDF Vazado", span: "" },
+  { img: heroForro, label: "Forro Industrial", span: "md:col-span-2" },
+  { img: heroDifusores, label: "Difusores Skyline", span: "" },
+  { img: heroNuvens, label: "Nuvens Acústicas", span: "" },
+  { img: heroForroCorp, label: "Forro Corporativo", span: "" },
+  { img: imgSalaTratamento, label: "Sala de Tratamento", span: "" },
 ];
 
 const testimonials = [
-  { name: "Ricardo Almeida", role: "Engenheiro de Som", text: "Os painéis da Sonar transformaram completamente a acústica do meu estúdio. A qualidade do monitoramento melhorou drasticamente." },
-  { name: "Arq. Marina Santos", role: "Arquiteta", text: "Trabalho com a Sonar há 3 anos. A qualidade dos materiais e o suporte técnico são incomparáveis no mercado brasileiro." },
-  { name: "Pe. João Silva", role: "Paróquia N.S. Aparecida", text: "Após o tratamento acústico, a inteligibilidade da palavra na igreja melhorou enormemente. Os fiéis agradecem." },
+  { name: "Ricardo Almeida", role: "Engenheiro de Som", text: "Os painéis da Sonar transformaram completamente a acústica do meu estúdio." },
+  { name: "Arq. Marina Santos", role: "Arquiteta", text: "A qualidade dos materiais e o suporte técnico são incomparáveis no mercado brasileiro." },
+  { name: "Pe. João Silva", role: "Paróquia N.S. Aparecida", text: "A inteligibilidade da palavra na igreja melhorou enormemente após o tratamento." },
 ];
 
-const showcaseImages = [
-  { img: heroEstudioAzul, label: "Estúdio Musical" },
-  { img: heroBafflesAzuis, label: "Baffles Suspensos" },
-  { img: heroDifusores, label: "Difusores Skyline" },
-  { img: heroForroCorp, label: "Forro Corporativo" },
+const stats = [
+  { value: "500+", label: "Projetos" },
+  { value: "98%", label: "Satisfação" },
+  { value: "12", label: "Anos" },
+  { value: "40+", label: "Cores" },
 ];
 
 const HomePage = () => {
   return (
     <Layout>
-      {/* ===== HERO — Full-width horizontal image ===== */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* ===== HERO — Full-width cinematic ===== */}
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroEstudioAzul} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,12%)]/90 via-[hsl(205,78%,12%)]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
-          >
-            <p className="text-secondary text-sm font-bold tracking-[0.3em] uppercase mb-5">
-              Projetado por Especialistas
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
+            <p className="text-secondary text-xs font-bold tracking-[0.4em] uppercase mb-6">
+              Projetado por Especialistas. Aprovado por Profissionais.
             </p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white">
-              A Referência em<br />Tratamento Acústico
+              Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="text-white/60 mt-6 text-lg max-w-lg leading-relaxed">
-              Painéis, difusores e bass traps de alta performance para transformar qualquer ambiente.
+            <p className="text-white/50 mt-7 text-lg max-w-md leading-relaxed">
+              Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/produtos" className="inline-flex items-center gap-3 px-8 py-4 bg-secondary text-secondary-foreground font-bold rounded-full hover:bg-secondary/90 transition-all text-sm shadow-lg shadow-secondary/30">
-                Ver Produtos <ArrowRight size={16} />
+              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 bg-secondary text-secondary-foreground font-bold rounded-full hover:bg-secondary/90 transition-all text-sm shadow-lg shadow-secondary/30">
+                Solicitar Orçamento <ArrowRight size={16} />
               </Link>
-              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all text-sm">
-                Solicitar Orçamento
+              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/25 text-white font-semibold rounded-full hover:bg-white/10 transition-all text-sm backdrop-blur-sm">
+                Ver Portfólio
               </Link>
             </div>
           </motion.div>
         </div>
+        {/* Stats overlay at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[hsl(205,78%,10%)]/80 to-transparent pt-16 pb-8">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-start gap-12 md:gap-16">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <p className="text-3xl md:text-4xl font-bold text-white">{s.value}</p>
+                  <p className="text-xs text-white/40 mt-0.5 uppercase tracking-wider">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* ===== Spaces navigation — horizontal cards ===== */}
+      {/* ===== Spaces — horizontal navigation ===== */}
       <section className="bg-background py-16">
         <div className="container mx-auto px-6">
+          <motion.p {...fadeUp} className="text-center text-muted-foreground text-sm uppercase tracking-[0.3em] font-semibold mb-8">
+            Soluções para cada ambiente
+          </motion.p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {spaces.map((space) => (
               <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3]">
-                <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.5] group-hover:brightness-[0.4]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,12%)]/70 via-transparent to-transparent" />
+                <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.45] group-hover:brightness-[0.35]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,10%)]/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                  <h3 className="text-white font-bold text-base md:text-lg drop-shadow-lg">{space.label}</h3>
-                  <ArrowRight size={16} className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
+                  <h3 className="text-white font-bold text-sm md:text-base drop-shadow-lg">{space.label}</h3>
+                  <ArrowRight size={14} className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
                 </div>
               </Link>
             ))}
@@ -117,77 +158,75 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Stats bar ===== */}
-      <section className="bg-primary py-14">
+      {/* ===== Portfolio mosaic ===== */}
+      <section className="bg-[hsl(210,15%,97%)] py-20">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((s, i) => (
-              <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
-                <p className="text-4xl md:text-5xl font-bold text-primary-foreground">{s.value}</p>
-                <p className="text-sm text-primary-foreground/70 mt-1">{s.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Showcase — large horizontal images ===== */}
-      <section className="bg-background py-20">
-        <div className="container mx-auto px-6">
-          <SectionHeading tag="Galeria" title="Ambientes Transformados" description="Veja como nossos produtos transformam espaços reais." />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {showcaseImages.map((item, i) => (
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Portfólio</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-3">Nossos Projetos</h2>
+            <p className="text-muted-foreground mt-3 max-w-lg mx-auto">Ambientes reais transformados com soluções acústicas Sonar.</p>
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
+            {portfolioGrid.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative group overflow-hidden rounded-2xl aspect-[16/9]"
+                transition={{ delay: i * 0.05 }}
+                className={`relative group overflow-hidden rounded-2xl cursor-pointer ${item.span}`}
               >
-                <img src={item.img} alt={item.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,12%)]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-5 left-5">
-                  <span className="text-white font-bold text-lg drop-shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.label}</span>
+                <img src={item.img} alt={item.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <div className="absolute inset-0 bg-[hsl(205,78%,10%)]/0 group-hover:bg-[hsl(205,78%,10%)]/40 transition-colors duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <span className="text-white font-bold text-sm drop-shadow-lg">{item.label}</span>
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ===== Best Sellers ===== */}
-      <section className="py-20 px-6 bg-[hsl(210,15%,97%)]">
-        <div className="container mx-auto">
-          <div className="text-center mb-14">
-            <span className="text-secondary text-sm font-bold tracking-[0.3em] uppercase">Destaques</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-3 tracking-tight">Mais Vendidos</h2>
-            <p className="text-muted-foreground mt-3 text-lg">Os favoritos de arquitetos e engenheiros acústicos</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-            {products.slice(0, 3).map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
-          </div>
           <div className="text-center mt-12">
-            <Link to="/produtos" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors text-sm">
-              Ver todos os produtos <ArrowRight size={16} />
+            <Link to="/projetos" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors text-sm">
+              Ver todos os projetos <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ===== Features strip — dark blue glass ===== */}
-      <section className="bg-[hsl(205,78%,12%)] text-white py-20">
+      {/* ===== Process — Como Funciona ===== */}
+      <section className="bg-background py-24">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            {features.map((f, i) => (
-              <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-5 border border-white/10">
-                  <f.icon className="text-secondary" size={26} />
+          <motion.div {...fadeUp} className="text-center mb-16">
+            <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Processo</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-3">Como Funciona</h2>
+            <p className="text-muted-foreground mt-3 max-w-lg mx-auto">Da medição à instalação — um processo completo e transparente.</p>
+          </motion.div>
+
+          <div className="space-y-20">
+            {processSteps.map((step, i) => (
+              <motion.div
+                key={step.title}
+                {...fadeUp}
+                transition={{ delay: 0.1 }}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "lg:direction-rtl" : ""}`}
+              >
+                {/* Image */}
+                <div className={`overflow-hidden rounded-3xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                  <img src={step.image} alt={step.title} className="w-full h-full object-cover" loading="lazy" />
                 </div>
-                <h3 className="font-bold text-lg">{f.title}</h3>
-                <p className="text-sm text-white/50 mt-2 leading-relaxed">{f.desc}</p>
+                {/* Content */}
+                <div className={`${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                      <step.icon className="text-primary" size={26} />
+                    </div>
+                    <span className="text-xs font-bold text-muted-foreground tracking-[0.2em] uppercase">Etapa {i + 1}</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground">{step.title}</h3>
+                  <p className="text-muted-foreground mt-4 leading-relaxed text-lg">{step.desc}</p>
+                  <Link to={step.path} className="inline-flex items-center gap-2 mt-7 text-secondary font-bold text-sm hover:gap-3 transition-all">
+                    {step.cta} <ArrowRight size={16} />
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -196,54 +235,52 @@ const HomePage = () => {
 
       {/* ===== Full-width gallery strip ===== */}
       <section className="bg-background py-0">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-          {[heroMdf, heroNuvens, heroForro, heroHomeStudio].map((img, i) => (
-            <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="relative group overflow-hidden aspect-[4/3]">
+        <div className="grid grid-cols-4 gap-0">
+          {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) => (
+            <div key={i} className="relative group overflow-hidden aspect-[4/3]">
               <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-              <div className="absolute inset-0 bg-[hsl(205,78%,12%)]/0 group-hover:bg-[hsl(205,78%,12%)]/20 transition-colors duration-500" />
-            </motion.div>
+              <div className="absolute inset-0 bg-[hsl(205,78%,10%)]/0 group-hover:bg-[hsl(205,78%,10%)]/20 transition-colors duration-500" />
+            </div>
           ))}
         </div>
       </section>
 
-      {/* ===== Solutions by space ===== */}
-      <section className="py-20 px-6 bg-background">
+      {/* ===== Why us — with image ===== */}
+      <section className="py-24 px-6 bg-[hsl(205,78%,10%)] text-white">
         <div className="container mx-auto">
-          <SectionHeading tag="Soluções" title="Para Cada Ambiente, Uma Solução" description="Soluções acústicas especializadas para diferentes tipos de espaço." />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-            {solutions.slice(0, 3).map((s) => (
-              <motion.div key={s.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <Link to={`/solucoes/${s.slug}`} className="block group bg-background rounded-2xl overflow-hidden border border-border/60 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/[0.06]">
-                  <div className="aspect-video overflow-hidden rounded-t-2xl">
-                    <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.shortDescription}</p>
-                    <span className="inline-flex items-center gap-1.5 text-secondary text-sm font-semibold mt-4 group-hover:gap-2.5 transition-all">
-                      Saiba mais <ArrowRight size={14} />
-                    </span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Full catalog ===== */}
-      <section className="py-20 px-6 bg-[hsl(210,15%,97%)]">
-        <div className="container mx-auto">
-          <SectionHeading tag="Catálogo" title="Soluções Acústicas de Alta Performance" description="Materiais certificados com tecnologia de ponta para cada necessidade." />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-            {products.slice(0, 9).map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link to="/produtos" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors text-sm">
-              Ver catálogo completo <ArrowRight size={16} />
-            </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <motion.div {...fadeUp}>
+              <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Diferenciais</span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-3">Por Que Escolher a Sonar?</h2>
+              <p className="text-white/50 mt-5 leading-relaxed text-lg">
+                Mais de uma década combinando engenharia acústica de ponta com design contemporâneo.
+              </p>
+              <ul className="mt-8 space-y-4">
+                {[
+                  "Materiais certificados com classe de fogo A2",
+                  "Mais de 40 opções de cores e acabamentos",
+                  "Projetos personalizados com consultoria técnica",
+                  "Fabricação própria com controle de qualidade",
+                  "Entrega e instalação em todo o Brasil",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-white/80">
+                    <CheckCircle size={16} className="text-secondary flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link to="/contato" className="inline-flex items-center gap-2 mt-10 px-7 py-3.5 bg-secondary text-secondary-foreground font-bold rounded-full hover:bg-secondary/90 transition-colors text-sm">
+                Fale com um Especialista <ArrowRight size={16} />
+              </Link>
+            </motion.div>
+            <motion.div {...fadeUp} className="grid grid-cols-2 gap-4">
+              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                <img src={heroBafflesColor} alt="" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="rounded-2xl overflow-hidden aspect-[3/4] mt-12">
+                <img src={heroDifusores} alt="" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -251,23 +288,22 @@ const HomePage = () => {
       {/* ===== Testimonials ===== */}
       <section className="py-20 px-6 bg-background">
         <div className="container mx-auto">
-          <div className="text-center mb-14">
-            <span className="text-secondary text-sm font-bold tracking-[0.3em] uppercase">Depoimentos</span>
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Depoimentos</span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">O Que Nossos Clientes Dizem</h2>
-            <p className="text-muted-foreground mt-3">Feedback de profissionais que confiam na Sonar</p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {testimonials.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-background rounded-2xl p-7 border border-border/60 hover:border-primary/20 transition-all hover:shadow-lg">
+              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="bg-background rounded-2xl p-8 border border-border/60 hover:border-primary/20 transition-all hover:shadow-lg">
                 <div className="flex gap-1 mb-5">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} size={14} className="text-secondary fill-secondary" />
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed italic">"{t.text}"</p>
-                <div className="mt-5 pt-5 border-t border-border/60">
-                  <p className="text-sm font-bold text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
+                <p className="text-muted-foreground leading-relaxed italic">"{t.text}"</p>
+                <div className="mt-6 pt-5 border-t border-border/60">
+                  <p className="font-bold text-foreground">{t.name}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">{t.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -275,68 +311,21 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Why choose us ===== */}
-      <section className="py-20 px-6 bg-[hsl(210,15%,97%)]">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <span className="text-secondary text-sm font-bold tracking-[0.3em] uppercase">Diferenciais</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">Por Que Escolher a Sonar?</h2>
-              <p className="text-muted-foreground mt-5 leading-relaxed">
-                Com mais de uma década de experiência em tratamento acústico, a Sonar Acústicos se consolidou como referência no mercado brasileiro. Combinamos engenharia acústica de ponta com design contemporâneo.
-              </p>
-              <ul className="mt-7 space-y-3">
-                {["Materiais certificados com classe de fogo A2", "Mais de 40 opções de cores e acabamentos", "Projetos personalizados com consultoria técnica", "Fabricação própria com controle de qualidade", "Entrega e instalação em todo o Brasil"].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-foreground">
-                    <CheckCircle size={16} className="text-secondary flex-shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link to="/contato" className="inline-flex items-center gap-2 mt-9 px-7 py-3.5 bg-primary text-primary-foreground font-bold rounded-full hover:bg-primary/90 transition-colors text-sm">
-                Fale com um Especialista <ArrowRight size={16} />
-              </Link>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-4">
-              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
-                <img src={heroBafflesColor} alt="Baffles acústicos" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-2xl overflow-hidden aspect-[3/4] mt-10">
-                <img src={imgEscritorioAzuis} alt="Escritório com painéis" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Partners strip ===== */}
-      <section className="bg-[hsl(205,78%,12%)] text-white py-14">
-        <div className="container mx-auto px-6 text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Users size={20} className="text-secondary" />
-            <p className="text-sm font-bold tracking-wider uppercase">Clientes que confiam na Sonar</p>
-          </div>
-          <p className="text-white/40 text-sm max-w-xl mx-auto">
-            Arquitetos, engenheiros, estúdios de gravação, igrejas, teatros e empresas de todo o Brasil escolhem a Sonar para seus projetos acústicos.
-          </p>
-        </div>
-      </section>
-
       {/* ===== CTA ===== */}
       <section className="relative py-32 px-6 overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroMdf} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-[hsl(205,78%,12%)]/85" />
+          <div className="absolute inset-0 bg-[hsl(205,78%,10%)]/85" />
         </div>
         <div className="container mx-auto relative z-10 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <motion.div {...fadeUp}>
             <h2 className="text-3xl md:text-5xl font-bold text-white">Pronto para transformar seu espaço?</h2>
-            <p className="text-white/50 mt-5 max-w-lg mx-auto text-lg">Solicite um orçamento gratuito e receba uma proposta personalizada.</p>
+            <p className="text-white/45 mt-5 max-w-lg mx-auto text-lg">Solicite um orçamento gratuito e receba uma proposta personalizada.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
               <Link to="/orcamento" className="inline-flex items-center gap-2 px-9 py-4 bg-secondary text-secondary-foreground font-bold rounded-full hover:bg-secondary/90 transition-colors shadow-xl shadow-secondary/30 text-lg">
                 Solicitar Orçamento <ArrowRight size={18} />
               </Link>
-              <Link to="/contato" className="inline-flex items-center gap-2 px-9 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-lg">
+              <Link to="/contato" className="inline-flex items-center gap-2 px-9 py-4 border-2 border-white/25 text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-lg backdrop-blur-sm">
                 Falar com Especialista
               </Link>
             </div>
