@@ -13,13 +13,51 @@ export default {
   		}
   	},
   	extend: {
-		fontFamily: {
-			display: ['Sora', 'Plus Jakarta Sans', 'sans-serif'],
-			body: ['Plus Jakarta Sans', 'Sora', 'sans-serif'],
-			sans: ['Plus Jakarta Sans', 'Sora', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-			serif: ['Sora', 'ui-serif', 'Georgia', 'serif'],
-			mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-		},
+  		fontFamily: {
+  			display: [
+  				'Sora',
+  				'Plus Jakarta Sans',
+  				'sans-serif'
+  			],
+  			body: [
+  				'Plus Jakarta Sans',
+  				'Sora',
+  				'sans-serif'
+  			],
+  			sans: [
+  				'Space Grotesk',
+  				'ui-sans-serif',
+  				'system-ui',
+  				'-apple-system',
+  				'BlinkMacSystemFont',
+  				'Segoe UI',
+  				'Roboto',
+  				'Helvetica Neue',
+  				'Arial',
+  				'Noto Sans',
+  				'sans-serif'
+  			],
+  			serif: [
+  				'Lora',
+  				'ui-serif',
+  				'Georgia',
+  				'Cambria',
+  				'Times New Roman',
+  				'Times',
+  				'serif'
+  			],
+  			mono: [
+  				'Space Mono',
+  				'ui-monospace',
+  				'SFMono-Regular',
+  				'Menlo',
+  				'Monaco',
+  				'Consolas',
+  				'Liberation Mono',
+  				'Courier New',
+  				'monospace'
+  			]
+  		},
   		colors: {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
