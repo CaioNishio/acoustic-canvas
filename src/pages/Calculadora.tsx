@@ -1,135 +1,28 @@
-import { useState, useRef, useEffect } from "react";
-import { Calculator, Box, ArrowRight } from "lucide-react";
+import { useState, Suspense, lazy } from "react";
+import { ArrowRight, Box, Maximize2, Minimize2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { Link } from "react-router-dom";
+import CalculatorForm, { useTypes } from "@/components/calculadora/CalculatorForm";
+import AcousticMetrics from "@/components/calculadora/AcousticMetrics";
 
-const useTypes = [
-{ value: "estudio", label: "Estúdio de Gravação", rtTarget: 0.4, absPercent: 0.6 },
-{ value: "igreja", label: "Igreja / Templo", rtTarget: 1.2, absPercent: 0.35 },
-{ value: "reuniao", label: "Sala de Reunião", rtTarget: 0.6, absPercent: 0.45 },
-{ value: "auditorio", label: "Auditório", rtTarget: 0.8, absPercent: 0.4 },
-{ value: "home-theater", label: "Home Theater", rtTarget: 0.5, absPercent: 0.5 },
-{ value: "escritorio", label: "Escritório Open Office", rtTarget: 0.7, absPercent: 0.4 }];
-
-
-// Simple 3D room renderer using CSS transforms
-function Room3D({ width, length, height }: {width: number;length: number;height: number;}) {
-  const maxDim = Math.max(width, length, height, 1);
-  const scale = 140 / maxDim;
-  const w = width * scale;
-  const l = length * scale;
-  const h = height * scale;
-
-  return (
-    <div className="relative w-full aspect-square flex items-center justify-center" style={{ perspective: "600px" }}>
-      <div
-        className="relative"
-        style={{
-          width: `${w}px`,
-          height: `${h}px`,
-          transformStyle: "preserve-3d",
-          transform: "rotateX(-20deg) rotateY(-30deg)"
-        }}>
-
-        {/* Floor */}
-        <div
-          className="absolute border-2 border-primary/40 bg-primary/5"
-          style={{
-            width: `${w}px`,
-            height: `${l}px`,
-            bottom: 0,
-            left: 0,
-            transform: `rotateX(90deg) translateZ(0px)`,
-            transformOrigin: "bottom"
-          }}>
-
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-[10px] font-mono text-primary/60">{width}m × {length}m</span>
-          </div>
-          {/* Grid lines */}
-          {Array.from({ length: Math.floor(width) }).map((_, i) =>
-          <div key={`gx-${i}`} className="absolute top-0 bottom-0 border-l border-primary/10" style={{ left: `${(i + 1) / width * 100}%` }} />
-          )}
-          {Array.from({ length: Math.floor(length) }).map((_, i) =>
-          <div key={`gy-${i}`} className="absolute left-0 right-0 border-t border-primary/10" style={{ top: `${(i + 1) / length * 100}%` }} />
-          )}
-        </div>
-
-        {/* Back wall */}
-        <div
-          className="absolute border-2 border-primary/30 bg-primary/3"
-          style={{
-            width: `${w}px`,
-            height: `${h}px`,
-            top: 0,
-            left: 0,
-            transform: `translateZ(-${l}px)`
-          }}>
-
-          <div className="absolute right-1 bottom-1">
-            <span className="text-[9px] font-mono text-primary/50">{height}m</span>
-          </div>
-        </div>
-
-        {/* Left wall */}
-        <div
-          className="absolute border-2 border-primary/25 bg-primary/3"
-          style={{
-            width: `${l}px`,
-            height: `${h}px`,
-            top: 0,
-            left: 0,
-            transform: `rotateY(90deg) translateZ(0px)`,
-            transformOrigin: "left"
-          }} />
-
-
-        {/* Panels on back wall (visual) */}
-        <div
-          className="absolute"
-          style={{
-            width: `${w * 0.3}px`,
-            height: `${h * 0.4}px`,
-            top: `${h * 0.2}px`,
-            left: `${w * 0.1}px`,
-            transform: `translateZ(-${l - 1}px)`,
-            backgroundColor: "hsl(var(--primary) / 0.25)",
-            border: "1px solid hsl(var(--primary) / 0.5)",
-            borderRadius: "2px"
-          }} />
-
-        <div
-          className="absolute"
-          style={{
-            width: `${w * 0.3}px`,
-            height: `${h * 0.4}px`,
-            top: `${h * 0.2}px`,
-            left: `${w * 0.55}px`,
-            transform: `translateZ(-${l - 1}px)`,
-            backgroundColor: "hsl(var(--primary) / 0.25)",
-            border: "1px solid hsl(var(--primary) / 0.5)",
-            borderRadius: "2px"
-          }} />
-
-      </div>
-    </div>);
-
-}
+const Room3DViewer = lazy(() => import("@/components/calculadora/Room3DViewer"));
 
 export default function CalculadoraPage() {
   const [width, setWidth] = useState("");
   const [length, setLength] = useState("");
   const [height, setHeight] = useState("");
   const [use, setUse] = useState("");
+  const [expanded3D, setExpanded3D] = useState(false);
   const [result, setResult] = useState<null | {
     volume: number;
     totalSurface: number;
     absorptionArea: number;
     rtTarget: number;
-    products: {name: string;placement: string;qty: number;slug: string;}[];
+    products: { name: string; placement: string; qty: number; slug: string }[];
     panelsNeeded: number;
+    useLabel: string;
   }>(null);
 
   const calculate = () => {
@@ -142,10 +35,10 @@ export default function CalculadoraPage() {
     const volume = w * l * h;
     const totalSurface = 2 * (w * l + w * h + l * h);
     const absorptionArea = Math.round(totalSurface * useType.absPercent);
-    const panelArea = 0.6 * 1.2; // 1200x600mm panel
+    const panelArea = 0.6 * 1.2;
     const panelsNeeded = Math.ceil(absorptionArea / panelArea);
 
-    const products: {name: string;placement: string;qty: number;slug: string;}[] = [];
+    const products: { name: string; placement: string; qty: number; slug: string }[] = [];
     if (useType.value === "estudio" || useType.value === "home-theater") {
       const wallPanels = Math.ceil(panelsNeeded * 0.5);
       const bassTraps = Math.min(4, Math.ceil(w * 0.5));
@@ -164,253 +57,228 @@ export default function CalculadoraPage() {
       products.push({ name: "Painel SNR3225 Slim", placement: "Divisórias", qty: Math.ceil(panelsNeeded * 0.1), slug: "painel-acustico-snr3225-slim" });
     }
 
-    setResult({ volume, totalSurface, absorptionArea, rtTarget: useType.rtTarget, products, panelsNeeded });
+    setResult({ volume, totalSurface, absorptionArea, rtTarget: useType.rtTarget, products, panelsNeeded, useLabel: useType.label });
   };
-
-  const InputField = ({ label, value, onChange, unit }: {label: string;value: string;onChange: (v: string) => void;unit: string;}) =>
-  <div>
-      <label className="text-sm text-muted-foreground mb-1 block">{label}</label>
-      <div className="flex">
-        <input
-        type="number"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="flex-1 bg-white border border-border rounded-l-md px-3 py-2.5 text-foreground outline-none focus:ring-2 focus:ring-primary/30 transition-shadow"
-        placeholder="0"
-        min="0"
-        step="0.1" />
-
-        <span className="bg-muted border border-l-0 border-border rounded-r-md px-3 py-2.5 text-sm text-muted-foreground">{unit}</span>
-      </div>
-    </div>;
-
 
   const hasRoomDimensions = parseFloat(width) > 0 && parseFloat(length) > 0 && parseFloat(height) > 0;
 
   return (
     <Layout>
-      <section className="section-padding bg-slate-200">
+      <section className="section-padding bg-gradient-to-b from-background via-muted/30 to-background min-h-screen">
         <div className="container mx-auto">
           <SectionHeading
             tag="Ferramenta"
             title="Calculadora Acústica"
-            description="Calcule a área de absorção recomendada e visualize o material ideal para o seu ambiente." />
+            description="Calcule a área de absorção recomendada e visualize o material ideal para o seu ambiente."
+          />
 
+          <div className="mt-8 grid grid-cols-1 xl:grid-cols-12 gap-6">
+            {/* LEFT COLUMN — Form + Material Reference */}
+            <div className="xl:col-span-3 space-y-5">
+              <div className="glass-card p-5 md:p-6 sticky top-24">
+                <CalculatorForm
+                  width={width} length={length} height={height} use={use}
+                  setWidth={setWidth} setLength={setLength} setHeight={setHeight} setUse={setUse}
+                  onCalculate={calculate}
+                />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-            {/* Left — Calculator Form */}
-            <div className="space-y-6">
-              <div className="glass-card p-6 md:p-8 space-y-5">
-                <h3 className="font-display font-bold text-lg text-foreground flex items-center gap-2">
-                  <Calculator size={20} className="text-primary" /> Dimensões do Ambiente
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <InputField label="Largura" value={width} onChange={setWidth} unit="m" />
-                  <InputField label="Comprimento" value={length} onChange={setLength} unit="m" />
-                  <InputField label="Pé-direito" value={height} onChange={setHeight} unit="m" />
+                {/* Material quick reference */}
+                <div className="mt-6 pt-5 border-t border-border/50">
+                  <h4 className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider mb-3">Materiais</h4>
+                  <div className="space-y-2">
+                    {[
+                      { density: "D32", nrc: "0.80", use: "High-Mid", color: "bg-primary/60" },
+                      { density: "D64", nrc: "0.93", use: "Low-Mid", color: "bg-accent/60" },
+                      { density: "D96", nrc: "1.07", use: "Full Range", color: "bg-destructive/60" },
+                    ].map((m) => (
+                      <div key={m.density} className="flex items-center gap-2 p-2 rounded-md hover:bg-muted/50 transition-colors">
+                        <span className={`w-2 h-2 ${m.color} rounded-full shrink-0`} />
+                        <div className="flex-1">
+                          <p className="text-[11px] font-semibold text-foreground">{m.density}</p>
+                          <p className="text-[9px] text-muted-foreground">{m.use}</p>
+                        </div>
+                        <span className="text-[11px] font-mono font-bold text-primary">{m.nrc}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-
-                <div>
-                  <label className="text-sm text-muted-foreground mb-1 block">Uso do ambiente</label>
-                  <select
-                    value={use}
-                    onChange={(e) => setUse(e.target.value)}
-                    className="w-full bg-white border border-border rounded-md px-3 py-2.5 text-foreground outline-none focus:ring-2 focus:ring-primary/30 transition-shadow">
-
-                    <option value="">Selecione o uso</option>
-                    {useTypes.map((u) =>
-                    <option key={u.value} value={u.value}>{u.label}</option>
-                    )}
-                  </select>
-                </div>
-
-                <button
-                  onClick={calculate}
-                  disabled={!width || !length || !height || !use}
-                  className="w-full py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2">
-
-                  <Calculator size={18} /> Calcular
-                </button>
               </div>
-
-              {/* Results */}
-              <AnimatePresence>
-                {result &&
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="glass-card p-6 md:p-8">
-
-                    <h3 className="font-display text-xl font-bold mb-4">Resultado da Análise</h3>
-                    <div className="grid grid-cols-2 gap-3 mb-6">
-                      <div className="bg-white rounded-lg border border-border p-4 text-center">
-                        <p className="text-2xl font-bold text-primary">{result.volume.toFixed(1)}m³</p>
-                        <p className="text-xs text-muted-foreground mt-1">Volume</p>
-                      </div>
-                      <div className="bg-white rounded-lg border border-border p-4 text-center">
-                        <p className="text-2xl font-bold text-primary">{result.totalSurface.toFixed(1)}m²</p>
-                        <p className="text-xs text-muted-foreground mt-1">Superfície Total</p>
-                      </div>
-                      <div className="bg-white rounded-lg border border-border p-4 text-center">
-                        <p className="text-2xl font-bold text-primary">{result.absorptionArea}m²</p>
-                        <p className="text-xs text-muted-foreground mt-1">Área de Absorção</p>
-                      </div>
-                      <div className="bg-white rounded-lg border border-border p-4 text-center">
-                        <p className="text-2xl font-bold text-primary">{result.rtTarget}s</p>
-                        <p className="text-xs text-muted-foreground mt-1">RT60 Alvo</p>
-                      </div>
-                    </div>
-
-                    <h4 className="font-display font-semibold mb-3">Produtos Recomendados</h4>
-                    <div className="space-y-2">
-                      {result.products.map((p) =>
-                    <Link
-                      key={p.name}
-                      to={`/produtos/${p.slug}`}
-                      className="flex items-center justify-between bg-white rounded-lg border border-border p-3 hover:border-primary/40 transition-colors group">
-
-                          <div className="flex items-start gap-2">
-                            <span className="w-2 h-2 bg-primary rounded-full mt-1.5 shrink-0" />
-                            <div>
-                              <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{p.name}</p>
-                              <p className="text-xs text-muted-foreground">{p.placement}</p>
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">{p.qty}×</span>
-                            <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                          </div>
-                        </Link>
-                    )}
-                    </div>
-
-                    <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
-                      <p className="text-sm text-muted-foreground">
-                        Total estimado: <strong className="text-foreground">{result.panelsNeeded} painéis</strong> (1200×600mm)
-                      </p>
-                      <Link
-                      to="/orcamento"
-                      className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
-
-                        Solicitar Orçamento <ArrowRight size={14} />
-                      </Link>
-                    </div>
-
-                    <p className="text-[10px] text-muted-foreground mt-4">
-                      * Valores estimados com base na fórmula de Sabine. Para um projeto detalhado, solicite uma análise acústica profissional.
-                    </p>
-                  </motion.div>
-                }
-              </AnimatePresence>
             </div>
 
-            {/* Right — 3D Room Preview */}
-            <div className="space-y-6">
-              <div className="glass-card p-6 md:p-8">
-                <h3 className="font-display font-bold text-lg text-foreground flex items-center gap-2 mb-4">
-                  <Box size={20} className="text-primary" /> Visualização do Espaço
-                </h3>
-
-                {hasRoomDimensions ?
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="space-y-4">
-
-                    <Room3D
-                    width={parseFloat(width) || 1}
-                    length={parseFloat(length) || 1}
-                    height={parseFloat(height) || 1} />
-
-
-                    <div className="grid grid-cols-3 gap-3">
-                      <div className="bg-white rounded-lg border border-border p-3 text-center">
-                        <p className="text-lg font-bold text-foreground">{width}m</p>
-                        <p className="text-[10px] text-muted-foreground">Largura</p>
+            {/* CENTER/RIGHT — 3D Viewer + Results */}
+            <div className="xl:col-span-9 space-y-5">
+              {/* 3D Viewer */}
+              <motion.div
+                layout
+                className={`glass-card overflow-hidden transition-all ${expanded3D ? "fixed inset-4 z-50" : "relative"}`}
+              >
+                <div className="flex items-center justify-between p-4 pb-0">
+                  <h3 className="font-display font-bold text-base text-foreground flex items-center gap-2">
+                    <Box size={18} className="text-primary" /> Visualização 3D
+                    {hasRoomDimensions && (
+                      <span className="text-[10px] font-mono text-muted-foreground ml-2">
+                        {width}×{length}×{height}m
+                      </span>
+                    )}
+                  </h3>
+                  <button
+                    onClick={() => setExpanded3D(!expanded3D)}
+                    className="p-1.5 rounded-md hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {expanded3D ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+                  </button>
+                </div>
+                <div className={`p-4 ${expanded3D ? "h-[calc(100%-56px)]" : "h-[450px] lg:h-[500px]"}`}>
+                  {hasRoomDimensions ? (
+                    <Suspense fallback={
+                      <div className="w-full h-full flex items-center justify-center rounded-xl" style={{ background: "linear-gradient(135deg, #050d1a 0%, #0a1628 50%, #0d1f33 100%)" }}>
+                        <div className="text-center">
+                          <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-2" />
+                          <p className="text-xs text-blue-400/60">Carregando cena 3D...</p>
+                        </div>
                       </div>
-                      <div className="bg-white rounded-lg border border-border p-3 text-center">
-                        <p className="text-lg font-bold text-foreground">{length}m</p>
-                        <p className="text-[10px] text-muted-foreground">Comprimento</p>
-                      </div>
-                      <div className="bg-white rounded-lg border border-border p-3 text-center">
-                        <p className="text-lg font-bold text-foreground">{height}m</p>
-                        <p className="text-[10px] text-muted-foreground">Pé-direito</p>
-                      </div>
-                    </div>
-
-                    {/* Material Recommendation */}
-                    <div className="bg-white rounded-xl border border-border p-5">
-                      <h4 className="font-display font-semibold text-sm text-foreground mb-3">Material de Absorção Recomendado</h4>
-                      {(() => {
-                      const vol = (parseFloat(width) || 0) * (parseFloat(length) || 0) * (parseFloat(height) || 0);
-                      const selectedUse = useTypes.find((u) => u.value === use);
-                      if (vol <= 30) {
-                        return (
-                          <div className="space-y-2">
-                              <div className="flex items-center justify-between p-2 bg-primary/5 rounded-lg">
-                                <span className="text-sm font-medium text-foreground">Lã de Rocha D32</span>
-                                <span className="text-xs text-primary font-mono font-bold">NRC 0.80</span>
-                              </div>
-                              <p className="text-xs text-muted-foreground">Ideal para salas pequenas. Absorção eficiente em médias e altas frequências com perfil fino (50mm).</p>
-                            </div>);
-
-                      } else if (vol <= 80) {
-                        return (
-                          <div className="space-y-2">
-                              <div className="flex items-center justify-between p-2 bg-primary/5 rounded-lg">
-                                <span className="text-sm font-medium text-foreground">Lã de Rocha D64</span>
-                                <span className="text-xs text-primary font-mono font-bold">NRC 0.93</span>
-                              </div>
-                              <p className="text-xs text-muted-foreground">Recomendado para salas médias. Maior densidade garante absorção em baixas e médias frequências, ideal para {selectedUse?.label || "este uso"}.</p>
-                            </div>);
-
-                      } else {
-                        return (
-                          <div className="space-y-2">
-                              <div className="flex items-center justify-between p-2 bg-primary/5 rounded-lg">
-                                <span className="text-sm font-medium text-foreground">Lã de Rocha D96</span>
-                                <span className="text-xs text-primary font-mono font-bold">NRC 1.07</span>
-                              </div>
-                              <p className="text-xs text-muted-foreground">Para espaços grandes (acima de 80m³). Alta densidade para máxima absorção em toda a faixa de frequência, excelente para {selectedUse?.label || "este uso"}.</p>
-                            </div>);
-
-                      }
-                    })()}
-                    </div>
-                  </motion.div> :
-
-                <div className="flex flex-col items-center justify-center h-64 text-center">
-                    <Box size={48} className="text-muted-foreground/30 mb-3" />
-                    <p className="text-sm text-muted-foreground">Insira as dimensões do ambiente para visualizar o espaço em 3D</p>
-                  </div>
-                }
-              </div>
-
-              {/* Material quick reference */}
-              <div className="glass-card p-5">
-                <h4 className="font-display font-semibold text-sm text-foreground mb-3">Referência Rápida de Materiais</h4>
-                <div className="space-y-2">
-                  {[
-                  { density: "D32 (32 kg/m³)", nrc: "0.80", use: "High-Mid · Salas pequenas", color: "bg-emerald-500" },
-                  { density: "D64 (64 kg/m³)", nrc: "0.93", use: "Low-Mid · Salas médias", color: "bg-amber-500" },
-                  { density: "D96 (96 kg/m³)", nrc: "1.07", use: "Full Range · Salas grandes", color: "bg-red-500" }].
-                  map((m) =>
-                  <div key={m.density} className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
-                      <span className={`w-3 h-3 ${m.color} rounded-full shrink-0`} />
-                      <div className="flex-1">
-                        <p className="text-xs font-semibold text-foreground">{m.density}</p>
-                        <p className="text-[10px] text-muted-foreground">{m.use}</p>
-                      </div>
-                      <span className="text-xs font-mono font-bold text-primary">{m.nrc}</span>
+                    }>
+                      <Room3DViewer
+                        width={parseFloat(width) || 1}
+                        length={parseFloat(length) || 1}
+                        height={parseFloat(height) || 1}
+                        products={result?.products}
+                        showProducts={!!result}
+                      />
+                    </Suspense>
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center rounded-xl border border-dashed border-border/50 bg-muted/20">
+                      <Box size={48} className="text-muted-foreground/20 mb-3" />
+                      <p className="text-sm text-muted-foreground">Use os sliders para definir o ambiente</p>
+                      <p className="text-[10px] text-muted-foreground/50 mt-1">A sala aparecerá aqui em tempo real</p>
                     </div>
                   )}
                 </div>
-              </div>
+              </motion.div>
+
+              {/* Backdrop for expanded 3D */}
+              {expanded3D && (
+                <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40" onClick={() => setExpanded3D(false)} />
+              )}
+
+              {/* Results */}
+              <AnimatePresence>
+                {result && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="space-y-5"
+                  >
+                    {/* Metrics Dashboard */}
+                    <AcousticMetrics
+                      volume={result.volume}
+                      totalSurface={result.totalSurface}
+                      absorptionArea={result.absorptionArea}
+                      rtTarget={result.rtTarget}
+                      panelsNeeded={result.panelsNeeded}
+                      useLabel={result.useLabel}
+                    />
+
+                    {/* Material Recommendation */}
+                    <div className="glass-card p-5">
+                      <div className="flex items-center justify-between mb-1">
+                        <h4 className="font-display font-semibold text-sm">Material de Absorção Recomendado</h4>
+                        <span className="text-[10px] text-muted-foreground font-mono">{result.useLabel}</span>
+                      </div>
+                      {(() => {
+                        const vol = result.volume;
+                        if (vol <= 30) {
+                          return (
+                            <div className="flex items-center gap-4 p-3 bg-primary/5 rounded-lg mt-2">
+                              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                                <span className="text-lg font-bold font-mono text-primary">32</span>
+                              </div>
+                              <div className="flex-1">
+                                <p className="text-sm font-semibold text-foreground">Lã de Rocha D32</p>
+                                <p className="text-[11px] text-muted-foreground">Ideal para salas pequenas — NRC 0.80 — perfil fino 50mm</p>
+                              </div>
+                              <span className="text-xs font-mono font-bold text-primary">NRC 0.80</span>
+                            </div>
+                          );
+                        } else if (vol <= 80) {
+                          return (
+                            <div className="flex items-center gap-4 p-3 bg-accent/5 rounded-lg mt-2">
+                              <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                                <span className="text-lg font-bold font-mono text-accent">64</span>
+                              </div>
+                              <div className="flex-1">
+                                <p className="text-sm font-semibold text-foreground">Lã de Rocha D64</p>
+                                <p className="text-[11px] text-muted-foreground">Maior densidade para baixas frequências — {result.useLabel}</p>
+                              </div>
+                              <span className="text-xs font-mono font-bold text-accent">NRC 0.93</span>
+                            </div>
+                          );
+                        } else {
+                          return (
+                            <div className="flex items-center gap-4 p-3 bg-destructive/5 rounded-lg mt-2">
+                              <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center">
+                                <span className="text-lg font-bold font-mono text-destructive">96</span>
+                              </div>
+                              <div className="flex-1">
+                                <p className="text-sm font-semibold text-foreground">Lã de Rocha D96</p>
+                                <p className="text-[11px] text-muted-foreground">Máxima absorção full range para espaços grandes — {result.useLabel}</p>
+                              </div>
+                              <span className="text-xs font-mono font-bold text-destructive">NRC 1.07</span>
+                            </div>
+                          );
+                        }
+                      })()}
+                    </div>
+
+                    {/* Products */}
+                    <div className="glass-card p-5">
+                      <h4 className="font-display font-semibold text-sm mb-3">Produtos Recomendados</h4>
+                      <div className="space-y-2">
+                        {result.products.map((p) => (
+                          <Link
+                            key={p.name}
+                            to={`/produtos/${p.slug}`}
+                            className="flex items-center justify-between rounded-lg border border-border/50 p-3 hover:border-primary/40 transition-all group bg-card/30"
+                          >
+                            <div className="flex items-start gap-2">
+                              <span className="w-2 h-2 bg-primary rounded-full mt-1.5 shrink-0" />
+                              <div>
+                                <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{p.name}</p>
+                                <p className="text-[11px] text-muted-foreground">{p.placement}</p>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">{p.qty}×</span>
+                              <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+
+                      <div className="mt-4 pt-4 border-t border-border/50 flex items-center justify-between">
+                        <p className="text-xs text-muted-foreground">
+                          Total: <strong className="text-foreground">{result.panelsNeeded} painéis</strong> (1200×600mm)
+                        </p>
+                        <Link
+                          to="/orcamento"
+                          className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1"
+                        >
+                          Solicitar Orçamento <ArrowRight size={14} />
+                        </Link>
+                      </div>
+
+                      <p className="text-[9px] text-muted-foreground/60 mt-3">
+                        * Valores estimados com base na fórmula de Sabine. Para um projeto detalhado, solicite uma análise acústica profissional.
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
       </section>
-    </Layout>);
-
+    </Layout>
+  );
 }
