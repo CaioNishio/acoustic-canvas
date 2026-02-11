@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Download } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/shared/ProductCard";
-import { products } from "@/data/products";
+import { products, type ProductColor } from "@/data/products";
 
 export default function ProdutoDetalhePage() {
   const { slug } = useParams();
   const product = products.find((p) => p.slug === slug);
+  const [selectedColor, setSelectedColor] = useState<ProductColor | null>(null);
+  const [mainImage, setMainImage] = useState(0);
 
   if (!product) {
     return (
@@ -24,7 +27,11 @@ export default function ProdutoDetalhePage() {
 
   return (
     <Layout>
-      <section className="section-padding">
+      <section className="section-padding relative">
+        {/* Geometric decoration */}
+        <div className="absolute top-0 right-0 w-64 h-64 border border-border/30 rounded-full -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-20 left-0 w-32 h-32 border border-primary/10 rotate-45 -translate-x-1/2" />
+
         <div className="container mx-auto">
           <Link to="/produtos" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8">
             <ArrowLeft size={14} /> Voltar aos produtos
@@ -33,15 +40,19 @@ export default function ProdutoDetalhePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Gallery */}
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-              <div className="glass-card overflow-hidden">
-                <img src={product.gallery[0] || product.image} alt={product.name} className="w-full aspect-square object-cover" />
+              <div className="glass-card overflow-hidden rounded-xl">
+                <img src={product.gallery[mainImage] || product.image} alt={product.name} className="w-full aspect-square object-cover" />
               </div>
               {product.gallery.length > 1 && (
-                <div className="grid grid-cols-3 gap-3 mt-3">
-                  {product.gallery.slice(1).map((img, i) => (
-                    <div key={i} className="glass-card overflow-hidden">
+                <div className="grid grid-cols-4 gap-3 mt-3">
+                  {product.gallery.map((img, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setMainImage(i)}
+                      className={`glass-card overflow-hidden rounded-lg transition-all ${mainImage === i ? "ring-2 ring-primary" : "opacity-70 hover:opacity-100"}`}
+                    >
                       <img src={img} alt="" className="w-full aspect-square object-cover" loading="lazy" />
-                    </div>
+                    </button>
                   ))}
                 </div>
               )}
@@ -49,18 +60,50 @@ export default function ProdutoDetalhePage() {
 
             {/* Info */}
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-              <span className="text-primary text-sm font-semibold uppercase tracking-wider">{product.category}</span>
-              <h1 className="font-display text-3xl md:text-4xl font-bold mt-2">{product.name}</h1>
-              <p className="text-muted-foreground mt-4 leading-relaxed">{product.description}</p>
+              <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+                {product.category}
+              </div>
+              <h1 className="font-display text-3xl md:text-4xl font-bold mt-3 text-foreground">{product.name}</h1>
+              <p className="text-muted-foreground mt-4 leading-relaxed text-base">{product.description}</p>
+
+              {/* Color Selector */}
+              {product.colors && product.colors.length > 0 && (
+                <div className="mt-8">
+                  <h3 className="font-display font-semibold text-lg mb-3 flex items-center gap-2">
+                    Cores Disponíveis
+                    {selectedColor && (
+                      <span className="text-sm font-normal text-muted-foreground">— {selectedColor.name}</span>
+                    )}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {product.colors.map((color) => (
+                      <button
+                        key={color.name}
+                        onClick={() => setSelectedColor(selectedColor?.name === color.name ? null : color)}
+                        className="relative w-10 h-10 rounded-lg border-2 transition-all hover:scale-110"
+                        style={{
+                          backgroundColor: color.hex,
+                          borderColor: selectedColor?.name === color.name ? "hsl(24, 95%, 53%)" : "hsl(210, 20%, 88%)",
+                        }}
+                        title={color.name}
+                      >
+                        {selectedColor?.name === color.name && (
+                          <Check size={16} className="absolute inset-0 m-auto" style={{ color: ["Branco", "Cinza Claro", "Natural", "Carvalho Claro"].includes(color.name) ? "#333" : "#fff" }} />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Specs */}
               <div className="mt-8">
                 <h3 className="font-display font-semibold text-lg mb-3">Especificações Técnicas</h3>
-                <div className="glass-card divide-y divide-border">
+                <div className="glass-card rounded-xl overflow-hidden divide-y divide-border">
                   {product.specs.map((s) => (
-                    <div key={s.label} className="flex justify-between px-4 py-3 text-sm">
+                    <div key={s.label} className="flex justify-between px-5 py-3.5 text-sm">
                       <span className="text-muted-foreground">{s.label}</span>
-                      <span className="font-medium">{s.value}</span>
+                      <span className="font-semibold text-foreground">{s.value}</span>
                     </div>
                   ))}
                 </div>
@@ -68,34 +111,37 @@ export default function ProdutoDetalhePage() {
 
               {/* Materials */}
               <div className="mt-8">
-                <h3 className="font-display font-semibold text-lg mb-3">Materiais</h3>
-                <ul className="space-y-1">
+                <h3 className="font-display font-semibold text-lg mb-3">Composição</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {product.materials.map((m) => (
-                    <li key={m} className="text-sm text-muted-foreground flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" /> {m}
-                    </li>
+                    <div key={m} className="flex items-center gap-3 text-sm text-muted-foreground bg-muted/50 rounded-lg px-4 py-3 border border-border/50">
+                      <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0" /> {m}
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
 
               {/* Actions */}
-              <div className="flex flex-wrap gap-3 mt-8">
+              <div className="flex flex-wrap gap-3 mt-10">
                 <Link
                   to="/orcamento"
-                  className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
+                  className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors inline-flex items-center gap-2 shadow-lg shadow-primary/20"
                 >
                   Solicitar Orçamento <ArrowRight size={16} />
                 </Link>
-                <button className="px-6 py-3 border border-border rounded-md text-sm font-medium hover:bg-secondary transition-colors inline-flex items-center gap-2">
+                <button className="px-6 py-3.5 border-2 border-accent text-accent rounded-lg text-sm font-semibold hover:bg-accent hover:text-accent-foreground transition-colors inline-flex items-center gap-2">
                   <Download size={16} /> Ficha Técnica
                 </button>
               </div>
             </motion.div>
           </div>
 
+          {/* Divider */}
+          <div className="section-divider mt-20 mb-16" />
+
           {/* Related */}
           {related.length > 0 && (
-            <div className="mt-20">
+            <div>
               <h2 className="font-display text-2xl font-bold mb-8">Produtos Relacionados</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {related.map((p) => (
