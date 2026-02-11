@@ -120,13 +120,13 @@ export default function Header() {
 
       {/* Main Nav */}
       <div className="bg-card/95 backdrop-blur-md border-b shadow-sm border-glass">
-        <div className="container mx-auto h-44 px-4 border-white text-foreground flex-col flex items-end justify-between rounded opacity-95 shadow-inner border-none">
+        <div className="container mx-auto px-4 flex items-center justify-between h-20">
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img src={logo} alt="Sonar Acústicos" className="h-40 w-auto" />
+            <img src={logo} alt="Sonar Acústicos" className="h-16 w-auto" />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1 px-1 py-0.5">
+          <nav className="hidden lg:flex items-center gap-1">
             <div onMouseEnter={() => openMenu("produtos")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("produtos")}>Produtos</button>
             </div>
@@ -138,20 +138,8 @@ export default function Header() {
             </div>
             <div className="relative" onMouseEnter={() => openMenu("sobre")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("sobre")}>Sobre</button>
-              {/* Sobre floating dropdown */}
               <AnimatePresence>
-                {activeMenu === "sobre" && <motion.div initial={{
-                opacity: 0,
-                y: 4
-              }} animate={{
-                opacity: 1,
-                y: 0
-              }} exit={{
-                opacity: 0,
-                y: 4
-              }} transition={{
-                duration: 0.15
-              }} onMouseEnter={cancelClose} onMouseLeave={scheduleClose} className="absolute top-full left-0 mt-2 bg-white rounded-xl border border-border shadow-xl z-50 min-w-[200px] py-3 px-4">
+                {activeMenu === "sobre" && <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 4 }} transition={{ duration: 0.15 }} onMouseEnter={cancelClose} onMouseLeave={scheduleClose} className="absolute top-full left-0 mt-2 bg-white rounded-xl border border-border shadow-xl z-50 min-w-[200px] py-3 px-4">
                     <ul className="space-y-1">
                       {sobreLinks.map(link => <li key={link.label}>
                           <Link to={link.path} onClick={() => setActiveMenu(null)} className="block py-1.5 text-sm text-foreground/80 hover:text-primary transition-colors font-medium">
@@ -162,15 +150,15 @@ export default function Header() {
                   </motion.div>}
               </AnimatePresence>
             </div>
-            <Link to="/contato" className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link to="/contato" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
               Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link to="/orcamento" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
               Projete sua Sala
             </Link>
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center">
             <button className="p-2 text-foreground hover:text-primary transition-colors"><Search size={18} /></button>
           </div>
 
