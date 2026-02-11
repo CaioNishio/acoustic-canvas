@@ -159,7 +159,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Portfolio mosaic ===== */}
-      <section className="bg-[hsl(210,15%,97%)] py-20">
+      <section className="bg-muted/50 py-20">
         <div className="container mx-auto px-6">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Portfólio</span>

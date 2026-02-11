@@ -99,27 +99,27 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-full cursor-pointer ${activeMenu === key ? "text-white bg-secondary" : "text-foreground/80 hover:text-foreground hover:bg-secondary/10"}`;
+  const navItemClass = (key: MenuKey) => `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-full cursor-pointer ${activeMenu === key ? "text-white bg-primary" : "text-foreground/80 hover:text-primary hover:bg-primary/5"}`;
   return <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
-      <div className="bg-secondary text-secondary-foreground">
+      <div className="bg-[hsl(205,78%,12%)] text-white">
         <div className="container mx-auto flex items-center justify-between h-9 px-4 text-xs">
           <div className="hidden md:flex items-center gap-4">
-            <a href="#" className="hover:text-primary transition-colors"><Instagram size={14} /></a>
-            <a href="#" className="hover:text-primary transition-colors"><Youtube size={14} /></a>
-            <a href="#" className="hover:text-primary transition-colors"><Facebook size={14} /></a>
-            <a href="#" className="hover:text-primary transition-colors"><Linkedin size={14} /></a>
+            <a href="#" className="hover:text-secondary transition-colors"><Instagram size={14} /></a>
+            <a href="#" className="hover:text-secondary transition-colors"><Youtube size={14} /></a>
+            <a href="#" className="hover:text-secondary transition-colors"><Facebook size={14} /></a>
+            <a href="#" className="hover:text-secondary transition-colors"><Linkedin size={14} /></a>
           </div>
           <div className="flex items-center gap-1.5 mx-auto md:mx-0">
-            <Phone size={12} className="text-primary" />
+            <Phone size={12} className="text-secondary" />
             <span className="tracking-wider">Consultoria Acústica Gratuita</span>
           </div>
-          <div className="hidden md:block text-secondary-foreground/60">São Paulo, Brasil</div>
+          <div className="hidden md:block text-white/60">São Paulo, Brasil</div>
         </div>
       </div>
 
       {/* Main Nav */}
-      <div className="bg-card/95 backdrop-blur-md border-b shadow-sm border-glass">
+      <div className="bg-white/95 backdrop-blur-md border-b shadow-sm border-border">
         <div className="container mx-auto px-4 flex items-center justify-between h-20">
           <Link to="/" className="flex items-center flex-shrink-0 mr-6">
             <img src={logo} alt="Sonar Acústicos" className="h-12 w-auto" />
