@@ -7,6 +7,7 @@ import ProductCard from "@/components/shared/ProductCard";
 import AcousticInfoGraphic from "@/components/shared/AcousticInfoGraphic";
 import AbsorptionChart from "@/components/shared/AbsorptionChart";
 import { products, type ProductColor } from "@/data/products";
+import { productPrices, formatPrice, unitLabel } from "@/data/productPrices";
 
 const Product3DViewer = lazy(() => import("@/components/shared/Product3DViewer"));
 
@@ -105,6 +106,22 @@ export default function ProdutoDetalhePage() {
                 {product.category}
               </div>
               <h1 className="font-display text-3xl md:text-4xl font-bold mt-3 text-foreground">{product.name}</h1>
+
+              {/* Preço */}
+              {(() => {
+                const pricing = productPrices[product.slug];
+                if (!pricing || pricing.basePrice <= 0) return null;
+                return (
+                  <div className="mt-4 flex items-baseline gap-2">
+                    {pricing.sizes && pricing.sizes.length > 1 ? (
+                      <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">A partir de</span>
+                    ) : null}
+                    <span className="text-3xl font-bold text-primary">{formatPrice(pricing.basePrice)}</span>
+                    <span className="text-sm text-muted-foreground">{unitLabel(pricing.unit)}</span>
+                  </div>
+                );
+              })()}
+
               <p className="text-muted-foreground mt-4 leading-relaxed text-lg">{product.description}</p>
 
               {/* Size Selector — GIK style */}
@@ -112,15 +129,24 @@ export default function ProdutoDetalhePage() {
               <div className="mt-6">
                   <h3 className="font-display font-semibold text-sm mb-3">Tamanhos Disponíveis</h3>
                   <div className="flex flex-wrap gap-2">
-                    {product.sizes.map((size) =>
-                  <div
-                    key={size.label}
-                    className="px-4 py-2.5 border-2 border-border rounded-lg text-center cursor-default hover:border-primary/50 transition-colors">
-
-                        <p className="text-xs font-bold text-foreground">{size.label}</p>
-                        <p className="text-[10px] text-muted-foreground font-mono">{size.dimensions}</p>
-                      </div>
-                  )}
+                    {product.sizes.map((size) => {
+                      const pricing = productPrices[product.slug];
+                      const dimNumbers = size.dimensions.match(/\d+/g) || [];
+                      const firstDim = dimNumbers[0] || "";
+                      const sizePrice = pricing?.sizes?.find((sp) => {
+                        const spNums = sp.dimensions.match(/\d+/g) || [];
+                        return spNums[0] === firstDim;
+                      });
+                      return (
+                        <div
+                          key={size.label}
+                          className="px-4 py-2.5 border-2 border-border rounded-lg text-center cursor-default hover:border-primary/50 transition-colors">
+                          <p className="text-xs font-bold text-foreground">{size.label}</p>
+                          <p className="text-[10px] text-muted-foreground font-mono">{size.dimensions}</p>
+                          {sizePrice && <p className="text-xs font-bold text-primary mt-1">{formatPrice(sizePrice.price)}</p>}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               }
