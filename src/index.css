@@ -22,6 +22,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,7 +30,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 205 60% 15%;
+    --foreground: 226 57.0093% 20.9804%;
 
     --card: 0 0% 100%;
     --card-foreground: 205 60% 15%;
@@ -38,7 +39,7 @@
     --popover-foreground: 205 60% 15%;
 
     --primary: 205 78% 32%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 217 32.5843% 17.451%;
 
     --secondary: 25 95% 53%;
     --secondary-foreground: 0 0% 100%;
