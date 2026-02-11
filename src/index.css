@@ -124,7 +124,7 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.75;
     letter-spacing: 0.01em;
     font-weight: 400;
@@ -149,7 +149,7 @@
   }
 
   p {
-    @apply text-base md:text-lg leading-relaxed;
+    @apply text-base md:text-lg lg:text-xl leading-relaxed;
   }
 }
 
