@@ -86,10 +86,10 @@ const testimonials = [
 ];
 
 const stats = [
-  { value: "500+", label: "Projetos" },
-  { value: "98%", label: "Satisfação" },
-  { value: "12", label: "Anos" },
-  { value: "40+", label: "Cores" },
+  { value: "500+", label: "Projetos Realizados" },
+  { value: "96%", label: "Satisfação dos Clientes" },
+  { value: "6", label: "Anos de Experiência" },
+  { value: "∞", label: "Análise e Calculadora de Ruídos" },
 ];
 
 const HomePage = () => {
@@ -123,13 +123,13 @@ const HomePage = () => {
           </motion.div>
         </div>
         {/* Stats overlay at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[hsl(205,78%,10%)]/80 to-transparent pt-16 pb-8">
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[hsl(205,78%,8%)]/90 to-transparent pt-20 pb-10">
           <div className="container mx-auto px-6">
-            <div className="flex justify-start gap-12 md:gap-16">
+            <div className="flex justify-start gap-10 md:gap-14">
               {stats.map((s) => (
-                <div key={s.label}>
-                  <p className="text-3xl md:text-4xl font-bold text-white">{s.value}</p>
-                  <p className="text-xs text-white/40 mt-0.5 uppercase tracking-wider">{s.label}</p>
+                <div key={s.label} className="border-l-2 border-secondary/50 pl-5">
+                  <p className="text-4xl md:text-5xl font-extrabold text-white tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>{s.value}</p>
+                  <p className="text-[11px] text-white/50 mt-1 uppercase tracking-[0.15em] font-medium">{s.label}</p>
                 </div>
               ))}
             </div>
