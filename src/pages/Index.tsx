@@ -102,14 +102,14 @@ const HomePage = () => {
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent shadow-2xs rounded-none border-secondary-foreground text-secondary-foreground bg-[sidebar-primary-foreground] bg-transparent opacity-100" />
+          <div className="absolute inset-0 from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent rounded-none border-secondary-foreground text-secondary-foreground bg-[sidebar-primary-foreground] bg-sidebar-border shadow-2xl opacity-50" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
             <p className="text-secondary tracking-[0.4em] uppercase mb-6 text-base font-light">
               Projetado por Especialistas. Aprovado por Profissionais.
             </p>
-            <h1 className="md:text-6xl leading-[1.05] text-white font-serif text-justify text-5xl font-thin lg:text-5xl">
+            <h1 className="md:text-6xl leading-[1.05] text-white font-serif text-5xl lg:text-5xl font-bold text-left">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
             <p className="text-white/50 mt-7 text-lg max-w-md leading-relaxed">
