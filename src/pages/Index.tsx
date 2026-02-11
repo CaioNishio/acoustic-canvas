@@ -26,71 +26,71 @@ import imgSalaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 const spaces = [
-  { label: "Estúdios", path: "/solucoes/estudios", image: heroEstudioAzul },
-  { label: "Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
-  { label: "Auditórios", path: "/solucoes/auditorios", image: heroMdf },
-  { label: "Corporativo", path: "/solucoes/corporativo", image: heroForroCorp },
-  { label: "Residencial", path: "/solucoes/residencial", image: heroHomeStudio },
-];
+{ label: "Estúdios", path: "/solucoes/estudios", image: heroEstudioAzul },
+{ label: "Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
+{ label: "Auditórios", path: "/solucoes/auditorios", image: heroMdf },
+{ label: "Corporativo", path: "/solucoes/corporativo", image: heroForroCorp },
+{ label: "Residencial", path: "/solucoes/residencial", image: heroHomeStudio }];
+
 
 const processSteps = [
-  {
-    icon: Calculator,
-    title: "Calculadora Acústica",
-    desc: "Insira as dimensões do seu ambiente e receba uma recomendação inteligente de quantidade e tipo de material — com visualização 3D em tempo real.",
-    image: imgSalaReuniao,
-    cta: "Testar Calculadora",
-    path: "/calculadora",
-  },
-  {
-    icon: Ruler,
-    title: "Medição & Projeto",
-    desc: "Nossa equipe analisa o espaço, identifica os pontos críticos de reflexão e projeta a solução acústica ideal com base em normas técnicas.",
-    image: imgEstudio,
-    cta: "Solicitar Análise",
-    path: "/orcamento",
-  },
-  {
-    icon: Palette,
-    title: "Personalização",
-    desc: "Mais de 40 cores, acabamentos em tecido, MDF ou madeira natural. Cada projeto é único — combinando performance acústica e design de interiores.",
-    image: heroDifusores,
-    cta: "Ver Cores",
-    path: "/produtos",
-  },
-  {
-    icon: Wrench,
-    title: "Instalação Profissional",
-    desc: "Instalação realizada por equipe especializada em todo o Brasil, com acabamento impecável e garantia de resultado acústico.",
-    image: heroBafflesColor,
-    cta: "Fale Conosco",
-    path: "/contato",
-  },
-];
+{
+  icon: Calculator,
+  title: "Calculadora Acústica",
+  desc: "Insira as dimensões do seu ambiente e receba uma recomendação inteligente de quantidade e tipo de material — com visualização 3D em tempo real.",
+  image: imgSalaReuniao,
+  cta: "Testar Calculadora",
+  path: "/calculadora"
+},
+{
+  icon: Ruler,
+  title: "Medição & Projeto",
+  desc: "Nossa equipe analisa o espaço, identifica os pontos críticos de reflexão e projeta a solução acústica ideal com base em normas técnicas.",
+  image: imgEstudio,
+  cta: "Solicitar Análise",
+  path: "/orcamento"
+},
+{
+  icon: Palette,
+  title: "Personalização",
+  desc: "Mais de 40 cores, acabamentos em tecido, MDF ou madeira natural. Cada projeto é único — combinando performance acústica e design de interiores.",
+  image: heroDifusores,
+  cta: "Ver Cores",
+  path: "/produtos"
+},
+{
+  icon: Wrench,
+  title: "Instalação Profissional",
+  desc: "Instalação realizada por equipe especializada em todo o Brasil, com acabamento impecável e garantia de resultado acústico.",
+  image: heroBafflesColor,
+  cta: "Fale Conosco",
+  path: "/contato"
+}];
+
 
 const portfolioGrid = [
-  { img: heroEstudioAzul, label: "Estúdio Musical", span: "md:col-span-2 md:row-span-2" },
-  { img: heroBafflesAzuis, label: "Baffles Suspensos", span: "" },
-  { img: heroMdf, label: "Painéis MDF Vazado", span: "" },
-  { img: heroForro, label: "Forro Industrial", span: "md:col-span-2" },
-  { img: heroDifusores, label: "Difusores Skyline", span: "" },
-  { img: heroNuvens, label: "Nuvens Acústicas", span: "" },
-  { img: heroForroCorp, label: "Forro Corporativo", span: "" },
-  { img: imgSalaTratamento, label: "Sala de Tratamento", span: "" },
-];
+{ img: heroEstudioAzul, label: "Estúdio Musical", span: "md:col-span-2 md:row-span-2" },
+{ img: heroBafflesAzuis, label: "Baffles Suspensos", span: "" },
+{ img: heroMdf, label: "Painéis MDF Vazado", span: "" },
+{ img: heroForro, label: "Forro Industrial", span: "md:col-span-2" },
+{ img: heroDifusores, label: "Difusores Skyline", span: "" },
+{ img: heroNuvens, label: "Nuvens Acústicas", span: "" },
+{ img: heroForroCorp, label: "Forro Corporativo", span: "" },
+{ img: imgSalaTratamento, label: "Sala de Tratamento", span: "" }];
+
 
 const testimonials = [
-  { name: "Ricardo Almeida", role: "Engenheiro de Som", text: "Os painéis da Sonar transformaram completamente a acústica do meu estúdio." },
-  { name: "Arq. Marina Santos", role: "Arquiteta", text: "A qualidade dos materiais e o suporte técnico são incomparáveis no mercado brasileiro." },
-  { name: "Pe. João Silva", role: "Paróquia N.S. Aparecida", text: "A inteligibilidade da palavra na igreja melhorou enormemente após o tratamento." },
-];
+{ name: "Ricardo Almeida", role: "Engenheiro de Som", text: "Os painéis da Sonar transformaram completamente a acústica do meu estúdio." },
+{ name: "Arq. Marina Santos", role: "Arquiteta", text: "A qualidade dos materiais e o suporte técnico são incomparáveis no mercado brasileiro." },
+{ name: "Pe. João Silva", role: "Paróquia N.S. Aparecida", text: "A inteligibilidade da palavra na igreja melhorou enormemente após o tratamento." }];
+
 
 const stats = [
-  { value: "500+", label: "Projetos" },
-  { value: "98%", label: "Satisfação" },
-  { value: "12", label: "Anos" },
-  { value: "40+", label: "Cores" },
-];
+{ value: "500+", label: "Projetos" },
+{ value: "98%", label: "Satisfação" },
+{ value: "12", label: "Anos" },
+{ value: "40+", label: "Cores" }];
+
 
 const HomePage = () => {
   return (
@@ -99,7 +99,7 @@ const HomePage = () => {
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroEstudioAzul} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent text-muted" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
@@ -126,12 +126,12 @@ const HomePage = () => {
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[hsl(205,78%,10%)]/80 to-transparent pt-16 pb-8">
           <div className="container mx-auto px-6">
             <div className="flex justify-start gap-12 md:gap-16">
-              {stats.map((s) => (
-                <div key={s.label}>
+              {stats.map((s) =>
+              <div key={s.label}>
                   <p className="text-3xl md:text-4xl font-bold text-white">{s.value}</p>
                   <p className="text-xs text-white/40 mt-0.5 uppercase tracking-wider">{s.label}</p>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -144,8 +144,8 @@ const HomePage = () => {
             Soluções para cada ambiente
           </motion.p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {spaces.map((space) => (
-              <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3]">
+            {spaces.map((space) =>
+            <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3]">
                 <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.45] group-hover:brightness-[0.35]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,10%)]/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
@@ -153,7 +153,7 @@ const HomePage = () => {
                   <ArrowRight size={14} className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
                 </div>
               </Link>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -167,22 +167,22 @@ const HomePage = () => {
             <p className="text-muted-foreground mt-3 max-w-lg mx-auto">Ambientes reais transformados com soluções acústicas Sonar.</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
-            {portfolioGrid.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className={`relative group overflow-hidden rounded-2xl cursor-pointer ${item.span}`}
-              >
+            {portfolioGrid.map((item, i) =>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              className={`relative group overflow-hidden rounded-2xl cursor-pointer ${item.span}`}>
+
                 <img src={item.img} alt={item.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 <div className="absolute inset-0 bg-[hsl(205,78%,10%)]/0 group-hover:bg-[hsl(205,78%,10%)]/40 transition-colors duration-500" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                   <span className="text-white font-bold text-sm drop-shadow-lg">{item.label}</span>
                 </div>
               </motion.div>
-            ))}
+            )}
           </div>
           <div className="text-center mt-12">
             <Link to="/projetos" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors text-sm">
@@ -193,22 +193,22 @@ const HomePage = () => {
       </section>
 
       {/* ===== Process — Como Funciona ===== */}
-      <section className="bg-background py-24">
-        <div className="container mx-auto px-6">
+      <section className="py-24 bg-primary-foreground">
+        <div className="container mx-auto px-6 border-destructive-foreground">
           <motion.div {...fadeUp} className="text-center mb-16">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Processo</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-3">Como Funciona</h2>
-            <p className="text-muted-foreground mt-3 max-w-lg mx-auto">Da medição à instalação — um processo completo e transparente.</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-3 bg-sidebar">Como Funciona</h2>
+            <p className="mt-3 max-w-lg mx-auto bg-[#242424]/0 text-zinc-950">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
           <div className="space-y-20">
-            {processSteps.map((step, i) => (
-              <motion.div
-                key={step.title}
-                {...fadeUp}
-                transition={{ delay: 0.1 }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "lg:direction-rtl" : ""}`}
-              >
+            {processSteps.map((step, i) =>
+            <motion.div
+              key={step.title}
+              {...fadeUp}
+              transition={{ delay: 0.1 }}
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "lg:direction-rtl" : ""}`}>
+
                 {/* Image */}
                 <div className={`overflow-hidden rounded-3xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                   <img src={step.image} alt={step.title} className="w-full h-full object-cover" loading="lazy" />
@@ -222,13 +222,13 @@ const HomePage = () => {
                     <span className="text-xs font-bold text-muted-foreground tracking-[0.2em] uppercase">Etapa {i + 1}</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-foreground">{step.title}</h3>
-                  <p className="text-muted-foreground mt-4 leading-relaxed text-lg">{step.desc}</p>
+                  <p className="mt-4 leading-relaxed text-lg text-black">{step.desc}</p>
                   <Link to={step.path} className="inline-flex items-center gap-2 mt-7 text-secondary font-bold text-sm hover:gap-3 transition-all">
                     {step.cta} <ArrowRight size={16} />
                   </Link>
                 </div>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -236,17 +236,17 @@ const HomePage = () => {
       {/* ===== Full-width gallery strip ===== */}
       <section className="bg-background py-0">
         <div className="grid grid-cols-4 gap-0">
-          {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) => (
-            <div key={i} className="relative group overflow-hidden aspect-[4/3]">
+          {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) =>
+          <div key={i} className="relative group overflow-hidden aspect-[4/3]">
               <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               <div className="absolute inset-0 bg-[hsl(205,78%,10%)]/0 group-hover:bg-[hsl(205,78%,10%)]/20 transition-colors duration-500" />
             </div>
-          ))}
+          )}
         </div>
       </section>
 
       {/* ===== Why us — with image ===== */}
-      <section className="py-24 px-6 bg-[hsl(205,78%,10%)] text-white">
+      <section className="py-24 px-6 text-white bg-blue-950">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div {...fadeUp}>
@@ -257,17 +257,17 @@ const HomePage = () => {
               </p>
               <ul className="mt-8 space-y-4">
                 {[
-                  "Materiais certificados com classe de fogo A2",
-                  "Mais de 40 opções de cores e acabamentos",
-                  "Projetos personalizados com consultoria técnica",
-                  "Fabricação própria com controle de qualidade",
-                  "Entrega e instalação em todo o Brasil",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-white/80">
+                "Materiais certificados com classe de fogo A2",
+                "Mais de 40 opções de cores e acabamentos",
+                "Projetos personalizados com consultoria técnica",
+                "Fabricação própria com controle de qualidade",
+                "Entrega e instalação em todo o Brasil"].
+                map((item) =>
+                <li key={item} className="flex items-start gap-3 text-sm text-white/80">
                     <CheckCircle size={16} className="text-secondary flex-shrink-0 mt-0.5" />
                     {item}
                   </li>
-                ))}
+                )}
               </ul>
               <Link to="/contato" className="inline-flex items-center gap-2 mt-10 px-7 py-3.5 bg-secondary text-secondary-foreground font-bold rounded-full hover:bg-secondary/90 transition-colors text-sm">
                 Fale com um Especialista <ArrowRight size={16} />
@@ -293,12 +293,12 @@ const HomePage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">O Que Nossos Clientes Dizem</h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {testimonials.map((t, i) => (
-              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="bg-background rounded-2xl p-8 border border-border/60 hover:border-primary/20 transition-all hover:shadow-lg">
+            {testimonials.map((t, i) =>
+            <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="bg-background rounded-2xl p-8 border border-border/60 hover:border-primary/20 transition-all hover:shadow-lg">
                 <div className="flex gap-1 mb-5">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} size={14} className="text-secondary fill-secondary" />
-                  ))}
+                  {[...Array(5)].map((_, j) =>
+                <Star key={j} size={14} className="text-secondary fill-secondary" />
+                )}
                 </div>
                 <p className="text-muted-foreground leading-relaxed italic">"{t.text}"</p>
                 <div className="mt-6 pt-5 border-t border-border/60">
@@ -306,7 +306,7 @@ const HomePage = () => {
                   <p className="text-xs text-muted-foreground mt-0.5">{t.role}</p>
                 </div>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -332,8 +332,8 @@ const HomePage = () => {
           </motion.div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>);
+
 };
 
 export default HomePage;

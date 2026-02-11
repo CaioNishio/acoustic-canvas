@@ -120,7 +120,7 @@ export default function Header() {
 
       {/* Main Nav */}
       <div className="bg-white/95 backdrop-blur-md border-b shadow-sm border-border">
-        <div className="container mx-auto px-4 flex items-center justify-between h-20">
+        <div className="container mx-auto px-4 flex items-center justify-between h-20 border-muted opacity-0 bg-glass">
           <Link to="/" className="flex items-center flex-shrink-0 mr-6">
             <img src={logo} alt="Sonar Acústicos" className="h-12 w-auto" />
           </Link>
@@ -141,7 +141,7 @@ export default function Header() {
               <AnimatePresence>
                 {activeMenu === "sobre" && <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 4 }} transition={{ duration: 0.15 }} onMouseEnter={cancelClose} onMouseLeave={scheduleClose} className="absolute top-full left-0 mt-2 bg-white rounded-xl border border-border shadow-xl z-50 min-w-[200px] py-3 px-4">
                     <ul className="space-y-1">
-                      {sobreLinks.map(link => <li key={link.label}>
+                      {sobreLinks.map((link) => <li key={link.label}>
                           <Link to={link.path} onClick={() => setActiveMenu(null)} className="block py-1.5 text-sm text-foreground/80 hover:text-primary transition-colors font-medium">
                             {link.label}
                           </Link>
@@ -188,7 +188,7 @@ export default function Header() {
                   <div className="w-48 flex-shrink-0">
                     <h3 className="font-display font-bold text-foreground mb-4">Categorias</h3>
                     <ul className="space-y-2">
-                      {productCategories.map(cat => <li key={cat.label}>
+                      {productCategories.map((cat) => <li key={cat.label}>
                           <Link to={cat.path} onClick={() => setActiveMenu(null)} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                             {cat.label}
                           </Link>
@@ -199,7 +199,7 @@ export default function Header() {
                     </Link>
                   </div>
                   <div className="flex-1 grid grid-cols-3 gap-4">
-                    {productHighlights.map(p => <Link key={p.name} to={p.path} onClick={() => setActiveMenu(null)} className="group bg-muted/50 rounded-xl overflow-hidden">
+                    {productHighlights.map((p) => <Link key={p.name} to={p.path} onClick={() => setActiveMenu(null)} className="group bg-muted/50 rounded-xl overflow-hidden">
                         <div className="aspect-[4/3] overflow-hidden">
                           <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         </div>
@@ -212,7 +212,7 @@ export default function Header() {
 
               {/* ESPAÇOS */}
               {activeMenu === "espacos" && <div className="grid grid-cols-5 gap-4">
-                  {spaces.map(space => <Link key={space.path} to={space.path} onClick={() => setActiveMenu(null)} className="group relative overflow-hidden rounded-xl aspect-[4/3]">
+                  {spaces.map((space) => <Link key={space.path} to={space.path} onClick={() => setActiveMenu(null)} className="group relative overflow-hidden rounded-xl aspect-[4/3]">
                       <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-[0.55] group-hover:brightness-[0.45]" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
@@ -227,7 +227,7 @@ export default function Header() {
                   <div className="w-48 flex-shrink-0">
                     <h3 className="font-display font-bold text-foreground mb-4">Ferramentas</h3>
                     <ul className="space-y-3">
-                      {recursos.map(r => <li key={r.label}>
+                      {recursos.map((r) => <li key={r.label}>
                           <Link to={r.path} onClick={() => setActiveMenu(null)} className="block group">
                             <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{r.label}</span>
                             <span className="block text-xs text-muted-foreground mt-0.5">{r.desc}</span>
@@ -284,7 +284,7 @@ export default function Header() {
 
               <div className="h-px bg-border my-2" />
               <p className="px-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">Espaços</p>
-              {spaces.map(space => <Link key={space.path} to={space.path} onClick={() => setMobileOpen(false)} className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-3">
+              {spaces.map((space) => <Link key={space.path} to={space.path} onClick={() => setMobileOpen(false)} className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-3">
                   <img src={space.image} alt="" className="w-8 h-8 rounded object-cover" />
                   {space.label}
                 </Link>)}
