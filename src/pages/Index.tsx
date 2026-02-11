@@ -14,6 +14,7 @@ import heroBafflesAzuis from "@/assets/gallery/hero-baffles-azuis.jpg";
 import heroForroCorp from "@/assets/gallery/hero-forro-corporativo.jpg";
 import heroHomeStudio from "@/assets/gallery/hero-home-studio.jpeg";
 import heroEstudioDark from "@/assets/gallery/hero-estudio-dark.jpeg";
+import classroomBaffles from "@/assets/gallery/classroom-baffles.jpeg";
 
 import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
 import imgSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.png";
@@ -22,6 +23,8 @@ import imgEscritorio from "@/assets/gallery/escritorio-paineis.png";
 import imgAcademiaBaffles from "@/assets/gallery/academia-baffles.jpeg";
 import imgEscritorioAzuis from "@/assets/gallery/escritorio-paineis-azuis.jpeg";
 import imgSalaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
+import imgPaineisSeminario from "@/assets/gallery/paineis-seminario.jpg";
+import imgHexagonais from "@/assets/gallery/hexagonais-teto.png";
 
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
@@ -98,7 +101,7 @@ const HomePage = () => {
       {/* ===== HERO — Full-width cinematic ===== */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroEstudioAzul} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
+          <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent text-muted" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -235,13 +238,28 @@ const HomePage = () => {
 
       {/* ===== Full-width gallery strip ===== */}
       <section className="bg-background py-0">
-        <div className="grid grid-cols-4 gap-0">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
           {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) =>
           <div key={i} className="relative group overflow-hidden aspect-[4/3]">
               <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               <div className="absolute inset-0 bg-[hsl(205,78%,10%)]/0 group-hover:bg-[hsl(205,78%,10%)]/20 transition-colors duration-500" />
             </div>
           )}
+        </div>
+
+        {/* Large showcase images */}
+        <div className="container mx-auto px-6 py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-3xl overflow-hidden aspect-[16/10]">
+              <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div className="rounded-3xl overflow-hidden aspect-[16/10]">
+              <img src={imgHexagonais} alt="Painéis hexagonais no teto" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+          </div>
+          <div className="mt-6 rounded-3xl overflow-hidden aspect-[21/9]">
+            <img src={heroNuvens} alt="Nuvens acústicas em ambiente corporativo" className="w-full h-full object-cover" loading="lazy" />
+          </div>
         </div>
       </section>
 
