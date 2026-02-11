@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, Instagram, Phone, Search } from "lucide-react";
+import { Menu, X, ArrowRight, Instagram, MessageCircle, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-sonar.png";
 import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
@@ -103,16 +103,16 @@ export default function Header() {
   return <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="bg-[hsl(205,78%,12%)] text-white">
-        <div className="container mx-auto flex items-center justify-between h-9 px-4 text-xs">
-          <div className="hidden md:flex items-center gap-4">
-            <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors"><Instagram size={14} /></a>
-            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors"><Phone size={14} /></a>
+        <div className="container mx-auto flex items-center justify-between h-10 px-4 text-sm">
+          <div className="hidden md:flex items-center gap-5">
+            <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors"><Instagram size={18} /></a>
+            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors"><MessageCircle size={18} /></a>
           </div>
-          <div className="flex items-center gap-1.5 mx-auto md:mx-0">
-            <Phone size={12} className="text-secondary" />
-            <span className="tracking-wider">Consultoria Acústica Gratuita</span>
+          <div className="flex items-center gap-2 mx-auto md:mx-0">
+            <MessageCircle size={14} className="text-secondary" />
+            <span className="tracking-wider text-sm">Consultoria Acústica Gratuita</span>
           </div>
-          <div className="hidden md:block text-white/60">São Paulo, Brasil</div>
+          <div className="hidden md:block text-white/60 text-sm">São Paulo, Brasil</div>
         </div>
       </div>
 
