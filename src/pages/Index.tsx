@@ -168,7 +168,7 @@ const HomePage = () => {
       <SoundWaveLine />
 
       {/* ===== Portfolio mosaic ===== */}
-      <section className="bg-muted/50 py-20">
+      <section className="py-20 bg-muted-foreground">
         <div className="container mx-auto px-6 border-8 border-muted-foreground bg-muted-foreground">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Portfólio</span>
