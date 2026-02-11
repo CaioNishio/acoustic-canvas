@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import type { Product } from "@/data/products";
+import { productPrices, formatPrice, unitLabel } from "@/data/productPrices";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -57,7 +58,20 @@ export default function ProductCard({ product }: { product: Product }) {
               )}
             </div>
           )}
-          <div className="flex items-center gap-1.5 mt-4 text-secondary text-base font-semibold group-hover:gap-2.5 transition-all">
+          {(() => {
+            const pricing = productPrices[product.slug];
+            if (!pricing || pricing.basePrice <= 0) return null;
+            return (
+              <div className="flex items-baseline gap-1.5 mt-3">
+                {pricing.sizes && pricing.sizes.length > 1 && (
+                  <span className="text-[10px] text-muted-foreground uppercase">a partir de</span>
+                )}
+                <span className="text-lg font-bold text-primary">{formatPrice(pricing.basePrice)}</span>
+                <span className="text-xs text-muted-foreground">{unitLabel(pricing.unit)}</span>
+              </div>
+            );
+          })()}
+          <div className="flex items-center gap-1.5 mt-3 text-secondary text-base font-semibold group-hover:gap-2.5 transition-all">
             Ver detalhes <ArrowRight size={14} />
           </div>
         </div>
