@@ -20,10 +20,8 @@ import mdfVazadoAbsorvedor from "@/assets/gallery/mdf-vazado-absorvedor.jpg";
 import mdfVazadoDifusor from "@/assets/gallery/mdf-vazado-difusor.jpg";
 import wavefuserHibrido from "@/assets/gallery/wavefuser-hibrido.jpg";
 
-export interface ProductColor {
-  name: string;
-  hex: string;
-}
+import { fabricColors, woodColors, type ProductColor } from "./productColors";
+export type { ProductColor };
 
 export interface Product {
   slug: string;
@@ -42,20 +40,7 @@ export interface Product {
   colors?: ProductColor[];
 }
 
-export const productColors: ProductColor[] = [
-  { name: "Natural", hex: "#D4B896" },
-  { name: "Carvalho Claro", hex: "#C8A96E" },
-  { name: "Carvalho Médio", hex: "#A67B4B" },
-  { name: "Nogueira", hex: "#6B4226" },
-  { name: "Mogno", hex: "#4A1C1C" },
-  { name: "Preto", hex: "#1A1A1A" },
-  { name: "Branco", hex: "#F5F5F0" },
-  { name: "Cinza Claro", hex: "#C0C0C0" },
-  { name: "Cinza Escuro", hex: "#4A4A4A" },
-  { name: "Azul Marinho", hex: "#1B2A4A" },
-  { name: "Terracota", hex: "#C75B2A" },
-  { name: "Verde Musgo", hex: "#4A5B3C" },
-];
+export const productColors = fabricColors;
 
 export const categories = ["Painéis Acústicos", "Bass Traps", "Difusores", "Forros Acústicos", "Revestimentos", "Painéis MDF Vazado"];
 export const applications = ["Estúdio", "Igreja", "Auditório", "Corporativo", "Residencial"];
@@ -83,7 +68,7 @@ export const products: Product[] = [
       { label: "Densidade do Núcleo", value: "48kg/m³" },
     ],
     materials: ["Lã de Rocha 48kg/m³", "Tecido Acústico 100% Poliéster", "Moldura em Alumínio"],
-    colors: productColors,
+    colors: fabricColors,
   },
   {
     slug: "bass-trap-corner",
@@ -105,7 +90,7 @@ export const products: Product[] = [
       { label: "Faixa de Absorção", value: "60Hz – 500Hz" },
     ],
     materials: ["Lã de Rocha 64kg/m³", "Tecido Acústico", "Estrutura Metálica"],
-    colors: productColors.slice(0, 6),
+    colors: fabricColors,
   },
   {
     slug: "difusor-skyline",
@@ -127,7 +112,7 @@ export const products: Product[] = [
       { label: "Material", value: "Pinus Maciço / MDF Premium" },
     ],
     materials: ["Blocos de Pinus Maciço", "Base em MDF 18mm", "Acabamento Natural ou Laqueado", "Fixação Oculta em Aço"],
-    colors: productColors.filter(c => ["Natural", "Carvalho Claro", "Carvalho Médio", "Nogueira", "Mogno", "Preto", "Branco"].includes(c.name)),
+    colors: woodColors,
   },
   {
     slug: "painel-mdf-vazado-absorvedor",
@@ -150,7 +135,7 @@ export const products: Product[] = [
       { label: "Faixa de Absorção", value: "250Hz – 4kHz" },
     ],
     materials: ["MDF Vazado 6mm", "Lã de Rocha 48kg/m³", "Manta Acústica TNT", "Moldura em MDF 18mm"],
-    colors: productColors,
+    colors: fabricColors,
   },
   {
     slug: "painel-mdf-vazado-difusor",
@@ -172,7 +157,7 @@ export const products: Product[] = [
       { label: "Padrão", value: "Cruzado Geométrico" },
     ],
     materials: ["MDF Vazado 6mm", "Câmara de Ar Interna", "Feltro Acústico 12mm", "Moldura em MDF 18mm"],
-    colors: productColors,
+    colors: fabricColors,
   },
   {
     slug: "wavefuser",
@@ -194,7 +179,7 @@ export const products: Product[] = [
       { label: "Tipo", value: "Híbrido Difusor/Absorvedor" },
     ],
     materials: ["Madeira Maciça (Pinus/Nogueira/Mogno)", "Espuma Acústica 32kg/m³", "Base em MDF 18mm", "Acabamento Natural ou Tingido"],
-    colors: productColors.filter(c => ["Natural", "Carvalho Claro", "Carvalho Médio", "Nogueira", "Mogno"].includes(c.name)),
+    colors: woodColors,
   },
   {
     slug: "forro-acustico-modular",
@@ -215,7 +200,7 @@ export const products: Product[] = [
       { label: "Classe de Fogo", value: "A1" },
     ],
     materials: ["Fibra de Vidro", "Véu de Vidro", "Grid em Aço Galvanizado"],
-    colors: [productColors[6], productColors[7], productColors[8]],
+    colors: fabricColors.slice(0, 10),
   },
   {
     slug: "revestimento-ripado",
@@ -236,7 +221,7 @@ export const products: Product[] = [
       { label: "Acabamento", value: "Natural / Carvalho / Nogueira" },
     ],
     materials: ["Ripas de Madeira Natural", "Feltro Acústico 12mm", "MDF Estrutural"],
-    colors: productColors.filter(c => ["Natural", "Carvalho Claro", "Carvalho Médio", "Nogueira", "Mogno", "Preto", "Branco"].includes(c.name)),
+    colors: woodColors,
   },
   {
     slug: "painel-tecido-slim",
@@ -257,6 +242,6 @@ export const products: Product[] = [
       { label: "Cores", value: "30+ opções" },
     ],
     materials: ["Espuma Acústica 28kg/m³", "Tecido 100% Poliéster", "Base em MDF 3mm"],
-    colors: productColors,
+    colors: fabricColors,
   },
 ];

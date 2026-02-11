@@ -80,15 +80,23 @@ export default function ProdutoDetalhePage() {
                       <button
                         key={color.name}
                         onClick={() => setSelectedColor(selectedColor?.name === color.name ? null : color)}
-                        className="relative w-10 h-10 rounded-lg border-2 transition-all hover:scale-110"
-                        style={{
-                          backgroundColor: color.hex,
-                          borderColor: selectedColor?.name === color.name ? "hsl(24, 95%, 53%)" : "hsl(210, 20%, 88%)",
-                        }}
-                        title={color.name}
+                        className="relative group/color"
+                        title={`${color.code ? color.code + ' — ' : ''}${color.name}`}
                       >
+                        <span
+                          className="block w-10 h-10 rounded-lg border-2 transition-all hover:scale-110"
+                          style={{
+                            backgroundColor: color.hex,
+                            borderColor: selectedColor?.name === color.name ? "hsl(24, 95%, 53%)" : "hsl(210, 20%, 88%)",
+                          }}
+                        />
                         {selectedColor?.name === color.name && (
-                          <Check size={16} className="absolute inset-0 m-auto" style={{ color: ["Branco", "Cinza Claro", "Natural", "Carvalho Claro"].includes(color.name) ? "#333" : "#fff" }} />
+                          <Check size={16} className="absolute inset-0 m-auto" style={{ color: ["Branco", "Cinza Claro", "Natural", "Carvalho Claro", "Cinza Pérola", "Bege Claro", "Rosa Claro", "Pêssego"].includes(color.name) ? "#333" : "#fff" }} />
+                        )}
+                        {color.code && (
+                          <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] text-muted-foreground font-mono opacity-0 group-hover/color:opacity-100 transition-opacity whitespace-nowrap">
+                            {color.code}
+                          </span>
                         )}
                       </button>
                     ))}
