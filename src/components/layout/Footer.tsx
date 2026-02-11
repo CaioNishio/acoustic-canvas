@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Phone } from "lucide-react";
+import { Instagram, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo-sonar.png";
 
 export default function Footer() {
@@ -9,17 +9,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <img src={logo} alt="Sonar Acústicos" className="h-44 w-auto mb-4" />
-            <p className="text-sm text-white/60">
+            <p className="text-base text-white/60">
               Soluções profissionais em tratamento acústico para todos os tipos de ambientes.
             </p>
-            <div className="flex items-center gap-3 mt-4">
-              <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-secondary transition-colors"><Instagram size={16} /></a>
-              <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-secondary transition-colors"><Phone size={16} /></a>
+            <div className="flex items-center gap-4 mt-4">
+              <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-secondary transition-colors"><Instagram size={22} /></a>
+              <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-secondary transition-colors"><MessageCircle size={22} /></a>
             </div>
           </div>
           <div>
-            <h4 className="font-display text-sm font-semibold text-secondary mb-3">Produtos</h4>
-            <ul className="space-y-2 text-sm text-white/60">
+            <h4 className="font-display text-base font-semibold text-secondary mb-3">Produtos</h4>
+            <ul className="space-y-2 text-base text-white/60">
               <li><Link to="/produtos" className="hover:text-white transition-colors">Painéis Acústicos</Link></li>
               <li><Link to="/produtos" className="hover:text-white transition-colors">Bass Traps</Link></li>
               <li><Link to="/produtos" className="hover:text-white transition-colors">Difusores</Link></li>
@@ -28,8 +28,8 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-display text-sm font-semibold text-secondary mb-3">Espaços</h4>
-            <ul className="space-y-2 text-sm text-white/60">
+            <h4 className="font-display text-base font-semibold text-secondary mb-3">Espaços</h4>
+            <ul className="space-y-2 text-base text-white/60">
               <li><Link to="/solucoes/estudios" className="hover:text-white transition-colors">Estúdios</Link></li>
               <li><Link to="/solucoes/igrejas" className="hover:text-white transition-colors">Igrejas</Link></li>
               <li><Link to="/solucoes/auditorios" className="hover:text-white transition-colors">Auditórios</Link></li>
@@ -38,10 +38,11 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-display text-sm font-semibold text-secondary mb-3">Contato</h4>
-            <ul className="space-y-2 text-sm text-white/60">
+            <h4 className="font-display text-base font-semibold text-secondary mb-3">Contato</h4>
+            <ul className="space-y-2 text-base text-white/60">
               <li><a href="mailto:contato@sonaracusticos.com.br" className="hover:text-white transition-colors">contato@sonaracusticos.com.br</a></li>
-              <li><a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">(11) 96748-4000</a></li>
+              <li><a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><MessageCircle size={16} /> (11) 96748-4000</a></li>
+              <li><a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><Instagram size={16} /> @sonar_acusticos</a></li>
               <li>São Paulo, SP</li>
             </ul>
           </div>
