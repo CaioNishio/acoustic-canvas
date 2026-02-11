@@ -23,17 +23,20 @@ export default {
   				'sans-serif'
   			],
   			sans: [
-  				'DM Sans',
+  				'Source Sans Pro',
   				'ui-sans-serif',
   				'system-ui',
-  				'sans-serif',
-  				'Apple Color Emoji',
-  				'Segoe UI Emoji',
-  				'Segoe UI Symbol',
-  				'Noto Color Emoji'
+  				'-apple-system',
+  				'BlinkMacSystemFont',
+  				'Segoe UI',
+  				'Roboto',
+  				'Helvetica Neue',
+  				'Arial',
+  				'Noto Sans',
+  				'sans-serif'
   			],
   			serif: [
-  				'Crimson Pro',
+  				'Source Serif Pro',
   				'ui-serif',
   				'Georgia',
   				'Cambria',
@@ -42,7 +45,7 @@ export default {
   				'serif'
   			],
   			mono: [
-  				'SF Mono',
+  				'Source Code Pro',
   				'ui-monospace',
   				'SFMono-Regular',
   				'Menlo',
