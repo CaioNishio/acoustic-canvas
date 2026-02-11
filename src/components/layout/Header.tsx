@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, Instagram, Phone, Search, ShoppingBag } from "lucide-react";
-import { useQuoteCart } from "@/contexts/QuoteCartContext";
+import { Menu, X, ArrowRight, Instagram, Phone, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-sonar.png";
 import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
@@ -90,7 +89,6 @@ export default function Header() {
   const [activeMenu, setActiveMenu] = useState<MenuKey>(null);
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
-  const { totalItems, openCart } = useQuoteCart();
   const openMenu = (key: MenuKey) => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
     setActiveMenu(key);
@@ -122,7 +120,7 @@ export default function Header() {
       <div className="bg-[hsl(205,78%,15%)] backdrop-blur-md shadow-lg text-primary-foreground" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
         <div className="container mx-auto h-20 lg:h-24 px-4 flex items-center justify-between">
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img alt="Sonar Acústicos" className="h-16 lg:h-20 w-auto" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" />
+            <img alt="Sonar Acústicos" className="h-16 lg:h-20 w-auto px-0 mx-0 my-[11px] border-muted-foreground" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" />
           </Link>
 
           {/* Nav - centered */}
@@ -161,14 +159,6 @@ export default function Header() {
               Projete sua Sala
             </Link>
             <button className="p-2 text-white/50 hover:text-white transition-colors"><Search size={18} /></button>
-            <button onClick={openCart} className="relative p-2 text-white/50 hover:text-white transition-colors">
-              <ShoppingBag size={18} />
-              {totalItems > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 bg-secondary text-secondary-foreground text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
-                  {totalItems}
-                </span>
-              )}
-            </button>
           </div>
         </div>
       </div>

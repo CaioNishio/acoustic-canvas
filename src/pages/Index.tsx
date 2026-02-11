@@ -109,14 +109,14 @@ const HomePage = () => {
             <p className="text-secondary tracking-[0.4em] uppercase mb-6 text-base font-light">
               Projetado por Especialistas. Aprovado por Profissionais.
             </p>
-            <h1 className="md:text-6xl leading-[1.05] text-white font-serif text-5xl lg:text-5xl font-bold text-left">
+            <h1 className="leading-[1.05] text-white text-5xl lg:text-7xl text-justify font-thin font-serif md:text-7xl">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="text-white/50 mt-7 text-lg max-w-md leading-relaxed">
+            <p className="mt-7 text-lg max-w-md leading-relaxed bg-transparent text-amber-500">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/90 transition-all text-sm shadow-lg shadow-secondary/30 font-medium">
+              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 text-secondary-foreground rounded-full transition-all text-sm shadow-lg shadow-secondary/30 font-medium bg-primary-foreground">
                 Solicitar Orçamento <ArrowRight size={16} />
               </Link>
               <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/25 text-white rounded-full hover:bg-white/10 transition-all text-sm backdrop-blur-sm font-bold">
