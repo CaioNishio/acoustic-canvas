@@ -117,7 +117,7 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <div className="backdrop-blur-md border-b shadow-sm border-border bg-blue-600">
+      <div className="backdrop-blur-md border-b shadow-sm border-border bg-muted-foreground">
         <div className="container mx-auto px-4 flex items-center justify-between h-20 lg:h-28 text-primary-foreground">
           <Link to="/" className="flex items-center flex-shrink-0 mr-6">
             <img src={logo} alt="Sonar Acústicos" className="h-16 lg:h-36 w-auto" />
