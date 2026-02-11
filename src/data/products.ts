@@ -23,6 +23,19 @@ import wavefuserHibrido from "@/assets/gallery/wavefuser-hibrido.jpg";
 import { fabricColors, woodColors, type ProductColor } from "./productColors";
 export type { ProductColor };
 
+export interface AbsorptionData {
+  density: number;
+  thickness: number;
+  coefficients: { freq: number; value: number }[];
+  nrc: number;
+}
+
+export interface ProductHighlight {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
 export interface Product {
   slug: string;
   name: string;
@@ -32,12 +45,19 @@ export interface Product {
   thickness: string;
   shortDescription: string;
   description: string;
+  longDescription?: string;
   image: string;
   gallery: string[];
   specs: { label: string; value: string }[];
   materials: string[];
   price?: string;
   colors?: ProductColor[];
+  absorptionTable?: AbsorptionData[];
+  highlights?: ProductHighlight[];
+  advantages?: string[];
+  properties?: { title: string; text: string }[];
+  faq?: { question: string; answer: string }[];
+  certifications?: string[];
 }
 
 export const productColors = fabricColors;
@@ -69,6 +89,46 @@ export const products: Product[] = [
     ],
     materials: ["Lã de Rocha 48kg/m³", "Tecido Acústico 100% Poliéster", "Moldura em Alumínio"],
     colors: fabricColors,
+    absorptionTable: [
+      { density: 32, thickness: 51, nrc: 0.80, coefficients: [{ freq: 125, value: 0.16 }, { freq: 250, value: 0.52 }, { freq: 500, value: 0.82 }, { freq: 1000, value: 0.92 }, { freq: 2000, value: 0.94 }, { freq: 4000, value: 0.96 }] },
+      { density: 48, thickness: 51, nrc: 0.89, coefficients: [{ freq: 125, value: 0.26 }, { freq: 250, value: 0.70 }, { freq: 500, value: 1.08 }, { freq: 1000, value: 1.02 }, { freq: 2000, value: 0.76 }, { freq: 4000, value: 0.96 }] },
+      { density: 64, thickness: 51, nrc: 0.93, coefficients: [{ freq: 125, value: 0.16 }, { freq: 250, value: 0.66 }, { freq: 500, value: 1.00 }, { freq: 1000, value: 1.05 }, { freq: 2000, value: 1.02 }, { freq: 4000, value: 1.04 }] },
+      { density: 96, thickness: 51, nrc: 1.07, coefficients: [{ freq: 125, value: 0.13 }, { freq: 250, value: 0.66 }, { freq: 500, value: 1.13 }, { freq: 1000, value: 1.28 }, { freq: 2000, value: 1.23 }, { freq: 4000, value: 1.26 }] },
+      { density: 128, thickness: 51, nrc: 1.00, coefficients: [{ freq: 125, value: 0.32 }, { freq: 250, value: 0.90 }, { freq: 500, value: 1.11 }, { freq: 1000, value: 1.01 }, { freq: 2000, value: 1.01 }, { freq: 4000, value: 1.05 }] },
+      { density: 144, thickness: 51, nrc: 0.93, coefficients: [{ freq: 125, value: 0.16 }, { freq: 250, value: 0.66 }, { freq: 500, value: 1.00 }, { freq: 1000, value: 1.05 }, { freq: 2000, value: 1.02 }, { freq: 4000, value: 1.04 }] },
+      { density: 160, thickness: 51, nrc: 1.00, coefficients: [{ freq: 125, value: 0.43 }, { freq: 250, value: 0.89 }, { freq: 500, value: 1.00 }, { freq: 1000, value: 0.99 }, { freq: 2000, value: 0.98 }, { freq: 4000, value: 0.99 }] },
+    ],
+    highlights: [
+      { icon: "waveform", title: "Reduz Eco e Reverberação", desc: "Som mais limpo e definido" },
+      { icon: "ruler", title: "Tamanhos Sob Medida", desc: "Fabricado para seu espaço" },
+      { icon: "palette", title: "34+ Cores Disponíveis", desc: "Combine com qualquer estilo" },
+      { icon: "tool", title: "Instalação Rápida", desc: "Sem ferramentas pesadas" },
+      { icon: "layout", title: "Parede e Teto", desc: "Tratamento onde importa" },
+      { icon: "target", title: "Controle de Reflexões", desc: "Imagem estéreo mais precisa" },
+    ],
+    advantages: [
+      "Redução da transmissão de ruídos entre ambientes",
+      "Aumento do conforto térmico",
+      "Redução do gasto de energia elétrica em ambientes climatizados",
+      "Facilidade no corte (com lâmina ou faca afiada)",
+      "Fácil adaptação a projetos curvos e irregulares",
+      "Desempenho uniforme em toda área isolada",
+      "Contribui na segurança contrafogo",
+    ],
+    properties: [
+      { title: "Térmicas", text: "Apresenta baixa condutividade térmica, conservando energia e garantindo o conforto térmico." },
+      { title: "Acústicas", text: "Devido à sua estrutura fibrosa, possui elevados índices de absorção acústica, tornando possível a sua utilização na redução do ruído na fonte, através de tratamento acústico do ambiente, ou como auxiliar na redução da transmissão de som entre ambientes." },
+      { title: "Comportamento à Água", text: "A lã de rocha é repelente à água devido aos aglomerantes adicionados ao produto, preservando as características originais depois de seca." },
+      { title: "Inércia Química", text: "Não ataca as superfícies com as quais mantém contato. Não há proliferação de fungos e bactérias." },
+    ],
+    certifications: ["ABNT – NBR 11364", "Petrobrás N-1618", "ISO/R 354", "ASTM C 423"],
+    faq: [
+      { question: "Quais frequências este painel mais afeta?", answer: "O Painel Absorvedor Premium é mais eficaz em frequências médias a altas (aproximadamente 250Hz a 4000Hz), melhorando a clareza e reduzindo eco. Para questões de baixa frequência, recomendamos os Bass Traps." },
+      { question: "O que está incluso e como instalar?", answer: "Cada painel vem com hardware de montagem (suportes tipo gancho), tecido acústico certificado e documentação técnica. Instale em paredes ou tetos, em drywall ou alvenaria. Sem necessidade de ferramentas pesadas." },
+      { question: "Posso personalizar o visual mantendo a qualidade sonora?", answer: "Sim. Escolha entre 34+ cores de tecido, diversos tamanhos padrão e tamanhos customizados. Todas as opções de tecido mantêm os padrões acústicos testados em laboratório." },
+      { question: "Qual o tipo de teste acústico realizado?", answer: "Utilizamos normas reconhecidas (ISO/R 354, ASTM C 423), realizamos testes laboratoriais independentes e publicamos dados acústicos completos (NRC, coeficientes por frequência) — a performance é validada, não apenas prometida." },
+    ],
+    longDescription: "O Painel Absorvedor Premium é projetado para resolver uma das questões mais comuns em ambientes sonoros: reverberação excessiva e baixa inteligibilidade causadas por superfícies rígidas e paredes sem tratamento. Estes painéis são especialmente eficazes na eliminação de eco, controle de flutter echoes e reflexões primárias.\n\nEmbora compacto e visualmente elegante, este painel oferece uma quantidade impressionante de performance. Construído com núcleo de lã de rocha de alta densidade, oferece mais absorção em baixas frequências do que painéis de espuma típicos da mesma espessura.",
   },
   {
     slug: "bass-trap-corner",
