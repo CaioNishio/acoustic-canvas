@@ -99,7 +99,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-3 py-2 lg:px-6 lg:py-3 text-base lg:text-2xl font-extralight tracking-wide transition-all duration-500 ease-out rounded-full cursor-pointer font-display whitespace-nowrap ${activeMenu === key ? "text-white bg-white/20 backdrop-blur-sm shadow-md scale-105" : "text-white/80 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.03] hover:shadow-lg hover:shadow-white/5"}`;
+  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2.5 text-sm lg:text-base font-light tracking-wider transition-all duration-500 ease-out rounded-full cursor-pointer font-display whitespace-nowrap uppercase ${activeMenu === key ? "text-white bg-white/15 backdrop-blur-sm shadow-md" : "text-white/70 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.02]"}`;
   return <header className="fixed top-0 left-0 right-0 z-50 px-0 py-[27px]">
       {/* Top Bar */}
       <div className="text-white border-2 bg-gray-800">
@@ -117,14 +117,14 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <div className="bg-[hsl(205,78%,15%)] backdrop-blur-md shadow-lg text-primary-foreground px-0 my-0 mx-0 py-0" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
-        <div className="container h-20 lg:h-28 text-primary-foreground shadow-md my-0 flex-row px-0 py-0 mx-[12px] flex items-start justify-between gap-0">
-          <Link to="/" className="flex items-center flex-shrink-0 mr-6">
-            <img alt="Sonar Acústicos" className="h-16 lg:h-36 w-auto opacity-100 border-primary-foreground object-cover" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" />
+      <div className="bg-[hsl(205,78%,15%)] backdrop-blur-md shadow-lg text-primary-foreground" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
+        <div className="container mx-auto h-20 lg:h-24 px-4 flex items-center justify-between">
+          <Link to="/" className="flex items-center flex-shrink-0">
+            <img alt="Sonar Acústicos" className="h-16 lg:h-20 w-auto" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" />
           </Link>
 
-          {/* Nav - visible on all screens */}
-          <nav className="flex items-center gap-0.5 lg:gap-1 overflow-x-auto scrollbar-hide border-double">
+          {/* Nav - centered */}
+          <nav className="flex items-center gap-1 lg:gap-2">
             <div onMouseEnter={() => openMenu("produtos")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("produtos")}>Produtos</button>
             </div>
@@ -148,16 +148,17 @@ export default function Header() {
                   </motion.div>}
               </AnimatePresence>
             </div>
-            <Link to="/contato" className="hidden lg:block px-5 py-3 text-lg font-bold font-display transition-colors tracking-wide whitespace-nowrap text-destructive-foreground">
-              Fale com um Especialista
-            </Link>
-            <Link to="/orcamento" className="hidden lg:block px-5 py-3 text-lg font-bold font-display text-[hsl(205,78%,15%)] hover:text-primary transition-colors tracking-wide whitespace-nowrap">
-              Projete sua Sala
-            </Link>
           </nav>
 
-          <div className="hidden lg:flex items-center">
-            <button className="p-2 text-foreground hover:text-primary transition-colors"><Search size={18} /></button>
+          {/* Right actions */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Link to="/contato" className="px-5 py-2.5 text-sm font-light font-display transition-all duration-300 tracking-wider whitespace-nowrap text-secondary hover:text-secondary/80 uppercase">
+              Fale com um Especialista
+            </Link>
+            <Link to="/orcamento" className="px-5 py-2.5 text-sm font-light font-display text-white/70 hover:text-white transition-all duration-300 tracking-wider whitespace-nowrap uppercase">
+              Projete sua Sala
+            </Link>
+            <button className="p-2 text-white/50 hover:text-white transition-colors"><Search size={18} /></button>
           </div>
         </div>
       </div>
