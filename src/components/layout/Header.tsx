@@ -268,32 +268,32 @@ export default function Header() {
       }} exit={{
         height: 0,
         opacity: 0
-      }} className="lg:hidden overflow-hidden border-b border-border bg-white shadow-xl">
-            <nav className="flex flex-col p-5 gap-2">
+      }} className="lg:hidden overflow-hidden shadow-xl bg-[hsl(205,78%,15%)]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
+            <nav className="flex flex-col p-5 gap-1">
               {[
           { to: "/produtos", label: "Produtos" },
           { to: "/solucoes", label: "Espaços" },
           { to: "/projetos", label: "Projetos" },
           { to: "/calculadora", label: "Calculadora" }].
           map((item) =>
-          <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
+          <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="px-5 py-2.5 text-sm font-light tracking-wider uppercase rounded-full font-display text-white/70 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm transition-all duration-500 ease-out">
                   {item.label}
                 </Link>
           )}
 
-              <div className="h-px bg-border my-2" />
+              <div className="h-px bg-white/10 my-2" />
 
-              <Link to="/contato" onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
+              <Link to="/contato" onClick={() => setMobileOpen(false)} className="px-5 py-2.5 text-sm font-light tracking-wider uppercase rounded-full font-display text-secondary hover:text-secondary/80 transition-all duration-300">
                 Fale com um Especialista
               </Link>
-              <Link to="/orcamento" onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
+              <Link to="/orcamento" onClick={() => setMobileOpen(false)} className="px-5 py-2.5 text-sm font-light tracking-wider uppercase rounded-full font-display text-white/70 hover:text-white transition-all duration-300">
                 Projete sua Sala
               </Link>
 
-              <div className="h-px bg-border my-2" />
-              <p className="px-6 text-xs font-bold uppercase tracking-widest text-[hsl(205,78%,30%)] mb-1 font-display">Espaços</p>
-              {spaces.map((space) => <Link key={space.path} to={space.path} onClick={() => setMobileOpen(false)} className="px-6 py-2.5 text-base font-bold text-[hsl(205,78%,15%)] hover:text-primary transition-colors flex items-center gap-3 font-display rounded-full hover:bg-primary/5">
-                  <img src={space.image} alt="" className="w-10 h-10 rounded-full object-cover" />
+              <div className="h-px bg-white/10 my-2" />
+              <p className="px-5 text-xs font-light uppercase tracking-widest text-white/40 mb-1 font-display">Espaços</p>
+              {spaces.map((space) => <Link key={space.path} to={space.path} onClick={() => setMobileOpen(false)} className="px-5 py-2.5 text-sm font-light tracking-wider text-white/70 hover:text-white transition-all duration-500 ease-out flex items-center gap-3 font-display rounded-full hover:bg-white/10">
+                  <img src={space.image} alt="" className="w-10 h-10 rounded-full object-cover border border-white/10" />
                   {space.label}
                 </Link>)}
             </nav>
