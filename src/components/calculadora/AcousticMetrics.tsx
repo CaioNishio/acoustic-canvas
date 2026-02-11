@@ -24,13 +24,13 @@ function MetricCard({ label, value, unit, icon, accent, delay = 0 }: MetricCardP
     >
       <div className="flex items-center gap-2 mb-2">
         <span className={accent ? "text-primary" : "text-muted-foreground"}>{icon}</span>
-        <span className="text-[11px] text-muted-foreground font-medium tracking-wide uppercase">{label}</span>
+        <span className="text-xs text-muted-foreground font-medium tracking-wide uppercase">{label}</span>
       </div>
       <div className="flex items-baseline gap-1">
-        <span className={`text-2xl font-bold font-mono tracking-tight ${accent ? "text-primary" : "text-foreground"}`}>
+        <span className={`text-3xl font-bold font-mono tracking-tight ${accent ? "text-primary" : "text-foreground"}`}>
           {value}
         </span>
-        {unit && <span className="text-sm text-muted-foreground">{unit}</span>}
+        {unit && <span className="text-base text-muted-foreground">{unit}</span>}
       </div>
     </motion.div>
   );
@@ -75,7 +75,7 @@ export default function AcousticMetrics({ volume, totalSurface, absorptionArea, 
         className="grid grid-cols-2 gap-3"
       >
         <div className="rounded-xl bg-card/50 border border-border/50 p-4">
-          <p className="text-[11px] text-muted-foreground uppercase tracking-wide mb-1">Melhoria de Clareza</p>
+          <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Melhoria de Clareza</p>
           <div className="flex items-center gap-2">
             <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
               <motion.div
@@ -85,13 +85,13 @@ export default function AcousticMetrics({ volume, totalSurface, absorptionArea, 
                 className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
               />
             </div>
-            <span className="text-sm font-bold font-mono text-primary">{clarityImprovement}%</span>
+            <span className="text-base font-bold font-mono text-primary">{clarityImprovement}%</span>
           </div>
         </div>
         <div className="rounded-xl bg-card/50 border border-border/50 p-4">
-          <p className="text-[11px] text-muted-foreground uppercase tracking-wide mb-1">Total de Painéis</p>
+          <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Total de Painéis</p>
           <div className="flex items-baseline gap-1">
-            <span className="text-2xl font-bold font-mono text-foreground">{panelsNeeded}</span>
+            <span className="text-3xl font-bold font-mono text-foreground">{panelsNeeded}</span>
             <span className="text-xs text-muted-foreground">unidades (1200×600mm)</span>
           </div>
         </div>
@@ -104,7 +104,7 @@ export default function AcousticMetrics({ volume, totalSurface, absorptionArea, 
         transition={{ delay: 0.4 }}
         className="rounded-xl bg-card/50 border border-border/50 p-4"
       >
-        <p className="text-[11px] text-muted-foreground uppercase tracking-wide mb-3">Espectro de Absorção Estimado</p>
+        <p className="text-xs text-muted-foreground uppercase tracking-wide mb-3">Espectro de Absorção Estimado</p>
         <div className="flex items-end gap-1 h-16">
           {[
             { freq: "63", value: 0.15 },
