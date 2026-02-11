@@ -99,7 +99,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-3 py-2 lg:px-6 lg:py-3 text-sm lg:text-lg font-bold tracking-wide transition-all duration-200 rounded-full cursor-pointer font-display whitespace-nowrap ${activeMenu === key ? "text-white bg-primary shadow-md" : "text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5"}`;
+  const navItemClass = (key: MenuKey) => `px-3 py-2 lg:px-6 lg:py-3 text-base lg:text-2xl font-extralight tracking-wide transition-all duration-500 ease-out rounded-full cursor-pointer font-display whitespace-nowrap ${activeMenu === key ? "text-white bg-white/20 backdrop-blur-sm shadow-md scale-105" : "text-white/80 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.03] hover:shadow-lg hover:shadow-white/5"}`;
   return <header className="fixed top-0 left-0 right-0 z-50 px-0 py-[27px]">
       {/* Top Bar */}
       <div className="text-white border-2 bg-gray-800">
