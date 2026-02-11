@@ -99,7 +99,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-full cursor-pointer ${activeMenu === key ? "text-white bg-primary" : "text-foreground/80 hover:text-primary hover:bg-primary/5"}`;
+  const navItemClass = (key: MenuKey) => `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-full cursor-pointer ${activeMenu === key ? "text-white bg-primary" : "text-foreground hover:text-primary hover:bg-primary/5"}`;
   return <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="bg-[hsl(205,78%,12%)] text-white">
@@ -150,10 +150,10 @@ export default function Header() {
                   </motion.div>}
               </AnimatePresence>
             </div>
-            <Link to="/contato" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <Link to="/contato" className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
               Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <Link to="/orcamento" className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
               Projete sua Sala
             </Link>
           </nav>
