@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="h-px bg-white/10 mt-8 mb-4" />
-        <p className="text-center text-xs text-white/40">
+        <p className="text-center text-xs text-white/70">
           © {new Date().getFullYear()} Sonar Acústicos. Todos os direitos reservados.
         </p>
       </div>
