@@ -142,7 +142,7 @@ export default function Header() {
                 {activeMenu === "sobre" && <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 4 }} transition={{ duration: 0.15 }} onMouseEnter={cancelClose} onMouseLeave={scheduleClose} className="absolute top-full left-0 mt-2 bg-white rounded-xl border border-border shadow-xl z-50 min-w-[200px] py-3 px-4">
                     <ul className="space-y-1">
                       {sobreLinks.map((link) => <li key={link.label}>
-                          <Link to={link.path} onClick={() => setActiveMenu(null)} className="block py-1.5 text-sm text-foreground/80 hover:text-primary transition-colors font-medium">
+                          <Link to={link.path} onClick={() => setActiveMenu(null)} className="block py-1.5 text-sm text-[hsl(205,78%,15%)] hover:text-primary transition-colors font-medium">
                             {link.label}
                           </Link>
                         </li>)}
@@ -186,17 +186,17 @@ export default function Header() {
               {/* PRODUTOS */}
               {activeMenu === "produtos" && <div className="flex gap-8">
                   <div className="w-48 flex-shrink-0">
-                    <h3 className="font-display font-bold text-foreground mb-4">Categorias</h3>
-                    <ul className="space-y-2">
-                      {productCategories.map((cat) => <li key={cat.label}>
-                          <Link to={cat.path} onClick={() => setActiveMenu(null)} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                            {cat.label}
-                          </Link>
-                        </li>)}
-                    </ul>
-                    <Link to="/produtos" onClick={() => setActiveMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-foreground mt-6 hover:text-primary transition-colors">
-                      Ver Todos os Produtos <ArrowRight size={14} />
-                    </Link>
+                    <h3 className="font-display font-bold text-[hsl(205,78%,15%)] mb-4">Categorias</h3>
+                     <ul className="space-y-2">
+                       {productCategories.map((cat) => <li key={cat.label}>
+                           <Link to={cat.path} onClick={() => setActiveMenu(null)} className="text-sm text-[hsl(205,78%,30%)] hover:text-primary transition-colors">
+                             {cat.label}
+                           </Link>
+                         </li>)}
+                     </ul>
+                     <Link to="/produtos" onClick={() => setActiveMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-[hsl(205,78%,15%)] mt-6 hover:text-primary transition-colors">
+                       Ver Todos os Produtos <ArrowRight size={14} />
+                     </Link>
                   </div>
                   <div className="flex-1 grid grid-cols-3 gap-4">
                     {productHighlights.map((p) => <Link key={p.name} to={p.path} onClick={() => setActiveMenu(null)} className="group bg-muted/50 rounded-xl overflow-hidden">
@@ -204,7 +204,7 @@ export default function Header() {
                           <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         </div>
                         <div className="p-3">
-                          <p className="text-sm font-semibold text-foreground">{p.name}</p>
+                          <p className="text-sm font-semibold text-[hsl(205,78%,15%)]">{p.name}</p>
                         </div>
                       </Link>)}
                   </div>
@@ -225,12 +225,12 @@ export default function Header() {
               {/* RECURSOS */}
               {activeMenu === "recursos" && <div className="flex gap-8">
                   <div className="w-48 flex-shrink-0">
-                    <h3 className="font-display font-bold text-foreground mb-4">Ferramentas</h3>
-                    <ul className="space-y-3">
-                      {recursos.map((r) => <li key={r.label}>
-                          <Link to={r.path} onClick={() => setActiveMenu(null)} className="block group">
-                            <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{r.label}</span>
-                            <span className="block text-xs text-muted-foreground mt-0.5">{r.desc}</span>
+                       <h3 className="font-display font-bold text-[hsl(205,78%,15%)] mb-4">Ferramentas</h3>
+                     <ul className="space-y-3">
+                       {recursos.map((r) => <li key={r.label}>
+                           <Link to={r.path} onClick={() => setActiveMenu(null)} className="block group">
+                             <span className="text-sm font-semibold text-[hsl(205,78%,15%)] group-hover:text-primary transition-colors">{r.label}</span>
+                             <span className="block text-xs text-[hsl(205,78%,30%)] mt-0.5">{r.desc}</span>
                           </Link>
                         </li>)}
                     </ul>
@@ -241,9 +241,9 @@ export default function Header() {
                         <img src={imgEscritorio} alt="Calculadora" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       </div>
                       <div className="p-4">
-                        <p className="font-semibold text-foreground">Calculadora Acústica</p>
-                        <p className="text-xs text-muted-foreground mt-1">Quantos painéis você precisa?</p>
-                        <span className="text-sm font-semibold text-foreground underline mt-2 inline-block">Calcular Agora</span>
+                        <p className="font-semibold text-[hsl(205,78%,15%)]">Calculadora Acústica</p>
+                        <p className="text-xs text-[hsl(205,78%,30%)] mt-1">Quantos painéis você precisa?</p>
+                        <span className="text-sm font-semibold text-[hsl(205,78%,15%)] underline mt-2 inline-block">Calcular Agora</span>
                       </div>
                     </Link>
                     <Link to="/projetos" onClick={() => setActiveMenu(null)} className="group bg-muted/50 rounded-xl overflow-hidden">
@@ -251,9 +251,9 @@ export default function Header() {
                         <img src={imgEstudio} alt="Projetos" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       </div>
                       <div className="p-4">
-                        <p className="font-semibold text-foreground">Nossos Projetos</p>
-                        <p className="text-xs text-muted-foreground mt-1">Veja ambientes transformados</p>
-                        <span className="text-sm font-semibold text-foreground underline mt-2 inline-block">Ver Projetos</span>
+                         <p className="font-semibold text-[hsl(205,78%,15%)]">Nossos Projetos</p>
+                         <p className="text-xs text-[hsl(205,78%,30%)] mt-1">Veja ambientes transformados</p>
+                         <span className="text-sm font-semibold text-[hsl(205,78%,15%)] underline mt-2 inline-block">Ver Projetos</span>
                       </div>
                     </Link>
                   </div>
