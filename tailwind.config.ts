@@ -23,7 +23,7 @@ export default {
   				'sans-serif'
   			],
   			sans: [
-  				'DM Sans',
+  				'Roboto',
   				'ui-sans-serif',
   				'system-ui',
   				'sans-serif',
@@ -33,7 +33,7 @@ export default {
   				'Noto Color Emoji'
   			],
   			serif: [
-  				'Crimson Pro',
+  				'Lora',
   				'ui-serif',
   				'Georgia',
   				'Cambria',
@@ -42,7 +42,6 @@ export default {
   				'serif'
   			],
   			mono: [
-  				'SF Mono',
   				'ui-monospace',
   				'SFMono-Regular',
   				'Menlo',
