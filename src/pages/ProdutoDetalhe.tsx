@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Download, Check, Volume2, Ruler, Palette, Wrench, LayoutGrid, Target, Shield, Award, Leaf, ChevronDown, CheckCircle, Flame, Droplets, FlaskConical, Bug } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,6 +7,8 @@ import ProductCard from "@/components/shared/ProductCard";
 import AcousticInfoGraphic from "@/components/shared/AcousticInfoGraphic";
 import AbsorptionChart from "@/components/shared/AbsorptionChart";
 import { products, type ProductColor } from "@/data/products";
+
+const Product3DViewer = lazy(() => import("@/components/shared/Product3DViewer"));
 
 const highlightIcons: Record<string, React.ElementType> = {
   waveform: Volume2,
@@ -213,6 +215,13 @@ export default function ProdutoDetalhePage() {
                 <span className="text-xs font-semibold text-foreground">{b.label}</span>
               </div>
             )}
+          </div>
+
+          {/* 3D Viewer Section */}
+          <div className="mt-16">
+            <Suspense fallback={null}>
+              <Product3DViewer product={product} selectedColor={selectedColor} />
+            </Suspense>
           </div>
 
           {/* Performance Section — GIK style */}
