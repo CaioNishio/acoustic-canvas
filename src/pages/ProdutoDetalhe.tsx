@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Download, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/shared/ProductCard";
+import AcousticInfoGraphic from "@/components/shared/AcousticInfoGraphic";
 import { products, type ProductColor } from "@/data/products";
 
 export default function ProdutoDetalhePage() {
@@ -116,6 +117,9 @@ export default function ProdutoDetalhePage() {
                   ))}
                 </div>
               </div>
+
+              {/* Acoustic Infographic */}
+              <AcousticInfoGraphic specs={product.specs} />
 
               {/* Materials */}
               <div className="mt-8">
