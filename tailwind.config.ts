@@ -14,10 +14,10 @@ export default {
   	},
   	extend: {
   		fontFamily: {
-  			display: ['Outfit', 'sans-serif'],
-  			body: ['Plus Jakarta Sans', 'Sora', 'sans-serif'],
-  			sans: ['Plus Jakarta Sans', 'Sora', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-  			serif: ['Outfit', 'ui-serif', 'Georgia', 'serif'],
+  			display: ['DM Sans', 'sans-serif'],
+  			body: ['DM Sans', 'sans-serif'],
+  			sans: ['DM Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			serif: ['DM Sans', 'ui-serif', 'Georgia', 'serif'],
   			mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
   		},
   		colors: {
