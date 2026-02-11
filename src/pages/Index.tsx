@@ -106,13 +106,13 @@ const HomePage = () => {
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
-            <p className="text-secondary tracking-[0.4em] uppercase mb-6 text-base font-light">
+            <p className="tracking-[0.4em] uppercase mb-6 text-base font-light text-amber-50">
               Projetado por Especialistas. Aprovado por Profissionais.
             </p>
-            <h1 className="leading-[1.05] text-white text-5xl lg:text-7xl text-justify font-thin font-serif md:text-7xl">
+            <h1 className="leading-[1.05] text-white text-5xl lg:text-7xl text-justify md:text-7xl font-sans font-normal">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="mt-7 text-lg max-w-md leading-relaxed bg-transparent text-amber-500">
+            <p className="mt-7 max-w-md leading-relaxed bg-transparent text-amber-500 font-normal text-2xl">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
