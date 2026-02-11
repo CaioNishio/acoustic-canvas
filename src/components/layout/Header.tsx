@@ -120,7 +120,7 @@ export default function Header() {
 
       {/* Main Nav */}
       <div className="bg-white/95 backdrop-blur-md border-b shadow-sm border-border">
-        <div className="container mx-auto px-4 flex items-center justify-between h-20 border-muted opacity-0 bg-glass">
+        <div className="container mx-auto px-4 flex items-center justify-between h-20">
           <Link to="/" className="flex items-center flex-shrink-0 mr-6">
             <img src={logo} alt="Sonar Acústicos" className="h-12 w-auto" />
           </Link>
