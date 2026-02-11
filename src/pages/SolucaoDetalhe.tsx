@@ -55,6 +55,35 @@ export default function SolucaoDetalhePage() {
         </div>
       </section>
 
+      {/* Gallery */}
+      {solution.gallery && solution.gallery.length > 0 && (
+        <section className="section-padding bg-muted/30">
+          <div className="container mx-auto">
+            <h2 className="font-display text-2xl font-bold mb-8 text-center">Galeria de Projetos</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {solution.gallery.map((img, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="aspect-square rounded-xl overflow-hidden group"
+                >
+                  <img
+                    src={img}
+                    alt={`${solution.title} - Projeto ${i + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+
       {/* Recommended Products */}
       {recommended.length > 0 && (
         <section className="section-padding bg-secondary/20">

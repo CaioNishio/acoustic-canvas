@@ -4,6 +4,17 @@ import salaAulaBaffles from "@/assets/gallery/sala-aula-baffles.jpeg";
 import escritorioPaineis from "@/assets/gallery/escritorio-paineis.png";
 import paineisSuspensos from "@/assets/gallery/paineis-suspensos.webp";
 
+import igrejaVermelho from "@/assets/gallery/igreja-paineis-vermelho.jpg";
+import igrejaAuditorio from "@/assets/gallery/igreja-auditorio-azul.png";
+import igrejaTemplo from "@/assets/gallery/igreja-templo-paineis.png";
+import igrejaMadeira from "@/assets/gallery/igreja-templo-madeira.png";
+import igrejaSalaEscura from "@/assets/gallery/igreja-sala-escura.jpeg";
+import igrejaColoridos from "@/assets/gallery/igreja-paineis-coloridos.png";
+import igrejaLateral from "@/assets/gallery/igreja-paineis-lateral.png";
+import igrejaGrandes from "@/assets/gallery/igreja-paineis-grandes.png";
+import igrejaAuditorioVermelho from "@/assets/gallery/igreja-auditorio-vermelho.jpeg";
+import igrejaEscritorioBranco from "@/assets/gallery/igreja-escritorio-branco.jpg";
+
 export interface Solution {
   slug: string;
   title: string;
@@ -14,6 +25,7 @@ export interface Solution {
   approach: string;
   recommendedProducts: string[];
   image: string;
+  gallery?: string[];
 }
 
 export const solutions: Solution[] = [
@@ -38,6 +50,18 @@ export const solutions: Solution[] = [
     approach: "Aplicamos forros acústicos para reduzir o tempo de reverberação e painéis estratégicos para melhorar a inteligibilidade sem eliminar a sensação de amplitude do espaço.",
     recommendedProducts: ["forro-acustico-modular", "painel-absorvedor-premium", "bass-trap-corner"],
     image: salaAulaBaffles,
+    gallery: [
+      igrejaVermelho,
+      igrejaAuditorio,
+      igrejaTemplo,
+      igrejaMadeira,
+      igrejaSalaEscura,
+      igrejaColoridos,
+      igrejaLateral,
+      igrejaGrandes,
+      igrejaAuditorioVermelho,
+      igrejaEscritorioBranco,
+    ],
   },
   {
     slug: "auditorios",
