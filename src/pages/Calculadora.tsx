@@ -59,14 +59,14 @@ export default function CalculadoraPage() {
     const selectedInstruments = instrumentOptions.filter((i) => equipment.instruments.includes(i.id));
     const totalLowImpact = selectedInstruments.reduce((sum, i) => sum + i.lowFreqImpact, 0);
     if (totalLowImpact > 0) {
-      absPercent += totalLowImpact * 0.15; // More instruments = more treatment
-      equipmentNotes.push(`Instrumentos detectados exigem +${Math.round(totalLowImpact * 15)}% absorção em graves`);
+      absPercent += totalLowImpact * 0.08;
+      equipmentNotes.push(`Instrumentos detectados exigem +${Math.round(totalLowImpact * 8)}% absorção em graves`);
     }
 
     // Monitor size impact — larger monitors = more low extension = more bass treatment
     const monitor = monitorSizes.find((m) => m.value === equipment.monitorSize);
     if (monitor) {
-      const monitorFactor = (parseInt(monitor.value) - 5) * 0.02;
+      const monitorFactor = (parseInt(monitor.value) - 5) * 0.01;
       absPercent += monitorFactor;
       equipmentNotes.push(`Monitores ${monitor.label} — extensão até ~${monitor.lowExtension}Hz — ${monitor.power}W`);
     }
@@ -74,13 +74,13 @@ export default function CalculadoraPage() {
     // Subwoofer impact — significant low-freq energy
     if (equipment.hasSub) {
       const subInch = parseInt(equipment.subSize) || 10;
-      const subFactor = 0.08 + (subInch - 8) * 0.015;
+      const subFactor = 0.04 + (subInch - 8) * 0.008;
       absPercent += subFactor;
       equipmentNotes.push(`Subwoofer ${subInch}" — extensão até ~${Math.max(20, 50 - subInch * 2)}Hz — requer bass traps reforçados`);
     }
 
-    // Cap absorption at 80%
-    absPercent = Math.min(absPercent, 0.8);
+    // Cap absorption at 60%
+    absPercent = Math.min(absPercent, 0.6);
 
     const absorptionArea = Math.round(totalSurface * absPercent);
     const panelArea = 0.6 * 1.2;

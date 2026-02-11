@@ -2,14 +2,14 @@ import { Calculator, Music, Speaker, Volume1, Guitar, Piano, Drum, Mic } from "l
 import { Slider } from "@/components/ui/slider";
 
 const useTypes = [
-  { value: "estudio", label: "Estúdio de Gravação", rtTarget: 0.4, absPercent: 0.6 },
-  { value: "igreja", label: "Igreja / Templo", rtTarget: 1.2, absPercent: 0.35 },
-  { value: "reuniao", label: "Sala de Reunião", rtTarget: 0.6, absPercent: 0.45 },
-  { value: "auditorio", label: "Auditório", rtTarget: 0.8, absPercent: 0.4 },
-  { value: "home-theater", label: "Home Theater", rtTarget: 0.5, absPercent: 0.5 },
-  { value: "escritorio", label: "Escritório Open Office", rtTarget: 0.7, absPercent: 0.4 },
-  { value: "ensaio", label: "Sala de Ensaio", rtTarget: 0.5, absPercent: 0.55 },
-  { value: "podcast", label: "Podcast / Locução", rtTarget: 0.3, absPercent: 0.65 },
+  { value: "estudio", label: "Estúdio de Gravação", rtTarget: 0.4, absPercent: 0.40 },
+  { value: "igreja", label: "Igreja / Templo", rtTarget: 1.2, absPercent: 0.25 },
+  { value: "reuniao", label: "Sala de Reunião", rtTarget: 0.6, absPercent: 0.30 },
+  { value: "auditorio", label: "Auditório", rtTarget: 0.8, absPercent: 0.28 },
+  { value: "home-theater", label: "Home Theater", rtTarget: 0.5, absPercent: 0.38 },
+  { value: "escritorio", label: "Escritório Open Office", rtTarget: 0.7, absPercent: 0.25 },
+  { value: "ensaio", label: "Sala de Ensaio", rtTarget: 0.5, absPercent: 0.42 },
+  { value: "podcast", label: "Podcast / Locução", rtTarget: 0.3, absPercent: 0.45 },
 ];
 
 export { useTypes };
