@@ -213,7 +213,7 @@ const HomePage = () => {
             <p className="mt-3 max-w-lg mx-auto bg-[#242424]/0 text-zinc-950">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
-          <div className="space-y-20 bg-primary mx-0 px-[145px] py-0 my-0">
+          <div className="space-y-20 mx-0 px-[145px] py-0 my-0 bg-white">
             {processSteps.map((step, i) =>
             <motion.div
               key={step.title}
@@ -279,7 +279,7 @@ const HomePage = () => {
       <AcousticDots />
 
       {/* ===== Why us — with image ===== */}
-      <section className="py-24 px-6 text-white bg-blue-950">
+      <section className="py-24 px-6 text-white bg-sky-900">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div {...fadeUp}>
