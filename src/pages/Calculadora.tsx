@@ -1,13 +1,20 @@
 import { useState, Suspense, lazy } from "react";
-import { ArrowRight, Box, Maximize2, Minimize2 } from "lucide-react";
+import { ArrowRight, Box, Maximize2, Minimize2, LayoutGrid } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { Link } from "react-router-dom";
-import CalculatorForm, { useTypes } from "@/components/calculadora/CalculatorForm";
+import CalculatorForm, { useTypes, instrumentOptions, monitorSizes, type EquipmentData } from "@/components/calculadora/CalculatorForm";
 import AcousticMetrics from "@/components/calculadora/AcousticMetrics";
+import type { LayoutPreset } from "@/components/calculadora/Room3DViewer";
 
 const Room3DViewer = lazy(() => import("@/components/calculadora/Room3DViewer"));
+
+const layoutPresets: { value: LayoutPreset; label: string; desc: string }[] = [
+  { value: "simetrico", label: "Simétrico", desc: "Distribuição espelhada nas paredes — visual limpo e equilibrado" },
+  { value: "reflexao", label: "Reflexão", desc: "Baseado nos pontos de primeira reflexão — máxima precisão acústica" },
+  { value: "hibrido", label: "Híbrido", desc: "Checkerboard decorativo — visual premium com boa performance" },
+];
 
 export default function CalculadoraPage() {
   const [width, setWidth] = useState("");
@@ -15,6 +22,14 @@ export default function CalculadoraPage() {
   const [height, setHeight] = useState("");
   const [use, setUse] = useState("");
   const [expanded3D, setExpanded3D] = useState(false);
+  const [layout, setLayout] = useState<LayoutPreset>("simetrico");
+  const [equipment, setEquipment] = useState<EquipmentData>({
+    instruments: [],
+    monitorSize: "",
+    hasSub: false,
+    subSize: "",
+  });
+
   const [result, setResult] = useState<null | {
     volume: number;
     totalSurface: number;
@@ -23,6 +38,7 @@ export default function CalculadoraPage() {
     products: { name: string; placement: string; qty: number; slug: string }[];
     panelsNeeded: number;
     useLabel: string;
+    equipmentNotes: string[];
   }>(null);
 
   const calculate = () => {
@@ -34,19 +50,78 @@ export default function CalculadoraPage() {
 
     const volume = w * l * h;
     const totalSurface = 2 * (w * l + w * h + l * h);
-    const absorptionArea = Math.round(totalSurface * useType.absPercent);
+
+    // ── Equipment-adjusted absorption percentage ──
+    let absPercent = useType.absPercent;
+    const equipmentNotes: string[] = [];
+
+    // Low-freq impact from instruments
+    const selectedInstruments = instrumentOptions.filter(i => equipment.instruments.includes(i.id));
+    const totalLowImpact = selectedInstruments.reduce((sum, i) => sum + i.lowFreqImpact, 0);
+    if (totalLowImpact > 0) {
+      absPercent += totalLowImpact * 0.15; // More instruments = more treatment
+      equipmentNotes.push(`Instrumentos detectados exigem +${Math.round(totalLowImpact * 15)}% absorção em graves`);
+    }
+
+    // Monitor size impact — larger monitors = more low extension = more bass treatment
+    const monitor = monitorSizes.find(m => m.value === equipment.monitorSize);
+    if (monitor) {
+      const monitorFactor = (parseInt(monitor.value) - 5) * 0.02;
+      absPercent += monitorFactor;
+      equipmentNotes.push(`Monitores ${monitor.label} — extensão até ~${monitor.lowExtension}Hz — ${monitor.power}W`);
+    }
+
+    // Subwoofer impact — significant low-freq energy
+    if (equipment.hasSub) {
+      const subInch = parseInt(equipment.subSize) || 10;
+      const subFactor = 0.08 + (subInch - 8) * 0.015;
+      absPercent += subFactor;
+      equipmentNotes.push(`Subwoofer ${subInch}" — extensão até ~${Math.max(20, 50 - subInch * 2)}Hz — requer bass traps reforçados`);
+    }
+
+    // Cap absorption at 80%
+    absPercent = Math.min(absPercent, 0.8);
+
+    const absorptionArea = Math.round(totalSurface * absPercent);
     const panelArea = 0.6 * 1.2;
     const panelsNeeded = Math.ceil(absorptionArea / panelArea);
 
+    // ── Product recommendation based on use + equipment ──
     const products: { name: string; placement: string; qty: number; slug: string }[] = [];
-    if (useType.value === "estudio" || useType.value === "home-theater") {
-      const wallPanels = Math.ceil(panelsNeeded * 0.5);
-      const bassTraps = Math.min(4, Math.ceil(w * 0.5));
-      const clouds = Math.ceil(panelsNeeded * 0.2);
-      products.push({ name: "Painel SNR3250 (High-Mid)", placement: "Paredes laterais e primeira reflexão", qty: wallPanels, slug: "painel-acustico-snr3250" });
-      products.push({ name: "Bass Trap Corner 3S", placement: "Cantos verticais", qty: bassTraps, slug: "bass-trap-corner" });
-      products.push({ name: "Nuvem Acústica SNR3250", placement: "Teto — acima da posição de escuta", qty: clouds, slug: "nuvem-acustica-snr3250" });
-      products.push({ name: "Difusor Skyline", placement: "Parede traseira", qty: Math.ceil(w / 0.6), slug: "difusor-skyline" });
+
+    // Determine bass trap count based on equipment
+    let bassTrapCount = Math.min(4, Math.ceil(w * 0.5));
+    if (equipment.hasSub || totalLowImpact > 0.2) {
+      bassTrapCount = 4; // Always 4 corners with significant low-freq sources
+    }
+    if (selectedInstruments.some(i => i.id === "bateria")) {
+      bassTrapCount = 4;
+      equipmentNotes.push("Bateria requer tratamento máximo nos 4 cantos");
+    }
+
+    // Determine cloud count — more with monitoring setup
+    let cloudCount = Math.ceil(panelsNeeded * 0.2);
+    if (monitor && parseInt(monitor.value) >= 8) {
+      cloudCount = Math.max(cloudCount, 3);
+      equipmentNotes.push("Monitores ≥8\" requerem nuvem acústica na posição de escuta");
+    }
+
+    // Determine density based on low-freq demands
+    const needsHighDensity = totalLowImpact > 0.2 || equipment.hasSub || (monitor && parseInt(monitor.value) >= 8);
+
+    if (useType.value === "estudio" || useType.value === "home-theater" || useType.value === "ensaio" || useType.value === "podcast") {
+      const wallPanels = Math.ceil(panelsNeeded * 0.45);
+      const panelName = needsHighDensity ? "Painel SNR6450 (Low-Mid)" : "Painel SNR3250 (High-Mid)";
+      const panelSlug = needsHighDensity ? "painel-acustico-snr6450" : "painel-acustico-snr3250";
+
+      products.push({ name: panelName, placement: "Paredes laterais e primeira reflexão", qty: wallPanels, slug: panelSlug });
+      products.push({ name: "Bass Trap Corner 3S", placement: "Cantos verticais", qty: bassTrapCount, slug: "bass-trap-corner" });
+      products.push({ name: "Nuvem Acústica SNR3250", placement: "Teto — acima da posição de escuta", qty: cloudCount, slug: "nuvem-acustica-snr3250" });
+      products.push({ name: "Difusor Skyline", placement: "Parede traseira", qty: Math.ceil(w / 0.5), slug: "difusor-skyline" });
+
+      // Add kit de fixação
+      const totalProducts = wallPanels + bassTrapCount + cloudCount + Math.ceil(w / 0.5);
+      products.push({ name: "Kit de Fixação Acústica", placement: "Fixadores para todos os produtos", qty: totalProducts, slug: "kit-fixacao-acustica" });
     } else if (useType.value === "igreja" || useType.value === "auditorio") {
       products.push({ name: "Painel SNR3250 (High-Mid)", placement: "Paredes laterais", qty: Math.ceil(panelsNeeded * 0.6), slug: "painel-acustico-snr3250" });
       products.push({ name: "Baffles Acústicos", placement: "Teto", qty: Math.ceil(panelsNeeded * 0.3), slug: "baffles-acusticos" });
@@ -57,10 +132,11 @@ export default function CalculadoraPage() {
       products.push({ name: "Painel SNR3225 Slim", placement: "Divisórias", qty: Math.ceil(panelsNeeded * 0.1), slug: "painel-acustico-snr3225-slim" });
     }
 
-    setResult({ volume, totalSurface, absorptionArea, rtTarget: useType.rtTarget, products, panelsNeeded, useLabel: useType.label });
+    setResult({ volume, totalSurface, absorptionArea, rtTarget: useType.rtTarget, products, panelsNeeded, useLabel: useType.label, equipmentNotes });
   };
 
   const hasRoomDimensions = parseFloat(width) > 0 && parseFloat(length) > 0 && parseFloat(height) > 0;
+  const showEquipment = use === "estudio" || use === "home-theater" || use === "ensaio" || use === "podcast";
 
   return (
     <Layout>
@@ -73,12 +149,12 @@ export default function CalculadoraPage() {
           />
 
           <div className="mt-8 grid grid-cols-1 xl:grid-cols-12 gap-6">
-            {/* LEFT COLUMN — Form + Material Reference */}
+            {/* LEFT COLUMN — Form */}
             <div className="xl:col-span-3 space-y-5">
-              <div className="glass-card p-5 md:p-6 sticky top-24">
+              <div className="glass-card p-5 md:p-6 sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto">
                 <CalculatorForm
-                  width={width} length={length} height={height} use={use}
-                  setWidth={setWidth} setLength={setLength} setHeight={setHeight} setUse={setUse}
+                  width={width} length={length} height={height} use={use} equipment={equipment}
+                  setWidth={setWidth} setLength={setLength} setHeight={setHeight} setUse={setUse} setEquipment={setEquipment}
                   onCalculate={calculate}
                 />
 
@@ -105,7 +181,7 @@ export default function CalculadoraPage() {
               </div>
             </div>
 
-            {/* CENTER/RIGHT — 3D Viewer + Results */}
+            {/* CENTER/RIGHT — 3D + Results */}
             <div className="xl:col-span-9 space-y-5">
               {/* 3D Viewer */}
               <motion.div
@@ -121,14 +197,46 @@ export default function CalculadoraPage() {
                       </span>
                     )}
                   </h3>
-                  <button
-                    onClick={() => setExpanded3D(!expanded3D)}
-                    className="p-1.5 rounded-md hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {expanded3D ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
-                  </button>
+                  <div className="flex items-center gap-2">
+                    {/* Layout Selector */}
+                    {result && (
+                      <div className="flex gap-1">
+                        {layoutPresets.map((lp) => (
+                          <button
+                            key={lp.value}
+                            onClick={() => setLayout(lp.value)}
+                            title={lp.desc}
+                            className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all ${
+                              layout === lp.value
+                                ? "bg-primary/15 text-primary border border-primary/30"
+                                : "text-muted-foreground hover:text-foreground border border-transparent"
+                            }`}
+                          >
+                            {lp.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    <button
+                      onClick={() => setExpanded3D(!expanded3D)}
+                      className="p-1.5 rounded-md hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {expanded3D ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+                    </button>
+                  </div>
                 </div>
-                <div className={`p-4 ${expanded3D ? "h-[calc(100%-56px)]" : "h-[450px] lg:h-[500px]"}`}>
+
+                {/* Layout description */}
+                {result && (
+                  <div className="px-4 pt-2">
+                    <p className="text-[10px] text-muted-foreground/70">
+                      <LayoutGrid size={10} className="inline mr-1" />
+                      {layoutPresets.find(lp => lp.value === layout)?.desc}
+                    </p>
+                  </div>
+                )}
+
+                <div className={`p-4 ${expanded3D ? "h-[calc(100%-80px)]" : "h-[450px] lg:h-[500px]"}`}>
                   {hasRoomDimensions ? (
                     <Suspense fallback={
                       <div className="w-full h-full flex items-center justify-center rounded-xl" style={{ background: "linear-gradient(135deg, #050d1a 0%, #0a1628 50%, #0d1f33 100%)" }}>
@@ -144,6 +252,9 @@ export default function CalculadoraPage() {
                         height={parseFloat(height) || 1}
                         products={result?.products}
                         showProducts={!!result}
+                        layout={layout}
+                        hasMonitors={!!equipment.monitorSize}
+                        hasSub={equipment.hasSub}
                       />
                     </Suspense>
                   ) : (
@@ -156,7 +267,6 @@ export default function CalculadoraPage() {
                 </div>
               </motion.div>
 
-              {/* Backdrop for expanded 3D */}
               {expanded3D && (
                 <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40" onClick={() => setExpanded3D(false)} />
               )}
@@ -170,7 +280,22 @@ export default function CalculadoraPage() {
                     exit={{ opacity: 0, y: -10 }}
                     className="space-y-5"
                   >
-                    {/* Metrics Dashboard */}
+                    {/* Equipment Notes */}
+                    {result.equipmentNotes.length > 0 && (
+                      <div className="glass-card p-4">
+                        <h4 className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider mb-2">Análise de Equipamentos</h4>
+                        <div className="space-y-1">
+                          {result.equipmentNotes.map((note, i) => (
+                            <p key={i} className="text-[12px] text-foreground flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                              {note}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Metrics */}
                     <AcousticMetrics
                       volume={result.volume}
                       totalSurface={result.totalSurface}
@@ -180,7 +305,7 @@ export default function CalculadoraPage() {
                       useLabel={result.useLabel}
                     />
 
-                    {/* Material Recommendation */}
+                    {/* Material */}
                     <div className="glass-card p-5">
                       <div className="flex items-center justify-between mb-1">
                         <h4 className="font-display font-semibold text-sm">Material de Absorção Recomendado</h4>
