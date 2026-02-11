@@ -17,9 +17,9 @@ export default function Header() {
   const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass-card border-t-0 border-x-0 rounded-none">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Link to="/" className="font-display text-xl font-bold tracking-tight">
+        <Link to="/" className="font-display text-xl font-bold tracking-tight text-foreground">
           SONAR<span className="text-primary">.</span>
         </Link>
 
@@ -40,14 +40,14 @@ export default function Header() {
           ))}
           <Link
             to="/orcamento"
-            className="ml-2 px-4 py-2 text-sm font-semibold bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+            className="ml-2 px-5 py-2 text-sm font-semibold bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors shadow-sm"
           >
             Orçamento
           </Link>
         </nav>
 
         {/* Mobile toggle */}
-        <button className="md:hidden p-2" onClick={() => setOpen(!open)}>
+        <button className="md:hidden p-2 text-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
@@ -59,7 +59,7 @@ export default function Header() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden border-t border-border"
+            className="md:hidden overflow-hidden border-t border-border bg-card"
           >
             <nav className="flex flex-col p-4 gap-1">
               {navItems.map((item) => (
@@ -69,7 +69,7 @@ export default function Header() {
                   onClick={() => setOpen(false)}
                   className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     location.pathname === item.path
-                      ? "text-primary bg-secondary"
+                      ? "text-primary bg-muted"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -79,7 +79,7 @@ export default function Header() {
               <Link
                 to="/orcamento"
                 onClick={() => setOpen(false)}
-                className="mt-2 px-4 py-2 text-sm font-semibold bg-primary text-primary-foreground rounded-md text-center"
+                className="mt-2 px-4 py-2 text-sm font-semibold bg-primary text-primary-foreground rounded-lg text-center"
               >
                 Orçamento
               </Link>

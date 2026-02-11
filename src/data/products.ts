@@ -15,6 +15,15 @@ import paineisSeminario from "@/assets/gallery/paineis-seminario.jpg";
 import bassTrapCorner from "@/assets/gallery/bass-trap-corner-1.jpg";
 import bassTrapStudio from "@/assets/gallery/bass-trap-studio.jpg";
 import bassTrapPair from "@/assets/gallery/bass-trap-pair.jpg";
+import difusorSkyline from "@/assets/gallery/difusor-skyline-produto.jpg";
+import mdfVazadoAbsorvedor from "@/assets/gallery/mdf-vazado-absorvedor.jpg";
+import mdfVazadoDifusor from "@/assets/gallery/mdf-vazado-difusor.jpg";
+import wavefuserHibrido from "@/assets/gallery/wavefuser-hibrido.jpg";
+
+export interface ProductColor {
+  name: string;
+  hex: string;
+}
 
 export interface Product {
   slug: string;
@@ -30,11 +39,27 @@ export interface Product {
   specs: { label: string; value: string }[];
   materials: string[];
   price?: string;
+  colors?: ProductColor[];
 }
 
-export const categories = ["Painéis Acústicos", "Bass Traps", "Difusores", "Forros Acústicos", "Revestimentos"];
+export const productColors: ProductColor[] = [
+  { name: "Natural", hex: "#D4B896" },
+  { name: "Carvalho Claro", hex: "#C8A96E" },
+  { name: "Carvalho Médio", hex: "#A67B4B" },
+  { name: "Nogueira", hex: "#6B4226" },
+  { name: "Mogno", hex: "#4A1C1C" },
+  { name: "Preto", hex: "#1A1A1A" },
+  { name: "Branco", hex: "#F5F5F0" },
+  { name: "Cinza Claro", hex: "#C0C0C0" },
+  { name: "Cinza Escuro", hex: "#4A4A4A" },
+  { name: "Azul Marinho", hex: "#1B2A4A" },
+  { name: "Terracota", hex: "#C75B2A" },
+  { name: "Verde Musgo", hex: "#4A5B3C" },
+];
+
+export const categories = ["Painéis Acústicos", "Bass Traps", "Difusores", "Forros Acústicos", "Revestimentos", "Painéis MDF Vazado"];
 export const applications = ["Estúdio", "Igreja", "Auditório", "Corporativo", "Residencial"];
-export const materialsFilter = ["Lã de Rocha", "Espuma", "Madeira", "Tecido", "Fibra de Vidro"];
+export const materialsFilter = ["Lã de Rocha", "Espuma", "Madeira", "Tecido", "Fibra de Vidro", "MDF"];
 export const thicknesses = ["25mm", "50mm", "75mm", "100mm"];
 
 export const products: Product[] = [
@@ -46,7 +71,7 @@ export const products: Product[] = [
     material: "Lã de Rocha",
     thickness: "50mm",
     shortDescription: "Absorção sonora de alta performance para ambientes profissionais.",
-    description: "O Painel Absorvedor Premium é projetado para oferecer máxima absorção sonora em médias e altas frequências. Ideal para estúdios de gravação, salas de reunião e home theaters. Revestido em tecido acústico de alta qualidade, disponível em diversas cores.",
+    description: "O Painel Absorvedor Premium é projetado para oferecer máxima absorção sonora em médias e altas frequências. Ideal para estúdios de gravação, salas de reunião e home theaters. Revestido em tecido acústico de alta qualidade, disponível em diversas cores. Sua construção com núcleo de lã de rocha de alta densidade garante performance acústica consistente e durabilidade excepcional.",
     image: paineisSalaReuniao,
     gallery: [paineisSalaReuniao, paineisAzuis, paineisEscritorioRustico, paineisSeminario],
     specs: [
@@ -55,8 +80,10 @@ export const products: Product[] = [
       { label: "Dimensões", value: "600x1200mm" },
       { label: "Peso", value: "3.2kg" },
       { label: "Classe de Fogo", value: "A2" },
+      { label: "Densidade do Núcleo", value: "48kg/m³" },
     ],
     materials: ["Lã de Rocha 48kg/m³", "Tecido Acústico 100% Poliéster", "Moldura em Alumínio"],
+    colors: productColors,
   },
   {
     slug: "bass-trap-corner",
@@ -66,7 +93,7 @@ export const products: Product[] = [
     material: "Lã de Rocha",
     thickness: "100mm",
     shortDescription: "Controle de graves em cantos e junções de paredes.",
-    description: "Bass Trap Corner projetado para absorção eficiente de baixas frequências. Instalação em cantos verticais para máximo aproveitamento do espaço e controle modal.",
+    description: "Bass Trap Corner projetado para absorção eficiente de baixas frequências. Instalação em cantos verticais para máximo aproveitamento do espaço e controle modal. Desenvolvido com base nos princípios de ressonância de Helmholtz, oferece absorção broadband desde 60Hz até 500Hz, sendo essencial para o tratamento acústico de qualquer sala de controle ou estúdio profissional.",
     image: bassTrapCorner,
     gallery: [bassTrapCorner, bassTrapPair, bassTrapStudio],
     specs: [
@@ -75,8 +102,10 @@ export const products: Product[] = [
       { label: "Dimensões", value: "300x300x1200mm" },
       { label: "Peso", value: "4.8kg" },
       { label: "Classe de Fogo", value: "A2" },
+      { label: "Faixa de Absorção", value: "60Hz – 500Hz" },
     ],
     materials: ["Lã de Rocha 64kg/m³", "Tecido Acústico", "Estrutura Metálica"],
+    colors: productColors.slice(0, 6),
   },
   {
     slug: "difusor-skyline",
@@ -85,18 +114,87 @@ export const products: Product[] = [
     application: ["Estúdio", "Auditório", "Corporativo"],
     material: "Madeira",
     thickness: "75mm",
-    shortDescription: "Difusão sonora para ambientes que exigem clareza acústica.",
-    description: "O Difusor Skyline oferece difusão bidimensional de alta qualidade. Fabricado em madeira maciça com acabamento premium. Ideal para salas de controle, auditórios e salas de concerto.",
-    image: paineisColoridosTeto,
-    gallery: [paineisColoridosTeto, nuvemAcustica],
+    shortDescription: "Difusão sonora bidimensional com blocos 3D de alturas variáveis.",
+    description: "O Difusor Skyline é baseado no modelo de difusão QRD (Quadratic Residue Diffuser), utilizando blocos de madeira maciça em alturas matematicamente calculadas para criar difusão bidimensional uniforme. Cada bloco é posicionado seguindo uma sequência de resíduos quadráticos que garante espalhamento sonoro em todas as direções. Ideal para paredes traseiras de salas de controle, auditórios e salas de concerto onde a preservação da energia sonora é desejada sem reflexões especulares.",
+    image: difusorSkyline,
+    gallery: [difusorSkyline, paineisColoridosTeto, nuvemAcustica],
     specs: [
-      { label: "Faixa de Difusão", value: "800Hz - 8kHz" },
-      { label: "Profundidade", value: "75mm" },
+      { label: "Faixa de Difusão", value: "800Hz – 8kHz" },
+      { label: "Profundidade Máx.", value: "75mm" },
       { label: "Dimensões", value: "600x600mm" },
       { label: "Peso", value: "5.5kg" },
-      { label: "Material", value: "MDF Premium" },
+      { label: "Sequência", value: "QRD N=7" },
+      { label: "Material", value: "Pinus Maciço / MDF Premium" },
     ],
-    materials: ["MDF 18mm", "Acabamento Laqueado", "Fixação Oculta"],
+    materials: ["Blocos de Pinus Maciço", "Base em MDF 18mm", "Acabamento Natural ou Laqueado", "Fixação Oculta em Aço"],
+    colors: productColors.filter(c => ["Natural", "Carvalho Claro", "Carvalho Médio", "Nogueira", "Mogno", "Preto", "Branco"].includes(c.name)),
+  },
+  {
+    slug: "painel-mdf-vazado-absorvedor",
+    name: "Painel MDF Vazado Absorvedor",
+    category: "Painéis MDF Vazado",
+    application: ["Estúdio", "Corporativo", "Residencial", "Auditório"],
+    material: "MDF",
+    thickness: "50mm",
+    shortDescription: "Absorção acústica com estética de madeira vazada e fendas verticais.",
+    description: "O Painel MDF Vazado Absorvedor combina design sofisticado com performance acústica de alto nível. As fendas verticais no painel frontal em MDF permitem a passagem do som até o núcleo absorvente de lã de rocha, proporcionando absorção eficiente em médias e altas frequências. O padrão de fendas segue cálculos de ressonância para maximizar a absorção em faixas críticas. Disponível em 12 acabamentos de madeira e cores, adapta-se a qualquer ambiente profissional ou residencial.",
+    image: mdfVazadoAbsorvedor,
+    gallery: [mdfVazadoAbsorvedor, paineisSeminario, escritorioPaineisAzuis],
+    specs: [
+      { label: "NRC", value: "0.85" },
+      { label: "Espessura Total", value: "50mm" },
+      { label: "Espessura MDF", value: "6mm" },
+      { label: "Dimensões", value: "600x600mm" },
+      { label: "Peso", value: "4.2kg" },
+      { label: "Classe de Fogo", value: "B1" },
+      { label: "Faixa de Absorção", value: "250Hz – 4kHz" },
+    ],
+    materials: ["MDF Vazado 6mm", "Lã de Rocha 48kg/m³", "Manta Acústica TNT", "Moldura em MDF 18mm"],
+    colors: productColors,
+  },
+  {
+    slug: "painel-mdf-vazado-difusor",
+    name: "Painel MDF Vazado Difusor",
+    category: "Painéis MDF Vazado",
+    application: ["Estúdio", "Auditório", "Corporativo"],
+    material: "MDF",
+    thickness: "50mm",
+    shortDescription: "Difusão e absorção parcial com padrão geométrico de fendas cruzadas.",
+    description: "O Painel MDF Vazado Difusor utiliza um padrão geométrico de fendas horizontais e verticais alternadas que cria difusão sonora multidirecional. Diferente do modelo absorvedor, este painel é projetado para espalhar o som de forma controlada, mantendo a vivacidade acústica do ambiente enquanto elimina ecos e flutter echoes. O padrão cruzado é calculado para otimizar a difusão na faixa de 500Hz a 6kHz, tornando-o ideal para paredes laterais e traseiras de estúdios e auditórios.",
+    image: mdfVazadoDifusor,
+    gallery: [mdfVazadoDifusor, estudioPaineis, paineisAzuis],
+    specs: [
+      { label: "Faixa de Difusão", value: "500Hz – 6kHz" },
+      { label: "Espessura Total", value: "50mm" },
+      { label: "Espessura MDF", value: "6mm" },
+      { label: "Dimensões", value: "600x600mm" },
+      { label: "Peso", value: "3.8kg" },
+      { label: "Padrão", value: "Cruzado Geométrico" },
+    ],
+    materials: ["MDF Vazado 6mm", "Câmara de Ar Interna", "Feltro Acústico 12mm", "Moldura em MDF 18mm"],
+    colors: productColors,
+  },
+  {
+    slug: "wavefuser",
+    name: "Wavefuser Híbrido",
+    category: "Difusores",
+    application: ["Estúdio", "Auditório", "Residencial"],
+    material: "Madeira",
+    thickness: "75mm",
+    shortDescription: "Painel híbrido que combina difusão e absorção com design ondulado.",
+    description: "O Wavefuser Híbrido é um painel acústico inovador que combina propriedades de difusão e absorção em um único produto. A face frontal em madeira maciça apresenta fendas verticais com perfil ondulado que criam difusão controlada, enquanto o núcleo de espuma acústica de alta densidade absorve as frequências que atravessam as fendas. O resultado é um tratamento acústico completo que mantém a energia sonora do ambiente de forma equilibrada. Disponível em 3 acabamentos de madeira: Natural, Nogueira e Mogno.",
+    image: wavefuserHibrido,
+    gallery: [wavefuserHibrido, difusorSkyline, mdfVazadoAbsorvedor],
+    specs: [
+      { label: "NRC (Absorção)", value: "0.55" },
+      { label: "Difusão", value: "800Hz – 6kHz" },
+      { label: "Espessura Total", value: "75mm" },
+      { label: "Dimensões", value: "600x600mm" },
+      { label: "Peso", value: "6.0kg" },
+      { label: "Tipo", value: "Híbrido Difusor/Absorvedor" },
+    ],
+    materials: ["Madeira Maciça (Pinus/Nogueira/Mogno)", "Espuma Acústica 32kg/m³", "Base em MDF 18mm", "Acabamento Natural ou Tingido"],
+    colors: productColors.filter(c => ["Natural", "Carvalho Claro", "Carvalho Médio", "Nogueira", "Mogno"].includes(c.name)),
   },
   {
     slug: "forro-acustico-modular",
@@ -106,7 +204,7 @@ export const products: Product[] = [
     material: "Fibra de Vidro",
     thickness: "25mm",
     shortDescription: "Sistema de forro com absorção integrada.",
-    description: "Forro acústico modular com design clean e alta absorção. Sistema de fixação rápida com grid metálico. Ideal para escritórios, igrejas e ambientes de grande porte.",
+    description: "Forro acústico modular com design clean e alta absorção. Sistema de fixação rápida com grid metálico. Ideal para escritórios, igrejas e ambientes de grande porte. A modularidade permite fácil manutenção e acesso ao plenum, enquanto a superfície em véu de vidro proporciona acabamento uniforme e elegante.",
     image: forroCorporativo,
     gallery: [forroCorporativo, forroIndustrial],
     specs: [
@@ -117,6 +215,7 @@ export const products: Product[] = [
       { label: "Classe de Fogo", value: "A1" },
     ],
     materials: ["Fibra de Vidro", "Véu de Vidro", "Grid em Aço Galvanizado"],
+    colors: [productColors[6], productColors[7], productColors[8]],
   },
   {
     slug: "revestimento-ripado",
@@ -126,7 +225,7 @@ export const products: Product[] = [
     material: "Madeira",
     thickness: "50mm",
     shortDescription: "Revestimento de parede com estética premium e absorção.",
-    description: "Revestimento ripado que combina estética sofisticada com performance acústica. As ripas em madeira natural criam um visual premium enquanto o núcleo absorvente trata a acústica do ambiente.",
+    description: "Revestimento ripado que combina estética sofisticada com performance acústica. As ripas em madeira natural criam um visual premium enquanto o núcleo absorvente trata a acústica do ambiente. Cada módulo é fabricado com ripas de madeira selecionada, espaçadas uniformemente sobre feltro acústico de alta densidade, garantindo absorção eficiente nas frequências médias e altas.",
     image: escritorioPaineis,
     gallery: [escritorioPaineis, paineisSeminario],
     specs: [
@@ -137,6 +236,7 @@ export const products: Product[] = [
       { label: "Acabamento", value: "Natural / Carvalho / Nogueira" },
     ],
     materials: ["Ripas de Madeira Natural", "Feltro Acústico 12mm", "MDF Estrutural"],
+    colors: productColors.filter(c => ["Natural", "Carvalho Claro", "Carvalho Médio", "Nogueira", "Mogno", "Preto", "Branco"].includes(c.name)),
   },
   {
     slug: "painel-tecido-slim",
@@ -146,7 +246,7 @@ export const products: Product[] = [
     material: "Espuma",
     thickness: "25mm",
     shortDescription: "Painel ultrafino para tratamento acústico discreto.",
-    description: "Painel acústico slim com apenas 25mm de espessura. Ideal para ambientes onde o espaço é limitado. Revestido em tecido premium com mais de 30 opções de cores.",
+    description: "Painel acústico slim com apenas 25mm de espessura. Ideal para ambientes onde o espaço é limitado. Revestido em tecido premium com mais de 30 opções de cores. Sua construção leve e perfil fino permitem instalação em qualquer superfície, incluindo divisórias e paredes de drywall, sem comprometer o espaço útil do ambiente.",
     image: paineisAzuis,
     gallery: [paineisAzuis, escritorioPaineisAzuis, painelImagemDigital],
     specs: [
@@ -157,5 +257,6 @@ export const products: Product[] = [
       { label: "Cores", value: "30+ opções" },
     ],
     materials: ["Espuma Acústica 28kg/m³", "Tecido 100% Poliéster", "Base em MDF 3mm"],
+    colors: productColors,
   },
 ];
