@@ -99,7 +99,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-full cursor-pointer ${activeMenu === key ? "text-white bg-primary" : "text-foreground hover:text-primary hover:bg-primary/5"}`;
+  const navItemClass = (key: MenuKey) => `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-full cursor-pointer ${activeMenu === key ? "text-white bg-primary" : "text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5"}`;
   return <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="bg-[hsl(205,78%,12%)] text-white">
@@ -120,9 +120,9 @@ export default function Header() {
 
       {/* Main Nav */}
       <div className="bg-white/95 backdrop-blur-md border-b shadow-sm border-border">
-        <div className="container mx-auto px-4 flex items-center justify-between h-20">
+        <div className="container mx-auto px-4 flex items-center justify-between h-28">
           <Link to="/" className="flex items-center flex-shrink-0 mr-6">
-            <img src={logo} alt="Sonar Acústicos" className="h-12 w-auto" />
+            <img src={logo} alt="Sonar Acústicos" className="h-36 w-auto" />
           </Link>
 
           {/* Desktop nav */}
@@ -150,10 +150,10 @@ export default function Header() {
                   </motion.div>}
               </AnimatePresence>
             </div>
-            <Link to="/contato" className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link to="/contato" className="px-4 py-2 text-sm font-medium text-[hsl(205,78%,15%)] hover:text-primary transition-colors">
               Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link to="/orcamento" className="px-4 py-2 text-sm font-medium text-[hsl(205,78%,15%)] hover:text-primary transition-colors">
               Projete sua Sala
             </Link>
           </nav>
