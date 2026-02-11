@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Calculator, Ruler, Wrench, Palette, Star, Users, CheckCircle, Phone } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-
+import { WaveDivider, FrequencyBars, SoundWaveLine, SoundRings, AcousticDots, WaveSectionBorder } from "@/components/shared/SoundDividers";
 // Hero & showcase images
 import heroEstudioAzul from "@/assets/gallery/hero-estudio-azul.png";
 import heroMdf from "@/assets/gallery/hero-mdf-vazado.jpg";
@@ -140,6 +140,9 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Wave divider: Hero → Spaces */}
+      <WaveDivider color="hsl(var(--primary))" />
+
       {/* ===== Spaces — horizontal navigation ===== */}
       <section className="bg-background py-16">
         <div className="container mx-auto px-6">
@@ -160,6 +163,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Sound wave line: Spaces → Portfolio */}
+      <SoundWaveLine />
 
       {/* ===== Portfolio mosaic ===== */}
       <section className="bg-muted/50 py-20">
@@ -194,6 +200,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Frequency bars: Portfolio → Process */}
+      <FrequencyBars count={32} className="py-10" />
 
       {/* ===== Process — Como Funciona ===== */}
       <section className="py-24 bg-primary-foreground">
@@ -236,6 +245,9 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Wave border: Process → Gallery strip */}
+      <WaveDivider flip color="hsl(var(--primary))" />
+
       {/* ===== Full-width gallery strip ===== */}
       <section className="bg-background py-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
@@ -262,6 +274,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Acoustic dots: Gallery → Why us */}
+      <AcousticDots />
 
       {/* ===== Why us — with image ===== */}
       <section className="py-24 px-6 text-white bg-blue-950">
@@ -303,6 +318,9 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Sound rings: Why us → Testimonials */}
+      <SoundRings />
+
       {/* ===== Testimonials ===== */}
       <section className="py-20 px-6 bg-background">
         <div className="container mx-auto">
@@ -328,6 +346,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Wave divider: Testimonials → CTA */}
+      <WaveDivider color="hsl(var(--primary))" className="opacity-50" />
 
       {/* ===== CTA ===== */}
       <section className="relative py-32 px-6 overflow-hidden">
