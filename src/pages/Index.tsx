@@ -7,411 +7,344 @@ import ProductCard from "@/components/shared/ProductCard";
 import { products } from "@/data/products";
 import { solutions } from "@/data/solutions";
 
-// Gallery images
+// Hero images
+import heroMdf from "@/assets/gallery/hero-mdf-vazado.jpg";
+import heroDifusores from "@/assets/gallery/hero-difusores-madeira.jpg";
+import heroNuvens from "@/assets/gallery/hero-nuvens-acusticas.jpg";
+import heroEstudioDark from "@/assets/gallery/hero-estudio-dark.jpeg";
+import heroForro from "@/assets/gallery/hero-forro-industrial.jpg";
+import heroBafflesColor from "@/assets/gallery/hero-baffles-coloridos.jpeg";
+import heroEstudioAzul from "@/assets/gallery/hero-estudio-azul.png";
+import heroHomeStudio from "@/assets/gallery/hero-home-studio.jpeg";
+import heroBafflesAzuis from "@/assets/gallery/hero-baffles-azuis.jpg";
+import heroForroCorp from "@/assets/gallery/hero-forro-corporativo.jpg";
+
+// Existing gallery images
 import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
 import imgSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.png";
-import imgBaffles from "@/assets/gallery/baffles-coloridos.jpg";
 import imgNuvem from "@/assets/gallery/nuvem-acustica.webp";
-import imgForro from "@/assets/gallery/forro-corporativo.jpg";
-import imgAcademiaBaffles from "@/assets/gallery/academia-baffles.jpeg";
-import imgAcademiaTeto from "@/assets/gallery/academia-teto.jpeg";
-import imgEscritorioAzuis from "@/assets/gallery/escritorio-paineis-azuis.jpeg";
 import imgEscritorio from "@/assets/gallery/escritorio-paineis.png";
-import imgSalaAula from "@/assets/gallery/sala-aula-baffles.jpeg";
-import imgForroIndustrial from "@/assets/gallery/forro-industrial.jpg";
-import imgHexagonais from "@/assets/gallery/hexagonais-teto.png";
-import imgPaineisSuspensos from "@/assets/gallery/paineis-suspensos.webp";
-import imgPaineisColoridos from "@/assets/gallery/paineis-coloridos-teto.png";
-import imgSalaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
-const spaces = [{
-  label: "Estúdios",
-  path: "/solucoes/estudios",
-  image: imgEstudio
-}, {
-  label: "Igrejas",
-  path: "/solucoes/igrejas",
-  image: imgNuvem
-}, {
-  label: "Auditórios",
-  path: "/solucoes/auditorios",
-  image: imgSalaReuniao
-}, {
-  label: "Corporativo",
-  path: "/solucoes/corporativo",
-  image: imgEscritorio
-}, {
-  label: "Todos os Espaços",
-  path: "/solucoes",
-  image: imgAcademiaBaffles
-}];
-const features = [{
-  icon: Volume2,
-  title: "Alta Absorção",
-  desc: "NRC até 0.95 para controle sonoro profissional"
-}, {
-  icon: Shield,
-  title: "Certificação A2",
-  desc: "Materiais com classificação de resistência ao fogo"
-}, {
-  icon: Ruler,
-  title: "Sob Medida",
-  desc: "Projetos personalizados para cada ambiente"
-}, {
-  icon: Headphones,
-  title: "Consultoria",
-  desc: "Análise acústica profissional inclusa"
-}];
-const stats = [{
-  value: "500+",
-  label: "Projetos Realizados"
-}, {
-  value: "98%",
-  label: "Clientes Satisfeitos"
-}, {
-  value: "12",
-  label: "Anos de Experiência"
-}, {
-  value: "40+",
-  label: "Cores Disponíveis"
-}];
-const testimonials = [{
-  name: "Ricardo Almeida",
-  role: "Engenheiro de Som",
-  text: "Os painéis da Sonar transformaram completamente a acústica do meu estúdio. A qualidade do monitoramento melhorou drasticamente."
-}, {
-  name: "Arq. Marina Santos",
-  role: "Arquiteta",
-  text: "Trabalho com a Sonar há 3 anos. A qualidade dos materiais e o suporte técnico são incomparáveis no mercado brasileiro."
-}, {
-  name: "Pe. João Silva",
-  role: "Paróquia N.S. Aparecida",
-  text: "Após o tratamento acústico, a inteligibilidade da palavra na igreja melhorou enormemente. Os fiéis agradecem."
-}];
+import imgAcademiaBaffles from "@/assets/gallery/academia-baffles.jpeg";
+import imgEscritorioAzuis from "@/assets/gallery/escritorio-paineis-azuis.jpeg";
+
+const spaces = [
+  { label: "Estúdios", path: "/solucoes/estudios", image: heroEstudioAzul },
+  { label: "Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
+  { label: "Auditórios", path: "/solucoes/auditorios", image: heroMdf },
+  { label: "Corporativo", path: "/solucoes/corporativo", image: heroForroCorp },
+  { label: "Todos os Espaços", path: "/solucoes", image: heroBafflesColor },
+];
+
+const features = [
+  { icon: Volume2, title: "Alta Absorção", desc: "NRC até 0.95 para controle sonoro profissional" },
+  { icon: Shield, title: "Certificação A2", desc: "Materiais com classificação de resistência ao fogo" },
+  { icon: Ruler, title: "Sob Medida", desc: "Projetos personalizados para cada ambiente" },
+  { icon: Headphones, title: "Consultoria", desc: "Análise acústica profissional inclusa" },
+];
+
+const stats = [
+  { value: "500+", label: "Projetos Realizados" },
+  { value: "98%", label: "Clientes Satisfeitos" },
+  { value: "12", label: "Anos de Experiência" },
+  { value: "40+", label: "Cores Disponíveis" },
+];
+
+const testimonials = [
+  { name: "Ricardo Almeida", role: "Engenheiro de Som", text: "Os painéis da Sonar transformaram completamente a acústica do meu estúdio. A qualidade do monitoramento melhorou drasticamente." },
+  { name: "Arq. Marina Santos", role: "Arquiteta", text: "Trabalho com a Sonar há 3 anos. A qualidade dos materiais e o suporte técnico são incomparáveis no mercado brasileiro." },
+  { name: "Pe. João Silva", role: "Paróquia N.S. Aparecida", text: "Após o tratamento acústico, a inteligibilidade da palavra na igreja melhorou enormemente. Os fiéis agradecem." },
+];
+
+const showcaseImages = [
+  { img: heroEstudioAzul, label: "Estúdio Musical" },
+  { img: heroBafflesAzuis, label: "Baffles Suspensos" },
+  { img: heroDifusores, label: "Difusores Skyline" },
+  { img: heroForroCorp, label: "Forro Corporativo" },
+];
+
 const HomePage = () => {
-  return <Layout>
-      {/* Spaces Navigation Cards — GIK style */}
-      <section className="bg-card border-b border-border">
-        <div className="container mx-0 my-[178px] px-[54px] py-[90px]">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            {spaces.map(space => <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-xl aspect-[4/3]">
-                <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.55] group-hover:brightness-[0.45]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-                  <h3 className="text-white font-display font-bold text-base md:text-lg leading-tight drop-shadow-lg">
-                    {space.label}
-                  </h3>
-                  <ArrowRight size={16} className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
-                </div>
-              </Link>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Hero */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+  return (
+    <Layout>
+      {/* ===== HERO — Full-width horizontal image ===== */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={imgBaffles} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/70 to-secondary/30 bg-foreground opacity-30" />
+          <img src={heroEstudioAzul} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,12%)]/90 via-[hsl(205,78%,12%)]/60 to-transparent" />
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-primary/50 via-primary/20 to-transparent" />
-
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.8
-        }} className="max-w-2xl">
-            <p className="text-xs md:text-sm font-semibold tracking-[0.3em] uppercase text-primary mb-4">
-              Projetado por Especialistas. Aprovado por Profissionais.
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl"
+          >
+            <p className="text-secondary text-sm font-bold tracking-[0.3em] uppercase mb-5">
+              Projetado por Especialistas
             </p>
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white">
-              A Referência em Tratamento Acústico
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white">
+              A Referência em<br />Tratamento Acústico
             </h1>
-            <div className="mt-8">
-              <Link to="/produtos" className="inline-flex items-center gap-3 px-7 py-4 bg-card text-foreground font-semibold rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm">
-                Descubra Todos os Produtos <ArrowRight size={16} />
+            <p className="text-white/60 mt-6 text-lg max-w-lg leading-relaxed">
+              Painéis, difusores e bass traps de alta performance para transformar qualquer ambiente.
+            </p>
+            <div className="flex flex-wrap gap-4 mt-10">
+              <Link to="/produtos" className="inline-flex items-center gap-3 px-8 py-4 bg-secondary text-secondary-foreground font-bold rounded-full hover:bg-secondary/90 transition-all text-sm shadow-lg shadow-secondary/30">
+                Ver Produtos <ArrowRight size={16} />
+              </Link>
+              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all text-sm">
+                Solicitar Orçamento
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <div className="h-1 bg-primary" />
-
-      {/* Stats bar */}
-      <section className="bg-background py-12 border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((s, i) => <motion.div key={s.label} initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: i * 0.1
-          }} className="text-center">
-                <p className="font-display text-4xl md:text-5xl font-bold text-primary">{s.value}</p>
-                <p className="text-sm text-muted-foreground mt-1">{s.label}</p>
-              </motion.div>)}
+      {/* ===== Spaces navigation — horizontal cards ===== */}
+      <section className="bg-background py-16">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {spaces.map((space) => (
+              <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3]">
+                <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.5] group-hover:brightness-[0.4]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,12%)]/70 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                  <h3 className="text-white font-bold text-base md:text-lg drop-shadow-lg">{space.label}</h3>
+                  <ArrowRight size={16} className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Best Sellers */}
-      <section className="section-padding bg-muted/30">
+      {/* ===== Stats bar ===== */}
+      <section className="bg-primary py-14">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((s, i) => (
+              <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
+                <p className="text-4xl md:text-5xl font-bold text-primary-foreground">{s.value}</p>
+                <p className="text-sm text-primary-foreground/70 mt-1">{s.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Showcase — large horizontal images ===== */}
+      <section className="bg-background py-20">
+        <div className="container mx-auto px-6">
+          <SectionHeading tag="Galeria" title="Ambientes Transformados" description="Veja como nossos produtos transformam espaços reais." />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {showcaseImages.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="relative group overflow-hidden rounded-2xl aspect-[16/9]"
+              >
+                <img src={item.img} alt={item.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,12%)]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-5 left-5">
+                  <span className="text-white font-bold text-lg drop-shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">{item.label}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Best Sellers ===== */}
+      <section className="py-20 px-6 bg-[hsl(210,15%,97%)]">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground tracking-tight">MAIS VENDIDOS</h2>
+          <div className="text-center mb-14">
+            <span className="text-secondary text-sm font-bold tracking-[0.3em] uppercase">Destaques</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-3 tracking-tight">Mais Vendidos</h2>
             <p className="text-muted-foreground mt-3 text-lg">Os favoritos de arquitetos e engenheiros acústicos</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.slice(0, 3).map(p => <ProductCard key={p.slug} product={p} />)}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            {products.slice(0, 3).map((p) => (
+              <ProductCard key={p.slug} product={p} />
+            ))}
           </div>
-          <div className="text-center mt-10">
-            <Link to="/produtos" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-foreground text-foreground font-semibold rounded-full hover:bg-foreground hover:text-background transition-colors text-sm">
+          <div className="text-center mt-12">
+            <Link to="/produtos" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors text-sm">
               Ver todos os produtos <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Features strip */}
-      <section className="bg-secondary text-secondary-foreground py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((f, i) => <motion.div key={f.title} initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: i * 0.1
-          }} className="text-center">
-                <div className="w-14 h-14 rounded-full border-2 border-primary/40 flex items-center justify-center mx-auto mb-4">
-                  <f.icon className="text-primary" size={24} />
+      {/* ===== Features strip — dark blue glass ===== */}
+      <section className="bg-[hsl(205,78%,12%)] text-white py-20">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {features.map((f, i) => (
+              <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
+                <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-5 border border-white/10">
+                  <f.icon className="text-secondary" size={26} />
                 </div>
-                <h3 className="font-display font-semibold text-base">{f.title}</h3>
-                <p className="text-sm text-secondary-foreground/60 mt-2">{f.desc}</p>
-              </motion.div>)}
+                <h3 className="font-bold text-lg">{f.title}</h3>
+                <p className="text-sm text-white/50 mt-2 leading-relaxed">{f.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Full-width gallery strip */}
+      {/* ===== Full-width gallery strip ===== */}
       <section className="bg-background py-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-          {[imgEstudio, imgEscritorioAzuis, imgForro, imgSalaTratamento].map((img, i) => <motion.div key={i} initial={{
-          opacity: 0
-        }} whileInView={{
-          opacity: 1
-        }} viewport={{
-          once: true
-        }} transition={{
-          delay: i * 0.1
-        }} className="relative group overflow-hidden aspect-[4/3]">
+          {[heroMdf, heroNuvens, heroForro, heroHomeStudio].map((img, i) => (
+            <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="relative group overflow-hidden aspect-[4/3]">
               <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-              <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/20 transition-colors duration-500" />
-            </motion.div>)}
+              <div className="absolute inset-0 bg-[hsl(205,78%,12%)]/0 group-hover:bg-[hsl(205,78%,12%)]/20 transition-colors duration-500" />
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Solutions by space */}
-      <section className="section-padding bg-background">
+      {/* ===== Solutions by space ===== */}
+      <section className="py-20 px-6 bg-background">
         <div className="container mx-auto">
           <SectionHeading tag="Soluções" title="Para Cada Ambiente, Uma Solução" description="Soluções acústicas especializadas para diferentes tipos de espaço." />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {solutions.slice(0, 3).map(s => <motion.div key={s.slug} initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }}>
-                <Link to={`/solucoes/${s.slug}`} className="glass-card-hover block group overflow-hidden rounded-xl">
-                  <div className="aspect-video overflow-hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            {solutions.slice(0, 3).map((s) => (
+              <motion.div key={s.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <Link to={`/solucoes/${s.slug}`} className="block group bg-background rounded-2xl overflow-hidden border border-border/60 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/[0.06]">
+                  <div className="aspect-video overflow-hidden rounded-t-2xl">
                     <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-lg font-semibold text-foreground">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-2">{s.shortDescription}</p>
-                    <span className="inline-flex items-center gap-1 text-primary text-sm font-semibold mt-3">
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.shortDescription}</p>
+                    <span className="inline-flex items-center gap-1.5 text-secondary text-sm font-semibold mt-4 group-hover:gap-2.5 transition-all">
                       Saiba mais <ArrowRight size={14} />
                     </span>
                   </div>
                 </Link>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Large gallery mosaic */}
-      <section className="py-0">
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-0">
-          {[imgAcademiaTeto, imgSalaAula, imgHexagonais, imgForroIndustrial, imgPaineisSuspensos, imgPaineisColoridos].map((img, i) => <motion.div key={i} initial={{
-          opacity: 0
-        }} whileInView={{
-          opacity: 1
-        }} viewport={{
-          once: true
-        }} transition={{
-          delay: i * 0.05
-        }} className="relative group overflow-hidden aspect-square">
-              <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-              <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/30 transition-colors duration-500" />
-            </motion.div>)}
-        </div>
-      </section>
-
-      {/* Full catalog */}
-      <section className="section-padding bg-muted/30">
+      {/* ===== Full catalog ===== */}
+      <section className="py-20 px-6 bg-[hsl(210,15%,97%)]">
         <div className="container mx-auto">
           <SectionHeading tag="Catálogo" title="Soluções Acústicas de Alta Performance" description="Materiais certificados com tecnologia de ponta para cada necessidade." />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.slice(0, 9).map(p => <ProductCard key={p.slug} product={p} />)}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            {products.slice(0, 9).map((p) => (
+              <ProductCard key={p.slug} product={p} />
+            ))}
           </div>
-          <div className="text-center mt-10">
-            <Link to="/produtos" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors text-sm">
+          <div className="text-center mt-12">
+            <Link to="/produtos" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors text-sm">
               Ver catálogo completo <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="section-padding bg-background">
+      {/* ===== Testimonials ===== */}
+      <section className="py-20 px-6 bg-background">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">O Que Nossos Clientes Dizem</h2>
+          <div className="text-center mb-14">
+            <span className="text-secondary text-sm font-bold tracking-[0.3em] uppercase">Depoimentos</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">O Que Nossos Clientes Dizem</h2>
             <p className="text-muted-foreground mt-3">Feedback de profissionais que confiam na Sonar</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => <motion.div key={t.name} initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: i * 0.1
-          }} className="glass-card p-6 rounded-xl">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, j) => <Star key={j} size={14} className="text-primary fill-primary" />)}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {testimonials.map((t, i) => (
+              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-background rounded-2xl p-7 border border-border/60 hover:border-primary/20 transition-all hover:shadow-lg">
+                <div className="flex gap-1 mb-5">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={14} className="text-secondary fill-secondary" />
+                  ))}
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed italic">"{t.text}"</p>
-                <div className="mt-4 pt-4 border-t border-border">
-                  <p className="text-sm font-semibold text-foreground">{t.name}</p>
+                <div className="mt-5 pt-5 border-t border-border/60">
+                  <p className="text-sm font-bold text-foreground">{t.name}</p>
                   <p className="text-xs text-muted-foreground">{t.role}</p>
                 </div>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Why choose us */}
-      <section className="section-padding bg-muted/20">
+      {/* ===== Why choose us ===== */}
+      <section className="py-20 px-6 bg-[hsl(210,15%,97%)]">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{
-            opacity: 0,
-            x: -30
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }}>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">Por Que Escolher a Sonar?</h2>
-              <p className="text-muted-foreground mt-4 leading-relaxed">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <span className="text-secondary text-sm font-bold tracking-[0.3em] uppercase">Diferenciais</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">Por Que Escolher a Sonar?</h2>
+              <p className="text-muted-foreground mt-5 leading-relaxed">
                 Com mais de uma década de experiência em tratamento acústico, a Sonar Acústicos se consolidou como referência no mercado brasileiro. Combinamos engenharia acústica de ponta com design contemporâneo.
               </p>
-              <ul className="mt-6 space-y-3">
-                {["Materiais certificados com classe de fogo A2", "Mais de 40 opções de cores e acabamentos", "Projetos personalizados com consultoria técnica", "Fabricação própria com controle de qualidade", "Entrega e instalação em todo o Brasil"].map(item => <li key={item} className="flex items-start gap-3 text-sm text-foreground">
-                    <CheckCircle size={16} className="text-primary flex-shrink-0 mt-0.5" />
+              <ul className="mt-7 space-y-3">
+                {["Materiais certificados com classe de fogo A2", "Mais de 40 opções de cores e acabamentos", "Projetos personalizados com consultoria técnica", "Fabricação própria com controle de qualidade", "Entrega e instalação em todo o Brasil"].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-foreground">
+                    <CheckCircle size={16} className="text-secondary flex-shrink-0 mt-0.5" />
                     {item}
-                  </li>)}
+                  </li>
+                ))}
               </ul>
-              <Link to="/contato" className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-colors text-sm">
+              <Link to="/contato" className="inline-flex items-center gap-2 mt-9 px-7 py-3.5 bg-primary text-primary-foreground font-bold rounded-full hover:bg-primary/90 transition-colors text-sm">
                 Fale com um Especialista <ArrowRight size={16} />
               </Link>
             </motion.div>
-            <motion.div initial={{
-            opacity: 0,
-            x: 30
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }} className="grid grid-cols-2 gap-3">
-              <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                <img src={imgAcademiaBaffles} alt="" className="w-full h-full object-cover" loading="lazy" />
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-4">
+              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                <img src={heroBafflesColor} alt="Baffles acústicos" className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div className="rounded-xl overflow-hidden aspect-[3/4] mt-8">
-                <img src={imgEscritorioAzuis} alt="" className="w-full h-full object-cover" loading="lazy" />
+              <div className="rounded-2xl overflow-hidden aspect-[3/4] mt-10">
+                <img src={imgEscritorioAzuis} alt="Escritório com painéis" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Partners / Trust strip */}
-      <section className="bg-secondary text-secondary-foreground py-12">
-        <div className="container mx-auto px-4 text-center">
+      {/* ===== Partners strip ===== */}
+      <section className="bg-[hsl(205,78%,12%)] text-white py-14">
+        <div className="container mx-auto px-6 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Users size={20} className="text-primary" />
-            <p className="text-sm font-semibold tracking-wider uppercase">Clientes que confiam na Sonar</p>
+            <Users size={20} className="text-secondary" />
+            <p className="text-sm font-bold tracking-wider uppercase">Clientes que confiam na Sonar</p>
           </div>
-          <p className="text-secondary-foreground/50 text-sm max-w-xl mx-auto">
+          <p className="text-white/40 text-sm max-w-xl mx-auto">
             Arquitetos, engenheiros, estúdios de gravação, igrejas, teatros e empresas de todo o Brasil escolhem a Sonar para seus projetos acústicos.
           </p>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative py-28 px-4 overflow-hidden">
+      {/* ===== CTA ===== */}
+      <section className="relative py-32 px-6 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={imgSalaReuniao} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-secondary/90" />
+          <img src={heroMdf} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[hsl(205,78%,12%)]/85" />
         </div>
-        <div className="absolute top-0 left-0 w-full h-1 bg-primary" />
-
         <div className="container mx-auto relative z-10 text-center">
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }}>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white">Pronto para transformar seu espaço?</h2>
-            <p className="text-white/60 mt-4 max-w-lg mx-auto text-lg">Solicite um orçamento gratuito e receba uma proposta personalizada.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Link to="/orcamento" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-colors shadow-xl shadow-primary/30 text-lg">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-white">Pronto para transformar seu espaço?</h2>
+            <p className="text-white/50 mt-5 max-w-lg mx-auto text-lg">Solicite um orçamento gratuito e receba uma proposta personalizada.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+              <Link to="/orcamento" className="inline-flex items-center gap-2 px-9 py-4 bg-secondary text-secondary-foreground font-bold rounded-full hover:bg-secondary/90 transition-colors shadow-xl shadow-secondary/30 text-lg">
                 Solicitar Orçamento <ArrowRight size={18} />
               </Link>
-              <Link to="/contato" className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-lg">
+              <Link to="/contato" className="inline-flex items-center gap-2 px-9 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-lg">
                 Falar com Especialista
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
-    </Layout>;
+    </Layout>
+  );
 };
+
 export default HomePage;
