@@ -99,7 +99,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-full cursor-pointer ${activeMenu === key ? "text-white bg-secondary" : "text-secondary hover:text-secondary/80 hover:bg-secondary/10"}`;
+  const navItemClass = (key: MenuKey) => `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-full cursor-pointer ${activeMenu === key ? "text-white bg-secondary" : "text-foreground/80 hover:text-foreground hover:bg-secondary/10"}`;
   return <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="bg-secondary text-secondary-foreground">
@@ -142,7 +142,7 @@ export default function Header() {
                 {activeMenu === "sobre" && <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 4 }} transition={{ duration: 0.15 }} onMouseEnter={cancelClose} onMouseLeave={scheduleClose} className="absolute top-full left-0 mt-2 bg-white rounded-xl border border-border shadow-xl z-50 min-w-[200px] py-3 px-4">
                     <ul className="space-y-1">
                       {sobreLinks.map(link => <li key={link.label}>
-                          <Link to={link.path} onClick={() => setActiveMenu(null)} className="block py-1.5 text-sm text-foreground hover:text-primary transition-colors font-medium">
+                          <Link to={link.path} onClick={() => setActiveMenu(null)} className="block py-1.5 text-sm text-foreground/80 hover:text-primary transition-colors font-medium">
                             {link.label}
                           </Link>
                         </li>)}
@@ -150,10 +150,10 @@ export default function Header() {
                   </motion.div>}
               </AnimatePresence>
             </div>
-            <Link to="/contato" className="px-4 py-2 text-sm font-medium text-secondary hover:text-secondary/80 transition-colors">
+            <Link to="/contato" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
               Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="px-4 py-2 text-sm font-medium text-secondary hover:text-secondary/80 transition-colors">
+            <Link to="/orcamento" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
               Projete sua Sala
             </Link>
           </nav>
@@ -189,7 +189,7 @@ export default function Header() {
                     <h3 className="font-display font-bold text-foreground mb-4">Categorias</h3>
                     <ul className="space-y-2">
                       {productCategories.map(cat => <li key={cat.label}>
-                          <Link to={cat.path} onClick={() => setActiveMenu(null)} className="text-sm text-foreground hover:text-primary transition-colors">
+                          <Link to={cat.path} onClick={() => setActiveMenu(null)} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                             {cat.label}
                           </Link>
                         </li>)}
@@ -230,7 +230,7 @@ export default function Header() {
                       {recursos.map(r => <li key={r.label}>
                           <Link to={r.path} onClick={() => setActiveMenu(null)} className="block group">
                             <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{r.label}</span>
-                            <span className="block text-xs text-foreground/70 mt-0.5">{r.desc}</span>
+                            <span className="block text-xs text-muted-foreground mt-0.5">{r.desc}</span>
                           </Link>
                         </li>)}
                     </ul>
