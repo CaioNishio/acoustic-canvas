@@ -117,8 +117,8 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <div className="bg-white/95 backdrop-blur-md border-b shadow-sm border-border">
-        <div className="container mx-auto px-4 flex items-center justify-between h-20 lg:h-28">
+      <div className="backdrop-blur-md border-b shadow-sm border-border bg-blue-600">
+        <div className="container mx-auto px-4 flex items-center justify-between h-20 lg:h-28 text-primary-foreground">
           <Link to="/" className="flex items-center flex-shrink-0 mr-6">
             <img src={logo} alt="Sonar Acústicos" className="h-16 lg:h-36 w-auto" />
           </Link>
@@ -148,7 +148,7 @@ export default function Header() {
                   </motion.div>}
               </AnimatePresence>
             </div>
-            <Link to="/contato" className="hidden lg:block px-5 py-3 text-lg font-bold font-display text-[hsl(205,78%,15%)] hover:text-primary transition-colors tracking-wide whitespace-nowrap">
+            <Link to="/contato" className="hidden lg:block px-5 py-3 text-lg font-bold font-display transition-colors tracking-wide whitespace-nowrap text-destructive-foreground">
               Fale com um Especialista
             </Link>
             <Link to="/orcamento" className="hidden lg:block px-5 py-3 text-lg font-bold font-display text-[hsl(205,78%,15%)] hover:text-primary transition-colors tracking-wide whitespace-nowrap">
@@ -267,18 +267,18 @@ export default function Header() {
       }} exit={{
         height: 0,
         opacity: 0
-       }} className="lg:hidden overflow-hidden border-b border-border bg-white shadow-xl">
+      }} className="lg:hidden overflow-hidden border-b border-border bg-white shadow-xl">
             <nav className="flex flex-col p-5 gap-2">
               {[
-                { to: "/produtos", label: "Produtos" },
-                { to: "/solucoes", label: "Espaços" },
-                { to: "/projetos", label: "Projetos" },
-                { to: "/calculadora", label: "Calculadora" },
-              ].map((item) => (
-                <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
+          { to: "/produtos", label: "Produtos" },
+          { to: "/solucoes", label: "Espaços" },
+          { to: "/projetos", label: "Projetos" },
+          { to: "/calculadora", label: "Calculadora" }].
+          map((item) =>
+          <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
                   {item.label}
                 </Link>
-              ))}
+          )}
 
               <div className="h-px bg-border my-2" />
 
