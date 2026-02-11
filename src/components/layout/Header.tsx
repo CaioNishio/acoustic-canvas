@@ -100,7 +100,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1 bg-white/80 backdrop-blur-sm rounded-full px-2 py-1 border border-border/40 shadow-sm">
             <div
               onMouseEnter={() => openMenu("produtos")}
               onMouseLeave={scheduleClose}
