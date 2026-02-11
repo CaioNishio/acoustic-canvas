@@ -194,7 +194,7 @@ const HomePage = () => {
             )}
           </div>
           <div className="text-center mt-12">
-            <Link to="/projetos" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors text-sm">
+            <Link to="/projetos" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-muted-foreground transition-colors text-sm">
               Ver todos os projetos <ArrowRight size={16} />
             </Link>
           </div>
