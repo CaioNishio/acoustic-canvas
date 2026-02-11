@@ -35,7 +35,7 @@ export default function ContatoPage() {
                 <Phone className="text-primary shrink-0 mt-1" size={20} />
                 <div>
                   <h3 className="font-display font-semibold">Telefone</h3>
-                  <p className="text-sm text-muted-foreground">(11) 99999-0000</p>
+                  <p className="text-sm text-muted-foreground">(11) 96748-4000</p>
                 </div>
               </div>
               <div className="glass-card p-6 flex items-start gap-4">
