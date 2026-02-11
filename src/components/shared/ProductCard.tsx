@@ -28,11 +28,11 @@ export default function ProductCard({ product }: { product: Product }) {
           <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{product.shortDescription}</p>
           {product.colors && product.colors.length > 0 && (
             <div className="flex gap-1 mt-3">
-              {product.colors.slice(0, 6).map((c) => (
-                <span key={c.name} className="w-4 h-4 rounded-full border border-border" style={{ backgroundColor: c.hex }} title={c.name} />
+              {product.colors.slice(0, 8).map((c) => (
+                <span key={c.name} className="w-4 h-4 rounded-full border border-border" style={{ backgroundColor: c.hex }} title={c.code ? `${c.code} — ${c.name}` : c.name} />
               ))}
-              {product.colors.length > 6 && (
-                <span className="text-xs text-muted-foreground ml-1 self-center">+{product.colors.length - 6}</span>
+              {product.colors.length > 8 && (
+                <span className="text-xs text-muted-foreground ml-1 self-center">+{product.colors.length - 8}</span>
               )}
             </div>
           )}
