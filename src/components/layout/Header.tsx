@@ -69,8 +69,10 @@ export default function Header() {
   };
 
   const navItemClass = (key: MenuKey) =>
-    `px-5 py-2.5 text-sm font-medium transition-all duration-200 ${
-      activeMenu === key ? "text-foreground border-b-2 border-primary" : "text-muted-foreground hover:text-foreground border-b-2 border-transparent"
+    `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-md ${
+      activeMenu === key
+        ? "text-foreground bg-accent border-b-2 border-primary"
+        : "text-muted-foreground hover:text-foreground hover:bg-accent/60 border-b-2 border-transparent"
     }`;
 
   return (
