@@ -12,6 +12,9 @@ import estudioPaineis from "@/assets/gallery/estudio-paineis.jpeg";
 import escritorioPaineisAzuis from "@/assets/gallery/escritorio-paineis-azuis.jpeg";
 import painelImagemDigital from "@/assets/gallery/painel-imagem-digital.jpg";
 import paineisSeminario from "@/assets/gallery/paineis-seminario.jpg";
+import bassTrapCorner from "@/assets/gallery/bass-trap-corner-1.jpg";
+import bassTrapStudio from "@/assets/gallery/bass-trap-studio.jpg";
+import bassTrapPair from "@/assets/gallery/bass-trap-pair.jpg";
 
 export interface Product {
   slug: string;
@@ -64,8 +67,8 @@ export const products: Product[] = [
     thickness: "100mm",
     shortDescription: "Controle de graves em cantos e junções de paredes.",
     description: "Bass Trap Corner projetado para absorção eficiente de baixas frequências. Instalação em cantos verticais para máximo aproveitamento do espaço e controle modal.",
-    image: estudioPaineis,
-    gallery: [estudioPaineis, hexagonaisTeto],
+    image: bassTrapCorner,
+    gallery: [bassTrapCorner, bassTrapPair, bassTrapStudio],
     specs: [
       { label: "NRC", value: "0.85" },
       { label: "Espessura", value: "100mm" },
