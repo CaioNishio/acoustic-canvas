@@ -102,24 +102,24 @@ const HomePage = () => {
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent text-muted shadow-2xs rounded-none opacity-95 border-secondary-foreground" />
+          <div className="absolute inset-0 from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent shadow-2xs rounded-none border-secondary-foreground text-secondary-foreground bg-[sidebar-primary-foreground] bg-transparent opacity-100" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
             <p className="text-secondary tracking-[0.4em] uppercase mb-6 text-base font-light">
               Projetado por Especialistas. Aprovado por Profissionais.
             </p>
-            <h1 className="md:text-6xl leading-[1.05] text-white font-serif lg:text-7xl text-justify text-5xl font-extralight">
+            <h1 className="md:text-6xl leading-[1.05] text-white font-serif text-justify text-5xl font-thin lg:text-5xl">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
             <p className="text-white/50 mt-7 text-lg max-w-md leading-relaxed">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 bg-secondary text-secondary-foreground font-bold rounded-full hover:bg-secondary/90 transition-all text-sm shadow-lg shadow-secondary/30">
+              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/90 transition-all text-sm shadow-lg shadow-secondary/30 font-medium">
                 Solicitar Orçamento <ArrowRight size={16} />
               </Link>
-              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/25 text-white font-semibold rounded-full hover:bg-white/10 transition-all text-sm backdrop-blur-sm">
+              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/25 text-white rounded-full hover:bg-white/10 transition-all text-sm backdrop-blur-sm font-bold">
                 Ver Portfólio
               </Link>
             </div>
