@@ -112,7 +112,7 @@ export default function ProdutosPage() {
           </div>
 
           {/* Results count */}
-          <p className="text-xs text-muted-foreground text-center mb-8">
+          <p className="text-sm text-muted-foreground text-center mb-8">
             {filtered.length} produto{filtered.length !== 1 ? "s" : ""} encontrado{filtered.length !== 1 ? "s" : ""}
           </p>
 

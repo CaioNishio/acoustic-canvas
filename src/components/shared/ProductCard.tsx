@@ -21,11 +21,11 @@ export default function ProductCard({ product }: { product: Product }) {
           />
         </div>
         <div className="p-5">
-          <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-secondary/10 text-secondary">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-secondary/10 text-secondary">
             {product.category}
           </span>
-          <h3 className="text-lg font-semibold mt-2.5 text-foreground group-hover:text-primary transition-colors">{product.name}</h3>
-          <p className="text-sm text-muted-foreground mt-2 line-clamp-2 leading-relaxed">{product.shortDescription}</p>
+          <h3 className="text-xl font-semibold mt-2.5 text-foreground group-hover:text-primary transition-colors">{product.name}</h3>
+          <p className="text-base text-muted-foreground mt-2 line-clamp-2 leading-relaxed">{product.shortDescription}</p>
           {/* Mini NRC badge */}
           {(() => {
             const nrcSpec = product.specs.find((s) => s.label === "NRC" || s.label === "NRC (Absorção)");
@@ -57,7 +57,7 @@ export default function ProductCard({ product }: { product: Product }) {
               )}
             </div>
           )}
-          <div className="flex items-center gap-1.5 mt-4 text-secondary text-sm font-semibold group-hover:gap-2.5 transition-all">
+          <div className="flex items-center gap-1.5 mt-4 text-secondary text-base font-semibold group-hover:gap-2.5 transition-all">
             Ver detalhes <ArrowRight size={14} />
           </div>
         </div>
