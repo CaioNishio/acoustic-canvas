@@ -16,6 +16,15 @@ import bassTrapCorner from "@/assets/gallery/bass-trap-corner-1.jpg";
 import bassTrapStudio from "@/assets/gallery/bass-trap-studio.jpg";
 import bassTrapPair from "@/assets/gallery/bass-trap-pair.jpg";
 import difusorSkyline from "@/assets/gallery/difusor-skyline-produto.jpg";
+import difusorSkyline1 from "@/assets/gallery/difusor-skyline-1.jpg";
+import difusorSkyline2 from "@/assets/gallery/difusor-skyline-2.jpg";
+import difusorSkyline3 from "@/assets/gallery/difusor-skyline-3.jpg";
+import difusorSkyline4 from "@/assets/gallery/difusor-skyline-4.png";
+import difusorSkyline5 from "@/assets/gallery/difusor-skyline-5.png";
+import difusorSkyline6 from "@/assets/gallery/difusor-skyline-6.jpg";
+import difusorSkyline7 from "@/assets/gallery/difusor-skyline-7.jpg";
+import difusorSkyline8 from "@/assets/gallery/difusor-skyline-8.jpg";
+import difusorSkyline9 from "@/assets/gallery/difusor-skyline-9.jpg";
 import mdfVazadoAbsorvedor from "@/assets/gallery/mdf-vazado-absorvedor.jpg";
 import mdfVazadoDifusor from "@/assets/gallery/mdf-vazado-difusor.jpg";
 import wavefuserHibrido from "@/assets/gallery/wavefuser-hibrido.jpg";
@@ -569,8 +578,8 @@ export const products: Product[] = [
     thickness: "75mm",
     shortDescription: "Difusão bidimensional com blocos 3D de alturas variáveis — visual impactante.",
     description: "O Difusor Skyline utiliza blocos de madeira maciça em alturas calculadas para criar difusão bidimensional uniforme. Cada bloco é posicionado seguindo uma sequência de resíduos quadráticos que garante espalhamento sonoro em todas as direções.",
-    image: difusorSkyline,
-    gallery: [difusorSkyline, paineisColoridosTeto, nuvemAcustica],
+    image: difusorSkyline4,
+    gallery: [difusorSkyline4, difusorSkyline6, difusorSkyline7, difusorSkyline3, difusorSkyline1, difusorSkyline2, difusorSkyline5, difusorSkyline8, difusorSkyline9],
     specs: [
       { label: "Faixa de Difusão", value: "800Hz – 8kHz" },
       { label: "Tipo", value: "Skyline (Bidimensional)" },
