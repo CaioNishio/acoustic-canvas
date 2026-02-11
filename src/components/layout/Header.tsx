@@ -69,10 +69,10 @@ export default function Header() {
   };
 
   const navItemClass = (key: MenuKey) =>
-    `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-md ${
+    `px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-full cursor-pointer ${
       activeMenu === key
-        ? "text-foreground bg-accent border-b-2 border-primary"
-        : "text-muted-foreground hover:text-foreground hover:bg-accent/60 border-b-2 border-transparent"
+        ? "text-white bg-secondary"
+        : "text-foreground/80 hover:text-foreground hover:bg-secondary/10"
     }`;
 
   return (
@@ -102,7 +102,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-0 bg-card backdrop-blur-sm px-1 py-0.5 border-b border-border/30">
+          <nav className="hidden lg:flex items-center gap-1 px-1 py-0.5">
             <div
               onMouseEnter={() => openMenu("produtos")}
               onMouseLeave={scheduleClose}
@@ -122,10 +122,39 @@ export default function Header() {
               <button className={navItemClass("recursos")}>Recursos</button>
             </div>
             <div
+              className="relative"
               onMouseEnter={() => openMenu("sobre")}
               onMouseLeave={scheduleClose}
             >
               <button className={navItemClass("sobre")}>Sobre</button>
+              {/* Sobre floating dropdown */}
+              <AnimatePresence>
+                {activeMenu === "sobre" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 4 }}
+                    transition={{ duration: 0.15 }}
+                    onMouseEnter={cancelClose}
+                    onMouseLeave={scheduleClose}
+                    className="absolute top-full left-0 mt-2 bg-white rounded-xl border border-border shadow-xl z-50 min-w-[200px] py-3 px-4"
+                  >
+                    <ul className="space-y-1">
+                      {sobreLinks.map((link) => (
+                        <li key={link.label}>
+                          <Link
+                            to={link.path}
+                            onClick={() => setActiveMenu(null)}
+                            className="block py-1.5 text-sm text-foreground/80 hover:text-primary transition-colors font-medium"
+                          >
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
             <Link to="/contato" className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
               Fale com um Especialista
@@ -147,7 +176,7 @@ export default function Header() {
 
       {/* Mega Menu Dropdowns */}
       <AnimatePresence>
-        {activeMenu && (
+        {activeMenu && activeMenu !== "sobre" && (
           <motion.div
             key={activeMenu}
             initial={{ opacity: 0, y: -4 }}
@@ -156,7 +185,7 @@ export default function Header() {
             transition={{ duration: 0.2 }}
             onMouseEnter={cancelClose}
             onMouseLeave={scheduleClose}
-            className="hidden lg:block absolute left-0 right-0 bg-card border-b border-border shadow-2xl z-40"
+            className="hidden lg:block absolute left-0 right-0 bg-white border-b border-border shadow-lg z-40"
           >
             <div className="container mx-auto px-4 py-6">
               {/* PRODUTOS */}
@@ -272,25 +301,6 @@ export default function Header() {
                       </div>
                     </Link>
                   </div>
-                </div>
-              )}
-
-              {/* SOBRE */}
-              {activeMenu === "sobre" && (
-                <div className="max-w-xs">
-                  <ul className="space-y-2">
-                    {sobreLinks.map((link) => (
-                      <li key={link.label}>
-                        <Link
-                          to={link.path}
-                          onClick={() => setActiveMenu(null)}
-                          className="text-sm text-foreground hover:text-primary transition-colors font-medium"
-                        >
-                          {link.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               )}
             </div>
