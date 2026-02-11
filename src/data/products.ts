@@ -34,6 +34,11 @@ import academiaTeto from "@/assets/gallery/academia-teto.jpeg";
 import salaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
 import paineisSuspensos from "@/assets/gallery/paineis-suspensos.webp";
 
+import fixadorDetalhe from "@/assets/gallery/fixador-detalhe.jpg";
+import fixadorKitPrata from "@/assets/gallery/fixador-kit-prata.jpg";
+import fixadorBuchaParafuso from "@/assets/gallery/fixador-bucha-parafuso.webp";
+import fixadorKitPreto from "@/assets/gallery/fixador-kit-preto.webp";
+
 import { fabricColors, woodColors, type ProductColor } from "./productColors";
 export type { ProductColor };
 
@@ -1247,5 +1252,53 @@ export const products: Product[] = [
     ],
     materials: ["Ripas de Madeira Natural", "Feltro Acústico 12mm", "MDF Estrutural"],
     colors: woodColors,
+  },
+
+  // ── KIT DE FIXAÇÃO ─────────────────────────────────────────
+  {
+    slug: "kit-fixacao-acustica",
+    name: "Kit de Fixação Acústica",
+    category: "Acessórios & Suportes",
+    application: ["Estúdio", "Igreja", "Auditório", "Corporativo", "Residencial", "Home Theater", "Podcast", "Restaurante"],
+    material: "Madeira",
+    thickness: "Variável",
+    shortDescription: "Kit completo com fixadores dentados, buchas e parafusos para instalação de painéis, bass traps, difusores e painéis ripados.",
+    description: "O Kit de Fixação Acústica Sonar contém todos os componentes necessários para a instalação segura e profissional dos produtos acústicos. Inclui fixadores dentados (sawtooth hangers) de aço galvanizado, buchas universais S6 e parafusos panela — compatíveis com alvenaria, drywall e madeira. Ideal para painéis acústicos, bass traps, difusores skyline e revestimentos ripados.",
+    longDescription: "Cada kit é dimensionado de acordo com o peso e tamanho do produto a ser instalado. Os fixadores dentados garantem um ajuste fino horizontal sem necessidade de ferramentas especiais, permitindo nivelamento perfeito do painel após fixação na parede. As buchas universais S6 são compatíveis com blocos de concreto, tijolos maciços, drywall e madeira — dispensando buchas especiais na maioria dos casos.\n\nPara painéis de até 5 kg, basta 1 fixador central. Painéis maiores (acima de 1200mm) utilizam 2 fixadores. Bass traps e difusores podem exigir parafusos adicionais conforme o peso.\n\nDisponível nas versões prata (galvanizado) e preto (fosfatizado), para combinar com o acabamento do produto.",
+    image: fixadorKitPreto,
+    gallery: [fixadorKitPreto, fixadorKitPrata, fixadorDetalhe, fixadorBuchaParafuso],
+    sizes: [
+      { label: "Kit Unitário", dimensions: "1 fixador + 2 parafusos + 2 buchas" },
+      { label: "Kit Painel Grande", dimensions: "2 fixadores + 4 parafusos + 4 buchas" },
+      { label: "Kit Bass Trap", dimensions: "2 fixadores + 4 parafusos + 4 buchas + 2 cantoneiras" },
+      { label: "Kit Difusor", dimensions: "4 fixadores + 8 parafusos + 8 buchas" },
+    ],
+    specs: [
+      { label: "Material Fixador", value: "Aço Galvanizado / Fosfatizado" },
+      { label: "Bucha", value: "Universal S6 (Nylon)" },
+      { label: "Parafuso", value: "Panela Phillips 4×40mm" },
+      { label: "Capacidade", value: "Até 15 kg por fixador" },
+      { label: "Compatibilidade", value: "Alvenaria, Drywall, Madeira" },
+      { label: "Acabamento", value: "Prata (Galvanizado) ou Preto (Fosfatizado)" },
+    ],
+    materials: ["Fixador Dentado (Sawtooth Hanger) em Aço", "Bucha Universal S6 em Nylon", "Parafuso Panela Phillips 4×40mm", "Arruela Lisa (quando aplicável)"],
+    highlights: [
+      { icon: "tool", title: "Instalação Profissional", desc: "Tudo incluso para fixar com segurança" },
+      { icon: "ruler", title: "Ajuste Fino Horizontal", desc: "Fixador dentado permite nivelamento" },
+      { icon: "target", title: "Universal", desc: "Compatível com todos os produtos Sonar" },
+      { icon: "waveform", title: "Suporte Até 15kg", desc: "Capacidade para painéis grandes" },
+    ],
+    advantages: [
+      "Fixador dentado permite ajuste horizontal sem refazer furos",
+      "Bucha universal compatível com diversos tipos de parede",
+      "Instalação rápida — sem ferramentas especiais",
+      "Acabamento discreto: fica oculto atrás do painel",
+      "Kit dimensionado por tipo de produto acústico",
+    ],
+    faq: [
+      { question: "Quantos kits preciso por painel?", answer: "Para painéis de até 1000×600mm e 5 kg, 1 kit unitário (1 fixador central). Para painéis acima de 1200mm, use o Kit Painel Grande (2 fixadores)." },
+      { question: "Funciona em drywall?", answer: "Sim. A bucha universal S6 é compatível com drywall. Para cargas acima de 8 kg em drywall, recomendamos buchas tipo toggle bolt (não inclusa)." },
+      { question: "O fixador fica visível após a instalação?", answer: "Não. O fixador dentado é instalado na parte traseira do painel e fica completamente oculto quando o painel está na parede." },
+    ],
   },
 ];
