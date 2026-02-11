@@ -213,7 +213,7 @@ const HomePage = () => {
             <p className="mt-3 max-w-lg mx-auto bg-[#242424]/0 text-zinc-950">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
-          <div className="space-y-20 bg-secondary">
+          <div className="space-y-20 bg-primary mx-0 px-[145px] py-0 my-0">
             {processSteps.map((step, i) =>
             <motion.div
               key={step.title}
