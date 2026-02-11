@@ -148,11 +148,30 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Quicksand', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', sans-serif;
-    @apply font-bold;
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-[1.1];
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl leading-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply text-base md:text-lg leading-relaxed;
   }
 }
 
