@@ -121,8 +121,8 @@ export default function Header() {
       {/* Main Nav */}
       <div className="bg-card/95 backdrop-blur-md border-b shadow-sm border-glass">
         <div className="container mx-auto px-4 flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center flex-shrink-0">
-            <img src={logo} alt="Sonar Acústicos" className="h-16 w-auto" />
+          <Link to="/" className="flex items-center flex-shrink-0 mr-6">
+            <img src={logo} alt="Sonar Acústicos" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop nav */}
