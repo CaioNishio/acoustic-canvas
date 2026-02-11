@@ -274,18 +274,31 @@ export default function Header() {
         height: 0,
         opacity: 0
        }} className="lg:hidden overflow-hidden border-b border-border bg-white shadow-xl">
-            <nav className="flex flex-col p-5 gap-1">
-              <Link to="/produtos" onClick={() => setMobileOpen(false)} className="px-4 py-3 text-lg font-bold rounded-xl font-display text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5 transition-all">Produtos</Link>
-              <Link to="/solucoes" onClick={() => setMobileOpen(false)} className="px-4 py-3 text-lg font-bold rounded-xl font-display text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5 transition-all">Espaços</Link>
-              <Link to="/projetos" onClick={() => setMobileOpen(false)} className="px-4 py-3 text-lg font-bold rounded-xl font-display text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5 transition-all">Projetos</Link>
-              <Link to="/calculadora" onClick={() => setMobileOpen(false)} className="px-4 py-3 text-lg font-bold rounded-xl font-display text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5 transition-all">Calculadora</Link>
-              <Link to="/contato" onClick={() => setMobileOpen(false)} className="px-4 py-3 text-lg font-bold rounded-xl font-display text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5 transition-all">Fale com um Especialista</Link>
-              <Link to="/orcamento" onClick={() => setMobileOpen(false)} className="px-4 py-3 text-lg font-bold rounded-xl font-display text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5 transition-all">Projete sua Sala</Link>
+            <nav className="flex flex-col p-5 gap-2">
+              {[
+                { to: "/produtos", label: "Produtos" },
+                { to: "/solucoes", label: "Espaços" },
+                { to: "/projetos", label: "Projetos" },
+                { to: "/calculadora", label: "Calculadora" },
+              ].map((item) => (
+                <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
+                  {item.label}
+                </Link>
+              ))}
 
-              <div className="h-px bg-border my-3" />
-              <p className="px-4 text-xs font-bold uppercase tracking-widest text-[hsl(205,78%,30%)] mb-2 font-display">Espaços</p>
-              {spaces.map((space) => <Link key={space.path} to={space.path} onClick={() => setMobileOpen(false)} className="px-4 py-2.5 text-base font-semibold text-[hsl(205,78%,15%)] hover:text-primary transition-colors flex items-center gap-3 font-display">
-                  <img src={space.image} alt="" className="w-10 h-10 rounded-lg object-cover" />
+              <div className="h-px bg-border my-2" />
+
+              <Link to="/contato" onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
+                Fale com um Especialista
+              </Link>
+              <Link to="/orcamento" onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
+                Projete sua Sala
+              </Link>
+
+              <div className="h-px bg-border my-2" />
+              <p className="px-6 text-xs font-bold uppercase tracking-widest text-[hsl(205,78%,30%)] mb-1 font-display">Espaços</p>
+              {spaces.map((space) => <Link key={space.path} to={space.path} onClick={() => setMobileOpen(false)} className="px-6 py-2.5 text-base font-bold text-[hsl(205,78%,15%)] hover:text-primary transition-colors flex items-center gap-3 font-display rounded-full hover:bg-primary/5">
+                  <img src={space.image} alt="" className="w-10 h-10 rounded-full object-cover" />
                   {space.label}
                 </Link>)}
             </nav>
