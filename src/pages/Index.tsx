@@ -144,8 +144,8 @@ const HomePage = () => {
       <WaveDivider color="hsl(var(--primary))" />
 
       {/* ===== Spaces — horizontal navigation ===== */}
-      <section className="py-16 opacity-95 rounded-2xl shadow-inner border-8 bg-transparent border-muted-foreground">
-        <div className="container mx-auto px-6 border-4 opacity-100 border-transparent">
+      <section className="py-16 rounded-2xl shadow-inner border-8 bg-transparent border-muted-foreground opacity-100">
+        <div className="container mx-auto px-6 border-4 opacity-100 border-transparent bg-transparent">
           <motion.p {...fadeUp} className="text-center uppercase tracking-[0.3em] mb-8 text-secondary-foreground text-xl font-normal">
             Soluções para cada ambiente
           </motion.p>
