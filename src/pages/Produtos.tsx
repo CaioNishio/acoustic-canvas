@@ -3,15 +3,13 @@ import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/shared/SectionHeading";
 import ProductCard from "@/components/shared/ProductCard";
 import { products, categories, applications, materialsFilter, thicknesses } from "@/data/products";
-
 export default function ProdutosPage() {
   const [cat, setCat] = useState("");
   const [app, setApp] = useState("");
   const [mat, setMat] = useState("");
   const [thick, setThick] = useState("");
-
   const filtered = useMemo(() => {
-    return products.filter((p) => {
+    return products.filter(p => {
       if (cat && p.category !== cat) return false;
       if (app && !p.application.includes(app)) return false;
       if (mat && p.material !== mat) return false;
@@ -19,23 +17,22 @@ export default function ProdutosPage() {
       return true;
     });
   }, [cat, app, mat, thick]);
-
-  const FilterSelect = ({ label, value, onChange, options }: { label: string; value: string; onChange: (v: string) => void; options: string[] }) => (
-    <select
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      className="bg-secondary border border-border rounded-md px-3 py-2 text-sm text-foreground focus:ring-1 focus:ring-primary outline-none"
-    >
+  const FilterSelect = ({
+    label,
+    value,
+    onChange,
+    options
+  }: {
+    label: string;
+    value: string;
+    onChange: (v: string) => void;
+    options: string[];
+  }) => <select value={value} onChange={e => onChange(e.target.value)} className="bg-secondary border border-border rounded-md px-3 py-2 text-sm text-foreground focus:ring-1 focus:ring-primary outline-none">
       <option value="">{label}</option>
-      {options.map((o) => (
-        <option key={o} value={o}>{o}</option>
-      ))}
-    </select>
-  );
-
-  return (
-    <Layout>
-      <section className="section-padding">
+      {options.map(o => <option key={o} value={o}>{o}</option>)}
+    </select>;
+  return <Layout>
+      <section className="section-padding bg-sidebar-foreground">
         <div className="container mx-auto">
           <SectionHeading tag="Catálogo" title="Nossos Produtos" description="Encontre a solução acústica ideal para o seu projeto." />
 
@@ -45,29 +42,24 @@ export default function ProdutosPage() {
             <FilterSelect label="Aplicação" value={app} onChange={setApp} options={applications} />
             <FilterSelect label="Material" value={mat} onChange={setMat} options={materialsFilter} />
             <FilterSelect label="Espessura" value={thick} onChange={setThick} options={thicknesses} />
-            {(cat || app || mat || thick) && (
-              <button
-                onClick={() => { setCat(""); setApp(""); setMat(""); setThick(""); }}
-                className="text-sm text-primary hover:underline"
-              >
+            {(cat || app || mat || thick) && <button onClick={() => {
+            setCat("");
+            setApp("");
+            setMat("");
+            setThick("");
+          }} className="text-sm text-primary hover:underline">
                 Limpar filtros
-              </button>
-            )}
+              </button>}
           </div>
 
           {/* Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
+            {filtered.map(p => <ProductCard key={p.slug} product={p} />)}
           </div>
-          {filtered.length === 0 && (
-            <p className="text-center text-muted-foreground py-12">
+          {filtered.length === 0 && <p className="text-center text-muted-foreground py-12">
               Nenhum produto encontrado com os filtros selecionados.
-            </p>
-          )}
+            </p>}
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 }
