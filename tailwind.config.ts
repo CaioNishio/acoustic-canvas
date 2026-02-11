@@ -33,7 +33,7 @@ export default {
   				'Noto Color Emoji'
   			],
   			serif: [
-  				'Merriweather',
+  				'Crimson Pro',
   				'ui-serif',
   				'Georgia',
   				'Cambria',
@@ -42,7 +42,7 @@ export default {
   				'serif'
   			],
   			mono: [
-  				'JetBrains Mono',
+  				'SF Mono',
   				'ui-monospace',
   				'SFMono-Regular',
   				'Menlo',
