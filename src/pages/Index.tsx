@@ -102,16 +102,16 @@ const HomePage = () => {
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent text-muted rounded-3xl bg-transparent opacity-95 shadow-2xl" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent text-muted rounded-3xl opacity-40" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
             <p className="text-secondary tracking-[0.4em] uppercase mb-6 text-base font-light">
               Projetado por Especialistas. Aprovado por Profissionais.
             </p>
-            
-
-
+            <h1 className="md:text-6xl leading-[1.05] text-white font-serif lg:text-7xl text-justify text-5xl font-extralight">
+              Transformamos<br />Espaços com<br />Acústica
+            </h1>
             <p className="text-white/50 mt-7 text-lg max-w-md leading-relaxed">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
@@ -144,9 +144,9 @@ const HomePage = () => {
       <WaveDivider color="hsl(var(--primary))" />
 
       {/* ===== Spaces — horizontal navigation ===== */}
-      <section className="py-16 rounded-2xl shadow-inner border-8 bg-transparent border-muted-foreground opacity-100">
-        <div className="container mx-auto px-6 border-4 opacity-100 border-transparent bg-transparent">
-          <motion.p {...fadeUp} className="text-center uppercase tracking-[0.3em] mb-8 text-secondary-foreground text-xl font-normal">
+      <section className="py-16 opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground bg-transparent">
+        <div className="container mx-auto px-6 border-4 border-destructive opacity-100">
+          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-bold">
             Soluções para cada ambiente
           </motion.p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -168,7 +168,7 @@ const HomePage = () => {
       <SoundWaveLine />
 
       {/* ===== Portfolio mosaic ===== */}
-      <section className="py-20 border-primary-foreground bg-muted-foreground border-2">
+      <section className="py-20 bg-muted-foreground border-primary-foreground">
         <div className="container mx-auto px-6 border-8 border-muted-foreground bg-muted-foreground">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Portfólio</span>
@@ -205,7 +205,7 @@ const HomePage = () => {
       <FrequencyBars count={32} className="py-10" />
 
       {/* ===== Process — Como Funciona ===== */}
-      <section className="py-24 bg-primary-foreground shadow-md border-secondary-foreground rounded border-2">
+      <section className="py-24 bg-primary-foreground">
         <div className="container mx-auto px-6 border-destructive-foreground opacity-80 bg-white">
           <motion.div {...fadeUp} className="text-center mb-16">
             <span className="text-secondary font-bold tracking-[0.3em] uppercase text-xl">Processo</span>
@@ -213,7 +213,7 @@ const HomePage = () => {
             <p className="mt-3 max-w-lg mx-auto bg-[#242424]/0 text-zinc-950">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
-          <div className="space-y-20 mx-0 py-0 my-0 bg-white px-0 border-primary rounded">
+          <div className="space-y-20 mx-0 py-0 my-0 bg-white px-0">
             {processSteps.map((step, i) =>
             <motion.div
               key={step.title}
@@ -249,7 +249,7 @@ const HomePage = () => {
       <WaveDivider flip color="hsl(var(--primary))" />
 
       {/* ===== Full-width gallery strip ===== */}
-      <section className="py-0 bg-glass">
+      <section className="bg-background py-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
           {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) =>
           <div key={i} className="relative group overflow-hidden aspect-[4/3]">
@@ -279,7 +279,7 @@ const HomePage = () => {
       <AcousticDots />
 
       {/* ===== Why us — with image ===== */}
-      <section className="py-24 px-6 text-white bg-gray-800">
+      <section className="py-24 px-6 text-white bg-sky-900">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div {...fadeUp}>
