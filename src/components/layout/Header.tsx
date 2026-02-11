@@ -99,7 +99,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-6 lg:py-3 text-base lg:text-xl font-light tracking-wide transition-all duration-300 rounded-full cursor-pointer font-display whitespace-nowrap ${activeMenu === key ? "text-white bg-white/20 backdrop-blur-sm" : "text-white/90 hover:text-white hover:bg-white/10"}`;
+  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-7 lg:py-3 text-lg lg:text-2xl font-extralight tracking-wide transition-all duration-300 rounded-full cursor-pointer font-display whitespace-nowrap ${activeMenu === key ? "text-white bg-white/15 backdrop-blur-sm" : "text-white/85 hover:text-white hover:bg-white/10"}`;
   return <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="bg-[hsl(205,78%,12%)] text-white">
@@ -117,8 +117,8 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <div className="backdrop-blur-md border-b shadow-sm border-border bg-muted-foreground border-8">
-        <div className="container mx-auto px-4 flex items-center justify-between h-20 lg:h-28 text-secondary-foreground border-4">
+      <div className="relative backdrop-blur-md border-b shadow-sm border-border/30 bg-[hsl(205,78%,12%)]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Ccircle cx=\'1\' cy=\'1\' r=\'1\'/%3E%3Ccircle cx=\'21\' cy=\'1\' r=\'0.8\'/%3E%3Ccircle cx=\'11\' cy=\'11\' r=\'0.6\'/%3E%3Ccircle cx=\'31\' cy=\'11\' r=\'0.9\'/%3E%3Ccircle cx=\'1\' cy=\'21\' r=\'0.7\'/%3E%3Ccircle cx=\'21\' cy=\'21\' r=\'1\'/%3E%3Ccircle cx=\'11\' cy=\'31\' r=\'0.8\'/%3E%3Ccircle cx=\'31\' cy=\'31\' r=\'0.6\'/%3E%3Ccircle cx=\'6\' cy=\'6\' r=\'0.4\'/%3E%3Ccircle cx=\'16\' cy=\'16\' r=\'0.5\'/%3E%3Ccircle cx=\'26\' cy=\'6\' r=\'0.3\'/%3E%3Ccircle cx=\'36\' cy=\'16\' r=\'0.4\'/%3E%3Ccircle cx=\'6\' cy=\'26\' r=\'0.5\'/%3E%3Ccircle cx=\'16\' cy=\'36\' r=\'0.3\'/%3E%3Ccircle cx=\'26\' cy=\'26\' r=\'0.4\'/%3E%3Ccircle cx=\'36\' cy=\'36\' r=\'0.5\'/%3E%3C/g%3E%3C/svg%3E")' }}>
+        <div className="container mx-auto px-4 flex items-center justify-between h-20 lg:h-28">
           <Link to="/" className="flex items-center flex-shrink-0 mr-6">
             <img src={logo} alt="Sonar Acústicos" className="h-16 lg:h-36 w-auto" />
           </Link>
@@ -148,16 +148,16 @@ export default function Header() {
                   </motion.div>}
               </AnimatePresence>
             </div>
-            <Link to="/contato" className="hidden lg:block px-5 py-3 text-xl font-light font-display transition-colors duration-300 tracking-wide whitespace-nowrap text-white/80 hover:text-white">
+            <Link to="/contato" className="hidden lg:block px-5 py-3 text-xl lg:text-2xl font-extralight font-display transition-colors duration-300 tracking-wide whitespace-nowrap text-white/75 hover:text-white">
               Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="hidden lg:block px-5 py-3 text-xl font-light font-display text-white/80 hover:text-white transition-colors duration-300 tracking-wide whitespace-nowrap">
+            <Link to="/orcamento" className="hidden lg:block px-5 py-3 text-xl lg:text-2xl font-extralight font-display text-white/75 hover:text-white transition-colors duration-300 tracking-wide whitespace-nowrap">
               Projete sua Sala
             </Link>
           </nav>
 
           <div className="hidden lg:flex items-center">
-            <button className="p-2 text-foreground hover:text-primary transition-colors"><Search size={18} /></button>
+            <button className="p-2 text-white/70 hover:text-white transition-colors"><Search size={20} /></button>
           </div>
         </div>
       </div>
