@@ -26,6 +26,27 @@ export default function ProductCard({ product }: { product: Product }) {
           </span>
           <h3 className="font-display text-lg font-semibold mt-2 text-foreground">{product.name}</h3>
           <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{product.shortDescription}</p>
+          {/* Mini NRC badge */}
+          {(() => {
+            const nrcSpec = product.specs.find((s) => s.label === "NRC" || s.label === "NRC (Absorção)");
+            const diffSpec = product.specs.find((s) => s.label === "Faixa de Difusão");
+            return (nrcSpec || diffSpec) ? (
+              <div className="flex gap-2 mt-3">
+                {nrcSpec && (
+                  <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-primary/10 border border-primary/20 text-xs font-semibold text-primary">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    NRC {nrcSpec.value}
+                  </span>
+                )}
+                {diffSpec && (
+                  <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-accent/10 border border-accent/20 text-xs font-semibold text-accent">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                    Difusão
+                  </span>
+                )}
+              </div>
+            ) : null;
+          })()}
           {product.colors && product.colors.length > 0 && (
             <div className="flex gap-1 mt-3">
               {product.colors.slice(0, 8).map((c) => (
