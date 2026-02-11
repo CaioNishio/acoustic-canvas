@@ -99,7 +99,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-6 py-3 text-lg font-bold tracking-wide transition-all duration-200 rounded-full cursor-pointer font-display ${activeMenu === key ? "text-white bg-primary shadow-md" : "text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5"}`;
+  const navItemClass = (key: MenuKey) => `px-3 py-2 lg:px-6 lg:py-3 text-sm lg:text-lg font-bold tracking-wide transition-all duration-200 rounded-full cursor-pointer font-display whitespace-nowrap ${activeMenu === key ? "text-white bg-primary shadow-md" : "text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5"}`;
   return <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="bg-[hsl(205,78%,12%)] text-white">
@@ -125,8 +125,8 @@ export default function Header() {
             <img src={logo} alt="Sonar Acústicos" className="h-16 lg:h-36 w-auto" />
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          {/* Nav - visible on all screens */}
+          <nav className="flex items-center gap-0.5 lg:gap-1 overflow-x-auto scrollbar-hide">
             <div onMouseEnter={() => openMenu("produtos")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("produtos")}>Produtos</button>
             </div>
@@ -150,10 +150,10 @@ export default function Header() {
                   </motion.div>}
               </AnimatePresence>
             </div>
-            <Link to="/contato" className="px-5 py-3 text-lg font-bold font-display text-[hsl(205,78%,15%)] hover:text-primary transition-colors tracking-wide">
+            <Link to="/contato" className="hidden lg:block px-5 py-3 text-lg font-bold font-display text-[hsl(205,78%,15%)] hover:text-primary transition-colors tracking-wide whitespace-nowrap">
               Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="px-5 py-3 text-lg font-bold font-display text-[hsl(205,78%,15%)] hover:text-primary transition-colors tracking-wide">
+            <Link to="/orcamento" className="hidden lg:block px-5 py-3 text-lg font-bold font-display text-[hsl(205,78%,15%)] hover:text-primary transition-colors tracking-wide whitespace-nowrap">
               Projete sua Sala
             </Link>
           </nav>
@@ -161,10 +161,6 @@ export default function Header() {
           <div className="hidden lg:flex items-center">
             <button className="p-2 text-foreground hover:text-primary transition-colors"><Search size={18} /></button>
           </div>
-
-          <button className="lg:hidden p-2 text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
       </div>
 
@@ -181,7 +177,7 @@ export default function Header() {
         y: -4
       }} transition={{
         duration: 0.2
-      }} onMouseEnter={cancelClose} onMouseLeave={scheduleClose} className="hidden lg:block absolute left-0 right-0 bg-white border-b border-border shadow-lg z-40">
+      }} onMouseEnter={cancelClose} onMouseLeave={scheduleClose} className="absolute left-0 right-0 bg-white border-b border-border shadow-lg z-40">
             <div className="container mx-auto px-4 py-6">
               {/* PRODUTOS */}
               {activeMenu === "produtos" && <div className="flex gap-8">
