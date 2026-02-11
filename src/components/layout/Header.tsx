@@ -151,7 +151,7 @@ export default function Header() {
             <Link to="/contato" className="hidden lg:block px-5 py-3 text-lg font-bold font-display transition-colors tracking-wide whitespace-nowrap text-destructive-foreground">
               Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="hidden lg:block px-5 py-3 text-lg font-bold font-display text-[hsl(205,78%,15%)] hover:text-primary transition-colors tracking-wide whitespace-nowrap">
+            <Link to="/orcamento" className="hidden lg:block px-5 py-3 text-lg font-bold font-display transition-colors tracking-wide whitespace-nowrap text-destructive">
               Projete sua Sala
             </Link>
           </nav>
