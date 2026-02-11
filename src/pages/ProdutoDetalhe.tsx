@@ -103,7 +103,7 @@ export default function ProdutoDetalhePage() {
                 {product.category}
               </div>
               <h1 className="font-display text-3xl md:text-4xl font-bold mt-3 text-foreground">{product.name}</h1>
-              <p className="text-muted-foreground mt-4 leading-relaxed text-base">{product.description}</p>
+              <p className="text-muted-foreground mt-4 leading-relaxed text-lg">{product.description}</p>
 
               {/* Size Selector — GIK style */}
               {product.sizes && product.sizes.length > 0 &&

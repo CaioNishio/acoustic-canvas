@@ -29,9 +29,9 @@ export default function SolucoesPage() {
                     <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                   </div>
                   <div className="p-6">
-                    <h3 className="font-display text-xl font-semibold">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-2">{s.shortDescription}</p>
-                    <span className="inline-flex items-center gap-1 mt-3 text-primary text-sm font-medium">
+                    <h3 className="font-display text-2xl font-semibold">{s.title}</h3>
+                    <p className="text-base text-muted-foreground mt-2">{s.shortDescription}</p>
+                    <span className="inline-flex items-center gap-1 mt-3 text-primary text-base font-medium">
                       Saiba mais <ArrowRight size={14} />
                     </span>
                   </div>

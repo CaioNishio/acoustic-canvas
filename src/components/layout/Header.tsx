@@ -99,7 +99,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-3 py-2 lg:px-6 lg:py-3 text-sm lg:text-lg font-bold tracking-wide transition-all duration-200 rounded-full cursor-pointer font-display whitespace-nowrap ${activeMenu === key ? "text-white bg-primary shadow-md" : "text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5"}`;
+  const navItemClass = (key: MenuKey) => `px-3 py-2 lg:px-6 lg:py-3 text-base lg:text-2xl font-extralight tracking-wide transition-all duration-200 rounded-full cursor-pointer font-display whitespace-nowrap ${activeMenu === key ? "text-white bg-white/20 backdrop-blur shadow-md" : "text-white/90 hover:text-white hover:bg-white/20"}`;
   return <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="text-white border-2 bg-gray-800">
@@ -117,7 +117,7 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <div className="backdrop-blur-md border-b shadow-sm border-border bg-sidebar-border px-[22px] my-[13px] mx-[240px] py-[55px]">
+      <div className="backdrop-blur-md border-b shadow-sm border-border bg-[hsl(205,78%,15%)] px-[22px] my-[13px] mx-[240px] py-[55px]">
         <div className="container h-20 lg:h-28 my-0 mx-0 px-0 items-start justify-between flex flex-row border-primary-foreground text-secondary-foreground">
           <Link to="/" className="flex items-center flex-shrink-0 mr-6">
             <img src={logo} alt="Sonar Acústicos" className="h-16 lg:h-36 w-auto" />
@@ -148,10 +148,10 @@ export default function Header() {
                   </motion.div>}
               </AnimatePresence>
             </div>
-            <Link to="/contato" className="hidden lg:block px-5 py-3 text-lg font-bold font-display transition-colors tracking-wide whitespace-nowrap text-destructive-foreground">
+            <Link to="/contato" className="hidden lg:block px-5 py-3 text-lg lg:text-2xl font-extralight font-display transition-colors tracking-wide whitespace-nowrap text-white/90 hover:text-white">
               Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="hidden lg:block px-5 py-3 text-lg font-bold font-display transition-colors tracking-wide whitespace-nowrap text-destructive">
+            <Link to="/orcamento" className="hidden lg:block px-5 py-3 text-lg lg:text-2xl font-extralight font-display transition-colors tracking-wide whitespace-nowrap text-white/90 hover:text-white">
               Projete sua Sala
             </Link>
           </nav>
