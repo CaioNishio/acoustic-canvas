@@ -140,7 +140,7 @@ export default function CalculadoraPage() {
 
   return (
     <Layout>
-      <section className="section-padding bg-gradient-to-b from-background via-muted/30 to-background min-h-screen bg-muted-foreground mx-[3px]">
+      <section className="section-padding bg-gradient-to-b from-background via-muted/30 to-background min-h-screen mx-[3px] bg-transparent">
         <div className="container mx-auto">
           <SectionHeading
             tag="Ferramenta"
