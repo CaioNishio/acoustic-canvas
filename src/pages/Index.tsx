@@ -91,7 +91,7 @@ const testimonials = [
 const stats = [
 { value: "500+", label: "Projetos" },
 { value: "98%", label: "Satisfação" },
-{ value: "∞", label: "Calcule seus materiais" },
+{ value: "12", label: "Anos" },
 { value: "40+", label: "Cores" }];
 
 
@@ -102,14 +102,14 @@ const HomePage = () => {
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent text-muted" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent text-muted rounded-3xl opacity-40" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
-            <p className="text-secondary text-xs font-bold tracking-[0.4em] uppercase mb-6">
+            <p className="text-secondary font-bold tracking-[0.4em] uppercase mb-6 text-xl">
               Projetado por Especialistas. Aprovado por Profissionais.
             </p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white">
+            <h1 className="text-4xl md:text-6xl leading-[1.05] text-white font-normal lg:text-6xl">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
             <p className="text-white/50 mt-7 text-lg max-w-md leading-relaxed">
@@ -144,9 +144,9 @@ const HomePage = () => {
       <WaveDivider color="hsl(var(--primary))" />
 
       {/* ===== Spaces — horizontal navigation ===== */}
-      <section className="bg-background py-16">
+      <section className="py-16 opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground bg-transparent">
         <div className="container mx-auto px-6">
-          <motion.p {...fadeUp} className="text-center text-muted-foreground text-sm uppercase tracking-[0.3em] font-semibold mb-8">
+          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-bold">
             Soluções para cada ambiente
           </motion.p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -169,10 +169,10 @@ const HomePage = () => {
 
       {/* ===== Portfolio mosaic ===== */}
       <section className="bg-muted/50 py-20">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 border-8 border-muted-foreground bg-muted-foreground">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Portfólio</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-3">Nossos Projetos</h2>
+            <h2 className="text-3xl md:text-5xl mt-3 text-center bg-transparent font-medium text-muted">Nossos Projetos</h2>
             <p className="text-muted-foreground mt-3 max-w-lg mx-auto">Ambientes reais transformados com soluções acústicas Sonar.</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
@@ -206,14 +206,14 @@ const HomePage = () => {
 
       {/* ===== Process — Como Funciona ===== */}
       <section className="py-24 bg-primary-foreground">
-        <div className="container mx-auto px-6 border-destructive-foreground">
+        <div className="container mx-auto px-6 border-destructive-foreground opacity-80 bg-white">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Processo</span>
+            <span className="text-secondary font-bold tracking-[0.3em] uppercase text-xl">Processo</span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-3 bg-sidebar">Como Funciona</h2>
             <p className="mt-3 max-w-lg mx-auto bg-[#242424]/0 text-zinc-950">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
-          <div className="space-y-20">
+          <div className="space-y-20 bg-secondary">
             {processSteps.map((step, i) =>
             <motion.div
               key={step.title}
