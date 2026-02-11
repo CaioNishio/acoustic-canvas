@@ -54,7 +54,7 @@ export default function ProdutoDetalhePage() {
     <Layout>
       {/* Highlights strip — GIK style */}
       {product.highlights && product.highlights.length > 0 &&
-      <section className="border-b border-border bg-[#ced7f7] px-[28px] py-[70px] mb-0 mr-0">
+      <section className="border-b border-border px-[28px] py-[70px] mb-0 mr-0 bg-cyan-800">
           <div className="container mx-auto px-4 py-[79px]">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {product.highlights.map((h) => {
@@ -116,13 +116,13 @@ export default function ProdutoDetalhePage() {
                 if (!pricing || pricing.basePrice <= 0) return null;
                 return (
                   <div className="mt-4 flex items-baseline gap-2">
-                    {pricing.sizes && pricing.sizes.length > 1 ? (
-                      <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">A partir de</span>
-                    ) : null}
+                    {pricing.sizes && pricing.sizes.length > 1 ?
+                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">A partir de</span> :
+                    null}
                     <span className="text-3xl font-bold text-primary">{formatPrice(pricing.basePrice)}</span>
                     <span className="text-sm text-muted-foreground">{unitLabel(pricing.unit)}</span>
-                  </div>
-                );
+                  </div>);
+
               })()}
 
               <p className="text-muted-foreground mt-4 leading-relaxed text-lg">{product.description}</p>
@@ -133,24 +133,24 @@ export default function ProdutoDetalhePage() {
                   <h3 className="font-display font-semibold text-sm mb-3">Tamanhos Disponíveis</h3>
                   <div className="flex flex-wrap gap-2">
                     {product.sizes.map((size) => {
-                      const pricing = productPrices[product.slug];
-                      const dimNumbers = size.dimensions.match(/\d+/g) || [];
-                      const firstDim = dimNumbers[0] || "";
-                      const sizePrice = pricing?.sizes?.find((sp) => {
-                        const spNums = sp.dimensions.match(/\d+/g) || [];
-                        return spNums[0] === firstDim;
-                      });
-                      return (
-                        <button
-                          key={size.label}
-                          onClick={() => setSelectedSize(selectedSize === size.label ? null : size.label)}
-                          className={`px-4 py-2.5 border-2 rounded-lg text-center transition-colors ${selectedSize === size.label ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"}`}>
+                    const pricing = productPrices[product.slug];
+                    const dimNumbers = size.dimensions.match(/\d+/g) || [];
+                    const firstDim = dimNumbers[0] || "";
+                    const sizePrice = pricing?.sizes?.find((sp) => {
+                      const spNums = sp.dimensions.match(/\d+/g) || [];
+                      return spNums[0] === firstDim;
+                    });
+                    return (
+                      <button
+                        key={size.label}
+                        onClick={() => setSelectedSize(selectedSize === size.label ? null : size.label)}
+                        className={`px-4 py-2.5 border-2 rounded-lg text-center transition-colors ${selectedSize === size.label ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"}`}>
                           <p className="text-xs font-bold text-foreground">{size.label}</p>
                           <p className="text-[10px] text-muted-foreground font-mono">{size.dimensions}</p>
                           {sizePrice && <p className="text-xs font-bold text-primary mt-1">{formatPrice(sizePrice.price)}</p>}
-                        </button>
-                      );
-                    })}
+                        </button>);
+
+                  })}
                   </div>
                 </div>
               }
@@ -227,7 +227,7 @@ export default function ProdutoDetalhePage() {
                       color: selectedColor?.name || undefined,
                       colorHex: selectedColor?.hex || undefined,
                       unitPrice: price,
-                      unit: pricing?.unit || "un",
+                      unit: pricing?.unit || "un"
                     });
                   }}
                   className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors inline-flex items-center gap-2 shadow-lg shadow-primary/20">
