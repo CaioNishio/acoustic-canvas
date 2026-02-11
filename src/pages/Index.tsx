@@ -15,8 +15,14 @@ import heroImg5 from "@/assets/gallery/academia-baffles.jpeg";
 import heroImg6 from "@/assets/gallery/forro-corporativo.jpg";
 import heroImg7 from "@/assets/gallery/sala-aula-baffles.jpeg";
 import heroImg8 from "@/assets/gallery/paineis-suspensos.webp";
-import heroImg9 from "@/assets/gallery/academia-teto.jpeg";
-import heroImg10 from "@/assets/gallery/forro-industrial.jpg";
+import heroImg9 from "@/assets/gallery/paineis-azuis.png";
+import heroImg10 from "@/assets/gallery/paineis-coloridos-teto.png";
+import heroImg11 from "@/assets/gallery/paineis-escritorio-rustico.png";
+import heroImg12 from "@/assets/gallery/paineis-sala-reuniao.png";
+import heroImg13 from "@/assets/gallery/estudio-paineis.jpeg";
+import heroImg14 from "@/assets/gallery/escritorio-paineis-azuis.jpeg";
+import heroImg15 from "@/assets/gallery/painel-imagem-digital.jpg";
+import heroImg16 from "@/assets/gallery/paineis-seminario.jpg";
 
 const features = [
   { icon: Volume2, title: "Alta Absorção", desc: "NRC até 0.95 para controle sonoro profissional" },
@@ -27,15 +33,17 @@ const features = [
 
 const galleryImages = [
   { src: heroImg1, alt: "Baffles acústicos coloridos suspensos" },
-  { src: heroImg2, alt: "Painéis acústicos em escritório corporativo" },
+  { src: heroImg12, alt: "Painéis coloridos em sala de reunião" },
   { src: heroImg3, alt: "Nuvem acústica colorida" },
-  { src: heroImg4, alt: "Painéis hexagonais de teto" },
-  { src: heroImg5, alt: "Tratamento acústico em academia" },
+  { src: heroImg10, alt: "Painéis coloridos no teto e paredes" },
+  { src: heroImg13, alt: "Estúdio com painéis acústicos" },
   { src: heroImg6, alt: "Forro acústico corporativo" },
-  { src: heroImg7, alt: "Baffles em sala de aula" },
+  { src: heroImg14, alt: "Escritório com painéis azuis" },
   { src: heroImg8, alt: "Painéis suspensos decorativos" },
-  { src: heroImg9, alt: "Academia com tratamento de teto" },
-  { src: heroImg10, alt: "Forro industrial acústico" },
+  { src: heroImg11, alt: "Painéis em escritório rústico" },
+  { src: heroImg16, alt: "Painéis em seminário" },
+  { src: heroImg9, alt: "Painéis acústicos azuis residencial" },
+  { src: heroImg15, alt: "Painel com imagem digital plotada" },
 ];
 
 const HomePage = () => {
@@ -82,18 +90,18 @@ const HomePage = () => {
             >
               <div className="space-y-3">
                 <div className="glass-card overflow-hidden rounded-xl">
-                  <img src={heroImg1} alt="Baffles acústicos" className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
+                  <img src={heroImg12} alt="Painéis sala reunião" className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div className="glass-card overflow-hidden rounded-xl">
-                  <img src={heroImg4} alt="Painéis hexagonais" className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-700" />
+                  <img src={heroImg9} alt="Painéis azuis" className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-700" />
                 </div>
               </div>
               <div className="space-y-3 pt-8">
                 <div className="glass-card overflow-hidden rounded-xl">
-                  <img src={heroImg3} alt="Nuvem acústica" className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-700" />
+                  <img src={heroImg10} alt="Painéis coloridos teto" className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div className="glass-card overflow-hidden rounded-xl">
-                  <img src={heroImg2} alt="Escritório" className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
+                  <img src={heroImg11} alt="Escritório rústico" className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
                 </div>
               </div>
             </motion.div>
