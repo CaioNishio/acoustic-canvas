@@ -6,106 +6,59 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import ProductCard from "@/components/shared/ProductCard";
 import { products } from "@/data/products";
 import { solutions } from "@/data/solutions";
-
-import heroImg1 from "@/assets/gallery/baffles-coloridos.jpg";
-import heroImg2 from "@/assets/gallery/escritorio-paineis.png";
-import heroImg3 from "@/assets/gallery/nuvem-acustica.webp";
-import heroImg4 from "@/assets/gallery/hexagonais-teto.png";
-import heroImg5 from "@/assets/gallery/academia-baffles.jpeg";
-import heroImg6 from "@/assets/gallery/forro-corporativo.jpg";
-import heroImg7 from "@/assets/gallery/sala-aula-baffles.jpeg";
-import heroImg8 from "@/assets/gallery/paineis-suspensos.webp";
-import heroImg9 from "@/assets/gallery/paineis-azuis.png";
-import heroImg10 from "@/assets/gallery/paineis-coloridos-teto.png";
-import heroImg11 from "@/assets/gallery/paineis-escritorio-rustico.png";
-import heroImg12 from "@/assets/gallery/paineis-sala-reuniao.png";
-import heroImg13 from "@/assets/gallery/estudio-paineis.jpeg";
-import heroImg14 from "@/assets/gallery/escritorio-paineis-azuis.jpeg";
-import heroImg15 from "@/assets/gallery/painel-imagem-digital.jpg";
-import heroImg16 from "@/assets/gallery/paineis-seminario.jpg";
-
-const features = [
-  { icon: Volume2, title: "Alta Absorção", desc: "NRC até 0.95 para controle sonoro profissional" },
-  { icon: Shield, title: "Certificação A2", desc: "Materiais com classificação de resistência ao fogo" },
-  { icon: Ruler, title: "Sob Medida", desc: "Projetos personalizados para cada ambiente" },
-  { icon: Headphones, title: "Consultoria", desc: "Análise acústica profissional inclusa" },
-];
-
-const galleryImages = [
-  { src: heroImg1, alt: "Baffles acústicos coloridos suspensos" },
-  { src: heroImg12, alt: "Painéis coloridos em sala de reunião" },
-  { src: heroImg3, alt: "Nuvem acústica colorida" },
-  { src: heroImg10, alt: "Painéis coloridos no teto e paredes" },
-  { src: heroImg13, alt: "Estúdio com painéis acústicos" },
-  { src: heroImg6, alt: "Forro acústico corporativo" },
-  { src: heroImg14, alt: "Escritório com painéis azuis" },
-  { src: heroImg8, alt: "Painéis suspensos decorativos" },
-  { src: heroImg11, alt: "Painéis em escritório rústico" },
-  { src: heroImg16, alt: "Painéis em seminário" },
-  { src: heroImg9, alt: "Painéis acústicos azuis residencial" },
-  { src: heroImg15, alt: "Painel com imagem digital plotada" },
-];
-
+const features = [{
+  icon: Volume2,
+  title: "Alta Absorção",
+  desc: "NRC até 0.95 para controle sonoro profissional"
+}, {
+  icon: Shield,
+  title: "Certificação A2",
+  desc: "Materiais com classificação de resistência ao fogo"
+}, {
+  icon: Ruler,
+  title: "Sob Medida",
+  desc: "Projetos personalizados para cada ambiente"
+}, {
+  icon: Headphones,
+  title: "Consultoria",
+  desc: "Análise acústica profissional inclusa"
+}];
 const HomePage = () => {
-  return (
-    <Layout>
-      {/* Hero with image mosaic */}
+  return <Layout>
+      {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20 bg-accent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="text-primary text-sm font-semibold tracking-widest uppercase">
-                Tratamento Acústico Profissional
-              </span>
-              <h1 className="font-display text-5xl md:text-7xl font-bold mt-4 leading-[1.1]">
-                O som perfeito começa com a{" "}
-                <span className="text-gradient">acústica certa</span>
-              </h1>
-              <p className="text-lg text-muted-foreground mt-6 max-w-xl">
-                Painéis acústicos, bass traps, difusores e soluções completas para estúdios,
-                igrejas, auditórios e ambientes corporativos.
-              </p>
-              <div className="flex flex-wrap gap-4 mt-8">
-                <Link to="/produtos" className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors inline-flex items-center gap-2">
-                  Ver Produtos <ArrowRight size={16} />
-                </Link>
-                <Link to="/orcamento" className="px-6 py-3 border border-border text-foreground font-semibold rounded-md hover:bg-secondary transition-colors">
-                  Solicitar Orçamento
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Hero image mosaic */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="hidden lg:grid grid-cols-2 gap-3"
-            >
-              <div className="space-y-3">
-                <div className="glass-card overflow-hidden rounded-xl">
-                  <img src={heroImg12} alt="Painéis sala reunião" className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
-                </div>
-                <div className="glass-card overflow-hidden rounded-xl">
-                  <img src={heroImg9} alt="Painéis azuis" className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-700" />
-                </div>
-              </div>
-              <div className="space-y-3 pt-8">
-                <div className="glass-card overflow-hidden rounded-xl">
-                  <img src={heroImg10} alt="Painéis coloridos teto" className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-700" />
-                </div>
-                <div className="glass-card overflow-hidden rounded-xl">
-                  <img src={heroImg11} alt="Escritório rústico" className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
-                </div>
-              </div>
-            </motion.div>
-          </div>
+          <motion.div initial={{
+          opacity: 0,
+          y: 40
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} className="max-w-3xl">
+            <span className="text-primary text-sm font-semibold tracking-widest uppercase">
+              Tratamento Acústico Profissional
+            </span>
+            <h1 className="font-display text-5xl md:text-7xl font-bold mt-4 leading-[1.1]">
+              O som perfeito começa com a{" "}
+              <span className="text-gradient">acústica certa</span>
+            </h1>
+            <p className="text-lg text-muted-foreground mt-6 max-w-xl">
+              Painéis acústicos, bass traps, difusores e soluções completas para estúdios, 
+              igrejas, auditórios e ambientes corporativos.
+            </p>
+            <div className="flex flex-wrap gap-4 mt-8">
+              <Link to="/produtos" className="px-6 py-3 text-primary-foreground font-semibold rounded-md transition-colors inline-flex items-center gap-2 bg-destructive-foreground border-destructive-foreground">
+                Ver Produtos <ArrowRight size={16} />
+              </Link>
+              <Link to="/orcamento" className="px-6 py-3 border border-border text-foreground font-semibold rounded-md hover:bg-secondary transition-colors">
+                Solicitar Orçamento
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -113,49 +66,27 @@ const HomePage = () => {
       <section className="section-padding">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((f, i) => (
-              <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card p-6 text-center">
+            {features.map((f, i) => <motion.div key={f.title} initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: i * 0.1
+          }} className="glass-card p-6 text-center">
                 <f.icon className="mx-auto text-primary mb-3" size={28} />
                 <h3 className="font-display font-semibold">{f.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{f.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Showcase */}
-      <section className="section-padding bg-secondary/20">
-        <div className="container mx-auto">
-          <SectionHeading tag="Galeria" title="Nossos Projetos em Ação" description="Veja como nossos produtos transformam ambientes reais." />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {galleryImages.map((img, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className={`glass-card overflow-hidden rounded-xl group cursor-pointer ${
-                  i === 0 || i === 5 ? "md:col-span-2 md:row-span-2" : ""
-                }`}
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${
-                    i === 0 || i === 5 ? "aspect-square" : "aspect-[4/3]"
-                  }`}
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
 
       {/* Products Preview */}
-      <section className="section-padding">
+      <section className="section-padding bg-secondary/20">
         <div className="container mx-auto">
           <SectionHeading tag="Produtos" title="Soluções Acústicas de Alta Performance" description="Materiais certificados com tecnologia de ponta para cada necessidade acústica." />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -170,12 +101,19 @@ const HomePage = () => {
       </section>
 
       {/* Solutions Preview */}
-      <section className="section-padding bg-secondary/20">
+      <section className="section-padding">
         <div className="container mx-auto">
           <SectionHeading tag="Soluções" title="Para Cada Ambiente, Uma Solução" description="Soluções acústicas especializadas para diferentes tipos de espaço." />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {solutions.slice(0, 3).map(s => (
-              <motion.div key={s.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            {solutions.slice(0, 3).map(s => <motion.div key={s.slug} initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }}>
                 <Link to={`/solucoes/${s.slug}`} className="glass-card-hover block group overflow-hidden">
                   <div className="aspect-video overflow-hidden">
                     <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
@@ -185,8 +123,7 @@ const HomePage = () => {
                     <p className="text-sm text-muted-foreground mt-2">{s.shortDescription}</p>
                   </div>
                 </Link>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
@@ -210,8 +147,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default HomePage;
