@@ -1,6 +1,6 @@
 import { useState, lazy, Suspense } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Download, Check, Volume2, Ruler, Palette, Wrench, LayoutGrid, Target, Shield, Award, Leaf, ChevronDown, CheckCircle, Flame, Droplets, FlaskConical, Bug } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, Check, Volume2, Ruler, Palette, Wrench, LayoutGrid, Target, Shield, Award, Leaf, ChevronDown, CheckCircle, Flame, Droplets, FlaskConical, Bug, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/shared/ProductCard";
@@ -8,6 +8,7 @@ import AcousticInfoGraphic from "@/components/shared/AcousticInfoGraphic";
 import AbsorptionChart from "@/components/shared/AbsorptionChart";
 import { products, type ProductColor } from "@/data/products";
 import { productPrices, formatPrice, unitLabel } from "@/data/productPrices";
+import { useQuoteCart } from "@/contexts/QuoteCartContext";
 
 const Product3DViewer = lazy(() => import("@/components/shared/Product3DViewer"));
 
@@ -33,6 +34,8 @@ export default function ProdutoDetalhePage() {
   const [selectedColor, setSelectedColor] = useState<ProductColor | null>(null);
   const [mainImage, setMainImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const { addItem } = useQuoteCart();
 
   if (!product) {
     return (
@@ -138,13 +141,14 @@ export default function ProdutoDetalhePage() {
                         return spNums[0] === firstDim;
                       });
                       return (
-                        <div
+                        <button
                           key={size.label}
-                          className="px-4 py-2.5 border-2 border-border rounded-lg text-center cursor-default hover:border-primary/50 transition-colors">
+                          onClick={() => setSelectedSize(selectedSize === size.label ? null : size.label)}
+                          className={`px-4 py-2.5 border-2 rounded-lg text-center transition-colors ${selectedSize === size.label ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"}`}>
                           <p className="text-xs font-bold text-foreground">{size.label}</p>
                           <p className="text-[10px] text-muted-foreground font-mono">{size.dimensions}</p>
                           {sizePrice && <p className="text-xs font-bold text-primary mt-1">{formatPrice(sizePrice.price)}</p>}
-                        </div>
+                        </button>
                       );
                     })}
                   </div>
@@ -204,10 +208,34 @@ export default function ProdutoDetalhePage() {
 
               {/* Actions */}
               <div className="flex flex-wrap gap-3 mt-8">
+                <button
+                  onClick={() => {
+                    const pricing = productPrices[product.slug];
+                    const selectedSizeData = product.sizes?.find((s) => s.label === selectedSize);
+                    const dimNumbers = selectedSizeData?.dimensions.match(/\d+/g) || [];
+                    const firstDim = dimNumbers[0] || "";
+                    const sizePrice = pricing?.sizes?.find((sp) => {
+                      const spNums = sp.dimensions.match(/\d+/g) || [];
+                      return spNums[0] === firstDim;
+                    });
+                    const price = sizePrice?.price ?? pricing?.basePrice ?? 0;
+                    addItem({
+                      slug: product.slug,
+                      name: product.name,
+                      image: product.image,
+                      size: selectedSizeData?.dimensions || undefined,
+                      color: selectedColor?.name || undefined,
+                      colorHex: selectedColor?.hex || undefined,
+                      unitPrice: price,
+                      unit: pricing?.unit || "un",
+                    });
+                  }}
+                  className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors inline-flex items-center gap-2 shadow-lg shadow-primary/20">
+                  <ShoppingBag size={16} /> Adicionar ao Orçamento
+                </button>
                 <Link
                   to="/orcamento"
-                  className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors inline-flex items-center gap-2 shadow-lg shadow-primary/20">
-
+                  className="px-6 py-3.5 border-2 border-border text-foreground rounded-lg text-sm font-semibold hover:bg-muted transition-colors inline-flex items-center gap-2">
                   Solicitar Orçamento <ArrowRight size={16} />
                 </Link>
                 <button className="px-6 py-3.5 border-2 border-border text-foreground rounded-lg text-sm font-semibold hover:bg-muted transition-colors inline-flex items-center gap-2">

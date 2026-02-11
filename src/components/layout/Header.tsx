@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, Instagram, Phone, Search } from "lucide-react";
+import { Menu, X, ArrowRight, Instagram, Phone, Search, ShoppingBag } from "lucide-react";
+import { useQuoteCart } from "@/contexts/QuoteCartContext";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-sonar.png";
 import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
@@ -89,6 +90,7 @@ export default function Header() {
   const [activeMenu, setActiveMenu] = useState<MenuKey>(null);
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
+  const { totalItems, openCart } = useQuoteCart();
   const openMenu = (key: MenuKey) => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
     setActiveMenu(key);
@@ -159,6 +161,14 @@ export default function Header() {
               Projete sua Sala
             </Link>
             <button className="p-2 text-white/50 hover:text-white transition-colors"><Search size={18} /></button>
+            <button onClick={openCart} className="relative p-2 text-white/50 hover:text-white transition-colors">
+              <ShoppingBag size={18} />
+              {totalItems > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 bg-secondary text-secondary-foreground text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </button>
           </div>
         </div>
       </div>

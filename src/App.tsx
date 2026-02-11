@@ -2,6 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { QuoteCartProvider } from "@/contexts/QuoteCartContext";
+import QuoteCartDrawer from "@/components/shared/QuoteCartDrawer";
 import Index from "./pages/Index";
 import Produtos from "./pages/Produtos";
 import ProdutoDetalhe from "./pages/ProdutoDetalhe";
@@ -18,23 +20,26 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <Toaster />
-    <Sonner />
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/produtos" element={<Produtos />} />
-        <Route path="/produtos/:slug" element={<ProdutoDetalhe />} />
-        <Route path="/solucoes" element={<Solucoes />} />
-        <Route path="/solucoes/:slug" element={<SolucaoDetalhe />} />
-        <Route path="/projetos" element={<Projetos />} />
-        <Route path="/projetos/:slug" element={<ProjetoDetalhe />} />
-        <Route path="/calculadora" element={<Calculadora />} />
-        <Route path="/orcamento" element={<Orcamento />} />
-        <Route path="/contato" element={<Contato />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <QuoteCartProvider>
+      <Toaster />
+      <Sonner />
+      <QuoteCartDrawer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/produtos" element={<Produtos />} />
+          <Route path="/produtos/:slug" element={<ProdutoDetalhe />} />
+          <Route path="/solucoes" element={<Solucoes />} />
+          <Route path="/solucoes/:slug" element={<SolucaoDetalhe />} />
+          <Route path="/projetos" element={<Projetos />} />
+          <Route path="/projetos/:slug" element={<ProjetoDetalhe />} />
+          <Route path="/calculadora" element={<Calculadora />} />
+          <Route path="/orcamento" element={<Orcamento />} />
+          <Route path="/contato" element={<Contato />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </QuoteCartProvider>
   </QueryClientProvider>
 );
 
