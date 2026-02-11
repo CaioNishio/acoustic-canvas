@@ -105,6 +105,24 @@ export default function ProdutoDetalhePage() {
               <h1 className="font-display text-3xl md:text-4xl font-bold mt-3 text-foreground">{product.name}</h1>
               <p className="text-muted-foreground mt-4 leading-relaxed text-base">{product.description}</p>
 
+              {/* Size Selector — GIK style */}
+              {product.sizes && product.sizes.length > 0 && (
+                <div className="mt-6">
+                  <h3 className="font-display font-semibold text-sm mb-3">Tamanhos Disponíveis</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {product.sizes.map((size) => (
+                      <div
+                        key={size.label}
+                        className="px-4 py-2.5 border-2 border-border rounded-lg text-center cursor-default hover:border-primary/50 transition-colors"
+                      >
+                        <p className="text-xs font-bold text-foreground">{size.label}</p>
+                        <p className="text-[10px] text-muted-foreground font-mono">{size.dimensions}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Color Selector */}
               {product.colors && product.colors.length > 0 && (
                 <div className="mt-8">
