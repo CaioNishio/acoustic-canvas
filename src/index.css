@@ -208,3 +208,11 @@
     @apply w-full h-px bg-gradient-to-r from-border via-primary/20 to-border;
   }
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
