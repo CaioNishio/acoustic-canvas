@@ -19,7 +19,7 @@ export default {
   				'sans-serif'
   			],
   			body: [
-  				'Quicksand',
+  				'Sora',
   				'sans-serif'
   			],
   			sans: [
