@@ -10,11 +10,11 @@ import type { LayoutPreset } from "@/components/calculadora/Room3DViewer";
 
 const Room3DViewer = lazy(() => import("@/components/calculadora/Room3DViewer"));
 
-const layoutPresets: { value: LayoutPreset; label: string; desc: string }[] = [
-  { value: "simetrico", label: "Simétrico", desc: "Distribuição espelhada nas paredes — visual limpo e equilibrado" },
-  { value: "reflexao", label: "Reflexão", desc: "Baseado nos pontos de primeira reflexão — máxima precisão acústica" },
-  { value: "hibrido", label: "Híbrido", desc: "Checkerboard decorativo — visual premium com boa performance" },
-];
+const layoutPresets: {value: LayoutPreset;label: string;desc: string;}[] = [
+{ value: "simetrico", label: "Simétrico", desc: "Distribuição espelhada nas paredes — visual limpo e equilibrado" },
+{ value: "reflexao", label: "Reflexão", desc: "Baseado nos pontos de primeira reflexão — máxima precisão acústica" },
+{ value: "hibrido", label: "Híbrido", desc: "Checkerboard decorativo — visual premium com boa performance" }];
+
 
 export default function CalculadoraPage() {
   const [width, setWidth] = useState("");
@@ -27,7 +27,7 @@ export default function CalculadoraPage() {
     instruments: [],
     monitorSize: "",
     hasSub: false,
-    subSize: "",
+    subSize: ""
   });
 
   const [result, setResult] = useState<null | {
@@ -35,7 +35,7 @@ export default function CalculadoraPage() {
     totalSurface: number;
     absorptionArea: number;
     rtTarget: number;
-    products: { name: string; placement: string; qty: number; slug: string }[];
+    products: {name: string;placement: string;qty: number;slug: string;}[];
     panelsNeeded: number;
     useLabel: string;
     equipmentNotes: string[];
@@ -56,7 +56,7 @@ export default function CalculadoraPage() {
     const equipmentNotes: string[] = [];
 
     // Low-freq impact from instruments
-    const selectedInstruments = instrumentOptions.filter(i => equipment.instruments.includes(i.id));
+    const selectedInstruments = instrumentOptions.filter((i) => equipment.instruments.includes(i.id));
     const totalLowImpact = selectedInstruments.reduce((sum, i) => sum + i.lowFreqImpact, 0);
     if (totalLowImpact > 0) {
       absPercent += totalLowImpact * 0.15; // More instruments = more treatment
@@ -64,7 +64,7 @@ export default function CalculadoraPage() {
     }
 
     // Monitor size impact — larger monitors = more low extension = more bass treatment
-    const monitor = monitorSizes.find(m => m.value === equipment.monitorSize);
+    const monitor = monitorSizes.find((m) => m.value === equipment.monitorSize);
     if (monitor) {
       const monitorFactor = (parseInt(monitor.value) - 5) * 0.02;
       absPercent += monitorFactor;
@@ -87,14 +87,14 @@ export default function CalculadoraPage() {
     const panelsNeeded = Math.ceil(absorptionArea / panelArea);
 
     // ── Product recommendation based on use + equipment ──
-    const products: { name: string; placement: string; qty: number; slug: string }[] = [];
+    const products: {name: string;placement: string;qty: number;slug: string;}[] = [];
 
     // Determine bass trap count based on equipment
     let bassTrapCount = Math.min(4, Math.ceil(w * 0.5));
     if (equipment.hasSub || totalLowImpact > 0.2) {
       bassTrapCount = 4; // Always 4 corners with significant low-freq sources
     }
-    if (selectedInstruments.some(i => i.id === "bateria")) {
+    if (selectedInstruments.some((i) => i.id === "bateria")) {
       bassTrapCount = 4;
       equipmentNotes.push("Bateria requer tratamento máximo nos 4 cantos");
     }
@@ -107,7 +107,7 @@ export default function CalculadoraPage() {
     }
 
     // Determine density based on low-freq demands
-    const needsHighDensity = totalLowImpact > 0.2 || equipment.hasSub || (monitor && parseInt(monitor.value) >= 8);
+    const needsHighDensity = totalLowImpact > 0.2 || equipment.hasSub || monitor && parseInt(monitor.value) >= 8;
 
     if (useType.value === "estudio" || useType.value === "home-theater" || useType.value === "ensaio" || useType.value === "podcast") {
       const wallPanels = Math.ceil(panelsNeeded * 0.45);
@@ -140,13 +140,13 @@ export default function CalculadoraPage() {
 
   return (
     <Layout>
-      <section className="section-padding bg-gradient-to-b from-background via-muted/30 to-background min-h-screen">
+      <section className="section-padding bg-gradient-to-b from-background via-muted/30 to-background min-h-screen bg-muted-foreground mx-[3px]">
         <div className="container mx-auto">
           <SectionHeading
             tag="Ferramenta"
             title="Calculadora Acústica"
-            description="Calcule a área de absorção recomendada e visualize o material ideal para o seu ambiente."
-          />
+            description="Calcule a área de absorção recomendada e visualize o material ideal para o seu ambiente." />
+
 
           <div className="mt-8 grid grid-cols-1 xl:grid-cols-12 gap-6">
             {/* LEFT COLUMN — Form */}
@@ -155,19 +155,19 @@ export default function CalculadoraPage() {
                 <CalculatorForm
                   width={width} length={length} height={height} use={use} equipment={equipment}
                   setWidth={setWidth} setLength={setLength} setHeight={setHeight} setUse={setUse} setEquipment={setEquipment}
-                  onCalculate={calculate}
-                />
+                  onCalculate={calculate} />
+
 
                 {/* Material quick reference */}
                 <div className="mt-6 pt-5 border-t border-border/50">
                   <h4 className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider mb-3">Materiais</h4>
                   <div className="space-y-2">
                     {[
-                      { density: "D32", nrc: "0.80", use: "High-Mid", color: "bg-primary/60" },
-                      { density: "D64", nrc: "0.93", use: "Low-Mid", color: "bg-accent/60" },
-                      { density: "D96", nrc: "1.07", use: "Full Range", color: "bg-destructive/60" },
-                    ].map((m) => (
-                      <div key={m.density} className="flex items-center gap-2 p-2 rounded-md hover:bg-muted/50 transition-colors">
+                    { density: "D32", nrc: "0.80", use: "High-Mid", color: "bg-primary/60" },
+                    { density: "D64", nrc: "0.93", use: "Low-Mid", color: "bg-accent/60" },
+                    { density: "D96", nrc: "1.07", use: "Full Range", color: "bg-destructive/60" }].
+                    map((m) =>
+                    <div key={m.density} className="flex items-center gap-2 p-2 rounded-md hover:bg-muted/50 transition-colors">
                         <span className={`w-2 h-2 ${m.color} rounded-full shrink-0`} />
                         <div className="flex-1">
                           <p className="text-[11px] font-semibold text-foreground">{m.density}</p>
@@ -175,7 +175,7 @@ export default function CalculadoraPage() {
                         </div>
                         <span className="text-[11px] font-mono font-bold text-primary">{m.nrc}</span>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -186,124 +186,124 @@ export default function CalculadoraPage() {
               {/* 3D Viewer */}
               <motion.div
                 layout
-                className={`glass-card overflow-hidden transition-all ${expanded3D ? "fixed inset-4 z-50" : "relative"}`}
-              >
+                className={`glass-card overflow-hidden transition-all ${expanded3D ? "fixed inset-4 z-50" : "relative"}`}>
+
                 <div className="flex items-center justify-between p-4 pb-0">
                   <h3 className="font-display font-bold text-base text-foreground flex items-center gap-2">
                     <Box size={18} className="text-primary" /> Visualização 3D
-                    {hasRoomDimensions && (
-                      <span className="text-[10px] font-mono text-muted-foreground ml-2">
+                    {hasRoomDimensions &&
+                    <span className="text-[10px] font-mono text-muted-foreground ml-2">
                         {width}×{length}×{height}m
                       </span>
-                    )}
+                    }
                   </h3>
                   <div className="flex items-center gap-2">
                     {/* Layout Selector */}
-                    {result && (
-                      <div className="flex gap-1">
-                        {layoutPresets.map((lp) => (
-                          <button
-                            key={lp.value}
-                            onClick={() => setLayout(lp.value)}
-                            title={lp.desc}
-                            className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all ${
-                              layout === lp.value
-                                ? "bg-primary/15 text-primary border border-primary/30"
-                                : "text-muted-foreground hover:text-foreground border border-transparent"
-                            }`}
-                          >
+                    {result &&
+                    <div className="flex gap-1">
+                        {layoutPresets.map((lp) =>
+                      <button
+                        key={lp.value}
+                        onClick={() => setLayout(lp.value)}
+                        title={lp.desc}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all ${
+                        layout === lp.value ?
+                        "bg-primary/15 text-primary border border-primary/30" :
+                        "text-muted-foreground hover:text-foreground border border-transparent"}`
+                        }>
+
                             {lp.label}
                           </button>
-                        ))}
+                      )}
                       </div>
-                    )}
+                    }
                     <button
                       onClick={() => setExpanded3D(!expanded3D)}
-                      className="p-1.5 rounded-md hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors"
-                    >
+                      className="p-1.5 rounded-md hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors">
+
                       {expanded3D ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
                     </button>
                   </div>
                 </div>
 
                 {/* Layout description */}
-                {result && (
-                  <div className="px-4 pt-2">
+                {result &&
+                <div className="px-4 pt-2">
                     <p className="text-[10px] text-muted-foreground/70">
                       <LayoutGrid size={10} className="inline mr-1" />
-                      {layoutPresets.find(lp => lp.value === layout)?.desc}
+                      {layoutPresets.find((lp) => lp.value === layout)?.desc}
                     </p>
                   </div>
-                )}
+                }
 
                 <div className={`p-4 ${expanded3D ? "h-[calc(100%-80px)]" : "h-[450px] lg:h-[500px]"}`}>
-                  {hasRoomDimensions ? (
-                    <Suspense fallback={
-                      <div className="w-full h-full flex items-center justify-center rounded-xl" style={{ background: "linear-gradient(135deg, #050d1a 0%, #0a1628 50%, #0d1f33 100%)" }}>
+                  {hasRoomDimensions ?
+                  <Suspense fallback={
+                  <div className="w-full h-full flex items-center justify-center rounded-xl" style={{ background: "linear-gradient(135deg, #050d1a 0%, #0a1628 50%, #0d1f33 100%)" }}>
                         <div className="text-center">
                           <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-2" />
                           <p className="text-xs text-blue-400/60">Carregando cena 3D...</p>
                         </div>
                       </div>
-                    }>
+                  }>
                       <Room3DViewer
-                        width={parseFloat(width) || 1}
-                        length={parseFloat(length) || 1}
-                        height={parseFloat(height) || 1}
-                        products={result?.products}
-                        showProducts={!!result}
-                        layout={layout}
-                        hasMonitors={!!equipment.monitorSize}
-                        hasSub={equipment.hasSub}
-                      />
-                    </Suspense>
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center rounded-xl border border-dashed border-border/50 bg-muted/20">
+                      width={parseFloat(width) || 1}
+                      length={parseFloat(length) || 1}
+                      height={parseFloat(height) || 1}
+                      products={result?.products}
+                      showProducts={!!result}
+                      layout={layout}
+                      hasMonitors={!!equipment.monitorSize}
+                      hasSub={equipment.hasSub} />
+
+                    </Suspense> :
+
+                  <div className="w-full h-full flex flex-col items-center justify-center rounded-xl border border-dashed border-border/50 bg-muted/20">
                       <Box size={48} className="text-muted-foreground/20 mb-3" />
                       <p className="text-sm text-muted-foreground">Use os sliders para definir o ambiente</p>
                       <p className="text-[10px] text-muted-foreground/50 mt-1">A sala aparecerá aqui em tempo real</p>
                     </div>
-                  )}
+                  }
                 </div>
               </motion.div>
 
-              {expanded3D && (
-                <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40" onClick={() => setExpanded3D(false)} />
-              )}
+              {expanded3D &&
+              <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40" onClick={() => setExpanded3D(false)} />
+              }
 
               {/* Results */}
               <AnimatePresence>
-                {result && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="space-y-5"
-                  >
+                {result &&
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="space-y-5">
+
                     {/* Equipment Notes */}
-                    {result.equipmentNotes.length > 0 && (
-                      <div className="glass-card p-4">
+                    {result.equipmentNotes.length > 0 &&
+                  <div className="glass-card p-4">
                         <h4 className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider mb-2">Análise de Equipamentos</h4>
                         <div className="space-y-1">
-                          {result.equipmentNotes.map((note, i) => (
-                            <p key={i} className="text-[12px] text-foreground flex items-start gap-2">
+                          {result.equipmentNotes.map((note, i) =>
+                      <p key={i} className="text-[12px] text-foreground flex items-start gap-2">
                               <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
                               {note}
                             </p>
-                          ))}
+                      )}
                         </div>
                       </div>
-                    )}
+                  }
 
                     {/* Metrics */}
                     <AcousticMetrics
-                      volume={result.volume}
-                      totalSurface={result.totalSurface}
-                      absorptionArea={result.absorptionArea}
-                      rtTarget={result.rtTarget}
-                      panelsNeeded={result.panelsNeeded}
-                      useLabel={result.useLabel}
-                    />
+                    volume={result.volume}
+                    totalSurface={result.totalSurface}
+                    absorptionArea={result.absorptionArea}
+                    rtTarget={result.rtTarget}
+                    panelsNeeded={result.panelsNeeded}
+                    useLabel={result.useLabel} />
+
 
                     {/* Material */}
                     <div className="glass-card p-5">
@@ -312,10 +312,10 @@ export default function CalculadoraPage() {
                         <span className="text-[10px] text-muted-foreground font-mono">{result.useLabel}</span>
                       </div>
                       {(() => {
-                        const vol = result.volume;
-                        if (vol <= 30) {
-                          return (
-                            <div className="flex items-center gap-4 p-3 bg-primary/5 rounded-lg mt-2">
+                      const vol = result.volume;
+                      if (vol <= 30) {
+                        return (
+                          <div className="flex items-center gap-4 p-3 bg-primary/5 rounded-lg mt-2">
                               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                                 <span className="text-lg font-bold font-mono text-primary">32</span>
                               </div>
@@ -324,11 +324,11 @@ export default function CalculadoraPage() {
                                 <p className="text-[11px] text-muted-foreground">Ideal para salas pequenas — NRC 0.80 — perfil fino 50mm</p>
                               </div>
                               <span className="text-xs font-mono font-bold text-primary">NRC 0.80</span>
-                            </div>
-                          );
-                        } else if (vol <= 80) {
-                          return (
-                            <div className="flex items-center gap-4 p-3 bg-accent/5 rounded-lg mt-2">
+                            </div>);
+
+                      } else if (vol <= 80) {
+                        return (
+                          <div className="flex items-center gap-4 p-3 bg-accent/5 rounded-lg mt-2">
                               <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
                                 <span className="text-lg font-bold font-mono text-accent">64</span>
                               </div>
@@ -337,11 +337,11 @@ export default function CalculadoraPage() {
                                 <p className="text-[11px] text-muted-foreground">Maior densidade para baixas frequências — {result.useLabel}</p>
                               </div>
                               <span className="text-xs font-mono font-bold text-accent">NRC 0.93</span>
-                            </div>
-                          );
-                        } else {
-                          return (
-                            <div className="flex items-center gap-4 p-3 bg-destructive/5 rounded-lg mt-2">
+                            </div>);
+
+                      } else {
+                        return (
+                          <div className="flex items-center gap-4 p-3 bg-destructive/5 rounded-lg mt-2">
                               <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center">
                                 <span className="text-lg font-bold font-mono text-destructive">96</span>
                               </div>
@@ -350,22 +350,22 @@ export default function CalculadoraPage() {
                                 <p className="text-[11px] text-muted-foreground">Máxima absorção full range para espaços grandes — {result.useLabel}</p>
                               </div>
                               <span className="text-xs font-mono font-bold text-destructive">NRC 1.07</span>
-                            </div>
-                          );
-                        }
-                      })()}
+                            </div>);
+
+                      }
+                    })()}
                     </div>
 
                     {/* Products */}
                     <div className="glass-card p-5">
                       <h4 className="font-display font-semibold text-sm mb-3">Produtos Recomendados</h4>
                       <div className="space-y-2">
-                        {result.products.map((p) => (
-                          <Link
-                            key={p.name}
-                            to={`/produtos/${p.slug}`}
-                            className="flex items-center justify-between rounded-lg border border-border/50 p-3 hover:border-primary/40 transition-all group bg-card/30"
-                          >
+                        {result.products.map((p) =>
+                      <Link
+                        key={p.name}
+                        to={`/produtos/${p.slug}`}
+                        className="flex items-center justify-between rounded-lg border border-border/50 p-3 hover:border-primary/40 transition-all group bg-card/30">
+
                             <div className="flex items-start gap-2">
                               <span className="w-2 h-2 bg-primary rounded-full mt-1.5 shrink-0" />
                               <div>
@@ -378,7 +378,7 @@ export default function CalculadoraPage() {
                               <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                             </div>
                           </Link>
-                        ))}
+                      )}
                       </div>
 
                       <div className="mt-4 pt-4 border-t border-border/50 flex items-center justify-between">
@@ -386,9 +386,9 @@ export default function CalculadoraPage() {
                           Total: <strong className="text-foreground">{result.panelsNeeded} painéis</strong> (1200×600mm)
                         </p>
                         <Link
-                          to="/orcamento"
-                          className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1"
-                        >
+                        to="/orcamento"
+                        className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
+
                           Solicitar Orçamento <ArrowRight size={14} />
                         </Link>
                       </div>
@@ -398,12 +398,12 @@ export default function CalculadoraPage() {
                       </p>
                     </div>
                   </motion.div>
-                )}
+                }
               </AnimatePresence>
             </div>
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>);
+
 }

@@ -99,7 +99,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-7 lg:py-3 text-base lg:text-xl font-medium tracking-wider transition-all duration-300 rounded-full cursor-pointer font-display whitespace-nowrap ${activeMenu === key ? "text-white bg-white/20 backdrop-blur-sm shadow-md" : "text-white/90 hover:text-white hover:bg-white/10"}`;
+  const navItemClass = (key: MenuKey) => `px-3 py-2 lg:px-6 lg:py-3 text-sm lg:text-lg font-bold tracking-wide transition-all duration-200 rounded-full cursor-pointer font-display whitespace-nowrap ${activeMenu === key ? "text-white bg-primary shadow-md" : "text-[hsl(205,78%,15%)] hover:text-primary hover:bg-primary/5"}`;
   return <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="bg-[hsl(205,78%,12%)] text-white">
@@ -117,8 +117,8 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <div className="backdrop-blur-md border-b shadow-sm border-border bg-muted-foreground">
-        <div className="container mx-auto px-4 flex items-center justify-between h-20 lg:h-28 text-primary-foreground">
+      <div className="backdrop-blur-md border-b shadow-sm border-border bg-muted-foreground border-8">
+        <div className="container mx-auto px-4 flex items-center justify-between h-20 lg:h-28 text-secondary-foreground border-4">
           <Link to="/" className="flex items-center flex-shrink-0 mr-6">
             <img src={logo} alt="Sonar Acústicos" className="h-16 lg:h-36 w-auto" />
           </Link>
@@ -148,10 +148,10 @@ export default function Header() {
                   </motion.div>}
               </AnimatePresence>
             </div>
-            <Link to="/contato" className="hidden lg:block px-6 py-3 text-xl font-medium font-display transition-all duration-300 tracking-wider whitespace-nowrap text-secondary hover:text-secondary/80">
+            <Link to="/contato" className="hidden lg:block px-5 py-3 text-lg font-bold font-display transition-colors tracking-wide whitespace-nowrap text-destructive-foreground">
               Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="hidden lg:block px-6 py-3 text-xl font-medium font-display text-white/90 hover:text-white transition-all duration-300 tracking-wider whitespace-nowrap">
+            <Link to="/orcamento" className="hidden lg:block px-5 py-3 text-lg font-bold font-display text-[hsl(205,78%,15%)] hover:text-primary transition-colors tracking-wide whitespace-nowrap">
               Projete sua Sala
             </Link>
           </nav>

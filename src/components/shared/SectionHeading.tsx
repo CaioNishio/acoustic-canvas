@@ -25,7 +25,7 @@ export default function SectionHeading({
       {tag && <span className="text-primary text-sm font-semibold tracking-widest uppercase mb-2 block">
           {tag}
         </span>}
-      <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">{title}</h2>
+      <h2 className="font-display text-3xl text-foreground font-normal text-center md:text-5xl">{title}</h2>
       {description && <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">{description}</p>}
     </motion.div>;
 }
