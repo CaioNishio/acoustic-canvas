@@ -22,6 +22,7 @@ import imgForroIndustrial from "@/assets/gallery/forro-industrial.jpg";
 import imgHexagonais from "@/assets/gallery/hexagonais-teto.png";
 import imgPaineisSuspensos from "@/assets/gallery/paineis-suspensos.webp";
 import imgPaineisColoridos from "@/assets/gallery/paineis-coloridos-teto.png";
+import imgSalaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
 
 const spaces = [
   { label: "Estúdios", path: "/solucoes/estudios", image: imgEstudio },
@@ -170,7 +171,7 @@ const HomePage = () => {
       {/* Full-width gallery strip */}
       <section className="bg-background py-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-          {[imgEstudio, imgEscritorioAzuis, imgForro, imgSalaReuniao].map((img, i) => (
+          {[imgEstudio, imgEscritorioAzuis, imgForro, imgSalaTratamento].map((img, i) => (
             <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="relative group overflow-hidden aspect-[4/3]">
               <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/20 transition-colors duration-500" />
