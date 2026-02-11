@@ -10,25 +10,25 @@
 
 @layer base {
   :root {
-    --background: 217 32.5843% 17.451%;
+    --background: 220 20% 4%;
     --foreground: 210 20% 92%;
 
     --card: 220 18% 7%;
-    --card-foreground: 21 90.2439% 48.2353%;
+    --card-foreground: 210 20% 92%;
 
-    --popover: 210 40% 98.0392%;
+    --popover: 220 18% 7%;
     --popover-foreground: 210 20% 92%;
 
-    --primary: 210 40% 96.0784%;
+    --primary: 38 90% 55%;
     --primary-foreground: 220 20% 4%;
 
-    --secondary: 210 40% 98.0392%;
-    --secondary-foreground: 21 91.6667% 14.1176%;
+    --secondary: 220 14% 14%;
+    --secondary-foreground: 210 20% 85%;
 
-    --muted: 220 14% 12%;
+    --muted: 45 93.3884% 47.451%;
     --muted-foreground: 215 12% 50%;
 
-    --accent: 145 80.3922% 10%;
+    --accent: 38 90% 55%;
     --accent-foreground: 220 20% 4%;
 
     --destructive: 0 72% 51%;
@@ -38,7 +38,7 @@
     --input: 220 14% 16%;
     --ring: 38 90% 55%;
 
-    --radius: 3rem;
+    --radius: 2.125rem;
 
     --glass: 220 18% 8%;
     --glass-border: 220 14% 18%;
@@ -63,10 +63,10 @@
     --font-mono: "Cascadia Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: -10px 10px 1.5px -10px hsla(20, 6%, 90%, 0.1);
-    --shadow: -10px 10px 3px -10px hsla(20, 6%, 90%, 0.1);
-    --shadow-md: -10px 10px 4.5px -10px hsla(20, 6%, 90%, 0.1);
-    --shadow-lg: -10px 10px 7.5px -10px hsla(20, 6%, 90%, 0.1);
+    --shadow-sm: 0px 1px 1.5px -2px hsla(21, 90%, 48%, 0.1);
+    --shadow: 0px 1px 3px -2px hsla(21, 90%, 48%, 0.1);
+    --shadow-md: 0px 1px 4.5px -2px hsla(21, 90%, 48%, 0.1);
+    --shadow-lg: 0px 1px 7.5px -2px hsla(21, 90%, 48%, 0.1);
     --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
     --tracking-normal: 0em;
@@ -107,13 +107,13 @@
     --sidebar-ring: 198 93% 59%;
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: -10px 10px 1.5px -10px hsla(20, 6%, 90%, 0.1);
-    --shadow: -10px 10px 3px -10px hsla(20, 6%, 90%, 0.1);
-    --shadow-md: -10px 10px 4.5px -10px hsla(20, 6%, 90%, 0.1);
-    --shadow-lg: -10px 10px 7.5px -10px hsla(20, 6%, 90%, 0.1);
+    --shadow-sm: 0px 1px 1.5px -2px hsla(21, 90%, 48%, 0.1);
+    --shadow: 0px 1px 3px -2px hsla(21, 90%, 48%, 0.1);
+    --shadow-md: 0px 1px 4.5px -2px hsla(21, 90%, 48%, 0.1);
+    --shadow-lg: 0px 1px 7.5px -2px hsla(21, 90%, 48%, 0.1);
     --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-    --radius: 3rem;
+    --radius: 2.125rem;
     --font-sans: "Source Sans Pro", ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     --font-serif: "EB Garamond", ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
     --font-mono: "Cascadia Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;

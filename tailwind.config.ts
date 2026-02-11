@@ -23,7 +23,6 @@ export default {
   				'sans-serif'
   			],
   			sans: [
-  				'Source Sans Pro',
   				'ui-sans-serif',
   				'system-ui',
   				'sans-serif',
@@ -33,7 +32,6 @@ export default {
   				'Noto Color Emoji'
   			],
   			serif: [
-  				'EB Garamond',
   				'ui-serif',
   				'Georgia',
   				'Cambria',
@@ -42,7 +40,6 @@ export default {
   				'serif'
   			],
   			mono: [
-  				'Cascadia Code',
   				'ui-monospace',
   				'SFMono-Regular',
   				'Menlo',
