@@ -116,7 +116,7 @@ const HomePage = () => {
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 text-secondary-foreground rounded-full transition-all text-sm shadow-lg shadow-secondary/30 font-medium bg-primary-foreground">
+              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all text-sm shadow-lg shadow-secondary/30 font-medium bg-[sidebar-accent-foreground] bg-transparent text-primary-foreground">
                 Solicitar Orçamento <ArrowRight size={16} />
               </Link>
               <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/25 text-white rounded-full hover:bg-white/10 transition-all text-sm backdrop-blur-sm font-bold">
@@ -128,14 +128,14 @@ const HomePage = () => {
         {/* Stats overlay at bottom */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[hsl(205,78%,10%)]/80 to-transparent pt-16 pb-8">
           <div className="container mx-auto px-6">
-            <div className="flex justify-start gap-12 md:gap-16">
-              {stats.map((s) =>
-              <div key={s.label}>
-                  <p className="text-3xl md:text-4xl font-bold text-white text-right">{s.value}</p>
-                  <p className="text-xs text-white/40 mt-0.5 uppercase tracking-wider mx-0 mb-[82px] mr-[50px] px-[30px] pt-0 pb-0 text-right">{s.label}</p>
-                </div>
-              )}
-            </div>
+            
+
+
+
+
+
+
+
           </div>
         </div>
       </section>
