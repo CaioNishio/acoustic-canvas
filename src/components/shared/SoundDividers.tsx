@@ -108,7 +108,7 @@ export function SoundRings({ className = "" }: {className?: string;}) {
         {[0, 1, 2, 3].map((i) =>
         <motion.div
           key={i}
-          className="absolute top-1/2 left-0 -translate-y-1/2 border border-primary/10 rounded-full"
+          className="absolute top-1/2 left-0 -translate-y-1/2 border-primary/10 rounded-full border-[sidebar-primary-foreground]"
           style={{
             width: `${(i + 1) * 25}%`,
             height: `${(i + 1) * 30}%`,

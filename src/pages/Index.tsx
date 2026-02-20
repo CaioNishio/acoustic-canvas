@@ -322,11 +322,11 @@ const HomePage = () => {
       <SoundRings />
 
       {/* ===== Testimonials ===== */}
-      <section className="py-20 px-6 bg-background">
-        <div className="container mx-auto">
+      <section className="py-20 px-6 border-slate-600 bg-[sidebar-accent-foreground] bg-slate-800">
+        <div className="container mx-auto border-[sidebar-accent-foreground] border-muted-foreground">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Depoimentos</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">O Que Nossos Clientes Dizem</h2>
+            <h2 className="text-3xl text-foreground mt-3 bg-[sidebar-primary-foreground] bg-card my-0 px-[51px] py-0 mx-[58px] md:text-2xl font-sans font-light text-center">O Que Nossos Clientes Dizem</h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {testimonials.map((t, i) =>
