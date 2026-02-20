@@ -146,9 +146,9 @@ const HomePage = () => {
       {/* ===== Spaces — horizontal navigation ===== */}
       <section className="py-16 opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground bg-transparent">
         <div className="container mx-auto px-6 border-4 opacity-100 border-transparent">
-          <motion.h2 {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-bold">
+          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-bold">
             Soluções para cada ambiente
-          </motion.h2>
+          </motion.p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {spaces.map((space) =>
             <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3]">
@@ -208,8 +208,8 @@ const HomePage = () => {
       <section className="py-24 bg-primary-foreground">
         <div className="container mx-auto px-6 border-destructive-foreground opacity-80 bg-white">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <span className="text-secondary font-bold tracking-[0.3em] uppercase text-xl">Processo</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-3 bg-sidebar">Como Funciona</h2>
+            <span className="font-bold tracking-[0.3em] uppercase text-xl text-primary">Processo</span>
+            <h2 className="text-3xl md:text-5xl font-bold mt-3 bg-sidebar px-0 text-center text-primary-foreground">Como Funciona</h2>
             <p className="mt-3 max-w-lg mx-auto bg-[#242424]/0 text-zinc-950">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
