@@ -169,7 +169,7 @@ const HomePage = () => {
 
       {/* ===== Portfolio mosaic ===== */}
       <section className="py-20 bg-muted-foreground border-secondary-foreground">
-        <div className="container mx-auto px-6 border-8 bg-[sidebar-accent-foreground] bg-glass border-amber-300">
+        <div className="container mx-auto px-6 border-8 bg-[sidebar-accent-foreground] bg-glass border-secondary">
           <motion.div {...fadeUp} className="text-center mb-14 py-[26px]">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase py-0 mx-0 text-right px-[51px] mb-[70px]">Portfólio</span>
             <h2 className="text-3xl md:text-5xl mt-3 text-center bg-transparent text-muted font-light">Nossos Projetos</h2>
@@ -193,8 +193,8 @@ const HomePage = () => {
               </motion.div>
             )}
           </div>
-          <div className="text-center mt-12">
-            <Link to="/projetos" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-muted-foreground transition-colors text-sm">
+          <div className="text-center mt-12 px-0 py-[20px]">
+            <Link to="/projetos" className="inline-flex items-center gap-2 border-2 border-white font-bold rounded-full transition-colors text-sm px-[92px] py-[7px] text-primary-foreground bg-[#464039]">
               Ver todos os projetos <ArrowRight size={16} />
             </Link>
           </div>
@@ -330,15 +330,15 @@ const HomePage = () => {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {testimonials.map((t, i) =>
-            <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="bg-background rounded-2xl p-8 border border-border/60 hover:border-primary/20 transition-all hover:shadow-lg">
-                <div className="flex gap-1 mb-5">
+            <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 border border-border/60 hover:border-primary/20 transition-all hover:shadow-lg bg-[#ffb338]/[0.67]">
+                <div className="flex gap-1 mb-5 text-amber-300 bg-orange-300 opacity-100 shadow-md">
                   {[...Array(5)].map((_, j) =>
                 <Star key={j} size={14} className="text-secondary fill-secondary" />
                 )}
                 </div>
-                <p className="text-muted-foreground leading-relaxed italic">"{t.text}"</p>
+                <p className="leading-relaxed italic text-primary">"{t.text}"</p>
                 <div className="mt-6 pt-5 border-t border-border/60">
-                  <p className="font-bold text-foreground">{t.name}</p>
+                  <p className="font-bold text-slate-950">{t.name}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">{t.role}</p>
                 </div>
               </motion.div>
