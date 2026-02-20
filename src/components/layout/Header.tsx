@@ -100,25 +100,25 @@ export default function Header() {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
   const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2.5 text-sm lg:text-base font-light tracking-wider transition-all duration-500 ease-out rounded-full cursor-pointer font-display whitespace-nowrap uppercase ${activeMenu === key ? "text-white bg-white/15 backdrop-blur-sm shadow-md" : "text-white/70 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.02]"}`;
-  return <header className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px]">
+  return <header className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px] border-destructive">
       {/* Top Bar */}
       <div className="text-white border-2 bg-gray-800">
         <div className="container h-9 text-xs mx-0 flex-row rounded-3xl gap-0 px-[33px] py-[7px] opacity-100 flex items-end justify-between border-0 bg-slate-800">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center shadow-inner gap-[30px] px-0 py-0 mx-0 text-[#f2aa36]">
             <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="Instagram"><Instagram size={14} /></a>
             <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="WhatsApp"><MessageCircle size={14} /></a>
           </div>
           <div className="flex items-center gap-1.5 mx-auto md:mx-0">
-            <Phone size={12} className="text-secondary" />
-            <span className="tracking-wider text-base font-serif text-left font-normal py-0 my-0 mx-[28px]">Consultoria Acústica Gratuita</span>
+            <Phone size={12} className="text-secondary my-[8px] mx-0 px-0 py-0" />
+            <span className="tracking-wider text-base text-left font-normal py-0 my-0 mx-[28px] font-sans">Consultoria Acústica Gratuita</span>
           </div>
           <div className="hidden md:block text-white/60">São Paulo, Brasil</div>
         </div>
       </div>
 
       {/* Main Nav */}
-      <div className="bg-[hsl(205,78%,15%)] backdrop-blur-md shadow-lg text-primary-foreground" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
-        <div className="container mx-auto h-20 lg:h-24 px-4 flex items-center justify-between bg-glass">
+      <div className="backdrop-blur-md shadow-lg text-primary-foreground bg-slate-800" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
+        <div className="container h-20 lg:h-24 bg-glass px-[40px] mx-0 py-0 border-0 rounded-none opacity-100 flex-row flex items-start justify-between gap-0 border-dashed">
           <Link to="/" className="flex items-center flex-shrink-0">
             <img alt="Sonar Acústicos" className="h-16 lg:h-20 w-auto px-0 mx-0 my-[11px] border-muted-foreground" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" />
           </Link>

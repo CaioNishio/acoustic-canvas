@@ -112,14 +112,14 @@ const HomePage = () => {
             <h1 className="leading-[1.05] text-white text-5xl md:text-7xl font-sans font-extralight text-left lg:text-8xl">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="mt-7 max-w-md leading-relaxed bg-transparent text-2xl text-center text-[#eba400] font-extralight font-sans px-0 py-0">
+            <p className="mt-7 max-w-md leading-relaxed bg-transparent text-2xl text-center text-[#eba400] font-extralight font-sans py-0 px-[49px]">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all text-sm font-semibold text-white border border-accent/50 bg-accent/20 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 shadow-lg shadow-accent/20">
+              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all text-sm shadow-lg shadow-secondary/30 font-medium bg-[sidebar-accent-foreground] opacity-100 border-8 border-double text-primary-foreground bg-[#fba83c]">
                 Solicitar Orçamento <ArrowRight size={16} />
               </Link>
-              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all text-sm font-semibold text-white border border-accent/50 bg-accent/20 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 shadow-lg shadow-accent/20">
+              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 border-white/25 text-white rounded-full hover:bg-white/10 transition-all text-sm backdrop-blur-sm font-bold opacity-95 border-8 border-double">
                 Ver Portfólio
               </Link>
             </div>
@@ -144,8 +144,8 @@ const HomePage = () => {
       <WaveDivider color="hsl(var(--primary))" />
 
       {/* ===== Spaces — horizontal navigation ===== */}
-      <section className="py-16 opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground bg-transparent">
-        <div className="container mx-auto px-6 border-4 opacity-100 border-amber-600">
+      <section className="opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground bg-transparent py-[44px]">
+        <div className="container opacity-100 border-8 border-double rounded-lg shadow-sm mx-0 px-[33px] border-secondary-foreground py-[53px]">
           <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-normal">
             Soluções para cada ambiente
           </motion.p>
