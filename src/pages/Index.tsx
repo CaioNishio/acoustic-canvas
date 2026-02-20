@@ -109,10 +109,10 @@ const HomePage = () => {
             <p className="tracking-[0.4em] uppercase mb-6 text-base font-light text-amber-50">
               Projetado por Especialistas. Aprovado por Profissionais.
             </p>
-            <h1 className="leading-[1.05] text-white text-5xl lg:text-7xl text-justify md:text-7xl font-sans font-normal">
+            <h1 className="leading-[1.05] text-white text-5xl lg:text-7xl text-justify md:text-7xl font-sans font-bold">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="mt-7 max-w-md leading-relaxed bg-transparent text-glow font-normal text-2xl">
+            <p className="mt-7 max-w-md leading-relaxed bg-transparent text-2xl font-extralight text-orange-400">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
@@ -131,8 +131,8 @@ const HomePage = () => {
             <div className="flex justify-start gap-12 md:gap-16">
               {stats.map((s) =>
               <div key={s.label}>
-                  <p className="text-3xl md:text-4xl font-bold text-white">{s.value}</p>
-                  <p className="text-xs text-white/40 mt-0.5 uppercase tracking-wider">{s.label}</p>
+                  <p className="text-3xl md:text-4xl font-bold text-white text-right">{s.value}</p>
+                  <p className="text-xs text-white/40 mt-0.5 uppercase tracking-wider px-0 mx-0 text-justify">{s.label}</p>
                 </div>
               )}
             </div>
@@ -146,7 +146,7 @@ const HomePage = () => {
       {/* ===== Spaces — horizontal navigation ===== */}
       <section className="py-16 opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground bg-transparent">
         <div className="container mx-auto px-6 border-4 opacity-100 border-transparent">
-          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-bold">
+          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-normal">
             Soluções para cada ambiente
           </motion.p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -155,7 +155,7 @@ const HomePage = () => {
                 <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.45] group-hover:brightness-[0.35]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,10%)]/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                  <h3 className="text-white font-bold text-sm md:text-base drop-shadow-lg">{space.label}</h3>
+                  <h3 className="text-white text-sm md:text-base drop-shadow-lg font-normal">{space.label}</h3>
                   <ArrowRight size={14} className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
                 </div>
               </Link>
@@ -169,10 +169,10 @@ const HomePage = () => {
 
       {/* ===== Portfolio mosaic ===== */}
       <section className="py-20 bg-muted-foreground border-secondary-foreground">
-        <div className="container mx-auto px-6 border-8 border-muted-foreground bg-muted-foreground">
+        <div className="container mx-auto px-6 border-8 border-gray-700 bg-gray-600">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Portfólio</span>
-            <h2 className="text-3xl md:text-5xl mt-3 text-center bg-transparent font-medium text-muted">Nossos Projetos</h2>
+            <h2 className="text-3xl md:text-5xl mt-3 text-center bg-transparent text-muted font-extralight">Nossos Projetos</h2>
             <p className="text-muted-foreground mt-3 max-w-lg mx-auto">Ambientes reais transformados com soluções acústicas Sonar.</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">

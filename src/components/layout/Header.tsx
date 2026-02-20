@@ -100,17 +100,17 @@ export default function Header() {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
   const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2.5 text-sm lg:text-base font-light tracking-wider transition-all duration-500 ease-out rounded-full cursor-pointer font-display whitespace-nowrap uppercase ${activeMenu === key ? "text-white bg-white/15 backdrop-blur-sm shadow-md" : "text-white/70 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.02]"}`;
-  return <header className="fixed top-0 left-0 right-0 z-50 px-0 py-[27px]">
+  return <header className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px]">
       {/* Top Bar */}
       <div className="text-white border-2 bg-gray-800">
-        <div className="container h-9 text-xs mx-0 border-2 gap-[45px] flex items-end justify-between rounded-xl opacity-20 px-[25px] py-[11px]">
+        <div className="container h-9 text-xs mx-0 flex-row rounded-3xl gap-0 px-[33px] py-[7px] opacity-100 flex items-end justify-between border-0">
           <div className="flex items-center gap-4">
             <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="Instagram"><Instagram size={14} /></a>
             <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="WhatsApp"><MessageCircle size={14} /></a>
           </div>
           <div className="flex items-center gap-1.5 mx-auto md:mx-0">
             <Phone size={12} className="text-secondary" />
-            <span className="tracking-wider text-base">Consultoria Acústica Gratuita</span>
+            <span className="tracking-wider text-base font-serif text-left font-normal py-0 my-0 mx-[28px]">Consultoria Acústica Gratuita</span>
           </div>
           <div className="hidden md:block text-white/60">São Paulo, Brasil</div>
         </div>
