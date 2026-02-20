@@ -169,10 +169,10 @@ const HomePage = () => {
 
       {/* ===== Portfolio mosaic ===== */}
       <section className="py-20 bg-muted-foreground border-secondary-foreground">
-        <div className="container mx-auto px-6 border-8 bg-[sidebar-accent-foreground] bg-glass border-[#fdc34e]">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Portfólio</span>
-            <h2 className="text-3xl md:text-5xl mt-3 text-center bg-transparent text-muted font-extralight">Nossos Projetos</h2>
+        <div className="container mx-auto px-6 border-8 bg-[sidebar-accent-foreground] bg-glass border-amber-300">
+          <motion.div {...fadeUp} className="text-center mb-14 py-[26px]">
+            <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase py-0 mx-0 text-right px-[51px] mb-[70px]">Portfólio</span>
+            <h2 className="text-3xl md:text-5xl mt-3 text-center bg-transparent text-muted font-light">Nossos Projetos</h2>
             <p className="text-muted-foreground mt-3 max-w-lg mx-auto">Ambientes reais transformados com soluções acústicas Sonar.</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
