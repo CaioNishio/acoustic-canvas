@@ -112,7 +112,7 @@ const HomePage = () => {
             <h1 className="leading-[1.05] text-white text-5xl lg:text-7xl text-justify md:text-7xl font-sans font-normal">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="mt-7 max-w-md leading-relaxed bg-transparent text-amber-500 font-normal text-2xl">
+            <p className="mt-7 max-w-md leading-relaxed bg-transparent text-glow font-normal text-2xl">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
@@ -210,7 +210,7 @@ const HomePage = () => {
           <motion.div {...fadeUp} className="text-center mb-16">
             <span className="font-bold tracking-[0.3em] uppercase text-xl text-primary">Processo</span>
             <h2 className="text-3xl md:text-5xl font-bold mt-3 bg-sidebar px-0 text-center text-primary-foreground">Como Funciona</h2>
-            <p className="mt-3 max-w-lg mx-auto bg-[#242424]/0 text-zinc-950">Da medição à instalação — um processo completo e transparente.</p>
+            <p className="mt-3 max-w-lg mx-auto text-foreground">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
           <div className="space-y-20 mx-0 py-0 my-0 bg-white px-0">
@@ -279,7 +279,7 @@ const HomePage = () => {
       <AcousticDots />
 
       {/* ===== Why us — with image ===== */}
-      <section className="py-24 px-6 text-white bg-sky-900">
+      <section className="py-24 px-6 text-white bg-glass">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div {...fadeUp}>
