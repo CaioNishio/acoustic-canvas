@@ -76,7 +76,7 @@ export function SoundWaveLine({ className = "" }: {className?: string;}) {
         <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/15" />
 
         {/* Central waveform */}
-        <svg viewBox="0 0 200 40" className="w-48 h-8 flex-shrink-0 border-amber-500 text-amber-600 bg-muted-foreground" preserveAspectRatio="xMidYMid meet">
+        <svg viewBox="0 0 200 40" className="w-48 h-8 flex-shrink-0 text-amber-600 bg-muted-foreground border-primary" preserveAspectRatio="xMidYMid meet">
           <motion.path
             d="M0,20 Q10,20 15,8 Q20,-4 25,20 Q30,44 35,20 Q40,20 50,20 Q55,20 60,12 Q65,4 70,20 Q75,36 80,20 Q85,20 95,20 Q100,20 105,6 Q110,-8 115,20 Q120,48 125,20 Q130,20 140,20 Q145,20 150,14 Q155,8 160,20 Q165,32 170,20 Q175,20 185,20 Q190,20 195,16 Q200,12 200,20"
             fill="none"
