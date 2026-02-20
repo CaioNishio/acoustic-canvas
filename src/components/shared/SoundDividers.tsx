@@ -17,7 +17,7 @@ export function WaveDivider({
       <svg
         viewBox="0 0 1440 80"
         preserveAspectRatio="none"
-        className="w-full h-[40px] md:h-[60px]">
+        className="w-full h-[40px] md:h-[60px] border-secondary">
 
         <path
           d="M0,40 C120,65 240,10 360,40 C480,70 600,15 720,40 C840,65 960,10 1080,40 C1200,70 1320,15 1440,40 L1440,80 L0,80 Z"

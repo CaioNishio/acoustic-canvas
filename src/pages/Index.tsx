@@ -145,7 +145,7 @@ const HomePage = () => {
 
       {/* ===== Spaces — horizontal navigation ===== */}
       <section className="opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground bg-transparent py-[44px]">
-        <div className="container opacity-100 border-8 border-double rounded-lg shadow-sm mx-0 px-[33px] border-secondary-foreground py-[53px]">
+        <div className="container opacity-100 border-8 border-double rounded-lg shadow-sm mx-0 px-[33px] border-secondary-foreground py-[53px] bg-[sidebar-primary-foreground] bg-primary-foreground">
           <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-normal">
             Soluções para cada ambiente
           </motion.p>
