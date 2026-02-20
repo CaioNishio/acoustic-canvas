@@ -112,7 +112,7 @@ const HomePage = () => {
             <h1 className="leading-[1.05] text-white text-5xl md:text-7xl font-mono text-left font-normal lg:text-8xl px-0">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="mt-7 max-w-md leading-relaxed font-sans py-0 px-[49px] font-light text-[#ffd5a8] text-xl bg-sidebar text-left">
+            <p className="mt-7 max-w-md leading-relaxed font-sans bg-[sidebar-accent-foreground] text-[sidebar-accent-foreground] text-center mx-0 text-amber-500 font-light bg-black/[0.39] my-0 px-[125px] py-[81px]">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
@@ -145,7 +145,7 @@ const HomePage = () => {
 
       {/* ===== Spaces — horizontal navigation ===== */}
       <section className="opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground py-[44px] bg-primary-foreground">
-        <div className="container opacity-100 border-8 border-double rounded-lg shadow-sm mx-0 px-[33px] py-[53px] bg-[sidebar-primary-foreground] bg-primary-foreground border-slate-700">
+        <div className="container opacity-100 border-8 border-double rounded-lg shadow-sm mx-0 bg-[sidebar-primary-foreground] bg-primary-foreground border-slate-700 px-[35px] py-[88px]">
           <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-normal">
             Soluções para cada ambiente
           </motion.p>
@@ -168,12 +168,12 @@ const HomePage = () => {
       <SoundWaveLine />
 
       {/* ===== Portfolio mosaic ===== */}
-      <section className="py-20 bg-muted-foreground border-secondary-foreground">
+      <section className="py-20 border-secondary-foreground bg-secondary">
         <div className="container mx-auto px-6 border-8 bg-[sidebar-accent-foreground] border-secondary bg-destructive-foreground">
           <motion.div {...fadeUp} className="text-center mb-14 py-[26px]">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase py-0 mx-0 text-right px-[51px] mb-[70px]">Portfólio</span>
-            <h2 className="text-3xl md:text-5xl mt-3 text-center text-muted font-light bg-muted-foreground">Nossos Projetos</h2>
-            <p className="text-muted-foreground mt-3 max-w-lg mx-auto">Ambientes reais transformados com soluções acústicas Sonar.</p>
+            <h2 className="text-3xl mt-3 text-center text-muted font-light md:text-4xl my-0 bg-neutral-700">Nossos Projetos</h2>
+            <p className="mt-3 max-w-lg mx-auto text-primary">Ambientes reais transformados com soluções acústicas Sonar.</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
             {portfolioGrid.map((item, i) =>
@@ -194,7 +194,7 @@ const HomePage = () => {
             )}
           </div>
           <div className="text-center mt-12 px-0 py-[20px]">
-            <Link to="/projetos" className="inline-flex items-center gap-2 border-2 border-white font-bold rounded-full transition-colors text-sm px-[92px] py-[7px] text-primary-foreground bg-[#464039]">
+            <Link to="/projetos" className="inline-flex items-center gap-2 border-white font-bold rounded-full transition-colors text-sm px-[92px] py-[7px] text-primary-foreground border-4 bg-slate-800">
               Ver todos os projetos <ArrowRight size={16} />
             </Link>
           </div>
@@ -205,7 +205,7 @@ const HomePage = () => {
       <FrequencyBars count={32} className="py-10" />
 
       {/* ===== Process — Como Funciona ===== */}
-      <section className="bg-slate-600 my-0 py-[82px]">
+      <section className="my-0 py-[82px] bg-[sidebar-primary-foreground] bg-sidebar">
         <div className="container mx-auto px-6 border-destructive-foreground opacity-80 bg-white">
           <motion.div {...fadeUp} className="text-center mb-16">
             <span className="font-bold tracking-[0.3em] uppercase text-primary py-0 my-0 text-xl">Processo</span>
@@ -227,11 +227,11 @@ const HomePage = () => {
                 </div>
                 {/* Content */}
                 <div className={`${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className="mb-5 bg-glass flex items-center justify-start gap-[55px] rounded-2xl opacity-100 mx-0 px-0">
+                  <div className="mb-5 bg-glass flex items-center justify-start gap-[55px] rounded-2xl opacity-100 mx-0 px-0 border-8">
                     <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                      <step.icon className="bg-transparent text-secondary-foreground" size={26} />
+                      <step.icon className="text-primary-foreground bg-secondary-foreground" size={26} />
                     </div>
-                    <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary-foreground">Etapa {i + 1}</span>
+                    <span className="font-bold tracking-[0.2em] uppercase text-primary-foreground px-[51px] text-3xl">Etapa {i + 1}</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-foreground">{step.title}</h3>
                   <p className="mt-4 leading-relaxed text-lg text-black">{step.desc}</p>
