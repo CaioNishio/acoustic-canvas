@@ -227,7 +227,7 @@ const HomePage = () => {
                 </div>
                 {/* Content */}
                 <div className={`${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className="mb-5 bg-glass flex items-center justify-start gap-[55px] rounded-2xl opacity-100 mx-0 px-0 border-8">
+                  <div className="mb-5 bg-glass flex items-center justify-start rounded-2xl opacity-100 px-0 border-8 gap-[41px] mx-[141px]">
                     <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
                       <step.icon className="text-primary-foreground bg-secondary-foreground" size={26} />
                     </div>
@@ -331,9 +331,9 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {testimonials.map((t, i) =>
             <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 border border-border/60 hover:border-primary/20 transition-all hover:shadow-lg bg-[#ffb338]/[0.67]">
-                <div className="flex gap-1 mb-5 text-amber-300 bg-orange-300 opacity-100 shadow-md">
+                <div className="flex gap-1 mb-5 text-amber-300 bg-orange-300 opacity-100 shadow-md py-[7px]">
                   {[...Array(5)].map((_, j) =>
-                <Star key={j} size={14} className="text-secondary fill-secondary" />
+                <Star key={j} size={14} className="fill-secondary text-black/[0.88] bg-amber-400" />
                 )}
                 </div>
                 <p className="leading-relaxed italic text-primary">"{t.text}"</p>
