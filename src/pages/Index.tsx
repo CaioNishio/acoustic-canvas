@@ -132,7 +132,7 @@ const HomePage = () => {
               {stats.map((s) =>
               <div key={s.label}>
                   <p className="text-3xl md:text-4xl font-bold text-white text-right">{s.value}</p>
-                  <p className="text-xs text-white/40 mt-0.5 uppercase tracking-wider px-0 mx-0 text-justify">{s.label}</p>
+                  <p className="text-xs text-white/40 mt-0.5 uppercase tracking-wider mx-0 mb-[82px] mr-[50px] px-[30px] pt-0 pb-0 text-right">{s.label}</p>
                 </div>
               )}
             </div>
