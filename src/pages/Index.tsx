@@ -104,7 +104,7 @@ const HomePage = () => {
           <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
           <div className="absolute inset-0 from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent rounded-none border-secondary-foreground text-secondary-foreground bg-[sidebar-primary-foreground] bg-sidebar-border shadow-2xl opacity-50 my-[46px]" />
         </div>
-        <div className="container mx-auto px-6 relative z-10 opacity-100">
+        <div className="container mx-auto px-6 relative z-10 opacity-90">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
             <p className="tracking-[0.4em] uppercase mb-6 text-base font-light text-amber-50 my-0 px-0 py-[23px]">
               Projetado por Especialistas. Aprovado por Profissionais.
@@ -112,14 +112,14 @@ const HomePage = () => {
             <h1 className="leading-[1.05] text-white text-5xl md:text-7xl font-sans font-extralight text-left lg:text-8xl">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="mt-7 max-w-md leading-relaxed bg-transparent text-2xl text-center text-[#eba400] font-extralight font-sans py-0 px-[49px]">
+            <p className="mt-7 max-w-md leading-relaxed bg-transparent text-2xl font-sans py-0 px-[49px] text-orange-400 text-center font-light">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all text-sm shadow-lg shadow-secondary/30 font-medium bg-[sidebar-accent-foreground] opacity-100 border-8 border-double text-primary-foreground bg-[#fba83c]">
+              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 transition-all shadow-lg shadow-secondary/30 font-medium bg-[sidebar-accent-foreground] border-double text-left text-lg font-sans border-4 rounded-2xl opacity-80 bg-destructive-foreground text-primary">
                 Solicitar Orçamento <ArrowRight size={16} />
               </Link>
-              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 border-white/25 text-white rounded-full hover:bg-white/10 transition-all text-sm backdrop-blur-sm font-bold opacity-95 border-8 border-double">
+              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 text-white transition-all backdrop-blur-sm opacity-95 border-8 border-double bg-sidebar text-xl border-muted-foreground rounded-none font-medium text-justify font-mono">
                 Ver Portfólio
               </Link>
             </div>
