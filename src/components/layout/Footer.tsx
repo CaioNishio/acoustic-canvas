@@ -13,8 +13,8 @@ export default function Footer() {
               Soluções profissionais em tratamento acústico para todos os tipos de ambientes.
             </p>
             <div className="flex items-center gap-4 mt-4">
-              <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-secondary transition-colors"><Instagram size={22} /></a>
-              <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-secondary transition-colors"><MessageCircle size={22} /></a>
+              <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Instagram" className="text-white/50 hover:text-secondary transition-colors"><Instagram size={22} /></a>
+              <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp" className="text-white/50 hover:text-secondary transition-colors"><MessageCircle size={22} /></a>
             </div>
           </div>
           <div>
