@@ -205,15 +205,15 @@ const HomePage = () => {
       <FrequencyBars count={32} className="py-10" />
 
       {/* ===== Process — Como Funciona ===== */}
-      <section className="py-24 bg-primary-foreground">
+      <section className="bg-slate-600 my-0 py-[82px]">
         <div className="container mx-auto px-6 border-destructive-foreground opacity-80 bg-white">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <span className="font-bold tracking-[0.3em] uppercase text-xl text-primary">Processo</span>
+            <span className="font-bold tracking-[0.3em] uppercase text-primary py-0 my-0 text-2xl">Processo</span>
             <h2 className="text-3xl md:text-5xl font-bold mt-3 bg-sidebar px-0 text-center text-primary-foreground">Como Funciona</h2>
             <p className="mt-3 max-w-lg mx-auto text-foreground">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
-          <div className="space-y-20 mx-0 py-0 my-0 bg-white px-0">
+          <div className="space-y-20 mx-0 py-0 my-0 bg-[#b7b3b3] px-[59px]">
             {processSteps.map((step, i) =>
             <motion.div
               key={step.title}
