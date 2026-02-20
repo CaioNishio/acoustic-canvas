@@ -144,8 +144,8 @@ const HomePage = () => {
       <WaveDivider color="hsl(var(--primary))" />
 
       {/* ===== Spaces — horizontal navigation ===== */}
-      <section className="opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground bg-transparent py-[44px]">
-        <div className="container opacity-100 border-8 border-double rounded-lg shadow-sm mx-0 px-[33px] border-secondary-foreground py-[53px] bg-[sidebar-primary-foreground] bg-primary-foreground">
+      <section className="opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground py-[44px] bg-primary-foreground">
+        <div className="container opacity-100 border-8 border-double rounded-lg shadow-sm mx-0 px-[33px] py-[53px] bg-[sidebar-primary-foreground] bg-primary-foreground border-slate-700">
           <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-normal">
             Soluções para cada ambiente
           </motion.p>
@@ -169,10 +169,10 @@ const HomePage = () => {
 
       {/* ===== Portfolio mosaic ===== */}
       <section className="py-20 bg-muted-foreground border-secondary-foreground">
-        <div className="container mx-auto px-6 border-8 bg-[sidebar-accent-foreground] bg-glass border-secondary">
+        <div className="container mx-auto px-6 border-8 bg-[sidebar-accent-foreground] border-secondary bg-destructive-foreground">
           <motion.div {...fadeUp} className="text-center mb-14 py-[26px]">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase py-0 mx-0 text-right px-[51px] mb-[70px]">Portfólio</span>
-            <h2 className="text-3xl md:text-5xl mt-3 text-center bg-transparent text-muted font-light">Nossos Projetos</h2>
+            <h2 className="text-3xl md:text-5xl mt-3 text-center text-muted font-light bg-muted-foreground">Nossos Projetos</h2>
             <p className="text-muted-foreground mt-3 max-w-lg mx-auto">Ambientes reais transformados com soluções acústicas Sonar.</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
@@ -208,8 +208,8 @@ const HomePage = () => {
       <section className="bg-slate-600 my-0 py-[82px]">
         <div className="container mx-auto px-6 border-destructive-foreground opacity-80 bg-white">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <span className="font-bold tracking-[0.3em] uppercase text-primary py-0 my-0 text-2xl">Processo</span>
-            <h2 className="text-3xl md:text-5xl font-bold mt-3 bg-sidebar px-0 text-center text-primary-foreground">Como Funciona</h2>
+            <span className="font-bold tracking-[0.3em] uppercase text-primary py-0 my-0 text-xl">Processo</span>
+            <h2 className="text-3xl md:text-5xl font-bold mt-3 bg-sidebar px-0 text-center text-primary-foreground my-0">Como Funciona</h2>
             <p className="mt-3 max-w-lg mx-auto text-foreground">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
