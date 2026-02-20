@@ -99,7 +99,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-5 py-2.5 text-sm font-light tracking-wider transition-all duration-500 ease-out rounded-full cursor-pointer font-display whitespace-nowrap uppercase ${activeMenu === key ? "text-white bg-white/15 backdrop-blur-sm shadow-md" : "text-white/70 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.02]"}`;
+  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2.5 text-sm lg:text-base font-light tracking-wider transition-all duration-500 ease-out rounded-full cursor-pointer font-display whitespace-nowrap uppercase ${activeMenu === key ? "text-white bg-white/15 backdrop-blur-sm shadow-md" : "text-white/70 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.02]"}`;
   return <header className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px] border-destructive">
       {/* Top Bar */}
       <div className="text-white border-2 bg-gray-800">
@@ -153,11 +153,11 @@ export default function Header() {
           </nav>
 
           {/* Right actions - desktop */}
-          <div className="hidden lg:flex flex-row items-center gap-2 flex-shrink-0">
-            <Link to="/contato" className="px-5 py-2.5 text-sm font-light font-display transition-all duration-500 tracking-wider whitespace-nowrap uppercase rounded-full text-white/70 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.02]">
-              Especialista
+          <div className="hidden lg:flex flex-row items-center gap-3 flex-shrink-0">
+            <Link to="/contato" className="px-4 py-2 text-sm font-light font-display transition-all duration-300 tracking-wider whitespace-nowrap text-secondary hover:text-secondary/80 uppercase">
+              Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="px-5 py-2.5 text-sm font-light font-display text-white bg-accent/20 border border-accent/50 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 hover:scale-[1.02] transition-all duration-500 tracking-wider whitespace-nowrap uppercase rounded-full">
+            <Link to="/orcamento" className="px-4 py-2 text-sm font-semibold font-display text-white bg-accent/20 border border-accent/50 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 transition-all duration-300 tracking-wider whitespace-nowrap uppercase rounded-full">
               Orçamento
             </Link>
           </div>
