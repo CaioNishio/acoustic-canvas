@@ -117,22 +117,24 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <div className="backdrop-blur-md shadow-lg bg-slate-800 text-primary" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
-        <div className="container h-20 lg:h-24 px-[40px] py-0 border-0 rounded-none gap-0 border-dashed bg-gray-900 flex-col flex items-end justify-between mx-0 text-primary opacity-95 border-zinc-50">
+      <div className="backdrop-blur-md shadow-lg bg-gray-900" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
+        <div className="max-w-screen-xl mx-auto h-20 lg:h-24 px-6 lg:px-10 flex flex-row items-center justify-between gap-4">
+
+          {/* Logo - left */}
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img alt="Sonar Acústicos" className="h-16 lg:h-20 w-auto px-0 mx-0 my-[11px] border-muted-foreground" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" />
+            <img alt="Sonar Acústicos" className="h-14 lg:h-18 w-auto" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" />
           </Link>
 
-          {/* Nav - centered */}
-          <nav className="gap-1 lg:gap-2 items-center justify-start flex flex-col bg-secondary py-[123px] px-0">
-            <div onMouseEnter={() => openMenu("produtos")} onMouseLeave={scheduleClose} className="border-primary-foreground">
+          {/* Nav - center */}
+          <nav className="hidden lg:flex flex-row items-center gap-1 lg:gap-2">
+            <div onMouseEnter={() => openMenu("produtos")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("produtos")}>Produtos</button>
             </div>
             <div onMouseEnter={() => openMenu("espacos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("espacos")}>Ambientes </button>
+              <button className={navItemClass("espacos")}>Ambientes</button>
             </div>
             <div onMouseEnter={() => openMenu("recursos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("recursos")}>CALCULADORA</button>
+              <button className={navItemClass("recursos")}>Calculadora</button>
             </div>
             <div className="relative" onMouseEnter={() => openMenu("sobre")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("sobre")}>Sobre</button>
@@ -150,16 +152,20 @@ export default function Header() {
             </div>
           </nav>
 
-          {/* Right actions */}
-          <div className="hidden mx-0 py-0 flex-col gap-0 lg:flex items-start justify-start">
-            <Link to="/contato" className="px-5 py-2.5 text-sm font-light font-display transition-all duration-300 tracking-wider whitespace-nowrap text-secondary hover:text-secondary/80 uppercase">
+          {/* Right actions - desktop */}
+          <div className="hidden lg:flex flex-row items-center gap-3 flex-shrink-0">
+            <Link to="/contato" className="px-4 py-2 text-sm font-light font-display transition-all duration-300 tracking-wider whitespace-nowrap text-secondary hover:text-secondary/80 uppercase">
               Fale com um Especialista
             </Link>
-            <Link to="/orcamento" className="px-5 py-2.5 text-sm font-light font-display text-white/70 hover:text-white transition-all duration-300 tracking-wider whitespace-nowrap uppercase">
-              Projete sua Sala
+            <Link to="/orcamento" className="px-4 py-2 text-sm font-semibold font-display text-white bg-accent/20 border border-accent/50 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 transition-all duration-300 tracking-wider whitespace-nowrap uppercase rounded-full">
+              Orçamento
             </Link>
-            <button aria-label="Pesquisar" className="p-2 text-white/50 hover:text-white transition-colors"><Search size={18} /></button>
           </div>
+
+          {/* Mobile hamburger */}
+          <button className="lg:hidden p-2 text-white/70 hover:text-white transition-colors" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
 
