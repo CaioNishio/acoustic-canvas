@@ -227,11 +227,11 @@ const HomePage = () => {
                 </div>
                 {/* Content */}
                 <div className={`${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className="flex items-center gap-4 mb-5">
+                  <div className="flex items-center gap-4 mb-5 bg-glass">
                     <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                      <step.icon className="text-primary" size={26} />
+                      <step.icon className="text-primary bg-secondary-foreground" size={26} />
                     </div>
-                    <span className="text-xs font-bold text-muted-foreground tracking-[0.2em] uppercase">Etapa {i + 1}</span>
+                    <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary-foreground">Etapa {i + 1}</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-foreground">{step.title}</h3>
                   <p className="mt-4 leading-relaxed text-lg text-black">{step.desc}</p>
