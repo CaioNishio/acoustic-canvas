@@ -158,7 +158,7 @@ export default function Header() {
             <Link to="/orcamento" className="px-5 py-2.5 text-sm font-light font-display text-white/70 hover:text-white transition-all duration-300 tracking-wider whitespace-nowrap uppercase">
               Projete sua Sala
             </Link>
-            <button className="p-2 text-white/50 hover:text-white transition-colors"><Search size={18} /></button>
+            <button aria-label="Pesquisar" className="p-2 text-white/50 hover:text-white transition-colors"><Search size={18} /></button>
           </div>
         </div>
       </div>
