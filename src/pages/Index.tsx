@@ -109,10 +109,10 @@ const HomePage = () => {
             <p className="tracking-[0.4em] uppercase mb-6 text-base font-light text-amber-50 my-0 px-0 py-[23px]">
               Projetado por Especialistas. Aprovado por Profissionais.
             </p>
-            <h1 className="leading-[1.05] text-white text-5xl md:text-7xl font-sans font-extralight text-left lg:text-8xl">
+            <h1 className="leading-[1.05] text-white text-5xl md:text-7xl font-mono text-left font-normal lg:text-8xl px-0">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="mt-7 max-w-md leading-relaxed bg-transparent text-2xl font-sans py-0 px-[49px] text-orange-400 text-center font-light">
+            <p className="mt-7 max-w-md leading-relaxed font-sans py-0 px-[49px] font-light text-[#ffd5a8] text-xl bg-sidebar text-left">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
