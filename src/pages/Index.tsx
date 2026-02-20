@@ -116,10 +116,10 @@ const HomePage = () => {
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all text-sm shadow-lg shadow-secondary/30 font-medium bg-[sidebar-accent-foreground] opacity-100 border-8 border-double text-primary-foreground bg-[#fba83c]">
+              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all text-sm font-semibold text-white border border-accent/50 bg-accent/20 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 shadow-lg shadow-accent/20">
                 Solicitar Orçamento <ArrowRight size={16} />
               </Link>
-              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 border-white/25 text-white rounded-full hover:bg-white/10 transition-all text-sm backdrop-blur-sm font-bold opacity-95 border-8 border-double">
+              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all text-sm font-semibold text-white border border-accent/50 bg-accent/20 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 shadow-lg shadow-accent/20">
                 Ver Portfólio
               </Link>
             </div>
