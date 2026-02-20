@@ -105,21 +105,21 @@ const HomePage = () => {
           <div className="absolute inset-0 from-[hsl(205,78%,10%)]/90 via-[hsl(205,78%,10%)]/50 to-transparent rounded-none border-secondary-foreground text-secondary-foreground bg-[sidebar-primary-foreground] bg-sidebar-border shadow-2xl opacity-50 my-[46px]" />
         </div>
         <div className="container mx-auto px-6 relative z-10 opacity-90">
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl rounded-lg shadow-2xl">
             <p className="tracking-[0.4em] uppercase mb-6 text-base font-light text-amber-50 my-0 px-0 py-[23px]">
               Projetado por Especialistas. Aprovado por Profissionais.
             </p>
             <h1 className="leading-[1.05] text-white text-5xl md:text-7xl font-mono text-left font-normal lg:text-8xl px-0">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="mt-7 max-w-md leading-relaxed font-sans bg-[sidebar-accent-foreground] text-[sidebar-accent-foreground] text-center mx-0 text-amber-500 font-light bg-black/[0.39] my-0 px-[125px] py-[81px]">
+            <p className="mt-7 max-w-md leading-relaxed font-sans bg-[sidebar-accent-foreground] my-0 text-primary-foreground font-extralight text-justify py-[18px] px-[27px] mx-[38px] bg-[#121212]/[0.84] text-2xl">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
-            <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 transition-all shadow-lg shadow-secondary/30 font-medium bg-[sidebar-accent-foreground] border-double text-left text-lg font-sans border-4 rounded-2xl opacity-80 bg-destructive-foreground text-primary">
+            <div className="flex flex-wrap gap-4 mt-10 px-[45px]">
+              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 transition-all shadow-lg shadow-secondary/30 font-medium bg-[sidebar-accent-foreground] border-double text-left font-sans border-4 rounded-2xl opacity-80 text-primary text-xl bg-amber-400">
                 Solicitar Orçamento <ArrowRight size={16} />
               </Link>
-              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 text-white transition-all backdrop-blur-sm opacity-95 border-8 border-double bg-sidebar text-xl border-muted-foreground rounded-none font-medium text-justify font-mono">
+              <Link to="/projetos" className="inline-flex items-center gap-3 py-4 transition-all backdrop-blur-sm opacity-95 border-8 border-double border-muted-foreground rounded-none font-medium text-justify font-sans bg-amber-400 px-[38px] text-[sidebar-primary-foreground] text-secondary-foreground">
                 Ver Portfólio
               </Link>
             </div>
@@ -146,7 +146,7 @@ const HomePage = () => {
       {/* ===== Spaces — horizontal navigation ===== */}
       <section className="opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground py-[44px] bg-primary-foreground">
         <div className="container opacity-100 border-8 border-double rounded-lg shadow-sm mx-0 bg-[sidebar-primary-foreground] bg-primary-foreground border-slate-700 px-[35px] py-[88px]">
-          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-normal">
+          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 font-normal text-xl">
             Soluções para cada ambiente
           </motion.p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -172,7 +172,7 @@ const HomePage = () => {
         <div className="container mx-auto px-6 border-8 bg-[sidebar-accent-foreground] border-secondary bg-destructive-foreground">
           <motion.div {...fadeUp} className="text-center mb-14 py-[26px]">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase py-0 mx-0 text-right px-[51px] mb-[70px]">Portfólio</span>
-            <h2 className="text-3xl mt-3 text-center text-muted font-light md:text-4xl my-0 bg-neutral-700">Nossos Projetos</h2>
+            <h2 className="text-3xl mt-3 text-center text-muted my-0 bg-neutral-700 md:text-3xl font-medium">Nossos Projetos</h2>
             <p className="mt-3 max-w-lg mx-auto text-primary">Ambientes reais transformados com soluções acústicas Sonar.</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
