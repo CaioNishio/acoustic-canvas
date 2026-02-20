@@ -103,7 +103,7 @@ export default function Header() {
   return <header className="fixed top-0 left-0 right-0 z-50 px-0 py-[27px]">
       {/* Top Bar */}
       <div className="text-white border-2 bg-gray-800">
-        <div className="container flex items-center justify-between h-9 px-4 text-xs mx-0 border-2">
+        <div className="container h-9 text-xs mx-0 border-2 gap-[45px] flex items-end justify-between rounded-xl opacity-20 px-[25px] py-[11px]">
           <div className="flex items-center gap-4">
             <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="Instagram"><Instagram size={14} /></a>
             <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="WhatsApp"><MessageCircle size={14} /></a>
