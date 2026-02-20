@@ -117,8 +117,8 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <div className="backdrop-blur-md shadow-lg text-primary-foreground bg-slate-800" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
-        <div className="container h-20 lg:h-24 px-[40px] py-0 border-0 rounded-none opacity-100 items-start justify-between gap-0 border-dashed mx-[240px] bg-gray-900 text-primary flex flex-row">
+      <div className="backdrop-blur-md shadow-lg bg-slate-800 text-primary" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
+        <div className="container h-20 lg:h-24 px-[40px] py-0 border-0 rounded-none opacity-100 items-start justify-between gap-0 border-dashed mx-[240px] bg-gray-900 flex flex-row text-primary">
           <Link to="/" className="flex items-center flex-shrink-0">
             <img alt="Sonar Acústicos" className="h-16 lg:h-20 w-auto px-0 mx-0 my-[11px] border-muted-foreground" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" />
           </Link>
@@ -151,7 +151,7 @@ export default function Header() {
           </nav>
 
           {/* Right actions */}
-          <div className="hidden lg:flex items-center gap-3 py-[28px] mx-0">
+          <div className="hidden gap-3 flex-row mx-0 py-0 lg:flex items-start justify-start">
             <Link to="/contato" className="px-5 py-2.5 text-sm font-light font-display transition-all duration-300 tracking-wider whitespace-nowrap text-secondary hover:text-secondary/80 uppercase">
               Fale com um Especialista
             </Link>
