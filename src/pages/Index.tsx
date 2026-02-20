@@ -116,7 +116,7 @@ const HomePage = () => {
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all text-sm shadow-lg shadow-secondary/30 font-medium bg-[sidebar-accent-foreground] bg-transparent text-primary-foreground opacity-100 border-8 border-double">
+              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all text-sm shadow-lg shadow-secondary/30 font-medium bg-[sidebar-accent-foreground] opacity-100 border-8 border-double bg-orange-400 text-primary-foreground">
                 Solicitar Orçamento <ArrowRight size={16} />
               </Link>
               <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 border-white/25 text-white rounded-full hover:bg-white/10 transition-all text-sm backdrop-blur-sm font-bold opacity-95 border-8 border-double">
@@ -145,7 +145,7 @@ const HomePage = () => {
 
       {/* ===== Spaces — horizontal navigation ===== */}
       <section className="py-16 opacity-95 rounded-2xl shadow-inner border-8 border-muted-foreground bg-transparent">
-        <div className="container mx-auto px-6 border-4 opacity-100 border-transparent">
+        <div className="container mx-auto px-6 border-4 opacity-100 border-amber-600">
           <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-8 text-lg font-normal">
             Soluções para cada ambiente
           </motion.p>
@@ -169,7 +169,7 @@ const HomePage = () => {
 
       {/* ===== Portfolio mosaic ===== */}
       <section className="py-20 bg-muted-foreground border-secondary-foreground">
-        <div className="container mx-auto px-6 border-8 border-gray-700 bg-gray-600">
+        <div className="container mx-auto px-6 border-8 bg-[sidebar-accent-foreground] bg-glass border-[#fdc34e]">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase">Portfólio</span>
             <h2 className="text-3xl md:text-5xl mt-3 text-center bg-transparent text-muted font-extralight">Nossos Projetos</h2>
