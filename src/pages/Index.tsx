@@ -103,8 +103,8 @@ const HomePage = () => {
       {/* ===== HERO ===== */}
       <section className="relative min-h-screen flex flex-col overflow-hidden -mt-28">
         <div className="absolute inset-0">
-          <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/92 via-[hsl(205,78%,8%)]/65 to-[hsl(205,78%,8%)]/20" />
+          <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover object-[center_30%]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/80 via-[hsl(205,78%,8%)]/40 to-transparent" />
         </div>
 
         {/* Hero content — centered vertically via flex-1 + justify-center */}
