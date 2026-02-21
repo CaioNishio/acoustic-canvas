@@ -4,27 +4,29 @@ import { ArrowRight, Calculator, Ruler, Wrench, Palette, Star, CheckCircle } fro
 import Layout from "@/components/layout/Layout";
 import { WaveDivider, FrequencyBars, SoundWaveLine, SoundRings, AcousticDots } from "@/components/shared/SoundDividers";
 
-import heroEstudioAzul from "@/assets/gallery/hero-estudio-azul.png";
-import heroMdf from "@/assets/gallery/hero-mdf-vazado.jpg";
-import heroDifusores from "@/assets/gallery/hero-difusores-madeira.jpg";
-import heroNuvens from "@/assets/gallery/hero-nuvens-acusticas.jpg";
-import heroForro from "@/assets/gallery/hero-forro-industrial.jpg";
-import heroBafflesColor from "@/assets/gallery/hero-baffles-coloridos.jpeg";
-import heroBafflesAzuis from "@/assets/gallery/hero-baffles-azuis.jpg";
-import heroForroCorp from "@/assets/gallery/hero-forro-corporativo.jpg";
-import heroHomeStudio from "@/assets/gallery/hero-home-studio.jpeg";
-import heroEstudioDark from "@/assets/gallery/hero-estudio-dark.jpeg";
+// Only hero image is eagerly imported — all others use paths for lazy loading
 import classroomBaffles from "@/assets/gallery/classroom-baffles.jpeg";
 
-import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
-import imgSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.png";
-import imgNuvem from "@/assets/gallery/nuvem-acustica.webp";
-import imgEscritorio from "@/assets/gallery/escritorio-paineis.png";
-import imgAcademiaBaffles from "@/assets/gallery/academia-baffles.jpeg";
-import imgEscritorioAzuis from "@/assets/gallery/escritorio-paineis-azuis.jpeg";
-import imgSalaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
-import imgPaineisSeminario from "@/assets/gallery/paineis-seminario.jpg";
-import imgHexagonais from "@/assets/gallery/hexagonais-teto.png";
+const heroEstudioAzul = "/src/assets/gallery/hero-estudio-azul.png";
+const heroMdf = "/src/assets/gallery/hero-mdf-vazado.jpg";
+const heroDifusores = "/src/assets/gallery/hero-difusores-madeira.jpg";
+const heroNuvens = "/src/assets/gallery/hero-nuvens-acusticas.jpg";
+const heroForro = "/src/assets/gallery/hero-forro-industrial.jpg";
+const heroBafflesColor = "/src/assets/gallery/hero-baffles-coloridos.jpeg";
+const heroBafflesAzuis = "/src/assets/gallery/hero-baffles-azuis.jpg";
+const heroForroCorp = "/src/assets/gallery/hero-forro-corporativo.jpg";
+const heroHomeStudio = "/src/assets/gallery/hero-home-studio.jpeg";
+const heroEstudioDark = "/src/assets/gallery/hero-estudio-dark.jpeg";
+
+const imgEstudio = "/src/assets/gallery/estudio-paineis.jpeg";
+const imgSalaReuniao = "/src/assets/gallery/paineis-sala-reuniao.png";
+const imgNuvem = "/src/assets/gallery/nuvem-acustica.webp";
+const imgEscritorio = "/src/assets/gallery/escritorio-paineis.png";
+const imgAcademiaBaffles = "/src/assets/gallery/academia-baffles.jpeg";
+const imgEscritorioAzuis = "/src/assets/gallery/escritorio-paineis-azuis.jpeg";
+const imgSalaTratamento = "/src/assets/gallery/sala-tratamento-acustico.jpeg";
+const imgPaineisSeminario = "/src/assets/gallery/paineis-seminario.jpg";
+const imgHexagonais = "/src/assets/gallery/hexagonais-teto.png";
 
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
@@ -99,42 +101,45 @@ const HomePage = () => {
   return (
     <Layout>
       {/* ===== HERO ===== */}
-      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden -mt-28 pt-28">
+      <section className="relative min-h-screen flex flex-col overflow-hidden -mt-28">
         <div className="absolute inset-0">
           <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/92 via-[hsl(205,78%,8%)]/65 to-[hsl(205,78%,8%)]/20" />
         </div>
 
-        <div className="container mx-auto px-6 md:px-12 relative z-10 flex-1 flex flex-col justify-center pb-28">
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
-            <p className="tracking-[0.3em] uppercase text-sm font-medium text-secondary mb-4">
-              Projetado por Especialistas
-            </p>
-            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-mono font-normal leading-[1.05] text-white">
-              Transformamos<br />Espaços com<br />Acústica
-            </h1>
-            <p className="mt-8 text-lg md:text-xl font-light text-white/70 max-w-md leading-relaxed">
-              Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-semibold text-white border border-accent/50 bg-accent/20 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 shadow-lg shadow-accent/20 transition-all">
-                Solicitar Orçamento <ArrowRight size={16} />
-              </Link>
-              <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-semibold text-white border border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
-                Ver Portfólio
-              </Link>
-            </div>
-          </motion.div>
+        {/* Hero content — centered vertically via flex-1 + justify-center */}
+        <div className="flex-1 flex items-center relative z-10 pt-40">
+          <div className="container mx-auto px-8 md:px-16">
+            <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
+              <p className="tracking-[0.3em] uppercase text-sm font-medium text-secondary mb-4">
+                Projetado por Especialistas
+              </p>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-mono font-normal leading-[1.08] text-white">
+                Transformamos<br />Espaços com<br />Acústica
+              </h1>
+              <p className="mt-6 text-base md:text-lg font-light text-white/70 max-w-md leading-relaxed">
+                Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
+              </p>
+              <div className="flex flex-wrap gap-4 mt-8">
+                <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-semibold text-white border border-accent/50 bg-accent/20 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 shadow-lg shadow-accent/20 transition-all">
+                  Solicitar Orçamento <ArrowRight size={16} />
+                </Link>
+                <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-semibold text-white border border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
+                  Ver Portfólio
+                </Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
-        {/* Stats bar */}
-        <div className="absolute bottom-0 left-0 right-0 bg-[hsl(205,78%,8%)]/70 backdrop-blur-sm border-t border-white/10">
-          <div className="container mx-auto px-6 md:px-12 py-6">
+        {/* Stats bar — pinned to bottom, never overlaps content */}
+        <div className="relative z-10 bg-[hsl(205,78%,8%)]/70 backdrop-blur-sm border-t border-white/10">
+          <div className="container mx-auto px-8 md:px-16 py-5">
             <div className="grid grid-cols-4 gap-6 max-w-xl">
               {stats.map((s) => (
                 <div key={s.label} className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold text-white">{s.value}</p>
-                  <p className="text-[11px] text-white/40 uppercase tracking-widest mt-1">{s.label}</p>
+                  <p className="text-2xl md:text-3xl font-bold text-white">{s.value}</p>
+                  <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1">{s.label}</p>
                 </div>
               ))}
             </div>
