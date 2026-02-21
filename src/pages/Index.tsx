@@ -112,7 +112,7 @@ const HomePage = () => {
               <p className="tracking-[0.3em] uppercase text-sm font-medium text-secondary mb-4">
                 Projetado por Especialistas
               </p>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-mono font-normal leading-[1.08] text-white">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extralight leading-[1.08] tracking-[-0.04em] text-white">
                 Transformamos<br />Espaços com<br />Acústica
               </h1>
               <p className="mt-6 text-base md:text-lg font-light text-white/70 max-w-md leading-relaxed">
