@@ -99,21 +99,21 @@ const HomePage = () => {
   return (
     <Layout>
       {/* ===== HERO ===== */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden -mt-28 pt-28">
         <div className="absolute inset-0">
           <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/90 via-[hsl(205,78%,8%)]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/92 via-[hsl(205,78%,8%)]/65 to-[hsl(205,78%,8%)]/20" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 md:px-12 relative z-10 flex-1 flex flex-col justify-center pb-28">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
-            <p className="tracking-[0.3em] uppercase text-sm font-light text-white/70 mb-6">
-              Projetado por Especialistas. Aprovado por Profissionais.
+            <p className="tracking-[0.3em] uppercase text-sm font-medium text-secondary mb-4">
+              Projetado por Especialistas
             </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-mono font-normal leading-[1.05] text-white">
+            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-mono font-normal leading-[1.05] text-white">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="mt-8 text-xl md:text-2xl font-light text-white/80 max-w-lg leading-relaxed">
+            <p className="mt-8 text-lg md:text-xl font-light text-white/70 max-w-md leading-relaxed">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
@@ -128,13 +128,13 @@ const HomePage = () => {
         </div>
 
         {/* Stats bar */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[hsl(205,78%,8%)]/80 to-transparent pt-16 pb-8">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-4 gap-8 max-w-lg">
+        <div className="absolute bottom-0 left-0 right-0 bg-[hsl(205,78%,8%)]/70 backdrop-blur-sm border-t border-white/10">
+          <div className="container mx-auto px-6 md:px-12 py-6">
+            <div className="grid grid-cols-4 gap-6 max-w-xl">
               {stats.map((s) => (
                 <div key={s.label} className="text-center">
-                  <p className="text-2xl md:text-3xl font-bold text-white">{s.value}</p>
-                  <p className="text-xs text-white/50 uppercase tracking-wider mt-1">{s.label}</p>
+                  <p className="text-3xl md:text-4xl font-bold text-white">{s.value}</p>
+                  <p className="text-[11px] text-white/40 uppercase tracking-widest mt-1">{s.label}</p>
                 </div>
               ))}
             </div>
