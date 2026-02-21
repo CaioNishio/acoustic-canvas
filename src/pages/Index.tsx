@@ -99,7 +99,7 @@ const HomePage = () => {
   return (
     <Layout>
       {/* ===== HERO ===== */}
-      <section className="relative min-h-screen flex flex-col overflow-hidden -mt-28">
+      <section className="relative min-h-screen flex flex-col overflow-hidden -mt-[11.5rem]">
         <div className="absolute inset-0">
           <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover object-[center_30%]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/80 via-[hsl(205,78%,8%)]/40 to-transparent" />
@@ -145,10 +145,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <WaveDivider color="hsl(var(--primary))" />
+      {/* Divider removed for tighter layout */}
 
       {/* ===== Spaces ===== */}
-      <section className="py-20 bg-background">
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
           <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-10 text-sm">
             Soluções para cada ambiente
@@ -168,10 +168,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <SoundWaveLine />
+      {/* Divider removed for tighter layout */}
 
       {/* ===== Portfolio ===== */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-6">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-primary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
@@ -204,10 +204,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <FrequencyBars count={32} className="py-10" />
+      {/* Divider removed for tighter layout */}
 
       {/* ===== Process ===== */}
-      <section className="py-24 bg-background">
+      <section className="py-14 bg-background">
         <div className="container mx-auto px-6">
           <motion.div {...fadeUp} className="text-center mb-16">
             <span className="text-primary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
@@ -215,7 +215,7 @@ const HomePage = () => {
             <p className="mt-3 max-w-lg mx-auto text-muted-foreground">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
-          <div className="space-y-24">
+          <div className="space-y-14">
             {processSteps.map((step, i) => (
               <motion.div
                 key={step.title}
@@ -247,7 +247,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <WaveDivider flip color="hsl(var(--primary))" />
+      {/* Divider removed for tighter layout */}
 
       {/* ===== Gallery strip ===== */}
       <section className="bg-background">
@@ -260,7 +260,7 @@ const HomePage = () => {
           ))}
         </div>
 
-        <div className="container mx-auto px-6 py-20">
+        <div className="container mx-auto px-6 py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-3xl overflow-hidden aspect-[16/10]">
               <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" />
@@ -275,10 +275,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <AcousticDots />
+      {/* Divider removed for tighter layout */}
 
       {/* ===== Why us ===== */}
-      <section className="py-24 px-6 bg-[hsl(205,78%,8%)] text-white">
+      <section className="py-14 px-6 bg-[hsl(205,78%,8%)] text-white">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div {...fadeUp}>
@@ -317,10 +317,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <SoundRings />
+      {/* Divider removed for tighter layout */}
 
       {/* ===== Testimonials ===== */}
-      <section className="py-20 px-6 bg-muted/20">
+      <section className="py-12 px-6 bg-muted/20">
         <div className="container mx-auto">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-primary text-xs font-semibold tracking-[0.3em] uppercase">Depoimentos</span>
@@ -345,7 +345,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <WaveDivider color="hsl(var(--primary))" className="opacity-50" />
+      {/* Divider removed for tighter layout */}
 
       {/* ===== CTA ===== */}
       <section className="relative py-32 px-6 overflow-hidden">
