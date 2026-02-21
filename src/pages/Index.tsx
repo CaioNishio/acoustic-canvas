@@ -4,29 +4,27 @@ import { ArrowRight, Calculator, Ruler, Wrench, Palette, Star, CheckCircle } fro
 import Layout from "@/components/layout/Layout";
 import { WaveDivider, FrequencyBars, SoundWaveLine, SoundRings, AcousticDots } from "@/components/shared/SoundDividers";
 
-// Only hero image is eagerly imported — all others use paths for lazy loading
+// All images use ES6 imports for Vite optimization pipeline
 import classroomBaffles from "@/assets/gallery/classroom-baffles.jpeg";
-
-const heroEstudioAzul = "/src/assets/gallery/hero-estudio-azul.png";
-const heroMdf = "/src/assets/gallery/hero-mdf-vazado.jpg";
-const heroDifusores = "/src/assets/gallery/hero-difusores-madeira.jpg";
-const heroNuvens = "/src/assets/gallery/hero-nuvens-acusticas.jpg";
-const heroForro = "/src/assets/gallery/hero-forro-industrial.jpg";
-const heroBafflesColor = "/src/assets/gallery/hero-baffles-coloridos.jpeg";
-const heroBafflesAzuis = "/src/assets/gallery/hero-baffles-azuis.jpg";
-const heroForroCorp = "/src/assets/gallery/hero-forro-corporativo.jpg";
-const heroHomeStudio = "/src/assets/gallery/hero-home-studio.jpeg";
-const heroEstudioDark = "/src/assets/gallery/hero-estudio-dark.jpeg";
-
-const imgEstudio = "/src/assets/gallery/estudio-paineis.jpeg";
-const imgSalaReuniao = "/src/assets/gallery/paineis-sala-reuniao.png";
-const imgNuvem = "/src/assets/gallery/nuvem-acustica.webp";
-const imgEscritorio = "/src/assets/gallery/escritorio-paineis.png";
-const imgAcademiaBaffles = "/src/assets/gallery/academia-baffles.jpeg";
-const imgEscritorioAzuis = "/src/assets/gallery/escritorio-paineis-azuis.jpeg";
-const imgSalaTratamento = "/src/assets/gallery/sala-tratamento-acustico.jpeg";
-const imgPaineisSeminario = "/src/assets/gallery/paineis-seminario.jpg";
-const imgHexagonais = "/src/assets/gallery/hexagonais-teto.png";
+import heroEstudioAzul from "@/assets/gallery/hero-estudio-azul.png";
+import heroMdf from "@/assets/gallery/hero-mdf-vazado.jpg";
+import heroDifusores from "@/assets/gallery/hero-difusores-madeira.jpg";
+import heroNuvens from "@/assets/gallery/hero-nuvens-acusticas.jpg";
+import heroForro from "@/assets/gallery/hero-forro-industrial.jpg";
+import heroBafflesColor from "@/assets/gallery/hero-baffles-coloridos.jpeg";
+import heroBafflesAzuis from "@/assets/gallery/hero-baffles-azuis.jpg";
+import heroForroCorp from "@/assets/gallery/hero-forro-corporativo.jpg";
+import heroHomeStudio from "@/assets/gallery/hero-home-studio.jpeg";
+import heroEstudioDark from "@/assets/gallery/hero-estudio-dark.jpeg";
+import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
+import imgSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.png";
+import imgNuvem from "@/assets/gallery/nuvem-acustica.webp";
+import imgEscritorio from "@/assets/gallery/escritorio-paineis.png";
+import imgAcademiaBaffles from "@/assets/gallery/academia-baffles.jpeg";
+import imgEscritorioAzuis from "@/assets/gallery/escritorio-paineis-azuis.jpeg";
+import imgSalaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
+import imgPaineisSeminario from "@/assets/gallery/paineis-seminario.jpg";
+import imgHexagonais from "@/assets/gallery/hexagonais-teto.png";
 
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
