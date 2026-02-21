@@ -100,7 +100,7 @@ export default function Header() {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
   const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2.5 text-sm lg:text-base font-light tracking-wider transition-all duration-500 ease-out rounded-full cursor-pointer font-display whitespace-nowrap uppercase ${activeMenu === key ? "text-white bg-white/15 backdrop-blur-sm shadow-md" : "text-white/70 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.02]"}`;
-  return <header className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px] border-destructive">
+  return <motion.header initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px] border-destructive">
       {/* Top Bar */}
       <div className="text-white border-2 bg-gray-800">
         <div className="container h-9 text-xs mx-0 flex-row rounded-3xl gap-0 px-[33px] py-[7px] opacity-100 flex items-end justify-between border-0 bg-slate-800">
@@ -305,5 +305,5 @@ export default function Header() {
             </nav>
           </motion.div>}
       </AnimatePresence>
-    </header>;
+    </motion.header>;
 }
