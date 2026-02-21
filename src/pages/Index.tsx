@@ -112,7 +112,7 @@ const HomePage = () => {
             <h1 className="leading-[1.05] text-white text-5xl md:text-7xl font-mono text-left font-normal lg:text-8xl px-0">
               Transformamos<br />Espaços com<br />Acústica
             </h1>
-            <p className="mt-7 max-w-md leading-relaxed font-sans bg-[sidebar-accent-foreground] my-0 text-primary-foreground font-extralight text-justify py-[18px] px-[27px] mx-[38px] bg-[#121212]/[0.84] text-2xl">
+            <p className="mt-7 max-w-md leading-relaxed font-sans bg-[sidebar-accent-foreground] text-primary-foreground py-[18px] px-[27px] bg-[#121212]/[0.84] my-[65px] mx-0 text-3xl font-thin text-left">
               Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
             </p>
             <div className="flex flex-wrap gap-4 mt-10 px-[45px]">
