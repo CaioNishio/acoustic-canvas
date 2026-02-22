@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight, Instagram, MessageCircle, Phone, Search } from "lucide-react";
+import { CartDrawer } from "@/components/shared/CartDrawer";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-sonar.png";
 import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
@@ -154,8 +155,9 @@ export default function Header() {
 
           {/* Right actions - desktop */}
           <div className="hidden lg:flex flex-row items-center gap-3 flex-shrink-0">
-            <Link to="/contato" className="px-4 py-2 text-sm font-light font-display transition-all duration-300 tracking-wider whitespace-nowrap text-secondary hover:text-secondary/80 uppercase">
-              Fale com um Especialista
+            <CartDrawer />
+            <Link to="/loja" className="px-4 py-2 text-sm font-light font-display transition-all duration-300 tracking-wider whitespace-nowrap text-secondary hover:text-secondary/80 uppercase">
+              Loja
             </Link>
             <Link to="/orcamento" className="px-4 py-2 text-sm font-semibold font-display text-white bg-accent/20 border border-accent/50 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 transition-all duration-300 tracking-wider whitespace-nowrap uppercase rounded-full">
               Orçamento
