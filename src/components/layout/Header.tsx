@@ -106,8 +106,8 @@ export default function Header() {
       <div className="text-white border-2 bg-gray-800">
         <div className="container h-9 text-xs mx-0 flex-row rounded-3xl gap-0 px-[33px] py-[7px] opacity-100 flex items-end justify-between border-0 bg-slate-800">
           <div className="flex items-center shadow-inner gap-[30px] px-0 py-0 mx-0 text-[#f2aa36]">
-            <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="Instagram"><Instagram size={14} /></a>
-            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="WhatsApp"><MessageCircle size={14} /></a>
+            <a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
+            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="WhatsApp"><MessageCircle size={20} /></a>
           </div>
           <div className="flex items-center gap-1.5 mx-auto md:mx-0">
             <Phone size={12} className="text-secondary my-[8px] mx-0 px-0 py-0" />
