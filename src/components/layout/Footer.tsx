@@ -13,8 +13,8 @@ export default function Footer() {
               Soluções profissionais em tratamento acústico para todos os tipos de ambientes.
             </p>
             <div className="flex items-center gap-4 mt-4">
-              <a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Instagram" className="text-white/50 hover:text-secondary transition-colors"><Instagram size={22} /></a>
-              <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp" className="text-white/50 hover:text-secondary transition-colors"><MessageCircle size={22} /></a>
+              <a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Instagram" className="text-white/50 hover:text-secondary transition-colors"><Instagram size={30} /></a>
+              <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp" className="text-white/50 hover:text-secondary transition-colors"><MessageCircle size={30} /></a>
             </div>
           </div>
           <div>
@@ -41,8 +41,8 @@ export default function Footer() {
             <h4 className="font-display text-base font-semibold text-secondary mb-3">Contato</h4>
             <ul className="space-y-2 text-base text-white/60">
               <li><a href="mailto:contato@sonaracusticos.com.br" className="hover:text-white transition-colors">contato@sonaracusticos.com.br</a></li>
-              <li><a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><MessageCircle size={16} /> (11) 96748-4000</a></li>
-              <li><a href="https://instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><Instagram size={16} /> @sonar_acusticos</a></li>
+              <li><a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><MessageCircle size={20} /> (11) 96748-4000</a></li>
+              <li><a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><Instagram size={20} /> @sonar_acusticos</a></li>
               <li>São Paulo, SP</li>
             </ul>
           </div>
