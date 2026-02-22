@@ -89,9 +89,9 @@ const testimonials = [
 ];
 
 const stats = [
-  { value: "500+", label: "Projetos" },
-  { value: "98%", label: "Satisfação" },
-  { value: "12", label: "Anos" },
+  { value: "700+", label: "Projetos" },
+  { value: "93%", label: "Satisfação" },
+  { value: "5", label: "Anos" },
   { value: "40+", label: "Cores" },
 ];
 
