@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, Instagram, MessageCircle, Phone, Search } from "lucide-react";
+import { Menu, X, ArrowRight, Instagram, Phone, Search } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { CartDrawer } from "@/components/shared/CartDrawer";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-sonar.png";
@@ -103,17 +104,29 @@ export default function Header() {
   const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2.5 text-sm lg:text-base font-light tracking-wider transition-all duration-500 ease-out rounded-full cursor-pointer font-display whitespace-nowrap uppercase ${activeMenu === key ? "text-white bg-white/15 backdrop-blur-sm shadow-md" : "text-white/70 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.02]"}`;
   return <motion.header initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px] border-destructive">
       {/* Top Bar */}
-      <div className="text-white border-2 bg-gray-800">
-        <div className="container h-9 text-xs mx-0 flex-row rounded-3xl gap-0 px-[33px] py-[7px] opacity-100 flex items-end justify-between border-0 bg-slate-800">
-          <div className="flex items-center shadow-inner gap-[30px] px-0 py-0 mx-0 text-[#f2aa36]">
-            <a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
-            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="WhatsApp"><MessageCircle size={20} /></a>
+      <div className="relative text-white bg-[hsl(205,78%,8%)] overflow-hidden">
+        {/* Geometric decorative elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          <div className="absolute top-1/2 left-[10%] w-16 h-px bg-secondary/20 -translate-y-1/2" />
+          <div className="absolute top-1/2 right-[10%] w-16 h-px bg-secondary/20 -translate-y-1/2" />
+          <div className="absolute top-1/2 left-[10%] w-px h-3 bg-secondary/20 -translate-y-1/2 -translate-x-[0.5px]" />
+          <div className="absolute top-1/2 right-[10%] w-px h-3 bg-secondary/20 -translate-y-1/2 translate-x-[0.5px]" />
+          <svg className="absolute left-[20%] top-1/2 -translate-y-1/2 opacity-[0.08]" width="60" height="20" viewBox="0 0 60 20"><path d="M0 10 Q15 0 30 10 Q45 20 60 10" fill="none" stroke="hsl(25,95%,53%)" strokeWidth="1"/></svg>
+          <svg className="absolute right-[20%] top-1/2 -translate-y-1/2 opacity-[0.08]" width="60" height="20" viewBox="0 0 60 20"><path d="M0 10 Q15 0 30 10 Q45 20 60 10" fill="none" stroke="hsl(25,95%,53%)" strokeWidth="1"/></svg>
+        </div>
+
+        <div className="container relative h-10 text-xs mx-auto flex items-center justify-between px-6 lg:px-10">
+          <div className="flex items-center gap-5 text-secondary">
+            <a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary/80 transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
+            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary/80 transition-colors" aria-label="WhatsApp"><WhatsAppIcon size={18} /></a>
           </div>
-          <div className="flex items-center gap-1.5 mx-auto md:mx-0">
-            <Phone size={12} className="text-secondary my-[8px] mx-0 px-0 py-0" />
-            <span className="tracking-wider text-base text-left font-normal py-0 my-0 mx-[28px] font-sans">Consultoria Acústica Gratuita</span>
+          <div className="flex items-center gap-2">
+            <Phone size={13} className="text-secondary" />
+            <span className="tracking-[0.15em] text-sm font-display font-light text-white/80 uppercase">Consultoria Acústica Gratuita</span>
           </div>
-          <div className="hidden md:block text-white/60">São Paulo, Brasil</div>
+          <div className="hidden md:block text-white/40 text-xs tracking-widest uppercase font-display">São Paulo, Brasil</div>
         </div>
       </div>
 
