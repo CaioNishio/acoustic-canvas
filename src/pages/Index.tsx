@@ -131,11 +131,11 @@ const HomePage = () => {
         </div>
 
         {/* Stats bar — pinned to bottom, never overlaps content */}
-        <div className="relative z-10 bg-[hsl(205,78%,8%)]/70 backdrop-blur-sm border-t border-white/10">
+        <div className="relative z-10 bg-white/[0.04] backdrop-blur-xl border-t border-white/[0.08]">
           <div className="container mx-auto px-8 md:px-16 py-5">
             <div className="grid grid-cols-4 gap-6 max-w-xl">
               {stats.map((s) => (
-                <div key={s.label} className="text-center px-4 py-3 rounded-xl border border-white/5 bg-white/[0.03]">
+                <div key={s.label} className="text-center px-4 py-3 rounded-xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-md shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
                   <p className="text-2xl md:text-3xl font-bold text-white font-display">{s.value}</p>
                   <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1 font-display">{s.label}</p>
                 </div>
@@ -150,17 +150,21 @@ const HomePage = () => {
       {/* ===== Spaces ===== */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
-          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-10 text-sm font-display">
-            Soluções para cada ambiente
-          </motion.p>
+          <motion.div {...fadeUp} className="rounded-2xl border border-border/20 bg-card/40 backdrop-blur-lg px-6 py-4 mb-10 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
+            <p className="text-center text-muted-foreground uppercase tracking-[0.3em] text-sm font-display">
+              Soluções para cada ambiente
+            </p>
+          </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {spaces.map((space) => (
               <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-border/30">
                 <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.45] group-hover:brightness-[0.35]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,8%)]/70 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                  <h3 className="text-white text-sm md:text-base font-display font-normal drop-shadow-lg">{space.label}</h3>
-                  <ArrowRight size={14} className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
+                <div className="absolute bottom-0 left-0 right-0 p-3 bg-white/[0.06] backdrop-blur-xl border-t border-white/[0.08]">
+                  <div className="flex items-end justify-between">
+                    <h3 className="text-white text-sm md:text-base font-display font-normal drop-shadow-lg">{space.label}</h3>
+                    <ArrowRight size={14} className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
+                  </div>
                 </div>
               </Link>
             ))}
@@ -183,7 +187,7 @@ const HomePage = () => {
         </svg>
 
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div {...fadeUp} className="text-center mb-14">
+          <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl border border-border/20 bg-card/40 backdrop-blur-lg px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
             <span className="text-primary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
             <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-foreground">Nossos Projetos</h2>
             <p className="mt-3 max-w-lg mx-auto text-muted-foreground">Ambientes reais transformados com soluções acústicas Sonar.</p>
@@ -201,7 +205,7 @@ const HomePage = () => {
                 <img src={item.img} alt={item.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/40 transition-colors duration-500" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <span className="text-white font-semibold text-sm drop-shadow-lg">{item.label}</span>
+                  <span className="inline-block text-white font-semibold text-sm drop-shadow-lg bg-white/[0.08] backdrop-blur-xl border border-white/[0.1] rounded-lg px-3 py-1.5">{item.label}</span>
                 </div>
               </motion.div>
             ))}
@@ -219,7 +223,7 @@ const HomePage = () => {
       {/* ===== Process ===== */}
       <section className="py-14 bg-background">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeUp} className="text-center mb-16">
+          <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl border border-border/20 bg-card/40 backdrop-blur-lg px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
             <span className="text-primary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
             <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-foreground">Como Funciona</h2>
             <p className="mt-3 max-w-lg mx-auto text-muted-foreground">Da medição à instalação — um processo completo e transparente.</p>
@@ -238,9 +242,9 @@ const HomePage = () => {
                   <img src={step.image} alt={step.title} className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 {/* Content */}
-                <div className={`rounded-2xl border border-border/50 bg-card p-8 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                <div className={`rounded-2xl border border-border/30 bg-card/50 backdrop-blur-xl p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_4px_24px_-4px_rgba(0,0,0,0.1)] ${i % 2 === 1 ? "lg:order-1" : ""}`}>
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-primary/[0.08] backdrop-blur-md border border-primary/10 flex items-center justify-center">
                       <step.icon className="text-primary" size={22} />
                     </div>
                     <span className="text-sm font-semibold tracking-[0.2em] uppercase text-muted-foreground font-display">Etapa {i + 1}</span>
@@ -308,7 +312,7 @@ const HomePage = () => {
 
         <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <motion.div {...fadeUp}>
+            <motion.div {...fadeUp} className="rounded-3xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-xl p-10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_8px_32px_-8px_rgba(0,0,0,0.3)]">
               <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Diferenciais</span>
               <h2 className="text-3xl md:text-4xl font-display font-normal mt-3">Por Que Escolher a Sonar?</h2>
               <p className="text-white/50 mt-5 leading-relaxed text-lg">
@@ -322,7 +326,7 @@ const HomePage = () => {
                   "Fabricação própria com controle de qualidade",
                   "Entrega e instalação em todo o Brasil",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-white/80">
+                  <li key={item} className="flex items-start gap-3 text-sm text-white/80 rounded-lg px-3 py-2 bg-white/[0.03] border border-white/[0.05] backdrop-blur-sm">
                     <CheckCircle size={16} className="text-secondary flex-shrink-0 mt-0.5" />
                     {item}
                   </li>
@@ -364,7 +368,7 @@ const HomePage = () => {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {testimonials.map((t, i) => (
-              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 border border-border bg-card hover:border-primary/20 transition-all hover:shadow-lg">
+              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 border border-border/30 bg-card/50 backdrop-blur-xl hover:border-primary/20 transition-all hover:shadow-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
                 <div className="flex gap-1 mb-5">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} size={14} className="fill-secondary text-secondary" />
@@ -395,14 +399,14 @@ const HomePage = () => {
         <div className="absolute top-1/2 right-12 w-px h-24 bg-gradient-to-b from-transparent via-secondary/20 to-transparent z-10" />
         <div className="absolute top-1/2 left-12 w-px h-24 bg-gradient-to-b from-transparent via-secondary/15 to-transparent z-10" />
         <div className="container mx-auto relative z-10 text-center">
-          <motion.div {...fadeUp}>
+          <motion.div {...fadeUp} className="rounded-3xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-xl px-8 py-14 mx-auto max-w-3xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_8px_32px_-8px_rgba(0,0,0,0.3)]">
             <h2 className="text-3xl md:text-5xl font-display font-normal text-white">Pronto para transformar seu espaço?</h2>
             <p className="text-white/50 mt-5 max-w-lg mx-auto text-lg">Solicite um orçamento gratuito e receba uma proposta personalizada.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
               <Link to="/orcamento" className="inline-flex items-center gap-2 px-9 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/90 transition-colors shadow-xl shadow-secondary/30 text-lg">
                 Solicitar Orçamento <ArrowRight size={18} />
               </Link>
-              <Link to="/contato" className="inline-flex items-center gap-2 px-9 py-4 border border-white/25 text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-lg backdrop-blur-sm">
+              <Link to="/contato" className="inline-flex items-center gap-2 px-9 py-4 border border-white/[0.15] text-white font-semibold rounded-full bg-white/[0.06] backdrop-blur-md hover:bg-white/[0.12] transition-colors text-lg">
                 Falar com Especialista
               </Link>
             </div>
