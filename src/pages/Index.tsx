@@ -150,8 +150,8 @@ const HomePage = () => {
       {/* ===== Spaces ===== */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeUp} className="rounded-2xl border border-border/20 bg-card/40 backdrop-blur-lg px-6 py-4 mb-10 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
-            <p className="text-center text-muted-foreground uppercase tracking-[0.3em] text-sm font-display">
+          <motion.div {...fadeUp} className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-6 py-4 mb-10 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+            <p className="text-center text-white/50 uppercase tracking-[0.3em] text-sm font-display">
               Soluções para cada ambiente
             </p>
           </motion.div>
@@ -187,10 +187,10 @@ const HomePage = () => {
         </svg>
 
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl border border-border/20 bg-card/40 backdrop-blur-lg px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
-            <span className="text-primary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
-            <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-foreground">Nossos Projetos</h2>
-            <p className="mt-3 max-w-lg mx-auto text-muted-foreground">Ambientes reais transformados com soluções acústicas Sonar.</p>
+          <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+            <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
+            <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">Nossos Projetos</h2>
+            <p className="mt-3 max-w-lg mx-auto text-white/50">Ambientes reais transformados com soluções acústicas Sonar.</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
             {portfolioGrid.map((item, i) => (
@@ -200,12 +200,12 @@ const HomePage = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className={`relative group overflow-hidden rounded-2xl cursor-pointer ${item.span}`}
+                className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] ${item.span}`}
               >
-                <img src={item.img} alt={item.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/40 transition-colors duration-500" />
+                <img src={item.img} alt={item.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <div className="absolute inset-1.5 rounded-xl bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/40 transition-colors duration-500" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <span className="inline-block text-white font-semibold text-sm drop-shadow-lg bg-white/[0.08] backdrop-blur-xl border border-white/[0.1] rounded-lg px-3 py-1.5">{item.label}</span>
+                  <span className="inline-block text-white font-semibold text-sm drop-shadow-lg bg-[hsl(205,78%,8%)]/70 backdrop-blur-xl border border-white/[0.1] rounded-lg px-3 py-1.5">{item.label}</span>
                 </div>
               </motion.div>
             ))}
@@ -223,10 +223,10 @@ const HomePage = () => {
       {/* ===== Process ===== */}
       <section className="py-14 bg-background">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl border border-border/20 bg-card/40 backdrop-blur-lg px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
-            <span className="text-primary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
-            <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-foreground">Como Funciona</h2>
-            <p className="mt-3 max-w-lg mx-auto text-muted-foreground">Da medição à instalação — um processo completo e transparente.</p>
+          <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+            <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
+            <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-white">Como Funciona</h2>
+            <p className="mt-3 max-w-lg mx-auto text-white/50">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
           <div className="space-y-14">
@@ -235,25 +235,27 @@ const HomePage = () => {
                 key={step.title}
                 {...fadeUp}
                 transition={{ delay: 0.1 }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`}
+                className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.65] backdrop-blur-2xl border border-white/[0.07] p-4 md:p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_40px_-12px_rgba(0,0,0,0.4)]"
               >
-                {/* Image */}
-                <div className={`overflow-hidden rounded-3xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <img src={step.image} alt={step.title} className="w-full h-full object-cover" loading="lazy" />
-                </div>
-                {/* Content */}
-                <div className={`rounded-2xl border border-border/30 bg-card/50 backdrop-blur-xl p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_4px_24px_-4px_rgba(0,0,0,0.1)] ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-primary/[0.08] backdrop-blur-md border border-primary/10 flex items-center justify-center">
-                      <step.icon className="text-primary" size={22} />
-                    </div>
-                    <span className="text-sm font-semibold tracking-[0.2em] uppercase text-muted-foreground font-display">Etapa {i + 1}</span>
+                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
+                  {/* Image */}
+                  <div className={`overflow-hidden rounded-2xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                    <img src={step.image} alt={step.title} className="w-full h-full object-cover" loading="lazy" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-display font-normal text-foreground">{step.title}</h3>
-                  <p className="mt-4 leading-relaxed text-muted-foreground text-lg">{step.desc}</p>
-                  <Link to={step.path} className="inline-flex items-center gap-2 mt-7 text-primary font-semibold text-sm hover:gap-3 transition-all font-display">
-                    {step.cta} <ArrowRight size={16} />
-                  </Link>
+                  {/* Content */}
+                  <div className={`p-4 md:p-6 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/[0.1] flex items-center justify-center">
+                        <step.icon className="text-secondary" size={22} />
+                      </div>
+                      <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/40 font-display">Etapa {i + 1}</span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-display font-normal text-white">{step.title}</h3>
+                    <p className="mt-4 leading-relaxed text-white/60 text-lg">{step.desc}</p>
+                    <Link to={step.path} className="inline-flex items-center gap-2 mt-7 text-secondary font-semibold text-sm hover:gap-3 transition-all font-display">
+                      {step.cta} <ArrowRight size={16} />
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -264,27 +266,36 @@ const HomePage = () => {
       {/* Divider removed for tighter layout */}
 
       {/* ===== Gallery strip ===== */}
-      <section className="bg-background">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-          {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) => (
-            <div key={i} className="relative group overflow-hidden aspect-[4/3]">
-              <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-              <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/20 transition-colors duration-500" />
-            </div>
-          ))}
-        </div>
-
-        <div className="container mx-auto px-6 py-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-3xl overflow-hidden aspect-[16/10]">
-              <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div className="rounded-3xl overflow-hidden aspect-[16/10]">
-              <img src={imgHexagonais} alt="Painéis hexagonais no teto" className="w-full h-full object-cover" loading="lazy" />
+      <section className="bg-background py-10">
+        <div className="container mx-auto px-6">
+          {/* Gallery strip */}
+          <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_40px_-12px_rgba(0,0,0,0.4)]">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) => (
+                <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
+                  <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                  <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/20 transition-colors duration-500" />
+                </div>
+              ))}
             </div>
           </div>
-          <div className="mt-6 rounded-3xl overflow-hidden aspect-[21/9]">
-            <img src={heroNuvens} alt="Nuvens acústicas em ambiente corporativo" className="w-full h-full object-cover" loading="lazy" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+              <div className="rounded-2xl overflow-hidden aspect-[16/10]">
+                <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+            <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+              <div className="rounded-2xl overflow-hidden aspect-[16/10]">
+                <img src={imgHexagonais} alt="Painéis hexagonais no teto" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+          </div>
+          <div className="mt-6 rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+            <div className="rounded-2xl overflow-hidden aspect-[21/9]">
+              <img src={heroNuvens} alt="Nuvens acústicas em ambiente corporativo" className="w-full h-full object-cover" loading="lazy" />
+            </div>
           </div>
         </div>
       </section>
@@ -337,11 +348,15 @@ const HomePage = () => {
               </Link>
             </motion.div>
             <motion.div {...fadeUp} className="grid grid-cols-2 gap-4">
-              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
-                <img src={heroBafflesColor} alt="" className="w-full h-full object-cover" loading="lazy" />
+              <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
+                <div className="rounded-xl overflow-hidden aspect-[3/4]">
+                  <img src={heroBafflesColor} alt="" className="w-full h-full object-cover" loading="lazy" />
+                </div>
               </div>
-              <div className="rounded-2xl overflow-hidden aspect-[3/4] mt-12">
-                <img src={heroDifusores} alt="" className="w-full h-full object-cover" loading="lazy" />
+              <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 mt-12 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
+                <div className="rounded-xl overflow-hidden aspect-[3/4]">
+                  <img src={heroDifusores} alt="" className="w-full h-full object-cover" loading="lazy" />
+                </div>
               </div>
             </motion.div>
           </div>
@@ -362,22 +377,22 @@ const HomePage = () => {
         </svg>
 
         <div className="container mx-auto relative z-10">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <span className="text-primary text-xs font-semibold tracking-[0.3em] uppercase">Depoimentos</span>
-            <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-foreground">O Que Nossos Clientes Dizem</h2>
+          <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+            <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Depoimentos</span>
+            <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">O Que Nossos Clientes Dizem</h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {testimonials.map((t, i) => (
-              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 border border-border/30 bg-card/50 backdrop-blur-xl hover:border-primary/20 transition-all hover:shadow-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_4px_24px_-8px_rgba(0,0,0,0.3)]">
                 <div className="flex gap-1 mb-5">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} size={14} className="fill-secondary text-secondary" />
                   ))}
                 </div>
-                <p className="leading-relaxed italic text-muted-foreground">"{t.text}"</p>
-                <div className="mt-6 pt-5 border-t border-border">
-                  <p className="font-semibold text-foreground font-display">{t.name}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">{t.role}</p>
+                <p className="leading-relaxed italic text-white/60">"{t.text}"</p>
+                <div className="mt-6 pt-5 border-t border-white/[0.06]">
+                  <p className="font-semibold text-white font-display">{t.name}</p>
+                  <p className="text-xs text-white/40 mt-0.5">{t.role}</p>
                 </div>
               </motion.div>
             ))}
