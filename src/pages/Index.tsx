@@ -105,7 +105,6 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/80 via-[hsl(205,78%,8%)]/40 to-transparent" />
         </div>
 
-        {/* Hero content — centered vertically via flex-1 + justify-center */}
         <div className="flex-1 flex items-center relative z-10 pt-40">
           <div className="container mx-auto px-8 md:px-16">
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
@@ -130,7 +129,6 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Stats bar — pinned to bottom, never overlaps content */}
         <div className="relative z-10 bg-white/[0.04] backdrop-blur-xl border-t border-white/[0.08]">
           <div className="container mx-auto px-8 md:px-16 py-5">
             <div className="grid grid-cols-4 gap-6 max-w-xl">
@@ -145,7 +143,14 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Divider removed for tighter layout */}
+      {/* ===== Linear divider ===== */}
+      <div className="bg-background py-6 flex items-center justify-center gap-4 px-8">
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/10 to-primary/5" />
+        <div className="w-1.5 h-1.5 rounded-full bg-primary/15" />
+        <div className="w-px h-6 bg-primary/10" />
+        <div className="w-1.5 h-1.5 rounded-full bg-primary/15" />
+        <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/10 to-primary/5" />
+      </div>
 
       {/* ===== Spaces ===== */}
       <section className="py-12 bg-background">
@@ -172,53 +177,80 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Divider removed for tighter layout */}
+      {/* ===== Linear divider ===== */}
+      <div className="bg-background py-6 flex items-center justify-center gap-3 px-8">
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/8" />
+        <div className="flex gap-1.5">
+          {[12, 20, 28, 20, 12].map((h, i) => (
+            <div key={i} className="w-px bg-primary/10" style={{ height: h }} />
+          ))}
+        </div>
+        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/8" />
+      </div>
 
       {/* ===== Portfolio ===== */}
-      <section className="py-12 bg-muted/30 relative overflow-hidden">
-        {/* Geometric decorations */}
-        <div className="absolute top-8 left-8 w-32 h-32 border border-primary/10 rounded-full" />
-        <div className="absolute top-12 left-12 w-24 h-24 border border-primary/5 rounded-full" />
-        <div className="absolute bottom-16 right-12 w-40 h-40 border border-primary/8 rotate-45" />
-        <div className="absolute top-1/2 right-6 w-px h-32 bg-gradient-to-b from-transparent via-primary/15 to-transparent" />
-        <div className="absolute bottom-8 left-1/4 w-20 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-        <svg className="absolute top-20 right-20 opacity-[0.06]" width="120" height="120" viewBox="0 0 120 120" fill="none">
-          <path d="M60 10 L110 90 L10 90 Z" stroke="hsl(var(--primary))" strokeWidth="1" />
-        </svg>
+      <section className="relative overflow-hidden">
+        {/* Background strip — extra depth layer */}
+        <div className="absolute inset-0 bg-gradient-to-b from-muted/40 via-muted/20 to-muted/40" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+        <div className="absolute inset-x-[5%] top-0 bottom-0 bg-muted/15 border-x border-primary/[0.04]" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
-            <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
-            <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">Nossos Projetos</h2>
-            <p className="mt-3 max-w-lg mx-auto text-white/50">Ambientes reais transformados com soluções acústicas Sonar.</p>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
-            {portfolioGrid.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] ${item.span}`}
-              >
-                <img src={item.img} alt={item.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                <div className="absolute inset-1.5 rounded-xl bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/40 transition-colors duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <span className="inline-block text-white font-semibold text-sm drop-shadow-lg bg-[hsl(205,78%,8%)]/70 backdrop-blur-xl border border-white/[0.1] rounded-lg px-3 py-1.5">{item.label}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link to="/projetos" className="inline-flex items-center gap-2 px-8 py-3 text-sm font-semibold text-primary-foreground bg-primary rounded-full hover:bg-primary/90 transition-colors">
-              Ver todos os projetos <ArrowRight size={16} />
-            </Link>
+        <div className="relative py-12">
+          {/* Geometric decorations */}
+          <div className="absolute top-8 left-8 w-32 h-32 border border-primary/10 rounded-full" />
+          <div className="absolute top-12 left-12 w-24 h-24 border border-primary/5 rounded-full" />
+          <div className="absolute bottom-16 right-12 w-40 h-40 border border-primary/[0.08] rotate-45" />
+          <div className="absolute top-1/2 right-6 w-px h-32 bg-gradient-to-b from-transparent via-primary/15 to-transparent" />
+          <div className="absolute bottom-8 left-1/4 w-20 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+          <svg className="absolute top-20 right-20 opacity-[0.06]" width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <path d="M60 10 L110 90 L10 90 Z" stroke="hsl(var(--primary))" strokeWidth="1" />
+          </svg>
+
+          <div className="container mx-auto px-6 relative z-10">
+            <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+              <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
+              <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">Nossos Projetos</h2>
+              <p className="mt-3 max-w-lg mx-auto text-white/50">Ambientes reais transformados com soluções acústicas Sonar.</p>
+            </motion.div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
+              {portfolioGrid.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] ${item.span}`}
+                >
+                  <img src={item.img} alt={item.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                  <div className="absolute inset-1.5 rounded-xl bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/40 transition-colors duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                    <span className="inline-block text-white font-semibold text-sm drop-shadow-lg bg-[hsl(205,78%,8%)]/70 backdrop-blur-xl border border-white/[0.1] rounded-lg px-3 py-1.5">{item.label}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <div className="text-center mt-12">
+              <Link to="/projetos" className="inline-flex items-center gap-2 px-8 py-3 text-sm font-semibold text-primary-foreground bg-primary rounded-full hover:bg-primary/90 transition-colors">
+                Ver todos os projetos <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Divider removed for tighter layout */}
+      {/* ===== Linear divider ===== */}
+      <div className="bg-background py-8 flex flex-col items-center gap-3">
+        <div className="flex items-center gap-4 w-full max-w-xs px-8">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/10" />
+          <svg width="24" height="24" viewBox="0 0 24 24" className="opacity-[0.08]">
+            <rect x="4" y="4" width="16" height="16" stroke="hsl(var(--primary))" strokeWidth="0.8" fill="none" />
+            <rect x="8" y="8" width="8" height="8" stroke="hsl(var(--primary))" strokeWidth="0.5" fill="none" />
+          </svg>
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/10" />
+        </div>
+      </div>
 
       {/* ===== Process ===== */}
       <section className="py-14 bg-background">
@@ -238,11 +270,9 @@ const HomePage = () => {
                 className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.65] backdrop-blur-2xl border border-white/[0.07] p-4 md:p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_40px_-12px_rgba(0,0,0,0.4)]"
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
-                  {/* Image */}
                   <div className={`overflow-hidden rounded-2xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                     <img src={step.image} alt={step.title} className="w-full h-full object-cover" loading="lazy" />
                   </div>
-                  {/* Content */}
                   <div className={`p-4 md:p-6 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-12 h-12 rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/[0.1] flex items-center justify-center">
@@ -263,144 +293,198 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Divider removed for tighter layout */}
+      {/* ===== Linear divider ===== */}
+      <div className="bg-background py-6 flex items-center justify-center gap-4 px-8">
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/8 to-primary/5" />
+        <div className="w-2 h-2 border border-primary/15 rotate-45" />
+        <div className="w-8 h-px bg-primary/12" />
+        <div className="w-2 h-2 border border-primary/15 rotate-45" />
+        <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/8 to-primary/5" />
+      </div>
 
       {/* ===== Gallery strip ===== */}
-      <section className="bg-background py-10">
-        <div className="container mx-auto px-6">
-          {/* Gallery strip */}
-          <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_40px_-12px_rgba(0,0,0,0.4)]">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) => (
-                <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
-                  <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                  <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/20 transition-colors duration-500" />
+      <section className="relative">
+        {/* Background strip */}
+        <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-muted/15 to-muted/30" />
+        <div className="absolute inset-x-[8%] top-0 bottom-0 bg-muted/10 border-x border-primary/[0.03]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/8 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/8 to-transparent" />
+
+        <div className="relative py-10">
+          <div className="container mx-auto px-6">
+            <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_40px_-12px_rgba(0,0,0,0.4)]">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) => (
+                  <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
+                    <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                    <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/20 transition-colors duration-500" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+                <div className="rounded-2xl overflow-hidden aspect-[16/10]">
+                  <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" />
                 </div>
+              </div>
+              <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] mt-6 md:mt-12">
+                <div className="rounded-2xl overflow-hidden aspect-[16/10]">
+                  <img src={imgHexagonais} alt="Painéis hexagonais no teto" className="w-full h-full object-cover" loading="lazy" />
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+              <div className="rounded-2xl overflow-hidden aspect-[21/9]">
+                <img src={heroNuvens} alt="Nuvens acústicas em ambiente corporativo" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Linear divider ===== */}
+      <div className="bg-background py-8 flex items-center justify-center gap-3 px-8">
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/8" />
+        <div className="flex items-end gap-[2px]">
+          {[6, 10, 16, 22, 16, 10, 6].map((h, i) => (
+            <div key={i} className="w-[1.5px] rounded-full bg-primary/10" style={{ height: h }} />
+          ))}
+        </div>
+        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/8" />
+      </div>
+
+      {/* ===== Why us ===== */}
+      <section className="relative overflow-hidden">
+        {/* Background strip — extra dark layer */}
+        <div className="absolute inset-0 bg-[hsl(205,78%,8%)]" />
+        <div className="absolute inset-x-[3%] top-0 bottom-0 bg-[hsl(205,78%,6%)]/40 border-x border-white/[0.03]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+        <div className="relative py-14 px-6 text-white">
+          {/* Geometric decorations */}
+          <div className="absolute top-10 right-10 w-48 h-48 border border-white/[0.04] rounded-full" />
+          <div className="absolute top-14 right-14 w-36 h-36 border border-white/[0.03] rounded-full" />
+          <div className="absolute bottom-10 left-10 w-24 h-24 border border-white/[0.05] rotate-12" />
+          <div className="absolute top-1/3 left-0 w-24 h-px bg-gradient-to-r from-secondary/20 to-transparent" />
+          <div className="absolute bottom-1/3 right-0 w-32 h-px bg-gradient-to-l from-secondary/15 to-transparent" />
+          <svg className="absolute bottom-12 right-1/4 opacity-[0.04]" width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <rect x="10" y="10" width="60" height="60" stroke="white" strokeWidth="1" rx="4" />
+            <rect x="20" y="20" width="40" height="40" stroke="white" strokeWidth="0.5" rx="2" />
+          </svg>
+          <svg className="absolute top-16 left-1/3 opacity-[0.05]" width="100" height="100" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="0.5" />
+            <circle cx="50" cy="50" r="25" stroke="white" strokeWidth="0.5" />
+            <line x1="10" y1="50" x2="90" y2="50" stroke="white" strokeWidth="0.3" />
+            <line x1="50" y1="10" x2="50" y2="90" stroke="white" strokeWidth="0.3" />
+          </svg>
+
+          <div className="container mx-auto relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+              <motion.div {...fadeUp} className="rounded-3xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-xl p-10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_8px_32px_-8px_rgba(0,0,0,0.3)]">
+                <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Diferenciais</span>
+                <h2 className="text-3xl md:text-4xl font-display font-normal mt-3">Por Que Escolher a Sonar?</h2>
+                <p className="text-white/50 mt-5 leading-relaxed text-lg">
+                  Mais de uma década combinando engenharia acústica de ponta com design contemporâneo.
+                </p>
+                <ul className="mt-8 space-y-4">
+                  {[
+                    "Materiais certificados com classe de fogo A2",
+                    "Mais de 40 opções de cores e acabamentos",
+                    "Projetos personalizados com consultoria técnica",
+                    "Fabricação própria com controle de qualidade",
+                    "Entrega e instalação em todo o Brasil",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-white/80 rounded-lg px-3 py-2 bg-white/[0.03] border border-white/[0.05] backdrop-blur-sm">
+                      <CheckCircle size={16} className="text-secondary flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/contato" className="inline-flex items-center gap-2 mt-10 px-7 py-3.5 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/90 transition-colors text-sm">
+                  Fale com um Especialista <ArrowRight size={16} />
+                </Link>
+              </motion.div>
+              <motion.div {...fadeUp} className="grid grid-cols-2 gap-4">
+                <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
+                  <div className="rounded-xl overflow-hidden aspect-[3/4]">
+                    <img src={heroBafflesColor} alt="" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                </div>
+                <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 mt-12 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
+                  <div className="rounded-xl overflow-hidden aspect-[3/4]">
+                    <img src={heroDifusores} alt="" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Linear divider ===== */}
+      <div className="bg-background py-6 flex items-center justify-center gap-4 px-8">
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/8" />
+        <svg width="20" height="20" viewBox="0 0 20 20" className="opacity-[0.1]">
+          <circle cx="10" cy="10" r="7" stroke="hsl(var(--primary))" strokeWidth="0.6" fill="none" />
+          <circle cx="10" cy="10" r="3" stroke="hsl(var(--primary))" strokeWidth="0.4" fill="none" />
+        </svg>
+        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/8" />
+      </div>
+
+      {/* ===== Testimonials ===== */}
+      <section className="relative overflow-hidden">
+        {/* Background strip */}
+        <div className="absolute inset-0 bg-muted/25" />
+        <div className="absolute inset-x-[6%] top-0 bottom-0 bg-muted/15 border-x border-primary/[0.04]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+
+        <div className="relative py-12 px-6">
+          {/* Geometric decorations */}
+          <div className="absolute top-6 right-16 w-20 h-20 border border-primary/[0.08] rounded-full" />
+          <div className="absolute bottom-10 left-12 w-16 h-16 border border-primary/[0.06] rotate-45" />
+          <div className="absolute top-1/2 left-0 w-16 h-px bg-gradient-to-r from-primary/15 to-transparent" />
+          <div className="absolute top-8 left-1/3 w-px h-16 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
+          <svg className="absolute bottom-6 right-1/3 opacity-[0.05]" width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <polygon points="30,5 55,50 5,50" stroke="hsl(var(--primary))" strokeWidth="0.8" fill="none" />
+          </svg>
+
+          <div className="container mx-auto relative z-10">
+            <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+              <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Depoimentos</span>
+              <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">O Que Nossos Clientes Dizem</h2>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+              {testimonials.map((t, i) => (
+                <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_4px_24px_-8px_rgba(0,0,0,0.3)]">
+                  <div className="flex gap-1 mb-5">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} size={14} className="fill-secondary text-secondary" />
+                    ))}
+                  </div>
+                  <p className="leading-relaxed italic text-white/60">"{t.text}"</p>
+                  <div className="mt-6 pt-5 border-t border-white/[0.06]">
+                    <p className="font-semibold text-white font-display">{t.name}</p>
+                    <p className="text-xs text-white/40 mt-0.5">{t.role}</p>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
-              <div className="rounded-2xl overflow-hidden aspect-[16/10]">
-                <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
-              <div className="rounded-2xl overflow-hidden aspect-[16/10]">
-                <img src={imgHexagonais} alt="Painéis hexagonais no teto" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-            </div>
-          </div>
-          <div className="mt-6 rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
-            <div className="rounded-2xl overflow-hidden aspect-[21/9]">
-              <img src={heroNuvens} alt="Nuvens acústicas em ambiente corporativo" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Divider removed for tighter layout */}
-
-      {/* ===== Why us ===== */}
-      <section className="py-14 px-6 bg-[hsl(205,78%,8%)] text-white relative overflow-hidden">
-        {/* Geometric decorations */}
-        <div className="absolute top-10 right-10 w-48 h-48 border border-white/[0.04] rounded-full" />
-        <div className="absolute top-14 right-14 w-36 h-36 border border-white/[0.03] rounded-full" />
-        <div className="absolute bottom-10 left-10 w-24 h-24 border border-white/[0.05] rotate-12" />
-        <div className="absolute top-1/3 left-0 w-24 h-px bg-gradient-to-r from-secondary/20 to-transparent" />
-        <div className="absolute bottom-1/3 right-0 w-32 h-px bg-gradient-to-l from-secondary/15 to-transparent" />
-        <svg className="absolute bottom-12 right-1/4 opacity-[0.04]" width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <rect x="10" y="10" width="60" height="60" stroke="white" strokeWidth="1" rx="4" />
-          <rect x="20" y="20" width="40" height="40" stroke="white" strokeWidth="0.5" rx="2" />
-        </svg>
-        <svg className="absolute top-16 left-1/3 opacity-[0.05]" width="100" height="100" viewBox="0 0 100 100" fill="none">
-          <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="0.5" />
-          <circle cx="50" cy="50" r="25" stroke="white" strokeWidth="0.5" />
-          <line x1="10" y1="50" x2="90" y2="50" stroke="white" strokeWidth="0.3" />
-          <line x1="50" y1="10" x2="50" y2="90" stroke="white" strokeWidth="0.3" />
-        </svg>
-
-        <div className="container mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <motion.div {...fadeUp} className="rounded-3xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-xl p-10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_8px_32px_-8px_rgba(0,0,0,0.3)]">
-              <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Diferenciais</span>
-              <h2 className="text-3xl md:text-4xl font-display font-normal mt-3">Por Que Escolher a Sonar?</h2>
-              <p className="text-white/50 mt-5 leading-relaxed text-lg">
-                Mais de uma década combinando engenharia acústica de ponta com design contemporâneo.
-              </p>
-              <ul className="mt-8 space-y-4">
-                {[
-                  "Materiais certificados com classe de fogo A2",
-                  "Mais de 40 opções de cores e acabamentos",
-                  "Projetos personalizados com consultoria técnica",
-                  "Fabricação própria com controle de qualidade",
-                  "Entrega e instalação em todo o Brasil",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-white/80 rounded-lg px-3 py-2 bg-white/[0.03] border border-white/[0.05] backdrop-blur-sm">
-                    <CheckCircle size={16} className="text-secondary flex-shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link to="/contato" className="inline-flex items-center gap-2 mt-10 px-7 py-3.5 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/90 transition-colors text-sm">
-                Fale com um Especialista <ArrowRight size={16} />
-              </Link>
-            </motion.div>
-            <motion.div {...fadeUp} className="grid grid-cols-2 gap-4">
-              <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
-                <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                  <img src={heroBafflesColor} alt="" className="w-full h-full object-cover" loading="lazy" />
-                </div>
-              </div>
-              <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 mt-12 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
-                <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                  <img src={heroDifusores} alt="" className="w-full h-full object-cover" loading="lazy" />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider removed for tighter layout */}
-
-      {/* ===== Testimonials ===== */}
-      <section className="py-12 px-6 bg-muted/20 relative overflow-hidden">
-        {/* Geometric decorations */}
-        <div className="absolute top-6 right-16 w-20 h-20 border border-primary/8 rounded-full" />
-        <div className="absolute bottom-10 left-12 w-16 h-16 border border-primary/6 rotate-45" />
-        <div className="absolute top-1/2 left-0 w-16 h-px bg-gradient-to-r from-primary/15 to-transparent" />
-        <div className="absolute top-8 left-1/3 w-px h-16 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
-        <svg className="absolute bottom-6 right-1/3 opacity-[0.05]" width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <polygon points="30,5 55,50 5,50" stroke="hsl(var(--primary))" strokeWidth="0.8" fill="none" />
-        </svg>
-
-        <div className="container mx-auto relative z-10">
-          <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
-            <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Depoimentos</span>
-            <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">O Que Nossos Clientes Dizem</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {testimonials.map((t, i) => (
-              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_4px_24px_-8px_rgba(0,0,0,0.3)]">
-                <div className="flex gap-1 mb-5">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} size={14} className="fill-secondary text-secondary" />
-                  ))}
-                </div>
-                <p className="leading-relaxed italic text-white/60">"{t.text}"</p>
-                <div className="mt-6 pt-5 border-t border-white/[0.06]">
-                  <p className="font-semibold text-white font-display">{t.name}</p>
-                  <p className="text-xs text-white/40 mt-0.5">{t.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Divider removed for tighter layout */}
+      {/* ===== Linear divider ===== */}
+      <div className="bg-background py-6 flex items-center justify-center gap-4 px-8">
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/10 to-primary/5" />
+        <div className="w-1.5 h-1.5 rounded-full bg-primary/15" />
+        <div className="w-6 h-px bg-primary/12" />
+        <div className="w-1.5 h-1.5 rounded-full bg-primary/15" />
+        <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/10 to-primary/5" />
+      </div>
 
       {/* ===== CTA ===== */}
       <section className="relative py-32 px-6 overflow-hidden">
