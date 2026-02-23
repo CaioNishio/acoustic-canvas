@@ -135,9 +135,9 @@ const HomePage = () => {
           <div className="container mx-auto px-8 md:px-16 py-5">
             <div className="grid grid-cols-4 gap-6 max-w-xl">
               {stats.map((s) => (
-                <div key={s.label} className="text-center">
-                  <p className="text-2xl md:text-3xl font-bold text-white">{s.value}</p>
-                  <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1">{s.label}</p>
+                <div key={s.label} className="text-center px-4 py-3 rounded-xl border border-white/5 bg-white/[0.03]">
+                  <p className="text-2xl md:text-3xl font-bold text-white font-display">{s.value}</p>
+                  <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1 font-display">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -150,16 +150,16 @@ const HomePage = () => {
       {/* ===== Spaces ===== */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
-          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-10 text-sm">
+          <motion.p {...fadeUp} className="text-center text-muted-foreground uppercase tracking-[0.3em] mb-10 text-sm font-display">
             Soluções para cada ambiente
           </motion.p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {spaces.map((space) => (
-              <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3]">
+              <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-border/30">
                 <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.45] group-hover:brightness-[0.35]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,8%)]/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                  <h3 className="text-white text-sm md:text-base font-normal drop-shadow-lg">{space.label}</h3>
+                  <h3 className="text-white text-sm md:text-base font-display font-normal drop-shadow-lg">{space.label}</h3>
                   <ArrowRight size={14} className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
                 </div>
               </Link>
@@ -228,16 +228,16 @@ const HomePage = () => {
                   <img src={step.image} alt={step.title} className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 {/* Content */}
-                <div className={`${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                <div className={`rounded-2xl border border-border/50 bg-card p-8 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                       <step.icon className="text-primary" size={22} />
                     </div>
-                    <span className="text-sm font-semibold tracking-[0.2em] uppercase text-muted-foreground">Etapa {i + 1}</span>
+                    <span className="text-sm font-semibold tracking-[0.2em] uppercase text-muted-foreground font-display">Etapa {i + 1}</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-display font-normal text-foreground">{step.title}</h3>
                   <p className="mt-4 leading-relaxed text-muted-foreground text-lg">{step.desc}</p>
-                  <Link to={step.path} className="inline-flex items-center gap-2 mt-7 text-primary font-semibold text-sm hover:gap-3 transition-all">
+                  <Link to={step.path} className="inline-flex items-center gap-2 mt-7 text-primary font-semibold text-sm hover:gap-3 transition-all font-display">
                     {step.cta} <ArrowRight size={16} />
                   </Link>
                 </div>
@@ -328,7 +328,7 @@ const HomePage = () => {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {testimonials.map((t, i) => (
-              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 border border-border hover:border-primary/20 transition-all hover:shadow-lg bg-card">
+              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 border border-border bg-card hover:border-primary/20 transition-all hover:shadow-lg">
                 <div className="flex gap-1 mb-5">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} size={14} className="fill-secondary text-secondary" />
@@ -336,7 +336,7 @@ const HomePage = () => {
                 </div>
                 <p className="leading-relaxed italic text-muted-foreground">"{t.text}"</p>
                 <div className="mt-6 pt-5 border-t border-border">
-                  <p className="font-semibold text-foreground">{t.name}</p>
+                  <p className="font-semibold text-foreground font-display">{t.name}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">{t.role}</p>
                 </div>
               </motion.div>
