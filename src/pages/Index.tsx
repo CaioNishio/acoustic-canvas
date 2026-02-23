@@ -150,7 +150,7 @@ const HomePage = () => {
       {/* ===== Spaces ===== */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeUp} className="rounded-2xl bg-black/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] px-6 py-4 mb-10 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+          <motion.div {...fadeUp} className="rounded-2xl bg-black/20 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] px-6 py-4 mb-10 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
             <p className="text-center text-white/60 uppercase tracking-[0.3em] text-sm font-display">
               Soluções para cada ambiente
             </p>
@@ -187,7 +187,7 @@ const HomePage = () => {
         </svg>
 
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-black/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+          <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-black/20 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
             <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
             <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">Nossos Projetos</h2>
             <p className="mt-3 max-w-lg mx-auto text-white/55">Ambientes reais transformados com soluções acústicas Sonar.</p>
@@ -200,12 +200,12 @@ const HomePage = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-black/35 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] ${item.span}`}
+                className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-black/20 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] ${item.span}`}
               >
                 <img src={item.img} alt={item.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 <div className="absolute inset-1.5 rounded-xl bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/40 transition-colors duration-500" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <span className="inline-block text-white font-semibold text-sm drop-shadow-lg bg-black/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.1] rounded-lg px-3 py-1.5">{item.label}</span>
+                  <span className="inline-block text-white font-semibold text-sm drop-shadow-lg bg-black/25 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.1] rounded-lg px-3 py-1.5">{item.label}</span>
                 </div>
               </motion.div>
             ))}
@@ -223,7 +223,7 @@ const HomePage = () => {
       {/* ===== Process ===== */}
       <section className="py-14 bg-background">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl bg-black/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+          <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl bg-black/20 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
             <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
             <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-white">Como Funciona</h2>
             <p className="mt-3 max-w-lg mx-auto text-white/55">Da medição à instalação — um processo completo e transparente.</p>
@@ -235,7 +235,7 @@ const HomePage = () => {
                 key={step.title}
                 {...fadeUp}
                 transition={{ delay: 0.1 }}
-                className="rounded-3xl bg-black/45 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-4 md:p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_8px_40px_-12px_rgba(0,0,0,0.25)]"
+                className="rounded-3xl bg-black/22 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-4 md:p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_8px_40px_-12px_rgba(0,0,0,0.25)]"
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
                   {/* Image */}
@@ -269,7 +269,7 @@ const HomePage = () => {
       <section className="bg-background py-10">
         <div className="container mx-auto px-6">
           {/* Gallery strip */}
-          <div className="rounded-3xl bg-black/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_8px_40px_-12px_rgba(0,0,0,0.25)]">
+          <div className="rounded-3xl bg-black/20 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_8px_40px_-12px_rgba(0,0,0,0.25)]">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) => (
                 <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
@@ -281,18 +281,18 @@ const HomePage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <div className="rounded-3xl bg-black/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+            <div className="rounded-3xl bg-black/20 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
               <div className="rounded-2xl overflow-hidden aspect-[16/10]">
                 <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
-            <div className="rounded-3xl bg-black/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+            <div className="rounded-3xl bg-black/20 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
               <div className="rounded-2xl overflow-hidden aspect-[16/10]">
                 <img src={imgHexagonais} alt="Painéis hexagonais no teto" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
           </div>
-          <div className="mt-6 rounded-3xl bg-black/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+          <div className="mt-6 rounded-3xl bg-black/20 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
             <div className="rounded-2xl overflow-hidden aspect-[21/9]">
               <img src={heroNuvens} alt="Nuvens acústicas em ambiente corporativo" className="w-full h-full object-cover" loading="lazy" />
             </div>
@@ -377,13 +377,13 @@ const HomePage = () => {
         </svg>
 
         <div className="container mx-auto relative z-10">
-          <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-black/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+          <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-black/20 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
             <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Depoimentos</span>
             <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">O Que Nossos Clientes Dizem</h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {testimonials.map((t, i) => (
-              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-black/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] hover:border-white/[0.14] transition-all hover:shadow-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_4px_24px_-8px_rgba(0,0,0,0.2)]">
+              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-black/20 backdrop-blur-2xl backdrop-saturate-150 border border-white/[0.08] hover:border-white/[0.14] transition-all hover:shadow-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_4px_24px_-8px_rgba(0,0,0,0.2)]">
                 <div className="flex gap-1 mb-5">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} size={14} className="fill-secondary text-secondary" />
