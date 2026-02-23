@@ -171,8 +171,18 @@ const HomePage = () => {
       {/* Divider removed for tighter layout */}
 
       {/* ===== Portfolio ===== */}
-      <section className="py-12 bg-muted/30">
-        <div className="container mx-auto px-6">
+      <section className="py-12 bg-muted/30 relative overflow-hidden">
+        {/* Geometric decorations */}
+        <div className="absolute top-8 left-8 w-32 h-32 border border-primary/10 rounded-full" />
+        <div className="absolute top-12 left-12 w-24 h-24 border border-primary/5 rounded-full" />
+        <div className="absolute bottom-16 right-12 w-40 h-40 border border-primary/8 rotate-45" />
+        <div className="absolute top-1/2 right-6 w-px h-32 bg-gradient-to-b from-transparent via-primary/15 to-transparent" />
+        <div className="absolute bottom-8 left-1/4 w-20 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        <svg className="absolute top-20 right-20 opacity-[0.06]" width="120" height="120" viewBox="0 0 120 120" fill="none">
+          <path d="M60 10 L110 90 L10 90 Z" stroke="hsl(var(--primary))" strokeWidth="1" />
+        </svg>
+
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-primary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
             <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-foreground">Nossos Projetos</h2>
@@ -278,8 +288,25 @@ const HomePage = () => {
       {/* Divider removed for tighter layout */}
 
       {/* ===== Why us ===== */}
-      <section className="py-14 px-6 bg-[hsl(205,78%,8%)] text-white">
-        <div className="container mx-auto">
+      <section className="py-14 px-6 bg-[hsl(205,78%,8%)] text-white relative overflow-hidden">
+        {/* Geometric decorations */}
+        <div className="absolute top-10 right-10 w-48 h-48 border border-white/[0.04] rounded-full" />
+        <div className="absolute top-14 right-14 w-36 h-36 border border-white/[0.03] rounded-full" />
+        <div className="absolute bottom-10 left-10 w-24 h-24 border border-white/[0.05] rotate-12" />
+        <div className="absolute top-1/3 left-0 w-24 h-px bg-gradient-to-r from-secondary/20 to-transparent" />
+        <div className="absolute bottom-1/3 right-0 w-32 h-px bg-gradient-to-l from-secondary/15 to-transparent" />
+        <svg className="absolute bottom-12 right-1/4 opacity-[0.04]" width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <rect x="10" y="10" width="60" height="60" stroke="white" strokeWidth="1" rx="4" />
+          <rect x="20" y="20" width="40" height="40" stroke="white" strokeWidth="0.5" rx="2" />
+        </svg>
+        <svg className="absolute top-16 left-1/3 opacity-[0.05]" width="100" height="100" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="0.5" />
+          <circle cx="50" cy="50" r="25" stroke="white" strokeWidth="0.5" />
+          <line x1="10" y1="50" x2="90" y2="50" stroke="white" strokeWidth="0.3" />
+          <line x1="50" y1="10" x2="50" y2="90" stroke="white" strokeWidth="0.3" />
+        </svg>
+
+        <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div {...fadeUp}>
               <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Diferenciais</span>
@@ -320,8 +347,17 @@ const HomePage = () => {
       {/* Divider removed for tighter layout */}
 
       {/* ===== Testimonials ===== */}
-      <section className="py-12 px-6 bg-muted/20">
-        <div className="container mx-auto">
+      <section className="py-12 px-6 bg-muted/20 relative overflow-hidden">
+        {/* Geometric decorations */}
+        <div className="absolute top-6 right-16 w-20 h-20 border border-primary/8 rounded-full" />
+        <div className="absolute bottom-10 left-12 w-16 h-16 border border-primary/6 rotate-45" />
+        <div className="absolute top-1/2 left-0 w-16 h-px bg-gradient-to-r from-primary/15 to-transparent" />
+        <div className="absolute top-8 left-1/3 w-px h-16 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
+        <svg className="absolute bottom-6 right-1/3 opacity-[0.05]" width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <polygon points="30,5 55,50 5,50" stroke="hsl(var(--primary))" strokeWidth="0.8" fill="none" />
+        </svg>
+
+        <div className="container mx-auto relative z-10">
           <motion.div {...fadeUp} className="text-center mb-14">
             <span className="text-primary text-xs font-semibold tracking-[0.3em] uppercase">Depoimentos</span>
             <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-foreground">O Que Nossos Clientes Dizem</h2>
@@ -353,6 +389,11 @@ const HomePage = () => {
           <img src={heroMdf} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/85" />
         </div>
+        {/* Geometric decorations */}
+        <div className="absolute top-8 left-8 w-28 h-28 border border-white/[0.06] rounded-full z-10" />
+        <div className="absolute bottom-8 right-8 w-20 h-20 border border-white/[0.05] rotate-45 z-10" />
+        <div className="absolute top-1/2 right-12 w-px h-24 bg-gradient-to-b from-transparent via-secondary/20 to-transparent z-10" />
+        <div className="absolute top-1/2 left-12 w-px h-24 bg-gradient-to-b from-transparent via-secondary/15 to-transparent z-10" />
         <div className="container mx-auto relative z-10 text-center">
           <motion.div {...fadeUp}>
             <h2 className="text-3xl md:text-5xl font-display font-normal text-white">Pronto para transformar seu espaço?</h2>
