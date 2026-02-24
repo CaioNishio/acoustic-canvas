@@ -144,20 +144,20 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Hero → Spaces ===== */}
-      <div className="relative bg-gradient-to-b from-[hsl(205,78%,8%)] via-background to-background py-3">
+      <div className="relative bg-[hsl(205,78%,8%)] py-3">
         <div className="flex items-center justify-center gap-3 px-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/8" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-white/[0.08]" />
           <div className="flex items-end gap-[2px]">
             {[4, 8, 14, 20, 14, 8, 4].map((h, i) => (
-              <motion.div key={i} className="w-[1.5px] rounded-full bg-primary/12" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+              <motion.div key={i} className="w-[1.5px] rounded-full bg-white/[0.15]" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
             ))}
           </div>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/8" />
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-white/[0.08]" />
         </div>
       </div>
 
       {/* ===== Spaces ===== */}
-      <section className="py-12 bg-background">
+      <section className="py-12 bg-[hsl(205,78%,8%)]">
         <div className="container mx-auto px-6">
           <motion.div {...fadeUp} className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-6 py-4 mb-10 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
             <p className="text-center text-white/50 uppercase tracking-[0.3em] text-sm font-display">
@@ -181,25 +181,23 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Transition: Spaces → Portfolio (no gap, sections flow) ===== */}
-
       {/* ===== Portfolio ===== */}
       <section className="relative overflow-hidden">
         {/* Background strip — extra depth layer */}
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/40 via-muted/20 to-muted/40" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-        <div className="absolute inset-x-[5%] top-0 bottom-0 bg-muted/15 border-x border-primary/[0.04]" />
+        <div className="absolute inset-0 bg-[hsl(205,78%,10%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+        <div className="absolute inset-x-[5%] top-0 bottom-0 bg-white/[0.02] border-x border-white/[0.03]" />
 
         <div className="relative py-12">
           {/* Geometric decorations */}
-          <div className="absolute top-8 left-8 w-32 h-32 border border-primary/10 rounded-full" />
-          <div className="absolute top-12 left-12 w-24 h-24 border border-primary/5 rounded-full" />
-          <div className="absolute bottom-16 right-12 w-40 h-40 border border-primary/[0.08] rotate-45" />
-          <div className="absolute top-1/2 right-6 w-px h-32 bg-gradient-to-b from-transparent via-primary/15 to-transparent" />
-          <div className="absolute bottom-8 left-1/4 w-20 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-          <svg className="absolute top-20 right-20 opacity-[0.06]" width="120" height="120" viewBox="0 0 120 120" fill="none">
-            <path d="M60 10 L110 90 L10 90 Z" stroke="hsl(var(--primary))" strokeWidth="1" />
+          <div className="absolute top-8 left-8 w-32 h-32 border border-white/[0.05] rounded-full" />
+          <div className="absolute top-12 left-12 w-24 h-24 border border-white/[0.03] rounded-full" />
+          <div className="absolute bottom-16 right-12 w-40 h-40 border border-white/[0.04] rotate-45" />
+          <div className="absolute top-1/2 right-6 w-px h-32 bg-gradient-to-b from-transparent via-white/[0.08] to-transparent" />
+          <div className="absolute bottom-8 left-1/4 w-20 h-px bg-gradient-to-r from-transparent via-white/[0.1] to-transparent" />
+          <svg className="absolute top-20 right-20 opacity-[0.04]" width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <path d="M60 10 L110 90 L10 90 Z" stroke="white" strokeWidth="1" />
           </svg>
 
           <div className="container mx-auto px-6 relative z-10">
@@ -227,7 +225,7 @@ const HomePage = () => {
               ))}
             </div>
             <div className="text-center mt-12">
-              <Link to="/projetos" className="inline-flex items-center gap-2 px-8 py-3 text-sm font-semibold text-primary-foreground bg-primary rounded-full hover:bg-primary/90 transition-colors">
+              <Link to="/projetos" className="inline-flex items-center gap-2 px-8 py-3 text-sm font-semibold text-white bg-white/[0.1] border border-white/[0.15] backdrop-blur-md rounded-full hover:bg-white/[0.18] transition-colors">
                 Ver todos os projetos <ArrowRight size={16} />
               </Link>
             </div>
@@ -235,21 +233,21 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Transition: Portfolio → Process (seamless gradient) ===== */}
-      <div className="relative py-2 bg-gradient-to-b from-muted/30 to-background overflow-hidden">
+      {/* ===== Transition: Portfolio → Process ===== */}
+      <div className="relative py-2 bg-gradient-to-b from-[hsl(205,78%,10%)] to-[hsl(205,78%,8%)] overflow-hidden">
         <div className="flex items-center justify-center px-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/6" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-white/[0.06]" />
           <div className="mx-4 flex items-center gap-2">
-            {[0.06, 0.1, 0.15, 0.1, 0.06].map((op, i) => (
-              <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(var(--primary) / ${op})` }} />
+            {[0.04, 0.08, 0.12, 0.08, 0.04].map((op, i) => (
+              <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `rgba(255,255,255,${op})` }} />
             ))}
           </div>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/6" />
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-white/[0.06]" />
         </div>
       </div>
 
       {/* ===== Process ===== */}
-      <section className="py-14 bg-background">
+      <section className="py-14 bg-[hsl(205,78%,8%)]">
         <div className="container mx-auto px-6">
           <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
             <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
@@ -289,15 +287,12 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Transition: Process → Gallery (seamless) ===== */}
-
       {/* ===== Gallery strip ===== */}
       <section className="relative">
-        {/* Background strip — blends from background to dark for next section */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/15 to-[hsl(205,78%,8%)]/30" />
-        <div className="absolute inset-x-[8%] top-0 bottom-0 bg-muted/10 border-x border-primary/[0.03]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/8 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/8 to-transparent" />
+        <div className="absolute inset-0 bg-[hsl(205,78%,10%)]" />
+        <div className="absolute inset-x-[8%] top-0 bottom-0 bg-white/[0.015] border-x border-white/[0.03]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
         <div className="relative py-10">
           <div className="container mx-auto px-6">
@@ -333,8 +328,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Transition: Gallery → Why Us (gradient bridge) ===== */}
-      <div className="relative h-16 bg-gradient-to-b from-[hsl(205,78%,8%)]/30 to-[hsl(205,78%,8%)]" />
+      {/* ===== Transition: Gallery → Why Us ===== */}
+      <div className="relative h-8 bg-gradient-to-b from-[hsl(205,78%,10%)] to-[hsl(205,78%,8%)]" />
 
       {/* ===== Why us ===== */}
       <section className="relative overflow-hidden">
@@ -405,25 +400,25 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Transition: Why Us → Testimonials (dark to muted) ===== */}
-      <div className="relative h-6 bg-gradient-to-b from-[hsl(205,78%,8%)] to-muted/25" />
+      {/* ===== Transition: Why Us → Testimonials ===== */}
+      <div className="relative h-6 bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(205,78%,10%)]" />
 
       {/* ===== Testimonials ===== */}
       <section className="relative overflow-hidden">
         {/* Background strip */}
-        <div className="absolute inset-0 bg-muted/25" />
-        <div className="absolute inset-x-[6%] top-0 bottom-0 bg-muted/15 border-x border-primary/[0.04]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+        <div className="absolute inset-0 bg-[hsl(205,78%,10%)]" />
+        <div className="absolute inset-x-[6%] top-0 bottom-0 bg-white/[0.015] border-x border-white/[0.03]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
         <div className="relative py-12 px-6">
           {/* Geometric decorations */}
-          <div className="absolute top-6 right-16 w-20 h-20 border border-primary/[0.08] rounded-full" />
-          <div className="absolute bottom-10 left-12 w-16 h-16 border border-primary/[0.06] rotate-45" />
-          <div className="absolute top-1/2 left-0 w-16 h-px bg-gradient-to-r from-primary/15 to-transparent" />
-          <div className="absolute top-8 left-1/3 w-px h-16 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
-          <svg className="absolute bottom-6 right-1/3 opacity-[0.05]" width="60" height="60" viewBox="0 0 60 60" fill="none">
-            <polygon points="30,5 55,50 5,50" stroke="hsl(var(--primary))" strokeWidth="0.8" fill="none" />
+          <div className="absolute top-6 right-16 w-20 h-20 border border-white/[0.05] rounded-full" />
+          <div className="absolute bottom-10 left-12 w-16 h-16 border border-white/[0.04] rotate-45" />
+          <div className="absolute top-1/2 left-0 w-16 h-px bg-gradient-to-r from-white/[0.08] to-transparent" />
+          <div className="absolute top-8 left-1/3 w-px h-16 bg-gradient-to-b from-transparent via-white/[0.06] to-transparent" />
+          <svg className="absolute bottom-6 right-1/3 opacity-[0.04]" width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <polygon points="30,5 55,50 5,50" stroke="white" strokeWidth="0.8" fill="none" />
           </svg>
 
           <div className="container mx-auto relative z-10">
@@ -451,8 +446,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Transition: Testimonials → CTA (gradient bridge) ===== */}
-      <div className="relative h-6 bg-gradient-to-b from-muted/25 to-transparent" />
+      {/* ===== Transition: Testimonials → CTA ===== */}
+      <div className="relative h-6 bg-gradient-to-b from-[hsl(205,78%,10%)] to-[hsl(205,78%,8%)]" />
 
       {/* ===== CTA ===== */}
       <section className="relative py-32 px-6 overflow-hidden">
