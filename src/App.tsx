@@ -21,6 +21,7 @@ const Loja = lazy(() => import("./pages/Loja"));
 const LojaDetalhe = lazy(() => import("./pages/LojaDetalhe"));
 const EnvioFotos = lazy(() => import("./pages/EnvioFotos"));
 const EnvioFotosDetalhe = lazy(() => import("./pages/EnvioFotosDetalhe"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ function AppContent() {
         <Route path="/contato" element={<Contato />} />
         <Route path="/loja" element={<Loja />} />
         <Route path="/loja/:handle" element={<LojaDetalhe />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/envio-fotos" element={<EnvioFotos />} />
         <Route path="/envio-fotos/:slug" element={<EnvioFotosDetalhe />} />
         <Route path="*" element={<NotFound />} />
