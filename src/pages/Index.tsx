@@ -158,10 +158,12 @@ const HomePage = () => {
 
       {/* ===== Spaces ===== */}
       <section className="relative py-12 bg-[hsl(205,30%,95%)] overflow-hidden">
-        {/* Subtle background texture */}
-        <div className="absolute top-6 right-[10%] w-64 h-64 rounded-full bg-[hsl(205,78%,15%)]/[0.03]" />
-        <div className="absolute bottom-10 left-[5%] w-40 h-40 rounded-full bg-[hsl(205,78%,15%)]/[0.02]" />
-        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.06] to-transparent" />
+        {/* Background texture */}
+        <div className="absolute top-6 right-[10%] w-64 h-64 rounded-full bg-[hsl(205,60%,75%)]/[0.12]" />
+        <div className="absolute bottom-10 left-[5%] w-40 h-40 rounded-full bg-[hsl(205,60%,70%)]/[0.10]" />
+        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[hsl(205,60%,50%)]/[0.15] to-transparent" />
+        <div className="absolute top-[20%] left-[15%] w-px h-32 bg-gradient-to-b from-transparent via-[hsl(205,60%,50%)]/[0.12] to-transparent" />
+        <div className="absolute bottom-[30%] right-[20%] w-20 h-20 border border-[hsl(205,60%,65%)]/[0.15] rounded-full" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div {...fadeUp} className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.85] backdrop-blur-2xl border border-white/[0.07] px-6 py-4 mb-10 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
@@ -189,30 +191,31 @@ const HomePage = () => {
       {/* ===== Transition: Spaces → Portfolio ===== */}
       <div className="relative py-4 bg-[hsl(205,30%,95%)] overflow-hidden">
         <div className="flex items-center justify-center gap-3 px-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,78%,15%)]/10" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,60%,50%)]/[0.18]" />
           <div className="flex items-end gap-[2px]">
             {[3, 6, 10, 6, 3].map((h, i) => (
-              <motion.div key={i} className="w-[1px] rounded-full bg-[hsl(205,78%,15%)]/15" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+              <motion.div key={i} className="w-[1px] rounded-full bg-[hsl(205,60%,50%)]/[0.25]" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
             ))}
           </div>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,78%,15%)]/10" />
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,60%,50%)]/[0.18]" />
         </div>
       </div>
 
       {/* ===== Portfolio ===== */}
       <section className="relative overflow-hidden bg-[hsl(205,30%,95%)]">
-        {/* Subtle background fills */}
-        <div className="absolute top-0 left-[15%] w-80 h-80 rounded-full bg-[hsl(205,78%,15%)]/[0.03]" />
-        <div className="absolute bottom-0 right-[10%] w-96 h-96 rounded-full bg-[hsl(205,78%,15%)]/[0.025]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
+        {/* Background fills */}
+        <div className="absolute top-0 left-[15%] w-80 h-80 rounded-full bg-[hsl(205,60%,75%)]/[0.12]" />
+        <div className="absolute bottom-0 right-[10%] w-96 h-96 rounded-full bg-[hsl(205,60%,70%)]/[0.10]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,60%,50%)]/[0.18] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,60%,50%)]/[0.18] to-transparent" />
         {/* Geometric accents */}
-        <div className="absolute top-8 left-8 w-32 h-32 border border-[hsl(205,78%,15%)]/[0.06] rounded-full" />
-        <div className="absolute top-12 left-12 w-24 h-24 border border-[hsl(205,78%,15%)]/[0.04] rounded-full" />
-        <div className="absolute bottom-16 right-12 w-40 h-40 border border-[hsl(205,78%,15%)]/[0.05] rotate-45" />
-        <div className="absolute top-1/2 right-6 w-px h-32 bg-gradient-to-b from-transparent via-[hsl(205,78%,15%)]/[0.1] to-transparent" />
-        <svg className="absolute top-20 right-20 opacity-[0.04]" width="120" height="120" viewBox="0 0 120 120" fill="none">
-          <path d="M60 10 L110 90 L10 90 Z" stroke="hsl(205,78%,15%)" strokeWidth="1" />
+        <div className="absolute top-8 left-8 w-32 h-32 border border-[hsl(205,60%,60%)]/[0.15] rounded-full" />
+        <div className="absolute top-12 left-12 w-24 h-24 border border-[hsl(205,60%,60%)]/[0.10] rounded-full" />
+        <div className="absolute bottom-16 right-12 w-40 h-40 border border-[hsl(205,60%,60%)]/[0.12] rotate-45" />
+        <div className="absolute top-1/2 right-6 w-px h-32 bg-gradient-to-b from-transparent via-[hsl(205,60%,50%)]/[0.20] to-transparent" />
+        <div className="absolute top-[40%] left-4 w-16 h-px bg-gradient-to-r from-[hsl(205,60%,50%)]/[0.15] to-transparent" />
+        <svg className="absolute top-20 right-20 opacity-[0.08]" width="120" height="120" viewBox="0 0 120 120" fill="none">
+          <path d="M60 10 L110 90 L10 90 Z" stroke="hsl(205,60%,50%)" strokeWidth="1" />
         </svg>
 
         <div className="relative py-14">
@@ -252,23 +255,25 @@ const HomePage = () => {
       {/* ===== Transition: Portfolio → Process ===== */}
       <div className="relative py-4 bg-[hsl(205,30%,95%)] overflow-hidden">
         <div className="flex items-center justify-center px-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,78%,15%)]/8" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,60%,50%)]/[0.16]" />
           <div className="mx-4 flex items-center gap-2">
-            {[0.04, 0.08, 0.12, 0.08, 0.04].map((op, i) => (
-              <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(205 78% 15% / ${op})` }} />
+            {[0.10, 0.18, 0.25, 0.18, 0.10].map((op, i) => (
+              <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(205 60% 50% / ${op})` }} />
             ))}
           </div>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,78%,15%)]/8" />
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,60%,50%)]/[0.16]" />
         </div>
       </div>
 
       {/* ===== Process ===== */}
       <section className="relative py-14 bg-[hsl(205,30%,95%)] overflow-hidden">
-        {/* Subtle background fills */}
-        <div className="absolute top-20 right-[8%] w-72 h-72 rounded-full bg-[hsl(205,78%,15%)]/[0.025]" />
-        <div className="absolute bottom-20 left-[12%] w-56 h-56 rounded-full bg-[hsl(205,78%,15%)]/[0.02]" />
-        <div className="absolute top-1/3 left-0 w-20 h-px bg-gradient-to-r from-[hsl(205,78%,15%)]/10 to-transparent" />
-        <div className="absolute bottom-1/3 right-0 w-24 h-px bg-gradient-to-l from-[hsl(205,78%,15%)]/10 to-transparent" />
+        {/* Background fills */}
+        <div className="absolute top-20 right-[8%] w-72 h-72 rounded-full bg-[hsl(205,60%,75%)]/[0.12]" />
+        <div className="absolute bottom-20 left-[12%] w-56 h-56 rounded-full bg-[hsl(205,60%,70%)]/[0.10]" />
+        <div className="absolute top-1/3 left-0 w-20 h-px bg-gradient-to-r from-[hsl(205,60%,50%)]/[0.18] to-transparent" />
+        <div className="absolute bottom-1/3 right-0 w-24 h-px bg-gradient-to-l from-[hsl(205,60%,50%)]/[0.18] to-transparent" />
+        <div className="absolute top-[60%] right-[15%] w-28 h-28 border border-[hsl(205,60%,65%)]/[0.12] rounded-full" />
+        <div className="absolute top-[15%] left-[25%] w-px h-24 bg-gradient-to-b from-transparent via-[hsl(205,60%,50%)]/[0.14] to-transparent" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl bg-[hsl(205,78%,8%)]/[0.85] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
@@ -311,11 +316,12 @@ const HomePage = () => {
 
       {/* ===== Gallery strip ===== */}
       <section className="relative bg-[hsl(205,30%,95%)] overflow-hidden">
-        {/* Subtle background fills */}
-        <div className="absolute top-10 left-[20%] w-48 h-48 rounded-full bg-[hsl(205,78%,15%)]/[0.025]" />
-        <div className="absolute bottom-10 right-[15%] w-64 h-64 rounded-full bg-[hsl(205,78%,15%)]/[0.02]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
+        {/* Background fills */}
+        <div className="absolute top-10 left-[20%] w-48 h-48 rounded-full bg-[hsl(205,60%,75%)]/[0.12]" />
+        <div className="absolute bottom-10 right-[15%] w-64 h-64 rounded-full bg-[hsl(205,60%,70%)]/[0.10]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,60%,50%)]/[0.18] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,60%,50%)]/[0.18] to-transparent" />
+        <div className="absolute top-[30%] right-[5%] w-px h-20 bg-gradient-to-b from-transparent via-[hsl(205,60%,50%)]/[0.14] to-transparent" />
 
         <div className="relative py-10">
           <div className="container mx-auto px-6">
@@ -428,17 +434,18 @@ const HomePage = () => {
 
       {/* ===== Testimonials ===== */}
       <section className="relative overflow-hidden bg-[hsl(205,30%,95%)]">
-        {/* Subtle background fills */}
-        <div className="absolute top-8 left-[10%] w-56 h-56 rounded-full bg-[hsl(205,78%,15%)]/[0.025]" />
-        <div className="absolute bottom-8 right-[8%] w-72 h-72 rounded-full bg-[hsl(205,78%,15%)]/[0.02]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
+        {/* Background fills */}
+        <div className="absolute top-8 left-[10%] w-56 h-56 rounded-full bg-[hsl(205,60%,75%)]/[0.12]" />
+        <div className="absolute bottom-8 right-[8%] w-72 h-72 rounded-full bg-[hsl(205,60%,70%)]/[0.10]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,60%,50%)]/[0.18] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,60%,50%)]/[0.18] to-transparent" />
         {/* Geometric accents */}
-        <div className="absolute top-6 right-16 w-20 h-20 border border-[hsl(205,78%,15%)]/[0.06] rounded-full" />
-        <div className="absolute bottom-10 left-12 w-16 h-16 border border-[hsl(205,78%,15%)]/[0.05] rotate-45" />
-        <div className="absolute top-1/2 left-0 w-16 h-px bg-gradient-to-r from-[hsl(205,78%,15%)]/10 to-transparent" />
-        <svg className="absolute bottom-6 right-1/3 opacity-[0.04]" width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <polygon points="30,5 55,50 5,50" stroke="hsl(205,78%,15%)" strokeWidth="0.8" fill="none" />
+        <div className="absolute top-6 right-16 w-20 h-20 border border-[hsl(205,60%,60%)]/[0.15] rounded-full" />
+        <div className="absolute bottom-10 left-12 w-16 h-16 border border-[hsl(205,60%,60%)]/[0.12] rotate-45" />
+        <div className="absolute top-1/2 left-0 w-16 h-px bg-gradient-to-r from-[hsl(205,60%,50%)]/[0.18] to-transparent" />
+        <div className="absolute top-[25%] right-[25%] w-px h-20 bg-gradient-to-b from-transparent via-[hsl(205,60%,50%)]/[0.14] to-transparent" />
+        <svg className="absolute bottom-6 right-1/3 opacity-[0.09]" width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <polygon points="30,5 55,50 5,50" stroke="hsl(205,60%,50%)" strokeWidth="0.8" fill="none" />
         </svg>
 
         <div className="relative py-14 px-6">
