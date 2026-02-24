@@ -29,71 +29,71 @@ import imgHexagonais from "@/assets/gallery/hexagonais-teto.png";
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 const spaces = [
-  { label: "Estúdios", path: "/solucoes/estudios", image: heroEstudioAzul },
-  { label: "Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
-  { label: "Auditórios", path: "/solucoes/auditorios", image: heroMdf },
-  { label: "Corporativo", path: "/solucoes/corporativo", image: heroForroCorp },
-  { label: "Residencial", path: "/solucoes/residencial", image: heroHomeStudio },
-];
+{ label: "Estúdios", path: "/solucoes/estudios", image: heroEstudioAzul },
+{ label: "Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
+{ label: "Auditórios", path: "/solucoes/auditorios", image: heroMdf },
+{ label: "Corporativo", path: "/solucoes/corporativo", image: heroForroCorp },
+{ label: "Residencial", path: "/solucoes/residencial", image: heroHomeStudio }];
+
 
 const processSteps = [
-  {
-    icon: Calculator,
-    title: "Calculadora Acústica",
-    desc: "Insira as dimensões do seu ambiente e receba uma recomendação inteligente de quantidade e tipo de material — com visualização 3D em tempo real.",
-    image: imgSalaReuniao,
-    cta: "Testar Calculadora",
-    path: "/calculadora",
-  },
-  {
-    icon: Ruler,
-    title: "Medição & Projeto",
-    desc: "Nossa equipe analisa o espaço, identifica os pontos críticos de reflexão e projeta a solução acústica ideal com base em normas técnicas.",
-    image: imgEstudio,
-    cta: "Solicitar Análise",
-    path: "/orcamento",
-  },
-  {
-    icon: Palette,
-    title: "Personalização",
-    desc: "Mais de 40 cores, acabamentos em tecido, MDF ou madeira natural. Cada projeto é único — combinando performance acústica e design de interiores.",
-    image: heroDifusores,
-    cta: "Ver Cores",
-    path: "/produtos",
-  },
-  {
-    icon: Wrench,
-    title: "Instalação Profissional",
-    desc: "Instalação realizada por equipe especializada em todo o Brasil, com acabamento impecável e garantia de resultado acústico.",
-    image: heroBafflesColor,
-    cta: "Fale Conosco",
-    path: "/contato",
-  },
-];
+{
+  icon: Calculator,
+  title: "Calculadora Acústica",
+  desc: "Insira as dimensões do seu ambiente e receba uma recomendação inteligente de quantidade e tipo de material — com visualização 3D em tempo real.",
+  image: imgSalaReuniao,
+  cta: "Testar Calculadora",
+  path: "/calculadora"
+},
+{
+  icon: Ruler,
+  title: "Medição & Projeto",
+  desc: "Nossa equipe analisa o espaço, identifica os pontos críticos de reflexão e projeta a solução acústica ideal com base em normas técnicas.",
+  image: imgEstudio,
+  cta: "Solicitar Análise",
+  path: "/orcamento"
+},
+{
+  icon: Palette,
+  title: "Personalização",
+  desc: "Mais de 40 cores, acabamentos em tecido, MDF ou madeira natural. Cada projeto é único — combinando performance acústica e design de interiores.",
+  image: heroDifusores,
+  cta: "Ver Cores",
+  path: "/produtos"
+},
+{
+  icon: Wrench,
+  title: "Instalação Profissional",
+  desc: "Instalação realizada por equipe especializada em todo o Brasil, com acabamento impecável e garantia de resultado acústico.",
+  image: heroBafflesColor,
+  cta: "Fale Conosco",
+  path: "/contato"
+}];
+
 
 const portfolioGrid = [
-  { img: heroEstudioAzul, label: "Estúdio Musical", span: "md:col-span-2 md:row-span-2" },
-  { img: heroBafflesAzuis, label: "Baffles Suspensos", span: "" },
-  { img: heroMdf, label: "Painéis MDF Vazado", span: "" },
-  { img: heroForro, label: "Forro Industrial", span: "md:col-span-2" },
-  { img: heroDifusores, label: "Difusores Skyline", span: "" },
-  { img: heroNuvens, label: "Nuvens Acústicas", span: "" },
-  { img: heroForroCorp, label: "Forro Corporativo", span: "" },
-  { img: imgSalaTratamento, label: "Sala de Tratamento", span: "" },
-];
+{ img: heroEstudioAzul, label: "Estúdio Musical", span: "md:col-span-2 md:row-span-2" },
+{ img: heroBafflesAzuis, label: "Baffles Suspensos", span: "" },
+{ img: heroMdf, label: "Painéis MDF Vazado", span: "" },
+{ img: heroForro, label: "Forro Industrial", span: "md:col-span-2" },
+{ img: heroDifusores, label: "Difusores Skyline", span: "" },
+{ img: heroNuvens, label: "Nuvens Acústicas", span: "" },
+{ img: heroForroCorp, label: "Forro Corporativo", span: "" },
+{ img: imgSalaTratamento, label: "Sala de Tratamento", span: "" }];
+
 
 const testimonials = [
-  { name: "Ricardo Almeida", role: "Engenheiro de Som", text: "Os painéis da Sonar transformaram completamente a acústica do meu estúdio." },
-  { name: "Arq. Marina Santos", role: "Arquiteta", text: "A qualidade dos materiais e o suporte técnico são incomparáveis no mercado brasileiro." },
-  { name: "Pe. João Silva", role: "Paróquia N.S. Aparecida", text: "A inteligibilidade da palavra na igreja melhorou enormemente após o tratamento." },
-];
+{ name: "Ricardo Almeida", role: "Engenheiro de Som", text: "Os painéis da Sonar transformaram completamente a acústica do meu estúdio." },
+{ name: "Arq. Marina Santos", role: "Arquiteta", text: "A qualidade dos materiais e o suporte técnico são incomparáveis no mercado brasileiro." },
+{ name: "Pe. João Silva", role: "Paróquia N.S. Aparecida", text: "A inteligibilidade da palavra na igreja melhorou enormemente após o tratamento." }];
+
 
 const stats = [
-  { value: "700+", label: "Projetos" },
-  { value: "93%", label: "Satisfação" },
-  { value: "5", label: "Anos" },
-  { value: "40+", label: "Cores" },
-];
+{ value: "700+", label: "Projetos" },
+{ value: "93%", label: "Satisfação" },
+{ value: "5", label: "Anos" },
+{ value: "40+", label: "Cores" }];
+
 
 const HomePage = () => {
   return (
@@ -132,12 +132,12 @@ const HomePage = () => {
         <div className="relative z-10 bg-white/[0.04] backdrop-blur-xl border-t border-white/[0.08]">
           <div className="container mx-auto px-8 md:px-16 py-5">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-xl">
-              {stats.map((s) => (
-                <div key={s.label} className="text-center px-2 md:px-4 py-3 rounded-xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-md shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+              {stats.map((s) =>
+              <div key={s.label} className="text-center px-2 md:px-4 py-3 rounded-xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-md shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
                   <p className="text-xl md:text-3xl font-bold text-white font-display">{s.value}</p>
                   <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1 font-display">{s.label}</p>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -148,9 +148,9 @@ const HomePage = () => {
         <div className="flex items-center justify-center gap-3 px-8">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,78%,10%)]/40" />
           <div className="flex items-end gap-[2px]">
-            {[4, 8, 14, 20, 14, 8, 4].map((h, i) => (
-              <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(205,78%,10%)]/45" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
-            ))}
+            {[4, 8, 14, 20, 14, 8, 4].map((h, i) =>
+            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(205,78%,10%)]/45" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+            )}
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,78%,10%)]/40" />
         </div>
@@ -176,8 +176,8 @@ const HomePage = () => {
             </p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {spaces.map((space) => (
-              <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-[hsl(205,78%,6%)]/60 backdrop-blur-2xl border border-white/[0.06] p-1 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.12] transition-all hover:shadow-lg">
+            {spaces.map((space) =>
+            <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-[hsl(205,78%,6%)]/60 backdrop-blur-2xl border border-white/[0.06] p-1 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.12] transition-all hover:shadow-lg">
                 <img src={space.image} alt={space.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110 brightness-[0.5] group-hover:brightness-[0.4]" width={400} height={300} loading="lazy" decoding="async" />
                 <div className="absolute inset-1 rounded-xl bg-gradient-to-t from-[hsl(205,78%,8%)]/70 via-transparent to-transparent" />
                 <div className="absolute bottom-1 left-1 right-1 p-3 bg-white/[0.06] backdrop-blur-xl border-t border-white/[0.08] rounded-b-xl">
@@ -187,7 +187,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </Link>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -197,9 +197,9 @@ const HomePage = () => {
         <div className="flex items-center justify-center gap-3 px-8">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,50%,20%)]/[0.40]" />
           <div className="flex items-end gap-[2px]">
-            {[3, 6, 10, 6, 3].map((h, i) => (
-              <motion.div key={i} className="w-[1px] rounded-full bg-[hsl(205,50%,20%)]/[0.50]" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
-            ))}
+            {[3, 6, 10, 6, 3].map((h, i) =>
+            <motion.div key={i} className="w-[1px] rounded-full bg-[hsl(205,50%,20%)]/[0.50]" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+            )}
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,50%,20%)]/[0.40]" />
         </div>
@@ -235,22 +235,22 @@ const HomePage = () => {
               <p className="mt-3 max-w-lg mx-auto text-white/50">Ambientes reais transformados com soluções acústicas Sonar.</p>
             </motion.div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
-              {portfolioGrid.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-[hsl(205,78%,6%)]/60 backdrop-blur-2xl border border-white/[0.06] p-1.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.12] transition-all hover:shadow-lg ${item.span}`}
-                >
+              {portfolioGrid.map((item, i) =>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-[hsl(205,78%,6%)]/60 backdrop-blur-2xl border border-white/[0.06] p-1.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.12] transition-all hover:shadow-lg ${item.span}`}>
+
                   <img src={item.img} alt={item.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width={640} height={480} />
                   <div className="absolute inset-1.5 rounded-xl bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/40 transition-colors duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                     <span className="inline-block text-white font-semibold text-sm drop-shadow-lg bg-[hsl(205,78%,8%)]/70 backdrop-blur-xl border border-white/[0.1] rounded-lg px-3 py-1.5">{item.label}</span>
                   </div>
                 </motion.div>
-              ))}
+              )}
             </div>
             <div className="text-center mt-12">
               <Link to="/projetos" className="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium text-white bg-[hsl(205,78%,6%)]/70 border border-white/[0.06] backdrop-blur-2xl rounded-full hover:bg-[hsl(205,78%,6%)]/80 hover:border-white/[0.10] transition-all shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
@@ -266,9 +266,9 @@ const HomePage = () => {
         <div className="flex items-center justify-center px-8">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,50%,20%)]/[0.40]" />
           <div className="mx-4 flex items-center gap-2">
-            {[0.25, 0.40, 0.55, 0.40, 0.25].map((op, i) => (
-              <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(205 50% 20% / ${op})` }} />
-            ))}
+            {[0.25, 0.40, 0.55, 0.40, 0.25].map((op, i) =>
+            <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(205 50% 20% / ${op})` }} />
+            )}
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,50%,20%)]/[0.40]" />
         </div>
@@ -299,13 +299,13 @@ const HomePage = () => {
           </motion.div>
 
           <div className="space-y-8">
-            {processSteps.map((step, i) => (
-              <motion.div
-                key={step.title}
-                {...fadeUp}
-                transition={{ delay: 0.1 }}
-                className="rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-4 md:p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.10] transition-all"
-              >
+            {processSteps.map((step, i) =>
+            <motion.div
+              key={step.title}
+              {...fadeUp}
+              transition={{ delay: 0.1 }}
+              className="rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-4 md:p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.10] transition-all">
+
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
                   <div className={`overflow-hidden rounded-2xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                     <img src={step.image} alt={step.title} className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
@@ -325,7 +325,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -348,12 +348,12 @@ const HomePage = () => {
           <div className="container mx-auto px-6">
             <div className="rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-4 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) => (
-                  <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
+                {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) =>
+                <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
                     <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width={400} height={300} />
                     <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/20 transition-colors duration-500" />
                   </div>
-                ))}
+                )}
               </div>
             </div>
 
@@ -417,17 +417,17 @@ const HomePage = () => {
                 </p>
                 <ul className="mt-8 space-y-4">
                   {[
-                    "Materiais certificados com classe de fogo A2",
-                    "Mais de 40 opções de cores e acabamentos",
-                    "Projetos personalizados com consultoria técnica",
-                    "Fabricação própria com controle de qualidade",
-                    "Entrega e instalação em todo o Brasil",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-white/80 rounded-lg px-3 py-2 bg-white/[0.03] border border-white/[0.05] backdrop-blur-sm">
+                  "Materiais certificados com classe de fogo A2",
+                  "Mais de 40 opções de cores e acabamentos",
+                  "Projetos personalizados com consultoria técnica",
+                  "Fabricação própria com controle de qualidade",
+                  "Entrega e instalação em todo o Brasil"].
+                  map((item) =>
+                  <li key={item} className="flex items-start gap-3 text-sm text-white/80 rounded-lg px-3 py-2 bg-white/[0.03] border border-white/[0.05] backdrop-blur-sm">
                       <CheckCircle size={16} className="text-secondary flex-shrink-0 mt-0.5" />
                       {item}
                     </li>
-                  ))}
+                  )}
                 </ul>
                 <Link to="/contato" className="inline-flex items-center gap-2 mt-10 px-7 py-3.5 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/90 transition-colors text-sm">
                   Fale com um Especialista <ArrowRight size={16} />
@@ -480,12 +480,12 @@ const HomePage = () => {
               <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">O Que Nossos Clientes Dizem</h2>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-              {testimonials.map((t, i) => (
-                <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
+              {testimonials.map((t, i) =>
+              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
                   <div className="flex gap-1 mb-5">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={14} className="fill-yellow-400 text-yellow-400" />
-                    ))}
+                    {[...Array(5)].map((_, j) =>
+                  <Star key={j} size={14} className="fill-yellow-400 text-yellow-400 bg-transparent" />
+                  )}
                   </div>
                   <p className="leading-relaxed italic text-white/60">"{t.text}"</p>
                   <div className="mt-6 pt-5 border-t border-white/[0.06]">
@@ -493,7 +493,7 @@ const HomePage = () => {
                     <p className="text-xs text-white/40 mt-0.5">{t.role}</p>
                   </div>
                 </motion.div>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -528,8 +528,8 @@ const HomePage = () => {
           </motion.div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>);
+
 };
 
 export default HomePage;
