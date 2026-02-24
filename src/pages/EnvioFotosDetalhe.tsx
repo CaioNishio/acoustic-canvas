@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { products } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
 import { Upload, X, ArrowLeft, Trash2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 
 interface ProductImage {
   id: string;
@@ -18,6 +19,7 @@ interface ProductImage {
 export default function EnvioFotosDetalhe() {
   const { slug } = useParams<{ slug: string }>();
   const product = products.find((p) => p.slug === slug);
+  const { isAdmin, loading: authLoading } = useAdminAuth();
 
   const [images, setImages] = useState<ProductImage[]>([]);
   const [uploading, setUploading] = useState(false);
@@ -99,6 +101,9 @@ export default function EnvioFotosDetalhe() {
     await fetchImages();
     toast.success("Foto removida.");
   };
+
+  if (authLoading) return <Layout><div className="py-24 flex justify-center"><Loader2 className="animate-spin text-primary" size={32} /></div></Layout>;
+  if (!isAdmin) return <Navigate to="/admin-login" replace />;
 
   if (!product) {
     return (

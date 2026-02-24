@@ -1,11 +1,14 @@
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { products, categories } from "@/data/products";
-import { Camera } from "lucide-react";
+import { Camera, Loader2 } from "lucide-react";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 
 export default function EnvioFotos() {
+  const { isAdmin, loading } = useAdminAuth();
+
   const grouped = useMemo(() => {
     const map = new Map<string, typeof products>();
     categories.forEach((cat) => map.set(cat, []));
@@ -15,6 +18,9 @@ export default function EnvioFotos() {
     });
     return map;
   }, []);
+
+  if (loading) return <Layout><div className="py-24 flex justify-center"><Loader2 className="animate-spin text-primary" size={32} /></div></Layout>;
+  if (!isAdmin) return <Navigate to="/admin-login" replace />;
 
   return (
     <Layout>
