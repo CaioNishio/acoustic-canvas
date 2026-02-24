@@ -1,13 +1,16 @@
 import { useMemo } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { products, categories } from "@/data/products";
-import { Camera, Loader2 } from "lucide-react";
+import { Camera, Loader2, LogOut } from "lucide-react";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
+import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
 
 export default function EnvioFotos() {
   const { isAdmin, loading } = useAdminAuth();
+  const navigate = useNavigate();
 
   const grouped = useMemo(() => {
     const map = new Map<string, typeof products>();
@@ -26,6 +29,15 @@ export default function EnvioFotos() {
     <Layout>
       <section className="py-16 md:py-24 px-4 md:px-8 bg-background">
         <div className="container mx-auto">
+          <div className="flex justify-end mb-4">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={async () => { await supabase.auth.signOut(); navigate("/admin-login"); }}
+            >
+              <LogOut size={14} className="mr-1.5" /> Sair
+            </Button>
+          </div>
           <SectionHeading
             tag="Gestão de Mídia"
             title="Envio de Fotos por Produto"
