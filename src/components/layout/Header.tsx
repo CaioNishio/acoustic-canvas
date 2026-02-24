@@ -101,7 +101,7 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2 text-[13px] lg:text-sm font-medium tracking-[0.15em] transition-all duration-300 ease-out rounded-full cursor-pointer whitespace-nowrap uppercase ${activeMenu === key ? "text-white bg-white/[0.18] backdrop-blur-xl border border-white/[0.15] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]" : "text-white/90 hover:text-white hover:bg-white/[0.10] hover:backdrop-blur-xl"}`;
+  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2 text-[13px] lg:text-sm font-medium tracking-[0.15em] transition-all duration-300 ease-out rounded-full cursor-pointer whitespace-nowrap uppercase font-[\'Space_Grotesk\',sans-serif] ${activeMenu === key ? "text-white bg-white/[0.18] backdrop-blur-xl border border-white/[0.15] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]" : "text-white/90 hover:text-white hover:bg-white/[0.10] hover:backdrop-blur-xl"}`;
   return <motion.header initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px] border-destructive">
       {/* Top Bar — frosted glass */}
       <div className="relative text-white bg-[hsl(205,78%,6%)]/80 backdrop-blur-2xl border-b border-white/[0.06] overflow-hidden">
@@ -135,10 +135,10 @@ export default function Header() {
           {/* Nav - center */}
           <nav className="hidden lg:flex flex-row items-center gap-1 lg:gap-2">
             <div onMouseEnter={() => openMenu("produtos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("produtos")}>Produtos</button>
+              <button className={navItemClass("produtos")}>Produto</button>
             </div>
             <div onMouseEnter={() => openMenu("espacos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("espacos")}>Ambientes</button>
+              <button className={navItemClass("espacos")}>Ambiente</button>
             </div>
             <div onMouseEnter={() => openMenu("recursos")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("recursos")}>Calculadora</button>
