@@ -49,9 +49,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="h-px bg-white/10 mt-8 mb-4" />
-        <p className="text-center text-xs text-white/70">
-          © {new Date().getFullYear()} Sonar Acústicos. Todos os direitos reservados.
-        </p>
+        <div className="flex items-center justify-center gap-4 text-xs text-white/70">
+          <span>© {new Date().getFullYear()} Sonar Acústicos. Todos os direitos reservados.</span>
+          <Link to="/admin-login" className="text-white/30 hover:text-white/60 transition-colors">Admin</Link>
+        </div>
       </div>
     </footer>
   );
