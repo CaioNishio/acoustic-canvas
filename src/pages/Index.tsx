@@ -484,7 +484,7 @@ const HomePage = () => {
                 <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
                   <div className="flex gap-1 mb-5">
                     {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={14} className="fill-secondary text-secondary" />
+                      <Star key={j} size={14} className="fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
                   <p className="leading-relaxed italic text-white/60">"{t.text}"</p>
