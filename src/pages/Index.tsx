@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Calculator, Ruler, Wrench, Palette, Star, CheckCircle } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-import { WaveDivider, FrequencyBars, SoundWaveLine, SoundRings, AcousticDots } from "@/components/shared/SoundDividers";
+
 
 // All images use ES6 imports for Vite optimization pipeline
 import classroomBaffles from "@/assets/gallery/classroom-baffles.jpeg";
@@ -143,13 +143,17 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Linear divider ===== */}
-      <div className="bg-background py-6 flex items-center justify-center gap-4 px-8">
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/10 to-primary/5" />
-        <div className="w-1.5 h-1.5 rounded-full bg-primary/15" />
-        <div className="w-px h-6 bg-primary/10" />
-        <div className="w-1.5 h-1.5 rounded-full bg-primary/15" />
-        <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/10 to-primary/5" />
+      {/* ===== Transition: Hero → Spaces ===== */}
+      <div className="relative bg-gradient-to-b from-[hsl(205,78%,8%)] via-background to-background py-3">
+        <div className="flex items-center justify-center gap-3 px-8">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/8" />
+          <div className="flex items-end gap-[2px]">
+            {[4, 8, 14, 20, 14, 8, 4].map((h, i) => (
+              <motion.div key={i} className="w-[1.5px] rounded-full bg-primary/12" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+            ))}
+          </div>
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/8" />
+        </div>
       </div>
 
       {/* ===== Spaces ===== */}
@@ -177,16 +181,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Linear divider ===== */}
-      <div className="bg-background py-6 flex items-center justify-center gap-3 px-8">
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/8" />
-        <div className="flex gap-1.5">
-          {[12, 20, 28, 20, 12].map((h, i) => (
-            <div key={i} className="w-px bg-primary/10" style={{ height: h }} />
-          ))}
-        </div>
-        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/8" />
-      </div>
+      {/* ===== Transition: Spaces → Portfolio (no gap, sections flow) ===== */}
 
       {/* ===== Portfolio ===== */}
       <section className="relative overflow-hidden">
@@ -240,15 +235,16 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Linear divider ===== */}
-      <div className="bg-background py-8 flex flex-col items-center gap-3">
-        <div className="flex items-center gap-4 w-full max-w-xs px-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/10" />
-          <svg width="24" height="24" viewBox="0 0 24 24" className="opacity-[0.08]">
-            <rect x="4" y="4" width="16" height="16" stroke="hsl(var(--primary))" strokeWidth="0.8" fill="none" />
-            <rect x="8" y="8" width="8" height="8" stroke="hsl(var(--primary))" strokeWidth="0.5" fill="none" />
-          </svg>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/10" />
+      {/* ===== Transition: Portfolio → Process (seamless gradient) ===== */}
+      <div className="relative py-2 bg-gradient-to-b from-muted/30 to-background overflow-hidden">
+        <div className="flex items-center justify-center px-8">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/6" />
+          <div className="mx-4 flex items-center gap-2">
+            {[0.06, 0.1, 0.15, 0.1, 0.06].map((op, i) => (
+              <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(var(--primary) / ${op})` }} />
+            ))}
+          </div>
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/6" />
         </div>
       </div>
 
@@ -293,19 +289,12 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Linear divider ===== */}
-      <div className="bg-background py-6 flex items-center justify-center gap-4 px-8">
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/8 to-primary/5" />
-        <div className="w-2 h-2 border border-primary/15 rotate-45" />
-        <div className="w-8 h-px bg-primary/12" />
-        <div className="w-2 h-2 border border-primary/15 rotate-45" />
-        <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/8 to-primary/5" />
-      </div>
+      {/* ===== Transition: Process → Gallery (seamless) ===== */}
 
       {/* ===== Gallery strip ===== */}
       <section className="relative">
-        {/* Background strip */}
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-muted/15 to-muted/30" />
+        {/* Background strip — blends from background to dark for next section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/15 to-[hsl(205,78%,8%)]/30" />
         <div className="absolute inset-x-[8%] top-0 bottom-0 bg-muted/10 border-x border-primary/[0.03]" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/8 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/8 to-transparent" />
@@ -344,16 +333,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Linear divider ===== */}
-      <div className="bg-background py-8 flex items-center justify-center gap-3 px-8">
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/8" />
-        <div className="flex items-end gap-[2px]">
-          {[6, 10, 16, 22, 16, 10, 6].map((h, i) => (
-            <div key={i} className="w-[1.5px] rounded-full bg-primary/10" style={{ height: h }} />
-          ))}
-        </div>
-        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/8" />
-      </div>
+      {/* ===== Transition: Gallery → Why Us (gradient bridge) ===== */}
+      <div className="relative h-16 bg-gradient-to-b from-[hsl(205,78%,8%)]/30 to-[hsl(205,78%,8%)]" />
 
       {/* ===== Why us ===== */}
       <section className="relative overflow-hidden">
@@ -424,15 +405,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Linear divider ===== */}
-      <div className="bg-background py-6 flex items-center justify-center gap-4 px-8">
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary/8" />
-        <svg width="20" height="20" viewBox="0 0 20 20" className="opacity-[0.1]">
-          <circle cx="10" cy="10" r="7" stroke="hsl(var(--primary))" strokeWidth="0.6" fill="none" />
-          <circle cx="10" cy="10" r="3" stroke="hsl(var(--primary))" strokeWidth="0.4" fill="none" />
-        </svg>
-        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary/8" />
-      </div>
+      {/* ===== Transition: Why Us → Testimonials (dark to muted) ===== */}
+      <div className="relative h-6 bg-gradient-to-b from-[hsl(205,78%,8%)] to-muted/25" />
 
       {/* ===== Testimonials ===== */}
       <section className="relative overflow-hidden">
@@ -477,14 +451,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== Linear divider ===== */}
-      <div className="bg-background py-6 flex items-center justify-center gap-4 px-8">
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/10 to-primary/5" />
-        <div className="w-1.5 h-1.5 rounded-full bg-primary/15" />
-        <div className="w-6 h-px bg-primary/12" />
-        <div className="w-1.5 h-1.5 rounded-full bg-primary/15" />
-        <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/10 to-primary/5" />
-      </div>
+      {/* ===== Transition: Testimonials → CTA (gradient bridge) ===== */}
+      <div className="relative h-6 bg-gradient-to-b from-muted/25 to-transparent" />
 
       {/* ===== CTA ===== */}
       <section className="relative py-32 px-6 overflow-hidden">
