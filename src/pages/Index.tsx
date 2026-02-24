@@ -144,32 +144,37 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Hero → Spaces ===== */}
-      <div className="relative bg-[hsl(205,78%,8%)] py-3">
+      <div className="relative bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(205,30%,95%)] py-6">
         <div className="flex items-center justify-center gap-3 px-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-white/[0.08]" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,78%,15%)]/15" />
           <div className="flex items-end gap-[2px]">
             {[4, 8, 14, 20, 14, 8, 4].map((h, i) => (
-              <motion.div key={i} className="w-[1.5px] rounded-full bg-white/[0.15]" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+              <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(205,78%,15%)]/20" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
             ))}
           </div>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-white/[0.08]" />
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,78%,15%)]/15" />
         </div>
       </div>
 
       {/* ===== Spaces ===== */}
-      <section className="py-12 bg-[hsl(205,78%,8%)]">
-        <div className="container mx-auto px-6">
-          <motion.div {...fadeUp} className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-6 py-4 mb-10 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
-            <p className="text-center text-white/50 uppercase tracking-[0.3em] text-sm font-display">
+      <section className="relative py-12 bg-[hsl(205,30%,95%)] overflow-hidden">
+        {/* Subtle background texture */}
+        <div className="absolute top-6 right-[10%] w-64 h-64 rounded-full bg-[hsl(205,78%,15%)]/[0.03]" />
+        <div className="absolute bottom-10 left-[5%] w-40 h-40 rounded-full bg-[hsl(205,78%,15%)]/[0.02]" />
+        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.06] to-transparent" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div {...fadeUp} className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.85] backdrop-blur-2xl border border-white/[0.07] px-6 py-4 mb-10 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+            <p className="text-center text-white/60 uppercase tracking-[0.3em] text-sm font-display">
               Soluções para cada ambiente
             </p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {spaces.map((space) => (
-              <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-border/30">
-                <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.45] group-hover:brightness-[0.35]" width={400} height={300} loading="lazy" decoding="async" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,8%)]/70 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 bg-white/[0.06] backdrop-blur-xl border-t border-white/[0.08]">
+              <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-xl border border-[hsl(205,78%,15%)]/20 p-1 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] hover:border-[hsl(205,78%,15%)]/35 transition-all hover:shadow-lg hover:shadow-[hsl(205,78%,15%)]/10">
+                <img src={space.image} alt={space.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110 brightness-[0.5] group-hover:brightness-[0.4]" width={400} height={300} loading="lazy" decoding="async" />
+                <div className="absolute inset-1 rounded-xl bg-gradient-to-t from-[hsl(205,78%,8%)]/70 via-transparent to-transparent" />
+                <div className="absolute bottom-1 left-1 right-1 p-3 bg-white/[0.06] backdrop-blur-xl border-t border-white/[0.08] rounded-b-xl">
                   <div className="flex items-end justify-between">
                     <h3 className="text-white text-sm md:text-base font-display font-normal drop-shadow-lg">{space.label}</h3>
                     <ArrowRight size={14} className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
@@ -181,27 +186,38 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* ===== Transition: Spaces → Portfolio ===== */}
+      <div className="relative py-4 bg-[hsl(205,30%,95%)] overflow-hidden">
+        <div className="flex items-center justify-center gap-3 px-8">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,78%,15%)]/10" />
+          <div className="flex items-end gap-[2px]">
+            {[3, 6, 10, 6, 3].map((h, i) => (
+              <motion.div key={i} className="w-[1px] rounded-full bg-[hsl(205,78%,15%)]/15" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+            ))}
+          </div>
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,78%,15%)]/10" />
+        </div>
+      </div>
+
       {/* ===== Portfolio ===== */}
-      <section className="relative overflow-hidden">
-        {/* Background strip — extra depth layer */}
-        <div className="absolute inset-0 bg-[hsl(205,78%,10%)]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-        <div className="absolute inset-x-[5%] top-0 bottom-0 bg-white/[0.02] border-x border-white/[0.03]" />
+      <section className="relative overflow-hidden bg-[hsl(205,30%,95%)]">
+        {/* Subtle background fills */}
+        <div className="absolute top-0 left-[15%] w-80 h-80 rounded-full bg-[hsl(205,78%,15%)]/[0.03]" />
+        <div className="absolute bottom-0 right-[10%] w-96 h-96 rounded-full bg-[hsl(205,78%,15%)]/[0.025]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
+        {/* Geometric accents */}
+        <div className="absolute top-8 left-8 w-32 h-32 border border-[hsl(205,78%,15%)]/[0.06] rounded-full" />
+        <div className="absolute top-12 left-12 w-24 h-24 border border-[hsl(205,78%,15%)]/[0.04] rounded-full" />
+        <div className="absolute bottom-16 right-12 w-40 h-40 border border-[hsl(205,78%,15%)]/[0.05] rotate-45" />
+        <div className="absolute top-1/2 right-6 w-px h-32 bg-gradient-to-b from-transparent via-[hsl(205,78%,15%)]/[0.1] to-transparent" />
+        <svg className="absolute top-20 right-20 opacity-[0.04]" width="120" height="120" viewBox="0 0 120 120" fill="none">
+          <path d="M60 10 L110 90 L10 90 Z" stroke="hsl(205,78%,15%)" strokeWidth="1" />
+        </svg>
 
-        <div className="relative py-12">
-          {/* Geometric decorations */}
-          <div className="absolute top-8 left-8 w-32 h-32 border border-white/[0.05] rounded-full" />
-          <div className="absolute top-12 left-12 w-24 h-24 border border-white/[0.03] rounded-full" />
-          <div className="absolute bottom-16 right-12 w-40 h-40 border border-white/[0.04] rotate-45" />
-          <div className="absolute top-1/2 right-6 w-px h-32 bg-gradient-to-b from-transparent via-white/[0.08] to-transparent" />
-          <div className="absolute bottom-8 left-1/4 w-20 h-px bg-gradient-to-r from-transparent via-white/[0.1] to-transparent" />
-          <svg className="absolute top-20 right-20 opacity-[0.04]" width="120" height="120" viewBox="0 0 120 120" fill="none">
-            <path d="M60 10 L110 90 L10 90 Z" stroke="white" strokeWidth="1" />
-          </svg>
-
+        <div className="relative py-14">
           <div className="container mx-auto px-6 relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+            <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,8%)]/[0.85] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
               <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
               <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">Nossos Projetos</h2>
               <p className="mt-3 max-w-lg mx-auto text-white/50">Ambientes reais transformados com soluções acústicas Sonar.</p>
@@ -214,7 +230,7 @@ const HomePage = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] ${item.span}`}
+                  className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-[hsl(205,78%,8%)]/[0.7] backdrop-blur-xl border border-[hsl(205,78%,15%)]/15 p-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] hover:border-[hsl(205,78%,15%)]/30 transition-all hover:shadow-lg hover:shadow-[hsl(205,78%,15%)]/10 ${item.span}`}
                 >
                   <img src={item.img} alt={item.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width={640} height={480} />
                   <div className="absolute inset-1.5 rounded-xl bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/40 transition-colors duration-500" />
@@ -225,7 +241,7 @@ const HomePage = () => {
               ))}
             </div>
             <div className="text-center mt-12">
-              <Link to="/projetos" className="inline-flex items-center gap-2 px-8 py-3 text-sm font-semibold text-white bg-white/[0.1] border border-white/[0.15] backdrop-blur-md rounded-full hover:bg-white/[0.18] transition-colors">
+              <Link to="/projetos" className="inline-flex items-center gap-2 px-8 py-3 text-sm font-semibold text-white bg-[hsl(205,78%,8%)]/80 border border-[hsl(205,78%,15%)]/20 backdrop-blur-md rounded-full hover:bg-[hsl(205,78%,8%)]/90 transition-colors shadow-lg shadow-[hsl(205,78%,15%)]/5">
                 Ver todos os projetos <ArrowRight size={16} />
               </Link>
             </div>
@@ -234,34 +250,40 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Portfolio → Process ===== */}
-      <div className="relative py-2 bg-gradient-to-b from-[hsl(205,78%,10%)] to-[hsl(205,78%,8%)] overflow-hidden">
+      <div className="relative py-4 bg-[hsl(205,30%,95%)] overflow-hidden">
         <div className="flex items-center justify-center px-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-white/[0.06]" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,78%,15%)]/8" />
           <div className="mx-4 flex items-center gap-2">
             {[0.04, 0.08, 0.12, 0.08, 0.04].map((op, i) => (
-              <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `rgba(255,255,255,${op})` }} />
+              <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(205 78% 15% / ${op})` }} />
             ))}
           </div>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-white/[0.06]" />
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,78%,15%)]/8" />
         </div>
       </div>
 
       {/* ===== Process ===== */}
-      <section className="py-14 bg-[hsl(205,78%,8%)]">
-        <div className="container mx-auto px-6">
-          <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+      <section className="relative py-14 bg-[hsl(205,30%,95%)] overflow-hidden">
+        {/* Subtle background fills */}
+        <div className="absolute top-20 right-[8%] w-72 h-72 rounded-full bg-[hsl(205,78%,15%)]/[0.025]" />
+        <div className="absolute bottom-20 left-[12%] w-56 h-56 rounded-full bg-[hsl(205,78%,15%)]/[0.02]" />
+        <div className="absolute top-1/3 left-0 w-20 h-px bg-gradient-to-r from-[hsl(205,78%,15%)]/10 to-transparent" />
+        <div className="absolute bottom-1/3 right-0 w-24 h-px bg-gradient-to-l from-[hsl(205,78%,15%)]/10 to-transparent" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl bg-[hsl(205,78%,8%)]/[0.85] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
             <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
             <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-white">Como Funciona</h2>
             <p className="mt-3 max-w-lg mx-auto text-white/50">Da medição à instalação — um processo completo e transparente.</p>
           </motion.div>
 
-          <div className="space-y-14">
+          <div className="space-y-8">
             {processSteps.map((step, i) => (
               <motion.div
                 key={step.title}
                 {...fadeUp}
                 transition={{ delay: 0.1 }}
-                className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.65] backdrop-blur-2xl border border-white/[0.07] p-4 md:p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_40px_-12px_rgba(0,0,0,0.4)]"
+                className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.82] backdrop-blur-2xl border border-[hsl(205,78%,15%)]/15 p-4 md:p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_40px_-12px_hsl(205,78%,15%,0.12)] hover:border-[hsl(205,78%,15%)]/25 transition-all"
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
                   <div className={`overflow-hidden rounded-2xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
@@ -288,15 +310,16 @@ const HomePage = () => {
       </section>
 
       {/* ===== Gallery strip ===== */}
-      <section className="relative">
-        <div className="absolute inset-0 bg-[hsl(205,78%,10%)]" />
-        <div className="absolute inset-x-[8%] top-0 bottom-0 bg-white/[0.015] border-x border-white/[0.03]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <section className="relative bg-[hsl(205,30%,95%)] overflow-hidden">
+        {/* Subtle background fills */}
+        <div className="absolute top-10 left-[20%] w-48 h-48 rounded-full bg-[hsl(205,78%,15%)]/[0.025]" />
+        <div className="absolute bottom-10 right-[15%] w-64 h-64 rounded-full bg-[hsl(205,78%,15%)]/[0.02]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
 
         <div className="relative py-10">
           <div className="container mx-auto px-6">
-            <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_40px_-12px_rgba(0,0,0,0.4)]">
+            <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.8] backdrop-blur-2xl border border-[hsl(205,78%,15%)]/15 p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_40px_-12px_hsl(205,78%,15%,0.1)]">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) => (
                   <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
@@ -308,18 +331,18 @@ const HomePage = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+              <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.8] backdrop-blur-2xl border border-[hsl(205,78%,15%)]/15 p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
                   <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
-              <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] mt-6 md:mt-12">
+              <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.8] backdrop-blur-xl border border-[hsl(205,78%,15%)]/15 p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] mt-6 md:mt-12">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
                   <img src={imgHexagonais} alt="Painéis hexagonais no teto" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
             </div>
-            <div className="mt-6 rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+            <div className="mt-6 rounded-3xl bg-[hsl(205,78%,8%)]/[0.8] backdrop-blur-2xl border border-[hsl(205,78%,15%)]/15 p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
               <div className="rounded-2xl overflow-hidden aspect-[21/9]">
                 <img src={heroNuvens} alt="Nuvens acústicas em ambiente corporativo" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1200} height={514} />
               </div>
@@ -329,7 +352,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Gallery → Why Us ===== */}
-      <div className="relative h-8 bg-gradient-to-b from-[hsl(205,78%,10%)] to-[hsl(205,78%,8%)]" />
+      <div className="relative h-8 bg-gradient-to-b from-[hsl(205,30%,95%)] to-[hsl(205,78%,8%)]" />
 
       {/* ===== Why us ===== */}
       <section className="relative overflow-hidden">
@@ -401,34 +424,32 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Why Us → Testimonials ===== */}
-      <div className="relative h-6 bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(205,78%,10%)]" />
+      <div className="relative h-8 bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(205,30%,95%)]" />
 
       {/* ===== Testimonials ===== */}
-      <section className="relative overflow-hidden">
-        {/* Background strip */}
-        <div className="absolute inset-0 bg-[hsl(205,78%,10%)]" />
-        <div className="absolute inset-x-[6%] top-0 bottom-0 bg-white/[0.015] border-x border-white/[0.03]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <section className="relative overflow-hidden bg-[hsl(205,30%,95%)]">
+        {/* Subtle background fills */}
+        <div className="absolute top-8 left-[10%] w-56 h-56 rounded-full bg-[hsl(205,78%,15%)]/[0.025]" />
+        <div className="absolute bottom-8 right-[8%] w-72 h-72 rounded-full bg-[hsl(205,78%,15%)]/[0.02]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,78%,15%)]/[0.08] to-transparent" />
+        {/* Geometric accents */}
+        <div className="absolute top-6 right-16 w-20 h-20 border border-[hsl(205,78%,15%)]/[0.06] rounded-full" />
+        <div className="absolute bottom-10 left-12 w-16 h-16 border border-[hsl(205,78%,15%)]/[0.05] rotate-45" />
+        <div className="absolute top-1/2 left-0 w-16 h-px bg-gradient-to-r from-[hsl(205,78%,15%)]/10 to-transparent" />
+        <svg className="absolute bottom-6 right-1/3 opacity-[0.04]" width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <polygon points="30,5 55,50 5,50" stroke="hsl(205,78%,15%)" strokeWidth="0.8" fill="none" />
+        </svg>
 
-        <div className="relative py-12 px-6">
-          {/* Geometric decorations */}
-          <div className="absolute top-6 right-16 w-20 h-20 border border-white/[0.05] rounded-full" />
-          <div className="absolute bottom-10 left-12 w-16 h-16 border border-white/[0.04] rotate-45" />
-          <div className="absolute top-1/2 left-0 w-16 h-px bg-gradient-to-r from-white/[0.08] to-transparent" />
-          <div className="absolute top-8 left-1/3 w-px h-16 bg-gradient-to-b from-transparent via-white/[0.06] to-transparent" />
-          <svg className="absolute bottom-6 right-1/3 opacity-[0.04]" width="60" height="60" viewBox="0 0 60 60" fill="none">
-            <polygon points="30,5 55,50 5,50" stroke="white" strokeWidth="0.8" fill="none" />
-          </svg>
-
+        <div className="relative py-14 px-6">
           <div className="container mx-auto relative z-10">
-            <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+            <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,8%)]/[0.85] backdrop-blur-2xl border border-white/[0.07] px-8 py-6 mx-auto w-fit shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
               <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Depoimentos</span>
               <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">O Que Nossos Clientes Dizem</h2>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
               {testimonials.map((t, i) => (
-                <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-[hsl(205,78%,8%)]/[0.55] backdrop-blur-2xl border border-white/[0.07] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_4px_24px_-8px_rgba(0,0,0,0.3)]">
+                <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-[hsl(205,78%,8%)]/[0.82] backdrop-blur-2xl border border-[hsl(205,78%,15%)]/15 hover:border-[hsl(205,78%,15%)]/30 transition-all hover:shadow-lg hover:shadow-[hsl(205,78%,15%)]/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_4px_24px_-8px_hsl(205,78%,15%,0.1)]">
                   <div className="flex gap-1 mb-5">
                     {[...Array(5)].map((_, j) => (
                       <Star key={j} size={14} className="fill-secondary text-secondary" />
@@ -447,7 +468,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Testimonials → CTA ===== */}
-      <div className="relative h-6 bg-gradient-to-b from-[hsl(205,78%,10%)] to-[hsl(205,78%,8%)]" />
+      <div className="relative h-6 bg-gradient-to-b from-[hsl(205,30%,95%)] to-transparent" />
 
       {/* ===== CTA ===== */}
       <section className="relative py-32 px-6 overflow-hidden">
