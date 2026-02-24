@@ -101,42 +101,35 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2.5 text-sm lg:text-base font-light tracking-wider transition-all duration-500 ease-out rounded-full cursor-pointer font-display whitespace-nowrap uppercase ${activeMenu === key ? "text-white bg-white/15 backdrop-blur-sm shadow-md" : "text-white/70 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:scale-[1.02]"}`;
+  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2 text-[13px] lg:text-sm font-light tracking-[0.15em] transition-all duration-300 ease-out rounded-full cursor-pointer whitespace-nowrap uppercase ${activeMenu === key ? "text-white bg-white/[0.12] backdrop-blur-xl border border-white/[0.12] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]" : "text-white/60 hover:text-white/90 hover:bg-white/[0.08] hover:backdrop-blur-xl"}`;
   return <motion.header initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px] border-destructive">
-      {/* Top Bar */}
-      <div className="relative text-white bg-[hsl(205,78%,8%)] overflow-hidden">
-        {/* Geometric decorative elements */}
+      {/* Top Bar — frosted glass */}
+      <div className="relative text-white bg-[hsl(205,78%,6%)]/80 backdrop-blur-2xl border-b border-white/[0.06] overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent" />
-          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-          <div className="absolute top-1/2 left-[10%] w-16 h-px bg-secondary/20 -translate-y-1/2" />
-          <div className="absolute top-1/2 right-[10%] w-16 h-px bg-secondary/20 -translate-y-1/2" />
-          <div className="absolute top-1/2 left-[10%] w-px h-3 bg-secondary/20 -translate-y-1/2 -translate-x-[0.5px]" />
-          <div className="absolute top-1/2 right-[10%] w-px h-3 bg-secondary/20 -translate-y-1/2 translate-x-[0.5px]" />
-          <svg className="absolute left-[20%] top-1/2 -translate-y-1/2 opacity-[0.08]" width="60" height="20" viewBox="0 0 60 20"><path d="M0 10 Q15 0 30 10 Q45 20 60 10" fill="none" stroke="hsl(25,95%,53%)" strokeWidth="1"/></svg>
-          <svg className="absolute right-[20%] top-1/2 -translate-y-1/2 opacity-[0.08]" width="60" height="20" viewBox="0 0 60 20"><path d="M0 10 Q15 0 30 10 Q45 20 60 10" fill="none" stroke="hsl(25,95%,53%)" strokeWidth="1"/></svg>
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
         </div>
 
-        <div className="container relative h-10 text-xs mx-auto flex items-center justify-between px-6 lg:px-10">
-          <div className="flex items-center gap-5 text-secondary">
-            <a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-secondary/80 transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
-            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-secondary/80 transition-colors" aria-label="WhatsApp"><WhatsAppIcon size={18} /></a>
+        <div className="container relative h-9 text-xs mx-auto flex items-center justify-between px-6 lg:px-10">
+          <div className="flex items-center gap-5 text-white/50">
+            <a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors" aria-label="Instagram"><Instagram size={15} /></a>
+            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors" aria-label="WhatsApp"><WhatsAppIcon size={15} /></a>
           </div>
           <div className="flex items-center gap-2">
-            <Phone size={13} className="text-secondary" />
-            <span className="tracking-[0.15em] text-sm font-display font-light text-white/80 uppercase">Consultoria Acústica Gratuita</span>
+            <Phone size={12} className="text-white/40" />
+            <span className="tracking-[0.2em] text-[11px] font-light text-white/50 uppercase">Consultoria Acústica Gratuita</span>
           </div>
-          <div className="hidden md:block text-white/40 text-xs tracking-widest uppercase font-display">São Paulo, Brasil</div>
+          <div className="hidden md:block" />
         </div>
       </div>
 
-      {/* Main Nav */}
-      <div className="backdrop-blur-md shadow-lg bg-sidebar bg-[sidebar-primary-foreground]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}>
-        <div className="max-w-screen-xl mx-auto h-20 lg:h-24 px-6 lg:px-10 flex flex-row items-center justify-between gap-4">
+      {/* Main Nav — frosted glass */}
+      <div className="bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_8px_32px_-8px_rgba(0,0,0,0.4)]">
+        <div className="max-w-screen-xl mx-auto h-16 lg:h-20 px-6 lg:px-10 flex flex-row items-center justify-between gap-4">
 
           {/* Logo - left */}
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img alt="Sonar Acústicos" className="h-20 lg:h-28 w-auto" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" width={112} height={112} />
+            <img alt="Sonar Acústicos" className="h-14 lg:h-20 w-auto" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" width={80} height={80} />
           </Link>
 
           {/* Nav - center */}
@@ -167,12 +160,12 @@ export default function Header() {
           </nav>
 
           {/* Right actions - desktop */}
-          <div className="hidden lg:flex flex-row items-center gap-3 flex-shrink-0">
+          <div className="hidden lg:flex flex-row items-center gap-2 flex-shrink-0">
             <CartDrawer />
-            <Link to="/loja" className="px-4 py-2 text-sm font-light font-display transition-all duration-300 tracking-wider whitespace-nowrap text-secondary hover:text-secondary/80 uppercase">
+            <Link to="/loja" className="px-4 py-2 text-[13px] font-light tracking-[0.15em] whitespace-nowrap text-white/50 hover:text-white/80 transition-all duration-300 uppercase">
               Loja
             </Link>
-            <Link to="/orcamento" className="px-4 py-2 text-sm font-semibold font-display text-white bg-accent/20 border border-accent/50 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 transition-all duration-300 tracking-wider whitespace-nowrap uppercase rounded-full">
+            <Link to="/orcamento" className="px-5 py-2 text-[13px] font-medium text-white bg-white/[0.08] border border-white/[0.12] backdrop-blur-xl hover:bg-white/[0.14] hover:border-white/[0.20] transition-all duration-300 tracking-[0.15em] whitespace-nowrap uppercase rounded-full shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
               Orçamento
             </Link>
           </div>
@@ -289,32 +282,32 @@ export default function Header() {
       }} exit={{
         height: 0,
         opacity: 0
-      }} className="lg:hidden overflow-hidden border-b border-border bg-white shadow-xl">
-            <nav className="flex flex-col p-5 gap-2">
+      }} className="lg:hidden overflow-hidden bg-[hsl(205,78%,6%)]/90 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_16px_48px_-12px_rgba(0,0,0,0.5)]">
+            <nav className="flex flex-col p-5 gap-1">
               {[
           { to: "/produtos", label: "Produtos" },
           { to: "/solucoes", label: "Espaços" },
           { to: "/projetos", label: "Projetos" },
           { to: "/calculadora", label: "Calculadora" }].
           map((item) =>
-          <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
+          <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="px-6 py-3 text-base font-light tracking-[0.12em] rounded-full text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 uppercase">
                   {item.label}
                 </Link>
           )}
 
-              <div className="h-px bg-border my-2" />
+              <div className="h-px bg-white/[0.06] my-2" />
 
-              <Link to="/contato" onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
+              <Link to="/contato" onClick={() => setMobileOpen(false)} className="px-6 py-3 text-base font-light tracking-[0.12em] rounded-full text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 uppercase">
                 Fale com um Especialista
               </Link>
-              <Link to="/orcamento" onClick={() => setMobileOpen(false)} className="px-6 py-3 text-lg font-bold tracking-wide rounded-full font-display text-[hsl(205,78%,15%)] hover:text-white hover:bg-primary hover:shadow-md transition-all duration-200">
+              <Link to="/orcamento" onClick={() => setMobileOpen(false)} className="px-6 py-3 text-base font-light tracking-[0.12em] rounded-full text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 uppercase">
                 Projete sua Sala
               </Link>
 
-              <div className="h-px bg-border my-2" />
-              <p className="px-6 text-xs font-bold uppercase tracking-widest text-[hsl(205,78%,30%)] mb-1 font-display">Espaços</p>
-              {spaces.map((space) => <Link key={space.path} to={space.path} onClick={() => setMobileOpen(false)} className="px-6 py-2.5 text-base font-bold text-[hsl(205,78%,15%)] hover:text-primary transition-colors flex items-center gap-3 font-display rounded-full hover:bg-primary/5">
-                  <img src={space.image} alt="" className="w-10 h-10 rounded-full object-cover" />
+              <div className="h-px bg-white/[0.06] my-2" />
+              <p className="px-6 text-[10px] uppercase tracking-[0.2em] text-white/30 mb-1">Espaços</p>
+              {spaces.map((space) => <Link key={space.path} to={space.path} onClick={() => setMobileOpen(false)} className="px-6 py-2.5 text-sm font-light text-white/60 hover:text-white transition-colors flex items-center gap-3 rounded-full hover:bg-white/[0.06]">
+                  <img src={space.image} alt="" className="w-9 h-9 rounded-full object-cover ring-1 ring-white/[0.08]" />
                   {space.label}
                 </Link>)}
             </nav>
