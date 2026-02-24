@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <img src={logo} alt="Sonar Acústicos" className="h-44 w-auto mb-4" />
+            <img src={logo} alt="Sonar Acústicos" className="h-44 w-auto mb-4" width={176} height={176} loading="lazy" decoding="async" />
             <p className="text-base text-white/60">
               Soluções profissionais em tratamento acústico para todos os tipos de ambientes.
             </p>

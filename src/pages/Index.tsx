@@ -101,7 +101,7 @@ const HomePage = () => {
       {/* ===== HERO ===== */}
       <section className="relative min-h-screen flex flex-col overflow-hidden -mt-[11.5rem]">
         <div className="absolute inset-0">
-          <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover object-[center_30%]" />
+          <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover object-[center_30%]" width={1920} height={1080} fetchPriority="high" />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/80 via-[hsl(205,78%,8%)]/40 to-transparent" />
         </div>
 
@@ -163,7 +163,7 @@ const HomePage = () => {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {spaces.map((space) => (
               <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-border/30">
-                <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.45] group-hover:brightness-[0.35]" />
+                <img src={space.image} alt={space.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.45] group-hover:brightness-[0.35]" width={400} height={300} loading="lazy" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[hsl(205,78%,8%)]/70 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 bg-white/[0.06] backdrop-blur-xl border-t border-white/[0.08]">
                   <div className="flex items-end justify-between">
@@ -223,7 +223,7 @@ const HomePage = () => {
                   transition={{ delay: i * 0.05 }}
                   className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] ${item.span}`}
                 >
-                  <img src={item.img} alt={item.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                  <img src={item.img} alt={item.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width={640} height={480} />
                   <div className="absolute inset-1.5 rounded-xl bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/40 transition-colors duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                     <span className="inline-block text-white font-semibold text-sm drop-shadow-lg bg-[hsl(205,78%,8%)]/70 backdrop-blur-xl border border-white/[0.1] rounded-lg px-3 py-1.5">{item.label}</span>
@@ -271,7 +271,7 @@ const HomePage = () => {
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
                   <div className={`overflow-hidden rounded-2xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <img src={step.image} alt={step.title} className="w-full h-full object-cover" loading="lazy" />
+                    <img src={step.image} alt={step.title} className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                   </div>
                   <div className={`p-4 md:p-6 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
                     <div className="flex items-center gap-4 mb-6">
@@ -316,7 +316,7 @@ const HomePage = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) => (
                   <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
-                    <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                    <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width={400} height={300} />
                     <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/20 transition-colors duration-500" />
                   </div>
                 ))}
@@ -326,18 +326,18 @@ const HomePage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
               <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
-                  <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" />
+                  <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
               <div className="rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] mt-6 md:mt-12">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
-                  <img src={imgHexagonais} alt="Painéis hexagonais no teto" className="w-full h-full object-cover" loading="lazy" />
+                  <img src={imgHexagonais} alt="Painéis hexagonais no teto" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
             </div>
             <div className="mt-6 rounded-3xl bg-[hsl(205,78%,8%)]/[0.6] backdrop-blur-2xl border border-white/[0.07] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
               <div className="rounded-2xl overflow-hidden aspect-[21/9]">
-                <img src={heroNuvens} alt="Nuvens acústicas em ambiente corporativo" className="w-full h-full object-cover" loading="lazy" />
+                <img src={heroNuvens} alt="Nuvens acústicas em ambiente corporativo" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1200} height={514} />
               </div>
             </div>
           </div>
@@ -410,12 +410,12 @@ const HomePage = () => {
               <motion.div {...fadeUp} className="grid grid-cols-2 gap-4">
                 <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
                   <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                    <img src={heroBafflesColor} alt="" className="w-full h-full object-cover" loading="lazy" />
+                    <img src={heroBafflesColor} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
                   </div>
                 </div>
                 <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 mt-12 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
                   <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                    <img src={heroDifusores} alt="" className="w-full h-full object-cover" loading="lazy" />
+                    <img src={heroDifusores} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
                   </div>
                 </div>
               </motion.div>
@@ -489,7 +489,7 @@ const HomePage = () => {
       {/* ===== CTA ===== */}
       <section className="relative py-32 px-6 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroMdf} alt="" className="w-full h-full object-cover" />
+          <img src={heroMdf} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1920} height={823} />
           <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/85" />
         </div>
         {/* Geometric decorations */}

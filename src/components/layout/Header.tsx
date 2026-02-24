@@ -136,7 +136,7 @@ export default function Header() {
 
           {/* Logo - left */}
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img alt="Sonar Acústicos" className="h-20 lg:h-28 w-auto" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" />
+            <img alt="Sonar Acústicos" className="h-20 lg:h-28 w-auto" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" width={112} height={112} />
           </Link>
 
           {/* Nav - center */}
