@@ -4,6 +4,17 @@ import salaAulaBaffles from "@/assets/gallery/sala-aula-baffles.jpeg";
 import escritorioPaineis from "@/assets/gallery/escritorio-paineis.png";
 import paineisSuspensos from "@/assets/gallery/paineis-suspensos.webp";
 
+import estudioTratamento from "@/assets/gallery/estudio-tratamento-completo.png";
+import bassTrapProduto from "@/assets/gallery/bass-trap-produto.jpg";
+import painelSlimProduto from "@/assets/gallery/painel-slim-produto.webp";
+import instalacaoPaineis from "@/assets/gallery/instalacao-paineis.jpeg";
+import forroRestaurante from "@/assets/gallery/forro-restaurante-corporativo.jpg";
+import escritorioPaineisColoridos from "@/assets/gallery/escritorio-paineis-coloridos.png";
+import salaReuniaoPaineisColoridos from "@/assets/gallery/sala-reuniao-paineis-coloridos.png";
+import salaReuniaoForroAzul from "@/assets/gallery/sala-reuniao-forro-azul.jpg";
+import forroIndustrialRafts from "@/assets/gallery/forro-industrial-rafts.jpg";
+import salaAulaBafflesLaranja from "@/assets/gallery/sala-aula-baffles-laranja.jpeg";
+
 import igrejaVermelho from "@/assets/gallery/igreja-paineis-vermelho.jpg";
 import igrejaAuditorio from "@/assets/gallery/igreja-auditorio-azul.png";
 import igrejaTemplo from "@/assets/gallery/igreja-templo-paineis.png";
@@ -39,6 +50,12 @@ export const solutions: Solution[] = [
     approach: "Combinamos absorvedores broadband nas primeiras reflexões, bass traps nos cantos e difusores na parede traseira para criar um campo sonoro controlado e preciso.",
     recommendedProducts: ["painel-absorvedor-premium", "bass-trap-corner", "difusor-skyline"],
     image: paineisSuspensos,
+    gallery: [
+      estudioTratamento,
+      bassTrapProduto,
+      painelSlimProduto,
+      instalacaoPaineis,
+    ],
   },
   {
     slug: "igrejas",
@@ -73,6 +90,10 @@ export const solutions: Solution[] = [
     approach: "Projeto acústico completo com difusores nas paredes laterais, absorvedores no teto e tratamento de palco para criar uma experiência sonora envolvente.",
     recommendedProducts: ["difusor-skyline", "forro-acustico-modular", "revestimento-ripado"],
     image: academiaTeto,
+    gallery: [
+      forroIndustrialRafts,
+      salaAulaBafflesLaranja,
+    ],
   },
   {
     slug: "corporativo",
@@ -84,6 +105,12 @@ export const solutions: Solution[] = [
     approach: "Utilizamos forros acústicos, painéis de parede e divisórias acústicas para criar zonas de conforto sonoro sem comprometer a estética corporativa.",
     recommendedProducts: ["forro-acustico-modular", "painel-tecido-slim", "revestimento-ripado"],
     image: escritorioPaineis,
+    gallery: [
+      forroRestaurante,
+      escritorioPaineisColoridos,
+      salaReuniaoPaineisColoridos,
+      salaReuniaoForroAzul,
+    ],
   },
   {
     slug: "residencial",
