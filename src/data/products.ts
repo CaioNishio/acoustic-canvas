@@ -974,7 +974,7 @@ export const products: Product[] = [
 
   {
     slug: "espuma-expansiva",
-    name: "Espuma Expansiva Acústica",
+    name: "Espuma Expansiva: Vedação de Frestas Acústica",
     category: "Matéria-Prima",
     application: ["Estúdio"],
     material: "Espuma",
