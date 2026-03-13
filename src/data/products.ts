@@ -434,7 +434,7 @@ export const products: Product[] = [
 
   {
     slug: "hexagono-led-decorativo",
-    name: "Hexágono LED Decorativo de Colar",
+    name: "Hexágono LED: Módulo Decorativo Suspenso",
     category: "Painéis Especiais",
     subcategory: "LED",
     application: ["Estúdio", "Podcast", "Residencial"],
