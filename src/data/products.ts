@@ -957,7 +957,7 @@ export const products: Product[] = [
   {
     slug: "drywall",
     name: "Drywall Acústico: Placa para Isolamento",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Corporativo"],
     material: "Fibra de Vidro",
     thickness: "Variável",
