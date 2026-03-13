@@ -1157,7 +1157,7 @@ export const products: Product[] = [
   {
     slug: "projeto-3d",
     name: "Projeto 3D: Modelagem Acústica do Ambiente",
-    category: "Serviços",
+    category: "Consultoria & Projetos",
     application: ["Estúdio", "Corporativo", "Igreja", "Auditório", "Residencial", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "Variável",
