@@ -368,7 +368,7 @@ export const products: Product[] = [
 
   {
     slug: "painel-triangular-3s",
-    name: "Painel 3S Triangular SNR3250",
+    name: "Painel Triangular 3S: Composição Modular",
     category: "Painéis Especiais",
     application: ["Estúdio", "Corporativo"],
     material: "Lã de Rocha",
