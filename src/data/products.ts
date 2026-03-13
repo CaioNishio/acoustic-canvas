@@ -1032,7 +1032,7 @@ export const products: Product[] = [
 
   {
     slug: "microfone-medicao",
-    name: "Microfone para Medição Acústica",
+    name: "Microfone de Medição: Análise Acústica RT60",
     category: "Acessórios & Suportes",
     application: ["Estúdio", "Corporativo"],
     material: "Lã de Rocha",
