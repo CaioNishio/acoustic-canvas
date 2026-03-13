@@ -818,7 +818,7 @@ export const products: Product[] = [
 
   {
     slug: "la-de-rocha-d64",
-    name: "Lã de Rocha — Densidade 64 kg/m³",
+    name: "Lã de Rocha D64: Absorção Low-Mid",
     category: "Matéria-Prima",
     application: ["Estúdio", "Home Theater", "Igreja"],
     material: "Lã de Rocha",
