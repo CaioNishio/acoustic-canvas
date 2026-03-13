@@ -622,7 +622,7 @@ export const products: Product[] = [
   // ── BAFFLES & FORROS ────────────────────────────────────────
   {
     slug: "baffles-acusticos",
-    name: "Baffles Acústicos",
+    name: "Baffle Acústico: Absorção Vertical Suspensa",
     category: "Baffles & Forros",
     application: ["Corporativo", "Igreja", "Auditório", "Restaurante"],
     material: "Lã de Rocha",
