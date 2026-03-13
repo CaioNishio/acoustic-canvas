@@ -1132,7 +1132,7 @@ export const products: Product[] = [
 
   {
     slug: "kit-estudio-pro",
-    name: "Kit Estúdio Pro",
+    name: "Kit Pro: Tratamento Acústico Definitivo",
     category: "Kits Completos",
     application: ["Estúdio"],
     material: "Lã de Rocha",
