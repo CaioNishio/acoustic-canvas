@@ -776,7 +776,7 @@ export const products: Product[] = [
   {
     slug: "painel-isolamento-d96",
     name: "Painel Isolante D96: Sistema Massa-Mola-Massa",
-    category: "Portas & Cortinas",
+    category: "Isolamento Acústico",
     application: ["Estúdio", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "100mm",
