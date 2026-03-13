@@ -860,7 +860,7 @@ export const products: Product[] = [
 
   {
     slug: "la-de-pet",
-    name: "Lã de PET",
+    name: "Lã de PET: Absorção Sustentável",
     category: "Matéria-Prima",
     application: ["Corporativo", "Residencial"],
     material: "Lã de PET",
