@@ -347,7 +347,7 @@ export const products: Product[] = [
   {
     slug: "painel-circle-360",
     name: "Painel Circle 360°: Absorção Omnidirecional",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     application: ["Corporativo", "Residencial", "Restaurante"],
     material: "Lã de Rocha",
     thickness: "50mm",
