@@ -500,7 +500,7 @@ export const products: Product[] = [
   // ── BASS TRAPS ──────────────────────────────────────────────
   {
     slug: "bass-trap-corner-3s-snr6430",
-    name: "Bass Trap Corner 3S SNR6430",
+    name: "Bass Trap Corner 3S: Controle Modal de Graves",
     category: "Bass Traps",
     application: ["Estúdio", "Home Theater", "Igreja"],
     material: "Lã de Rocha",
