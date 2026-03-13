@@ -229,7 +229,7 @@ export const products: Product[] = [
   {
     slug: "painel-acustico-snr3225-slim",
     name: "Painel Slim SNR3225: Absorção Compacta",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "Absorção High-Mid",
     application: ["Residencial", "Corporativo", "Podcast"],
     material: "Lã de Rocha",
