@@ -476,7 +476,7 @@ export const products: Product[] = [
   {
     slug: "nuvem-acustica-snr3250",
     name: "Nuvem Acústica SNR3250: Absorção Suspensa",
-    category: "Nuvens Acústicas",
+    category: "Absorção Suspensa",
     application: ["Estúdio", "Igreja", "Auditório", "Corporativo", "Restaurante"],
     material: "Lã de Rocha",
     thickness: "50mm",
