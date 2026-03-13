@@ -1175,7 +1175,7 @@ export const products: Product[] = [
 
   {
     slug: "consultoria-tecnica",
-    name: "Consultoria e Análise Técnica",
+    name: "Consultoria Técnica: Análise Acústica Especializada",
     category: "Serviços",
     application: ["Estúdio", "Corporativo", "Igreja", "Auditório", "Residencial"],
     material: "Lã de Rocha",
