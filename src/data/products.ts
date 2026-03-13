@@ -529,7 +529,7 @@ export const products: Product[] = [
   {
     slug: "bass-trap-membrana-snr6420",
     name: "Bass Trap Membrana: Absorção Ressonante de Graves",
-    category: "Bass Traps",
+    category: "Controle de Graves",
     application: ["Estúdio", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "100mm",
