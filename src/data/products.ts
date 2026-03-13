@@ -1194,7 +1194,7 @@ export const products: Product[] = [
 
   {
     slug: "visita-tecnica",
-    name: "Visita Técnica",
+    name: "Visita Técnica: Levantamento e Medição In Loco",
     category: "Serviços",
     application: ["Estúdio", "Corporativo", "Igreja", "Auditório"],
     material: "Lã de Rocha",
