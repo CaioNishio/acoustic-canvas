@@ -34,8 +34,29 @@ export default function ProdutoDetalhePage() {
   const [selectedColor, setSelectedColor] = useState<ProductColor | null>(null);
   const [mainImage, setMainImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const { addItem } = useQuoteCart();
+
+  // Auto-select first size on mount
+  const pricing = product ? productPrices[product?.slug || ""] : undefined;
+  const [selectedSize, setSelectedSize] = useState<string | null>(() => {
+    if (product?.sizes && product.sizes.length > 0) return product.sizes[0].label;
+    return null;
+  });
+
+  // Compute active price based on selected size
+  const activePrice = (() => {
+    if (!pricing) return 0;
+    if (!selectedSize || !pricing.sizes) return pricing.basePrice;
+    const selectedSizeData = product?.sizes?.find((s) => s.label === selectedSize);
+    if (!selectedSizeData) return pricing.basePrice;
+    const dimNumbers = selectedSizeData.dimensions.match(/\d+/g) || [];
+    const firstDim = dimNumbers[0] || "";
+    const sizePrice = pricing.sizes.find((sp) => {
+      const spNums = sp.dimensions.match(/\d+/g) || [];
+      return spNums[0] === firstDim;
+    });
+    return sizePrice?.price ?? pricing.basePrice;
+  })();
 
   if (!product) {
     return (
