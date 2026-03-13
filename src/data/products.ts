@@ -840,7 +840,7 @@ export const products: Product[] = [
   {
     slug: "la-de-rocha-d96",
     name: "Lã de Rocha D96: Isolamento Broadband",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "50mm",
