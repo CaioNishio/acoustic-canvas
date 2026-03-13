@@ -455,7 +455,7 @@ export const products: Product[] = [
   {
     slug: "reflexive-panels",
     name: "Painel Reflexivo: Direcionamento Sonoro Controlado",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     application: ["Estúdio", "Auditório"],
     material: "Madeira",
     thickness: "Variável",
