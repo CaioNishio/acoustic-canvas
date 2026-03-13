@@ -435,7 +435,7 @@ export const products: Product[] = [
   {
     slug: "hexagono-led-decorativo",
     name: "Hexágono LED: Módulo Decorativo Suspenso",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     subcategory: "LED",
     application: ["Estúdio", "Podcast", "Residencial"],
     material: "Lã de Rocha",
