@@ -528,7 +528,7 @@ export const products: Product[] = [
 
   {
     slug: "bass-trap-membrana-snr6420",
-    name: "Bass Trap Membrana Profissional SNR6420",
+    name: "Bass Trap Membrana: Absorção Ressonante de Graves",
     category: "Bass Traps",
     application: ["Estúdio", "Home Theater"],
     material: "Lã de Rocha",
