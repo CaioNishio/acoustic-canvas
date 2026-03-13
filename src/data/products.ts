@@ -1213,7 +1213,7 @@ export const products: Product[] = [
 
   {
     slug: "integracao-transportadora",
-    name: "Integração com Transportadora",
+    name: "Logística Integrada: Envio Nacional Seguro",
     category: "Serviços",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Lã de Rocha",
