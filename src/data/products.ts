@@ -1214,7 +1214,7 @@ export const products: Product[] = [
   {
     slug: "integracao-transportadora",
     name: "Logística Integrada: Envio Nacional Seguro",
-    category: "Serviços",
+    category: "Consultoria & Projetos",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Lã de Rocha",
     thickness: "Variável",
