@@ -553,7 +553,7 @@ export const products: Product[] = [
   // ── DIFUSORES ───────────────────────────────────────────────
   {
     slug: "difusor-qrd",
-    name: "Difusor Acústico QRD",
+    name: "Difusor QRD: Espalhamento Unidimensional",
     category: "Difusores",
     application: ["Estúdio", "Auditório", "Corporativo"],
     material: "Madeira",
