@@ -921,7 +921,7 @@ export const products: Product[] = [
   {
     slug: "carpete-acustico",
     name: "Carpete Acústico: Atenuação de Impacto",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Corporativo", "Home Theater"],
     material: "Carpete",
     thickness: "Variável",
