@@ -390,7 +390,7 @@ export const products: Product[] = [
   {
     slug: "painel-led-rgb",
     name: "Painel Acústico: LED RGB Integrado",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     subcategory: "LED",
     application: ["Estúdio", "Home Theater", "Podcast", "Residencial"],
     material: "Lã de Rocha",
