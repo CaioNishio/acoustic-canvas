@@ -325,7 +325,7 @@ export const products: Product[] = [
   {
     slug: "painel-hexagonal",
     name: "Painel Hexagonal: Absorção Geométrica",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     application: ["Corporativo", "Residencial", "Restaurante"],
     material: "Lã de Rocha",
     thickness: "50mm",
