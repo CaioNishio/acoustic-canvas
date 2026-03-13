@@ -577,7 +577,7 @@ export const products: Product[] = [
   {
     slug: "difusor-skyline",
     name: "Difusor Skyline: Difusão Bidimensional 3D",
-    category: "Difusores",
+    category: "Difusão Sonora",
     application: ["Estúdio", "Auditório"],
     material: "Madeira",
     thickness: "75mm",
