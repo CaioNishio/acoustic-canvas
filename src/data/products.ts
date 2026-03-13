@@ -324,7 +324,7 @@ export const products: Product[] = [
   // ── PAINÉIS ESPECIAIS ───────────────────────────────────────
   {
     slug: "painel-hexagonal",
-    name: "Painel Hexagonal Acústico",
+    name: "Painel Hexagonal: Absorção Geométrica",
     category: "Painéis Especiais",
     application: ["Corporativo", "Residencial", "Restaurante"],
     material: "Lã de Rocha",
