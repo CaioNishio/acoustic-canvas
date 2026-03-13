@@ -1258,7 +1258,7 @@ export const products: Product[] = [
   {
     slug: "kit-fixacao-acustica",
     name: "Kit de Fixação Acústica: Instalação Profissional",
-    category: "Acessórios & Suportes",
+    category: "Fixação & Suportes",
     application: ["Estúdio", "Igreja", "Auditório", "Corporativo", "Residencial", "Home Theater", "Podcast", "Restaurante"],
     material: "Madeira",
     thickness: "Variável",
