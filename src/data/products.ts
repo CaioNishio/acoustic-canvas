@@ -692,7 +692,7 @@ export const products: Product[] = [
 
   {
     slug: "biombo-acustico-cavalete",
-    name: "Biombo Acústico 1 Folha com Cavalete",
+    name: "Biombo Acústico Cavalete: Divisória Independente",
     category: "Biombos Acústicos",
     application: ["Corporativo", "Estúdio", "Podcast"],
     material: "Lã de Rocha",
