@@ -899,7 +899,7 @@ export const products: Product[] = [
 
   {
     slug: "tecidos-acusticos",
-    name: "Tecidos para Revestimento Acústico",
+    name: "Tecido Acústico: Revestimento Transparente ao Som",
     category: "Matéria-Prima",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Tecido",
