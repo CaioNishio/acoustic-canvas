@@ -21,11 +21,11 @@ export default function Footer() {
           <div>
             <h4 className="font-display text-base font-semibold text-secondary mb-3">Produtos</h4>
             <ul className="space-y-2 text-base text-white/60">
-              <li><Link to="/produtos" className="hover:text-white transition-colors">Painéis Acústicos</Link></li>
-              <li><Link to="/produtos" className="hover:text-white transition-colors">Bass Traps</Link></li>
-              <li><Link to="/produtos" className="hover:text-white transition-colors">Difusores</Link></li>
-              <li><Link to="/produtos" className="hover:text-white transition-colors">Painéis MDF Vazado</Link></li>
-              <li><Link to="/produtos" className="hover:text-white transition-colors">Forros</Link></li>
+              <li><Link to="/produtos" className="hover:text-white transition-colors">Absorção Acústica</Link></li>
+              <li><Link to="/produtos" className="hover:text-white transition-colors">Controle de Graves</Link></li>
+              <li><Link to="/produtos" className="hover:text-white transition-colors">Difusão Sonora</Link></li>
+              <li><Link to="/produtos" className="hover:text-white transition-colors">Soluções Especiais</Link></li>
+              <li><Link to="/produtos" className="hover:text-white transition-colors">Tratamento Aéreo</Link></li>
             </ul>
           </div>
           <div>

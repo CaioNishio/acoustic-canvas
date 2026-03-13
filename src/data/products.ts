@@ -84,18 +84,18 @@ export interface Product {
 export const productColors = fabricColors;
 
 export const categories = [
-  "Painéis Acústicos",
-  "Nuvens Acústicas",
-  "Bass Traps",
-  "Difusores",
-  "Painéis Especiais",
-  "Biombos Acústicos",
-  "Baffles & Forros",
-  "Portas & Cortinas",
-  "Matéria-Prima",
-  "Acessórios & Suportes",
-  "Kits Completos",
-  "Serviços",
+  "Absorção Acústica",
+  "Absorção Suspensa",
+  "Controle de Graves",
+  "Difusão Sonora",
+  "Soluções Especiais",
+  "Isolamento Móvel",
+  "Tratamento Aéreo",
+  "Isolamento Acústico",
+  "Insumos Técnicos",
+  "Fixação & Suportes",
+  "Kits de Tratamento",
+  "Consultoria & Projetos",
 ];
 
 export const applications = ["Estúdio", "Igreja", "Auditório", "Corporativo", "Residencial", "Home Theater", "Podcast", "Restaurante"];
@@ -147,7 +147,7 @@ export const products: Product[] = [
   {
     slug: "painel-acustico-snr3250",
     name: "Painel Acústico SNR3250: Absorção High-Mid",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "Absorção High-Mid",
     application: ["Estúdio", "Corporativo", "Residencial", "Podcast", "Home Theater"],
     material: "Lã de Rocha",
@@ -193,7 +193,7 @@ export const products: Product[] = [
   {
     slug: "painel-acustico-snr6450",
     name: "Painel Acústico SNR6450: Absorção Low-Mid",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "Absorção Low-Mid",
     application: ["Estúdio", "Igreja", "Auditório", "Home Theater"],
     material: "Lã de Rocha",
@@ -229,7 +229,7 @@ export const products: Product[] = [
   {
     slug: "painel-acustico-snr3225-slim",
     name: "Painel Slim SNR3225: Absorção Compacta",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "Absorção High-Mid",
     application: ["Residencial", "Corporativo", "Podcast"],
     material: "Lã de Rocha",
@@ -255,7 +255,7 @@ export const products: Product[] = [
   {
     slug: "painel-moldura-madeira",
     name: "Painel Acústico: Moldura em Madeira Premium",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "Premium",
     application: ["Residencial", "Corporativo", "Restaurante"],
     material: "Lã de Rocha",
@@ -278,7 +278,7 @@ export const products: Product[] = [
   {
     slug: "painel-imagem-plotada",
     name: "Painel Acústico: Imagem Plotada em Alta Definição",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "Decorativo",
     application: ["Residencial", "Corporativo", "Restaurante"],
     material: "Lã de Rocha",
@@ -299,7 +299,7 @@ export const products: Product[] = [
   {
     slug: "painel-mdf-vazado",
     name: "Painel Acústico: MDF Vazado Frontal",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "MDF Vazado",
     application: ["Estúdio", "Corporativo", "Residencial", "Auditório"],
     material: "MDF",
@@ -325,7 +325,7 @@ export const products: Product[] = [
   {
     slug: "painel-hexagonal",
     name: "Painel Hexagonal: Absorção Geométrica",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     application: ["Corporativo", "Residencial", "Restaurante"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -347,7 +347,7 @@ export const products: Product[] = [
   {
     slug: "painel-circle-360",
     name: "Painel Circle 360°: Absorção Omnidirecional",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     application: ["Corporativo", "Residencial", "Restaurante"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -369,7 +369,7 @@ export const products: Product[] = [
   {
     slug: "painel-triangular-3s",
     name: "Painel Triangular 3S: Composição Modular",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     application: ["Estúdio", "Corporativo"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -390,7 +390,7 @@ export const products: Product[] = [
   {
     slug: "painel-led-rgb",
     name: "Painel Acústico: LED RGB Integrado",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     subcategory: "LED",
     application: ["Estúdio", "Home Theater", "Podcast", "Residencial"],
     material: "Lã de Rocha",
@@ -413,7 +413,7 @@ export const products: Product[] = [
   {
     slug: "painel-led-fosco",
     name: "Painel Acústico: LED Fosco Integrado",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     subcategory: "LED",
     application: ["Corporativo", "Residencial", "Restaurante"],
     material: "Lã de Rocha",
@@ -435,7 +435,7 @@ export const products: Product[] = [
   {
     slug: "hexagono-led-decorativo",
     name: "Hexágono LED: Módulo Decorativo Suspenso",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     subcategory: "LED",
     application: ["Estúdio", "Podcast", "Residencial"],
     material: "Lã de Rocha",
@@ -455,7 +455,7 @@ export const products: Product[] = [
   {
     slug: "reflexive-panels",
     name: "Painel Reflexivo: Direcionamento Sonoro Controlado",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     application: ["Estúdio", "Auditório"],
     material: "Madeira",
     thickness: "Variável",
@@ -476,7 +476,7 @@ export const products: Product[] = [
   {
     slug: "nuvem-acustica-snr3250",
     name: "Nuvem Acústica SNR3250: Absorção Suspensa",
-    category: "Nuvens Acústicas",
+    category: "Absorção Suspensa",
     application: ["Estúdio", "Igreja", "Auditório", "Corporativo", "Restaurante"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -501,7 +501,7 @@ export const products: Product[] = [
   {
     slug: "bass-trap-corner-3s-snr6430",
     name: "Bass Trap Corner 3S: Controle Modal de Graves",
-    category: "Bass Traps",
+    category: "Controle de Graves",
     application: ["Estúdio", "Home Theater", "Igreja"],
     material: "Lã de Rocha",
     thickness: "100mm",
@@ -529,7 +529,7 @@ export const products: Product[] = [
   {
     slug: "bass-trap-membrana-snr6420",
     name: "Bass Trap Membrana: Absorção Ressonante de Graves",
-    category: "Bass Traps",
+    category: "Controle de Graves",
     application: ["Estúdio", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "100mm",
@@ -554,7 +554,7 @@ export const products: Product[] = [
   {
     slug: "difusor-qrd",
     name: "Difusor QRD: Espalhamento Unidimensional",
-    category: "Difusores",
+    category: "Difusão Sonora",
     application: ["Estúdio", "Auditório", "Corporativo"],
     material: "Madeira",
     thickness: "75mm",
@@ -577,7 +577,7 @@ export const products: Product[] = [
   {
     slug: "difusor-skyline",
     name: "Difusor Skyline: Difusão Bidimensional 3D",
-    category: "Difusores",
+    category: "Difusão Sonora",
     application: ["Estúdio", "Auditório"],
     material: "Madeira",
     thickness: "75mm",
@@ -600,7 +600,7 @@ export const products: Product[] = [
   {
     slug: "difusor-bidimensional",
     name: "Difusor Bidimensional: Espalhamento Completo",
-    category: "Difusores",
+    category: "Difusão Sonora",
     application: ["Estúdio", "Auditório", "Corporativo"],
     material: "Madeira",
     thickness: "75mm",
@@ -623,7 +623,7 @@ export const products: Product[] = [
   {
     slug: "baffles-acusticos",
     name: "Baffle Acústico: Absorção Vertical Suspensa",
-    category: "Baffles & Forros",
+    category: "Tratamento Aéreo",
     application: ["Corporativo", "Igreja", "Auditório", "Restaurante"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -644,7 +644,7 @@ export const products: Product[] = [
   {
     slug: "forro-acustico-modular",
     name: "Forro Acústico Modular: Sistema de Teto Integrado",
-    category: "Baffles & Forros",
+    category: "Tratamento Aéreo",
     application: ["Corporativo", "Igreja", "Auditório"],
     material: "Fibra de Vidro",
     thickness: "25mm",
@@ -667,7 +667,7 @@ export const products: Product[] = [
   {
     slug: "biombo-acustico-retratil",
     name: "Biombo Acústico Retrátil: Divisória Portátil 3 Folhas",
-    category: "Biombos Acústicos",
+    category: "Isolamento Móvel",
     application: ["Corporativo", "Estúdio", "Podcast"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -693,7 +693,7 @@ export const products: Product[] = [
   {
     slug: "biombo-acustico-cavalete",
     name: "Biombo Acústico Cavalete: Divisória Independente",
-    category: "Biombos Acústicos",
+    category: "Isolamento Móvel",
     application: ["Corporativo", "Estúdio", "Podcast"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -715,7 +715,7 @@ export const products: Product[] = [
   {
     slug: "cortina-acustica-snr96c",
     name: "Cortina Acústica SNR96C: Vedação e Isolamento",
-    category: "Portas & Cortinas",
+    category: "Isolamento Acústico",
     application: ["Estúdio", "Igreja", "Auditório", "Home Theater"],
     material: "Tecido",
     thickness: "Variável",
@@ -737,7 +737,7 @@ export const products: Product[] = [
   {
     slug: "porta-acustica-dupla",
     name: "Porta Acústica Dupla: Isolamento de Alta Performance",
-    category: "Portas & Cortinas",
+    category: "Isolamento Acústico",
     application: ["Estúdio", "Auditório"],
     material: "Madeira",
     thickness: "Variável",
@@ -757,7 +757,7 @@ export const products: Product[] = [
   {
     slug: "porta-acustica-anti-panico",
     name: "Porta Acústica: Barra Anti-Pânico Certificada",
-    category: "Portas & Cortinas",
+    category: "Isolamento Acústico",
     application: ["Auditório", "Igreja", "Corporativo"],
     material: "Madeira",
     thickness: "Variável",
@@ -776,7 +776,7 @@ export const products: Product[] = [
   {
     slug: "painel-isolamento-d96",
     name: "Painel Isolante D96: Sistema Massa-Mola-Massa",
-    category: "Portas & Cortinas",
+    category: "Isolamento Acústico",
     application: ["Estúdio", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "100mm",
@@ -797,7 +797,7 @@ export const products: Product[] = [
   {
     slug: "la-de-rocha-d32",
     name: "Lã de Rocha D32: Absorção High-Mid",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -819,7 +819,7 @@ export const products: Product[] = [
   {
     slug: "la-de-rocha-d64",
     name: "Lã de Rocha D64: Absorção Low-Mid",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Home Theater", "Igreja"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -840,7 +840,7 @@ export const products: Product[] = [
   {
     slug: "la-de-rocha-d96",
     name: "Lã de Rocha D96: Isolamento Broadband",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -861,7 +861,7 @@ export const products: Product[] = [
   {
     slug: "la-de-pet",
     name: "Lã de PET: Absorção Sustentável",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Corporativo", "Residencial"],
     material: "Lã de PET",
     thickness: "50mm",
@@ -881,7 +881,7 @@ export const products: Product[] = [
   {
     slug: "membrana-borracha",
     name: "Membrana de Borracha: Isolamento de Alta Massa",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Home Theater"],
     material: "Borracha",
     thickness: "Variável",
@@ -900,7 +900,7 @@ export const products: Product[] = [
   {
     slug: "tecidos-acusticos",
     name: "Tecido Acústico: Revestimento Transparente ao Som",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Tecido",
     thickness: "Variável",
@@ -921,7 +921,7 @@ export const products: Product[] = [
   {
     slug: "carpete-acustico",
     name: "Carpete Acústico: Atenuação de Impacto",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Corporativo", "Home Theater"],
     material: "Carpete",
     thickness: "Variável",
@@ -939,7 +939,7 @@ export const products: Product[] = [
   {
     slug: "piso-emborrachado",
     name: "Piso Emborrachado: Isolamento de Vibração",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Home Theater"],
     material: "Borracha",
     thickness: "Variável",
@@ -957,7 +957,7 @@ export const products: Product[] = [
   {
     slug: "drywall",
     name: "Drywall Acústico: Placa para Isolamento",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Corporativo"],
     material: "Fibra de Vidro",
     thickness: "Variável",
@@ -975,7 +975,7 @@ export const products: Product[] = [
   {
     slug: "espuma-expansiva",
     name: "Espuma Expansiva: Vedação de Frestas Acústica",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio"],
     material: "Espuma",
     thickness: "Variável",
@@ -994,7 +994,7 @@ export const products: Product[] = [
   {
     slug: "suportes-instalacao",
     name: "Kit de Suporte: Fixação Universal",
-    category: "Acessórios & Suportes",
+    category: "Fixação & Suportes",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Lã de Rocha",
     thickness: "Variável",
@@ -1014,7 +1014,7 @@ export const products: Product[] = [
   {
     slug: "velcro-50mm",
     name: "Velcro 50mm: Fixação Removível para Painéis",
-    category: "Acessórios & Suportes",
+    category: "Fixação & Suportes",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Tecido",
     thickness: "Variável",
@@ -1033,7 +1033,7 @@ export const products: Product[] = [
   {
     slug: "microfone-medicao",
     name: "Microfone de Medição: Análise Acústica RT60",
-    category: "Acessórios & Suportes",
+    category: "Fixação & Suportes",
     application: ["Estúdio", "Corporativo"],
     material: "Lã de Rocha",
     thickness: "Variável",
@@ -1052,7 +1052,7 @@ export const products: Product[] = [
   {
     slug: "cadeiras-estudio",
     name: "Mobiliário de Estúdio: Mesa e Cadeira Ergonômica",
-    category: "Acessórios & Suportes",
+    category: "Fixação & Suportes",
     application: ["Estúdio", "Corporativo", "Podcast"],
     material: "Madeira",
     thickness: "Variável",
@@ -1070,7 +1070,7 @@ export const products: Product[] = [
   {
     slug: "tapetes-acusticos",
     name: "Tapete Acústico: Absorção Complementar de Piso",
-    category: "Acessórios & Suportes",
+    category: "Fixação & Suportes",
     application: ["Estúdio", "Residencial", "Home Theater"],
     material: "Tecido",
     thickness: "Variável",
@@ -1089,7 +1089,7 @@ export const products: Product[] = [
   {
     slug: "kit-estudio-classic",
     name: "Kit Classic: Tratamento Acústico Essencial",
-    category: "Kits Completos",
+    category: "Kits de Tratamento",
     application: ["Estúdio", "Podcast", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -1111,7 +1111,7 @@ export const products: Product[] = [
   {
     slug: "kit-estudio-premium",
     name: "Kit Premium: Tratamento Acústico Completo",
-    category: "Kits Completos",
+    category: "Kits de Tratamento",
     application: ["Estúdio", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -1133,7 +1133,7 @@ export const products: Product[] = [
   {
     slug: "kit-estudio-pro",
     name: "Kit Pro: Tratamento Acústico Definitivo",
-    category: "Kits Completos",
+    category: "Kits de Tratamento",
     application: ["Estúdio"],
     material: "Lã de Rocha",
     thickness: "50mm",
@@ -1157,7 +1157,7 @@ export const products: Product[] = [
   {
     slug: "projeto-3d",
     name: "Projeto 3D: Modelagem Acústica do Ambiente",
-    category: "Serviços",
+    category: "Consultoria & Projetos",
     application: ["Estúdio", "Corporativo", "Igreja", "Auditório", "Residencial", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "Variável",
@@ -1176,7 +1176,7 @@ export const products: Product[] = [
   {
     slug: "consultoria-tecnica",
     name: "Consultoria Técnica: Análise Acústica Especializada",
-    category: "Serviços",
+    category: "Consultoria & Projetos",
     application: ["Estúdio", "Corporativo", "Igreja", "Auditório", "Residencial"],
     material: "Lã de Rocha",
     thickness: "Variável",
@@ -1195,7 +1195,7 @@ export const products: Product[] = [
   {
     slug: "visita-tecnica",
     name: "Visita Técnica: Levantamento e Medição In Loco",
-    category: "Serviços",
+    category: "Consultoria & Projetos",
     application: ["Estúdio", "Corporativo", "Igreja", "Auditório"],
     material: "Lã de Rocha",
     thickness: "Variável",
@@ -1214,7 +1214,7 @@ export const products: Product[] = [
   {
     slug: "integracao-transportadora",
     name: "Logística Integrada: Envio Nacional Seguro",
-    category: "Serviços",
+    category: "Consultoria & Projetos",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Lã de Rocha",
     thickness: "Variável",
@@ -1234,7 +1234,7 @@ export const products: Product[] = [
   {
     slug: "revestimento-ripado",
     name: "Revestimento Ripado: Estética e Absorção Integrada",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "Revestimento",
     application: ["Residencial", "Corporativo", "Auditório"],
     material: "Madeira",
@@ -1258,7 +1258,7 @@ export const products: Product[] = [
   {
     slug: "kit-fixacao-acustica",
     name: "Kit de Fixação Acústica: Instalação Profissional",
-    category: "Acessórios & Suportes",
+    category: "Fixação & Suportes",
     application: ["Estúdio", "Igreja", "Auditório", "Corporativo", "Residencial", "Home Theater", "Podcast", "Restaurante"],
     material: "Madeira",
     thickness: "Variável",
