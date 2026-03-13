@@ -756,7 +756,7 @@ export const products: Product[] = [
 
   {
     slug: "porta-acustica-anti-panico",
-    name: "Porta Acústica com Barra Anti-Pânico",
+    name: "Porta Acústica: Barra Anti-Pânico Certificada",
     category: "Portas & Cortinas",
     application: ["Auditório", "Igreja", "Corporativo"],
     material: "Madeira",
