@@ -277,7 +277,7 @@ export const products: Product[] = [
 
   {
     slug: "painel-imagem-plotada",
-    name: "Painel com Imagem Plotada",
+    name: "Painel Acústico: Imagem Plotada em Alta Definição",
     category: "Painéis Acústicos",
     subcategory: "Decorativo",
     application: ["Residencial", "Corporativo", "Restaurante"],
