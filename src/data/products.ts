@@ -1014,7 +1014,7 @@ export const products: Product[] = [
   {
     slug: "velcro-50mm",
     name: "Velcro 50mm: Fixação Removível para Painéis",
-    category: "Acessórios & Suportes",
+    category: "Fixação & Suportes",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Tecido",
     thickness: "Variável",
