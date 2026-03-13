@@ -1052,7 +1052,7 @@ export const products: Product[] = [
   {
     slug: "cadeiras-estudio",
     name: "Mobiliário de Estúdio: Mesa e Cadeira Ergonômica",
-    category: "Acessórios & Suportes",
+    category: "Fixação & Suportes",
     application: ["Estúdio", "Corporativo", "Podcast"],
     material: "Madeira",
     thickness: "Variável",
