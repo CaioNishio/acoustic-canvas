@@ -1089,7 +1089,7 @@ export const products: Product[] = [
   {
     slug: "kit-estudio-classic",
     name: "Kit Classic: Tratamento Acústico Essencial",
-    category: "Kits Completos",
+    category: "Kits de Tratamento",
     application: ["Estúdio", "Podcast", "Home Theater"],
     material: "Lã de Rocha",
     thickness: "50mm",
