@@ -643,7 +643,7 @@ export const products: Product[] = [
 
   {
     slug: "forro-acustico-modular",
-    name: "Forro Acústico Modular",
+    name: "Forro Acústico Modular: Sistema de Teto Integrado",
     category: "Baffles & Forros",
     application: ["Corporativo", "Igreja", "Auditório"],
     material: "Fibra de Vidro",
