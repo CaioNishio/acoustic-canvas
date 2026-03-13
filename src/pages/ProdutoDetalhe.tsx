@@ -152,33 +152,45 @@ export default function ProdutoDetalhePage() {
 
               <p className="text-muted-foreground mt-4 leading-relaxed text-lg">{product.description}</p>
 
-              {/* Size Selector — GIK style */}
-              {product.sizes && product.sizes.length > 0 &&
-              <div className="mt-6">
-                  <h3 className="font-display font-semibold text-sm mb-3">Tamanhos Disponíveis</h3>
-                  <div className="flex flex-wrap gap-2">
+              {/* Size Selector */}
+              {product.sizes && product.sizes.length > 0 && (
+                <div className="mt-6">
+                  <h3 className="font-display font-semibold text-sm mb-3 flex items-center gap-2">
+                    <Ruler size={14} className="text-primary" /> Selecione o Tamanho
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {product.sizes.map((size) => {
-                    const pricing = productPrices[product.slug];
-                    const dimNumbers = size.dimensions.match(/\d+/g) || [];
-                    const firstDim = dimNumbers[0] || "";
-                    const sizePrice = pricing?.sizes?.find((sp) => {
-                      const spNums = sp.dimensions.match(/\d+/g) || [];
-                      return spNums[0] === firstDim;
-                    });
-                    return (
-                      <button
-                        key={size.label}
-                        onClick={() => setSelectedSize(selectedSize === size.label ? null : size.label)}
-                        className={`px-4 py-2.5 border-2 rounded-lg text-center transition-colors ${selectedSize === size.label ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"}`}>
+                      const dimNumbers = size.dimensions.match(/\d+/g) || [];
+                      const firstDim = dimNumbers[0] || "";
+                      const sizePrice = pricing?.sizes?.find((sp) => {
+                        const spNums = sp.dimensions.match(/\d+/g) || [];
+                        return spNums[0] === firstDim;
+                      });
+                      const isActive = selectedSize === size.label;
+                      return (
+                        <button
+                          key={size.label}
+                          onClick={() => setSelectedSize(size.label)}
+                          className={`relative px-4 py-3 border-2 rounded-xl text-center transition-all duration-200 ${isActive ? "border-primary bg-primary/5 shadow-md shadow-primary/10 scale-[1.02]" : "border-border hover:border-primary/40 hover:bg-muted/50"}`}
+                        >
+                          {isActive && (
+                            <span className="absolute top-1.5 right-1.5">
+                              <Check size={12} className="text-primary" />
+                            </span>
+                          )}
                           <p className="text-xs font-bold text-foreground">{size.label}</p>
-                          <p className="text-[10px] text-muted-foreground font-mono">{size.dimensions}</p>
-                          {sizePrice && <p className="text-xs font-bold text-primary mt-1">{formatPrice(sizePrice.price)}</p>}
-                        </button>);
-
-                  })}
+                          <p className="text-[10px] text-muted-foreground font-mono mt-0.5">{size.dimensions}</p>
+                          {sizePrice && (
+                            <p className={`text-xs font-bold mt-1.5 ${isActive ? "text-primary" : "text-muted-foreground"}`}>
+                              {formatPrice(sizePrice.price)}
+                            </p>
+                          )}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
-              }
+              )}
 
               {/* Color Selector */}
               {product.colors && product.colors.length > 0 &&
