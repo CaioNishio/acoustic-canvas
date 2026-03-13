@@ -282,7 +282,7 @@ export default function Header() {
       }} exit={{
         height: 0,
         opacity: 0
-      }} className="lg:hidden overflow-hidden bg-[hsl(205,78%,6%)]/90 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_16px_48px_-12px_rgba(0,0,0,0.5)]">
+      }} className="md:hidden overflow-hidden bg-[hsl(205,78%,6%)]/90 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_16px_48px_-12px_rgba(0,0,0,0.5)]">
             <nav className="flex flex-col p-5 gap-1">
               {[
           { to: "/produtos", label: "Produtos" },
