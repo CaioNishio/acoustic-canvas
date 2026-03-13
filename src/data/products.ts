@@ -1234,7 +1234,7 @@ export const products: Product[] = [
   {
     slug: "revestimento-ripado",
     name: "Revestimento Ripado: Estética e Absorção Integrada",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "Revestimento",
     application: ["Residencial", "Corporativo", "Auditório"],
     material: "Madeira",
