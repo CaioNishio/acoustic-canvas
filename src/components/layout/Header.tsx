@@ -133,7 +133,7 @@ export default function Header() {
           </Link>
 
           {/* Nav - center */}
-          <nav className="hidden lg:flex flex-row items-center gap-1 lg:gap-2">
+          <nav className="hidden md:flex flex-row items-center gap-1 md:gap-1.5 lg:gap-2">
             <div onMouseEnter={() => openMenu("produtos")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("produtos")}>Produto</button>
             </div>
