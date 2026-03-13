@@ -736,7 +736,7 @@ export const products: Product[] = [
 
   {
     slug: "porta-acustica-dupla",
-    name: "Porta Acústica Dupla",
+    name: "Porta Acústica Dupla: Isolamento de Alta Performance",
     category: "Portas & Cortinas",
     application: ["Estúdio", "Auditório"],
     material: "Madeira",
