@@ -475,7 +475,7 @@ export const products: Product[] = [
   // ── NUVENS ACÚSTICAS ────────────────────────────────────────
   {
     slug: "nuvem-acustica-snr3250",
-    name: "Nuvem Acústica SNR3250",
+    name: "Nuvem Acústica SNR3250: Absorção Suspensa",
     category: "Nuvens Acústicas",
     application: ["Estúdio", "Igreja", "Auditório", "Corporativo", "Restaurante"],
     material: "Lã de Rocha",
