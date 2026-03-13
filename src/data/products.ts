@@ -1069,7 +1069,7 @@ export const products: Product[] = [
 
   {
     slug: "tapetes-acusticos",
-    name: "Tapetes Acústicos",
+    name: "Tapete Acústico: Absorção Complementar de Piso",
     category: "Acessórios & Suportes",
     application: ["Estúdio", "Residencial", "Home Theater"],
     material: "Tecido",
