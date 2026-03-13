@@ -254,7 +254,7 @@ export const products: Product[] = [
 
   {
     slug: "painel-moldura-madeira",
-    name: "Painel com Moldura em Madeira",
+    name: "Painel Acústico: Moldura em Madeira Premium",
     category: "Painéis Acústicos",
     subcategory: "Premium",
     application: ["Residencial", "Corporativo", "Restaurante"],
