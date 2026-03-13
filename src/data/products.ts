@@ -369,7 +369,7 @@ export const products: Product[] = [
   {
     slug: "painel-triangular-3s",
     name: "Painel Triangular 3S: Composição Modular",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     application: ["Estúdio", "Corporativo"],
     material: "Lã de Rocha",
     thickness: "50mm",
