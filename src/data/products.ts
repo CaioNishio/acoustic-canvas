@@ -146,7 +146,7 @@ export const products: Product[] = [
   // ── PAINÉIS ACÚSTICOS ───────────────────────────────────────
   {
     slug: "painel-acustico-snr3250",
-    name: "Painel Acústico SNR3250 (High-Mid)",
+    name: "Painel Acústico SNR3250: Absorção High-Mid",
     category: "Painéis Acústicos",
     subcategory: "Absorção High-Mid",
     application: ["Estúdio", "Corporativo", "Residencial", "Podcast", "Home Theater"],
