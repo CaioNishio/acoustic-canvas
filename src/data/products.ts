@@ -881,7 +881,7 @@ export const products: Product[] = [
   {
     slug: "membrana-borracha",
     name: "Membrana de Borracha: Isolamento de Alta Massa",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Home Theater"],
     material: "Borracha",
     thickness: "Variável",
