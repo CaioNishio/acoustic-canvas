@@ -939,7 +939,7 @@ export const products: Product[] = [
   {
     slug: "piso-emborrachado",
     name: "Piso Emborrachado: Isolamento de Vibração",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Home Theater"],
     material: "Borracha",
     thickness: "Variável",
