@@ -193,7 +193,7 @@ export const products: Product[] = [
   {
     slug: "painel-acustico-snr6450",
     name: "Painel Acústico SNR6450: Absorção Low-Mid",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "Absorção Low-Mid",
     application: ["Estúdio", "Igreja", "Auditório", "Home Theater"],
     material: "Lã de Rocha",
