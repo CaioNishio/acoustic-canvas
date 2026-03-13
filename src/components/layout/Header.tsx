@@ -160,7 +160,7 @@ export default function Header() {
           </nav>
 
           {/* Right actions - desktop */}
-          <div className="hidden lg:flex flex-row items-center gap-2 flex-shrink-0">
+          <div className="hidden md:flex flex-row items-center gap-2 flex-shrink-0">
             <CartDrawer />
             <Link to="/loja" className="px-4 py-2 text-[13px] font-medium tracking-[0.15em] whitespace-nowrap text-white/90 hover:text-white transition-all duration-300 uppercase">
               Loja
