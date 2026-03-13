@@ -1013,7 +1013,7 @@ export const products: Product[] = [
 
   {
     slug: "velcro-50mm",
-    name: "Velcro 50mm para Fixação Acústica",
+    name: "Velcro 50mm: Fixação Removível para Painéis",
     category: "Acessórios & Suportes",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Tecido",
