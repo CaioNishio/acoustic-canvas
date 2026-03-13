@@ -36,7 +36,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 {nrcSpec && (
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-xs font-semibold text-primary">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    NRC {nrcSpec.value}
+                    NRC 0,85
                   </span>
                 )}
                 {diffSpec && (

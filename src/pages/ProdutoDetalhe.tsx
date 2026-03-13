@@ -75,8 +75,8 @@ export default function ProdutoDetalhePage() {
     <Layout>
       {/* Highlights strip — GIK style */}
       {product.highlights && product.highlights.length > 0 &&
-      <section className="border-b border-border px-[28px] py-[70px] mb-0 mr-0 bg-cyan-800">
-          <div className="container mx-auto px-4 py-[79px]">
+      <section className="border-b border-border py-10 bg-secondary/30">
+          <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {product.highlights.map((h) => {
               const Icon = highlightIcons[h.icon] || Volume2;
