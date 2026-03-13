@@ -623,7 +623,7 @@ export const products: Product[] = [
   {
     slug: "baffles-acusticos",
     name: "Baffle Acústico: Absorção Vertical Suspensa",
-    category: "Baffles & Forros",
+    category: "Tratamento Aéreo",
     application: ["Corporativo", "Igreja", "Auditório", "Restaurante"],
     material: "Lã de Rocha",
     thickness: "50mm",
