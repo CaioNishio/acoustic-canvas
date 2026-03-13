@@ -599,7 +599,7 @@ export const products: Product[] = [
 
   {
     slug: "difusor-bidimensional",
-    name: "Difusor Acústico Bidimensional",
+    name: "Difusor Bidimensional: Espalhamento Completo",
     category: "Difusores",
     application: ["Estúdio", "Auditório", "Corporativo"],
     material: "Madeira",
