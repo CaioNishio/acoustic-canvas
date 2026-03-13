@@ -714,7 +714,7 @@ export const products: Product[] = [
   // ── PORTAS & CORTINAS ───────────────────────────────────────
   {
     slug: "cortina-acustica-snr96c",
-    name: "Cortina Acústica SNR96C (Vedação Completa)",
+    name: "Cortina Acústica SNR96C: Vedação e Isolamento",
     category: "Portas & Cortinas",
     application: ["Estúdio", "Igreja", "Auditório", "Home Theater"],
     material: "Tecido",
