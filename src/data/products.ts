@@ -796,7 +796,7 @@ export const products: Product[] = [
   // ── MATÉRIA-PRIMA ───────────────────────────────────────────
   {
     slug: "la-de-rocha-d32",
-    name: "Lã de Rocha — Densidade 32 kg/m³",
+    name: "Lã de Rocha D32: Absorção High-Mid",
     category: "Matéria-Prima",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Lã de Rocha",
