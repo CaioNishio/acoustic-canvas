@@ -554,7 +554,7 @@ export const products: Product[] = [
   {
     slug: "difusor-qrd",
     name: "Difusor QRD: Espalhamento Unidimensional",
-    category: "Difusores",
+    category: "Difusão Sonora",
     application: ["Estúdio", "Auditório", "Corporativo"],
     material: "Madeira",
     thickness: "75mm",
