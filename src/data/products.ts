@@ -84,18 +84,18 @@ export interface Product {
 export const productColors = fabricColors;
 
 export const categories = [
-  "Painéis Acústicos",
-  "Nuvens Acústicas",
-  "Bass Traps",
-  "Difusores",
-  "Painéis Especiais",
-  "Biombos Acústicos",
-  "Baffles & Forros",
-  "Portas & Cortinas",
-  "Matéria-Prima",
-  "Acessórios & Suportes",
-  "Kits Completos",
-  "Serviços",
+  "Absorção Acústica",
+  "Absorção Suspensa",
+  "Controle de Graves",
+  "Difusão Sonora",
+  "Soluções Especiais",
+  "Isolamento Móvel",
+  "Tratamento Aéreo",
+  "Isolamento Acústico",
+  "Insumos Técnicos",
+  "Fixação & Suportes",
+  "Kits de Tratamento",
+  "Consultoria & Projetos",
 ];
 
 export const applications = ["Estúdio", "Igreja", "Auditório", "Corporativo", "Residencial", "Home Theater", "Podcast", "Restaurante"];

@@ -15,22 +15,22 @@ import imgDifusor from "@/assets/gallery/difusor-skyline-produto.jpg";
 import imgBassTrap from "@/assets/gallery/bass-trap-corner-1.jpg";
 type MenuKey = "produtos" | "espacos" | "recursos" | "sobre" | null;
 const productCategories = [{
-  label: "Painéis Acústicos",
+  label: "Absorção Acústica",
   path: "/produtos"
 }, {
-  label: "Bass Traps",
+  label: "Controle de Graves",
   path: "/produtos"
 }, {
-  label: "Difusores",
+  label: "Difusão Sonora",
   path: "/produtos"
 }, {
-  label: "Painéis MDF Vazado",
+  label: "Soluções Especiais",
   path: "/produtos"
 }, {
-  label: "Forros Acústicos",
+  label: "Tratamento Aéreo",
   path: "/produtos"
 }, {
-  label: "Revestimentos",
+  label: "Isolamento Acústico",
   path: "/produtos"
 }];
 const productHighlights = [{
