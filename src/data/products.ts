@@ -693,7 +693,7 @@ export const products: Product[] = [
   {
     slug: "biombo-acustico-cavalete",
     name: "Biombo Acústico Cavalete: Divisória Independente",
-    category: "Biombos Acústicos",
+    category: "Isolamento Móvel",
     application: ["Corporativo", "Estúdio", "Podcast"],
     material: "Lã de Rocha",
     thickness: "50mm",
