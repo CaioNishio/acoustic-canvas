@@ -413,7 +413,7 @@ export const products: Product[] = [
   {
     slug: "painel-led-fosco",
     name: "Painel Acústico: LED Fosco Integrado",
-    category: "Painéis Especiais",
+    category: "Soluções Especiais",
     subcategory: "LED",
     application: ["Corporativo", "Residencial", "Restaurante"],
     material: "Lã de Rocha",
