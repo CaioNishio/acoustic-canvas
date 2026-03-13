@@ -819,7 +819,7 @@ export const products: Product[] = [
   {
     slug: "la-de-rocha-d64",
     name: "Lã de Rocha D64: Absorção Low-Mid",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Home Theater", "Igreja"],
     material: "Lã de Rocha",
     thickness: "50mm",
