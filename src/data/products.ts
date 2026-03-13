@@ -993,7 +993,7 @@ export const products: Product[] = [
   // ── ACESSÓRIOS & SUPORTES ───────────────────────────────────
   {
     slug: "suportes-instalacao",
-    name: "Kit de Suportes para Instalação",
+    name: "Kit de Suporte: Fixação Universal",
     category: "Acessórios & Suportes",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Lã de Rocha",
