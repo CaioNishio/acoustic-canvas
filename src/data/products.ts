@@ -839,7 +839,7 @@ export const products: Product[] = [
 
   {
     slug: "la-de-rocha-d96",
-    name: "Lã de Rocha — Densidade 96 kg/m³",
+    name: "Lã de Rocha D96: Isolamento Broadband",
     category: "Matéria-Prima",
     application: ["Estúdio", "Home Theater"],
     material: "Lã de Rocha",
