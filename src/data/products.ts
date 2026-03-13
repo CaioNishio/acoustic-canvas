@@ -775,7 +775,7 @@ export const products: Product[] = [
 
   {
     slug: "painel-isolamento-d96",
-    name: "Painel para Isolar — D96 com GAP e MDF",
+    name: "Painel Isolante D96: Sistema Massa-Mola-Massa",
     category: "Portas & Cortinas",
     application: ["Estúdio", "Home Theater"],
     material: "Lã de Rocha",
