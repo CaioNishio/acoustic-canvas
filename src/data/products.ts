@@ -666,7 +666,7 @@ export const products: Product[] = [
   // ── BIOMBOS ACÚSTICOS ───────────────────────────────────────
   {
     slug: "biombo-acustico-retratil",
-    name: "Biombo Acústico Retrátil — 3 Folhas",
+    name: "Biombo Acústico Retrátil: Divisória Portátil 3 Folhas",
     category: "Biombos Acústicos",
     application: ["Corporativo", "Estúdio", "Podcast"],
     material: "Lã de Rocha",
