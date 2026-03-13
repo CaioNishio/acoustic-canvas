@@ -34,8 +34,29 @@ export default function ProdutoDetalhePage() {
   const [selectedColor, setSelectedColor] = useState<ProductColor | null>(null);
   const [mainImage, setMainImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const { addItem } = useQuoteCart();
+
+  // Auto-select first size on mount
+  const pricing = product ? productPrices[product?.slug || ""] : undefined;
+  const [selectedSize, setSelectedSize] = useState<string | null>(() => {
+    if (product?.sizes && product.sizes.length > 0) return product.sizes[0].label;
+    return null;
+  });
+
+  // Compute active price based on selected size
+  const activePrice = (() => {
+    if (!pricing) return 0;
+    if (!selectedSize || !pricing.sizes) return pricing.basePrice;
+    const selectedSizeData = product?.sizes?.find((s) => s.label === selectedSize);
+    if (!selectedSizeData) return pricing.basePrice;
+    const dimNumbers = selectedSizeData.dimensions.match(/\d+/g) || [];
+    const firstDim = dimNumbers[0] || "";
+    const sizePrice = pricing.sizes.find((sp) => {
+      const spNums = sp.dimensions.match(/\d+/g) || [];
+      return spNums[0] === firstDim;
+    });
+    return sizePrice?.price ?? pricing.basePrice;
+  })();
 
   if (!product) {
     return (
@@ -54,8 +75,8 @@ export default function ProdutoDetalhePage() {
     <Layout>
       {/* Highlights strip — GIK style */}
       {product.highlights && product.highlights.length > 0 &&
-      <section className="border-b border-border px-[28px] py-[70px] mb-0 mr-0 bg-cyan-800">
-          <div className="container mx-auto px-4 py-[79px]">
+      <section className="border-b border-border py-10 bg-secondary/30">
+          <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {product.highlights.map((h) => {
               const Icon = highlightIcons[h.icon] || Volume2;
@@ -110,50 +131,66 @@ export default function ProdutoDetalhePage() {
               </div>
               <h1 className="font-display text-3xl md:text-4xl font-bold mt-3 text-foreground">{product.name}</h1>
 
-              {/* Preço */}
-              {(() => {
-                const pricing = productPrices[product.slug];
-                if (!pricing || pricing.basePrice <= 0) return null;
-                return (
-                  <div className="mt-4 flex items-baseline gap-2">
-                    {pricing.sizes && pricing.sizes.length > 1 ?
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">A partir de</span> :
-                    null}
-                    <span className="text-3xl font-bold text-primary">{formatPrice(pricing.basePrice)}</span>
+              {/* Preço dinâmico */}
+              {pricing && pricing.basePrice > 0 && (
+                <motion.div
+                  key={activePrice}
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="mt-4 p-4 rounded-xl bg-primary/5 border border-primary/15"
+                >
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-bold text-primary">{formatPrice(activePrice)}</span>
                     <span className="text-sm text-muted-foreground">{unitLabel(pricing.unit)}</span>
-                  </div>);
-
-              })()}
+                  </div>
+                  {selectedSize && pricing.sizes && pricing.sizes.length > 1 && (
+                    <p className="text-xs text-muted-foreground mt-1">Preço para o tamanho selecionado</p>
+                  )}
+                </motion.div>
+              )}
 
               <p className="text-muted-foreground mt-4 leading-relaxed text-lg">{product.description}</p>
 
-              {/* Size Selector — GIK style */}
-              {product.sizes && product.sizes.length > 0 &&
-              <div className="mt-6">
-                  <h3 className="font-display font-semibold text-sm mb-3">Tamanhos Disponíveis</h3>
-                  <div className="flex flex-wrap gap-2">
+              {/* Size Selector */}
+              {product.sizes && product.sizes.length > 0 && (
+                <div className="mt-6">
+                  <h3 className="font-display font-semibold text-sm mb-3 flex items-center gap-2">
+                    <Ruler size={14} className="text-primary" /> Selecione o Tamanho
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {product.sizes.map((size) => {
-                    const pricing = productPrices[product.slug];
-                    const dimNumbers = size.dimensions.match(/\d+/g) || [];
-                    const firstDim = dimNumbers[0] || "";
-                    const sizePrice = pricing?.sizes?.find((sp) => {
-                      const spNums = sp.dimensions.match(/\d+/g) || [];
-                      return spNums[0] === firstDim;
-                    });
-                    return (
-                      <button
-                        key={size.label}
-                        onClick={() => setSelectedSize(selectedSize === size.label ? null : size.label)}
-                        className={`px-4 py-2.5 border-2 rounded-lg text-center transition-colors ${selectedSize === size.label ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"}`}>
+                      const dimNumbers = size.dimensions.match(/\d+/g) || [];
+                      const firstDim = dimNumbers[0] || "";
+                      const sizePrice = pricing?.sizes?.find((sp) => {
+                        const spNums = sp.dimensions.match(/\d+/g) || [];
+                        return spNums[0] === firstDim;
+                      });
+                      const isActive = selectedSize === size.label;
+                      return (
+                        <button
+                          key={size.label}
+                          onClick={() => setSelectedSize(size.label)}
+                          className={`relative px-4 py-3 border-2 rounded-xl text-center transition-all duration-200 ${isActive ? "border-primary bg-primary/5 shadow-md shadow-primary/10 scale-[1.02]" : "border-border hover:border-primary/40 hover:bg-muted/50"}`}
+                        >
+                          {isActive && (
+                            <span className="absolute top-1.5 right-1.5">
+                              <Check size={12} className="text-primary" />
+                            </span>
+                          )}
                           <p className="text-xs font-bold text-foreground">{size.label}</p>
-                          <p className="text-[10px] text-muted-foreground font-mono">{size.dimensions}</p>
-                          {sizePrice && <p className="text-xs font-bold text-primary mt-1">{formatPrice(sizePrice.price)}</p>}
-                        </button>);
-
-                  })}
+                          <p className="text-[10px] text-muted-foreground font-mono mt-0.5">{size.dimensions}</p>
+                          {sizePrice && (
+                            <p className={`text-xs font-bold mt-1.5 ${isActive ? "text-primary" : "text-muted-foreground"}`}>
+                              {formatPrice(sizePrice.price)}
+                            </p>
+                          )}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
-              }
+              )}
 
               {/* Color Selector */}
               {product.colors && product.colors.length > 0 &&
@@ -210,15 +247,7 @@ export default function ProdutoDetalhePage() {
               <div className="flex flex-wrap gap-3 mt-8">
                 <button
                   onClick={() => {
-                    const pricing = productPrices[product.slug];
                     const selectedSizeData = product.sizes?.find((s) => s.label === selectedSize);
-                    const dimNumbers = selectedSizeData?.dimensions.match(/\d+/g) || [];
-                    const firstDim = dimNumbers[0] || "";
-                    const sizePrice = pricing?.sizes?.find((sp) => {
-                      const spNums = sp.dimensions.match(/\d+/g) || [];
-                      return spNums[0] === firstDim;
-                    });
-                    const price = sizePrice?.price ?? pricing?.basePrice ?? 0;
                     addItem({
                       slug: product.slug,
                       name: product.name,
@@ -226,7 +255,7 @@ export default function ProdutoDetalhePage() {
                       size: selectedSizeData?.dimensions || undefined,
                       color: selectedColor?.name || undefined,
                       colorHex: selectedColor?.hex || undefined,
-                      unitPrice: price,
+                      unitPrice: activePrice,
                       unit: pricing?.unit || "un"
                     });
                   }}
