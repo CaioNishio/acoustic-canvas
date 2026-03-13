@@ -1088,7 +1088,7 @@ export const products: Product[] = [
   // ── KITS COMPLETOS ──────────────────────────────────────────
   {
     slug: "kit-estudio-classic",
-    name: "Kit Estúdio Classic",
+    name: "Kit Classic: Tratamento Acústico Essencial",
     category: "Kits Completos",
     application: ["Estúdio", "Podcast", "Home Theater"],
     material: "Lã de Rocha",
