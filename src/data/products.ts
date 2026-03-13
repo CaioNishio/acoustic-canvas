@@ -346,7 +346,7 @@ export const products: Product[] = [
 
   {
     slug: "painel-circle-360",
-    name: "Painel Circle 360 SNR3250",
+    name: "Painel Circle 360°: Absorção Omnidirecional",
     category: "Painéis Especiais",
     application: ["Corporativo", "Residencial", "Restaurante"],
     material: "Lã de Rocha",
