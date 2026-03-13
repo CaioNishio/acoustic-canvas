@@ -298,7 +298,7 @@ export const products: Product[] = [
 
   {
     slug: "painel-mdf-vazado",
-    name: "Painel com MDF Vazado Frontal",
+    name: "Painel Acústico: MDF Vazado Frontal",
     category: "Painéis Acústicos",
     subcategory: "MDF Vazado",
     application: ["Estúdio", "Corporativo", "Residencial", "Auditório"],
