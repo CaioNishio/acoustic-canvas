@@ -797,7 +797,7 @@ export const products: Product[] = [
   {
     slug: "la-de-rocha-d32",
     name: "Lã de Rocha D32: Absorção High-Mid",
-    category: "Matéria-Prima",
+    category: "Insumos Técnicos",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Lã de Rocha",
     thickness: "50mm",
