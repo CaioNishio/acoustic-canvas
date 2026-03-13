@@ -247,15 +247,7 @@ export default function ProdutoDetalhePage() {
               <div className="flex flex-wrap gap-3 mt-8">
                 <button
                   onClick={() => {
-                    const pricing = productPrices[product.slug];
                     const selectedSizeData = product.sizes?.find((s) => s.label === selectedSize);
-                    const dimNumbers = selectedSizeData?.dimensions.match(/\d+/g) || [];
-                    const firstDim = dimNumbers[0] || "";
-                    const sizePrice = pricing?.sizes?.find((sp) => {
-                      const spNums = sp.dimensions.match(/\d+/g) || [];
-                      return spNums[0] === firstDim;
-                    });
-                    const price = sizePrice?.price ?? pricing?.basePrice ?? 0;
                     addItem({
                       slug: product.slug,
                       name: product.name,
@@ -263,7 +255,7 @@ export default function ProdutoDetalhePage() {
                       size: selectedSizeData?.dimensions || undefined,
                       color: selectedColor?.name || undefined,
                       colorHex: selectedColor?.hex || undefined,
-                      unitPrice: price,
+                      unitPrice: activePrice,
                       unit: pricing?.unit || "un"
                     });
                   }}
