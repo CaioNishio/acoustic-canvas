@@ -131,20 +131,24 @@ export default function ProdutoDetalhePage() {
               </div>
               <h1 className="font-display text-3xl md:text-4xl font-bold mt-3 text-foreground">{product.name}</h1>
 
-              {/* Preço */}
-              {(() => {
-                const pricing = productPrices[product.slug];
-                if (!pricing || pricing.basePrice <= 0) return null;
-                return (
-                  <div className="mt-4 flex items-baseline gap-2">
-                    {pricing.sizes && pricing.sizes.length > 1 ?
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">A partir de</span> :
-                    null}
-                    <span className="text-3xl font-bold text-primary">{formatPrice(pricing.basePrice)}</span>
+              {/* Preço dinâmico */}
+              {pricing && pricing.basePrice > 0 && (
+                <motion.div
+                  key={activePrice}
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="mt-4 p-4 rounded-xl bg-primary/5 border border-primary/15"
+                >
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-bold text-primary">{formatPrice(activePrice)}</span>
                     <span className="text-sm text-muted-foreground">{unitLabel(pricing.unit)}</span>
-                  </div>);
-
-              })()}
+                  </div>
+                  {selectedSize && pricing.sizes && pricing.sizes.length > 1 && (
+                    <p className="text-xs text-muted-foreground mt-1">Preço para o tamanho selecionado</p>
+                  )}
+                </motion.div>
+              )}
 
               <p className="text-muted-foreground mt-4 leading-relaxed text-lg">{product.description}</p>
 
