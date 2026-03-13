@@ -255,7 +255,7 @@ export const products: Product[] = [
   {
     slug: "painel-moldura-madeira",
     name: "Painel Acústico: Moldura em Madeira Premium",
-    category: "Painéis Acústicos",
+    category: "Absorção Acústica",
     subcategory: "Premium",
     application: ["Residencial", "Corporativo", "Restaurante"],
     material: "Lã de Rocha",
