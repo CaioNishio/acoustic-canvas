@@ -938,7 +938,7 @@ export const products: Product[] = [
 
   {
     slug: "piso-emborrachado",
-    name: "Piso Emborrachado",
+    name: "Piso Emborrachado: Isolamento de Vibração",
     category: "Matéria-Prima",
     application: ["Estúdio", "Home Theater"],
     material: "Borracha",
