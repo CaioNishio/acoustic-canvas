@@ -994,7 +994,7 @@ export const products: Product[] = [
   {
     slug: "suportes-instalacao",
     name: "Kit de Suporte: Fixação Universal",
-    category: "Acessórios & Suportes",
+    category: "Fixação & Suportes",
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Lã de Rocha",
     thickness: "Variável",
