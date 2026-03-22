@@ -35,6 +35,15 @@ import imgRaftsSuspensos from "@/assets/gallery/rafts-suspensos-industrial.jpg";
 import imgEscritorioColorido from "@/assets/gallery/escritorio-paineis-coloridos-grande.png";
 import imgRestauranteModerno from "@/assets/gallery/restaurante-forro-moderno.jpg";
 
+// Professional reference images
+import imgEscritorioNeutros from "@/assets/gallery/escritorio-paineis-neutros.jpg";
+import imgAuditorioPaineis from "@/assets/gallery/auditorio-paineis-acusticos.jpeg";
+import imgInstalacaoAmarelo from "@/assets/gallery/instalacao-painel-amarelo.jpeg";
+import imgMontagemFixadores from "@/assets/gallery/montagem-fixadores-detalhe.jpeg";
+import imgProdutorEstudio from "@/assets/gallery/produtor-musical-estudio.png";
+import imgEngenheiroMedicao from "@/assets/gallery/engenheiro-medicao-industrial.png";
+import imgSonometro from "@/assets/gallery/medicao-sonometro.webp";
+
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 const spaces = [
