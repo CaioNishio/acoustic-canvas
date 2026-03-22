@@ -259,10 +259,11 @@ Solicitar Atendimento
         <SoundWaveBackground variant="c" />
 
         <div className="container mx-auto px-6 relative z-10 border-sidebar-ring">
-          <motion.div {...fadeUp} className="text-center mb-16 backdrop-blur-2xl mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#bc6834] border-2 border-solid border-secondary rounded-none px-[118px] py-0">
+          <motion.div {...fadeUp} className="text-center mb-16 backdrop-blur-2xl mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#bc6834] border-2 border-solid rounded-none px-[118px] py-0 border-primary">
             <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
             <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-white">Etapas técnicas</h2>
-             <p className="mt-3 max-w-lg mx-auto text-white/50">Calculando... Projetando...Formalizando</p>
+            <p className="mt-3 max-w-lg mx-auto text-white/50">
+</p>
           </motion.div>
 
           <div className="space-y-8">
@@ -313,7 +314,7 @@ Solicitar Atendimento
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 border-sidebar rounded border-2">
               <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#a66026]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
                   <img src={imgRaftsSuspensos} alt="Rafts acústicos suspensos" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
