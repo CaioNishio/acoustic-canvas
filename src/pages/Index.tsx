@@ -117,13 +117,13 @@ const HomePage = () => {
         <div className="flex-1 flex items-center relative z-10 pt-40">
           <div className="container mx-auto px-8 md:px-16">
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
-              <p className="tracking-[0.3em] uppercase text-sm font-medium text-secondary mb-4">PROJETADO POR ESPECIALISTASE APROVADO POR PROFISSIONAIS
+              <p className="tracking-[0.3em] uppercase text-sm text-secondary mb-4 font-normal">PROJETADO POR ESPECIALISTASE APROVADO POR PROFISSIONAIS
 
               </p>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extralight leading-[1.08] tracking-[-0.04em] text-white shadow-2xl">Eleve a qualidade e o conforto acústico do ambiente 
+              <h1 className="text-4xl md:text-6xl font-display leading-[1.08] tracking-[-0.04em] text-white shadow-none lg:text-5xl font-medium">Eleve a qualidade e o conforto acústico do ambiente 
                 <br />Espaços com<br />Acústica
               </h1>
-              <p className="mt-6 text-base md:text-lg font-light text-white/70 max-w-md leading-relaxed">Soluções Eficientes  para Controle de Ruídos Sonoros. 
+              <p className="mt-6 text-base md:text-lg text-white/70 max-w-md leading-relaxed font-extrabold text-left">Soluções Eficientes  para Controle de Ruídos Sonoros. 
 
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
