@@ -165,7 +165,7 @@ Solicitar Atendimento
       </div>
 
       {/* ===== Spaces ===== */}
-      <section className="relative py-12 bg-[hsl(210,20%,96%)] overflow-hidden">
+      <section className="relative py-12 overflow-hidden bg-neutral-500/[0.56] border-solid border-2 border-primary-foreground">
         <SoundWaveBackground variant="a" />
 
         <div className="container relative z-10 border-solid bg-neutral-500/0 border-0 px-0 mx-0 my-0 opacity-100 mb-[53px] rounded-sm">
@@ -209,7 +209,7 @@ Solicitar Atendimento
         <SoundWaveBackground variant="b" flip />
 
         <div className="relative py-14 border-[#0e4fc8] bg-[#07182c]">
-          <div className="container mx-auto relative z-10 border-[sidebar-primary-foreground] border-[#e6e6e6]/[0.91] bg-[sidebar-accent-foreground] py-[40px] px-[146px] bg-[#0e375d]/[0.51]">
+          <div className="container mx-auto relative z-10 border-[sidebar-primary-foreground] bg-[sidebar-accent-foreground] py-[40px] px-[146px] bg-[#0e375d]/[0.51] border-[#e6e6e6]">
             <motion.div {...fadeUp} className="backdrop-blur-2xl w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] rounded-md border-muted border-2 mb-[30px] mr-[174px] px-[106px] text-center py-[28px] my-0 font-thin font-mono text-xs bg-[#03111c]/[0.76] mx-0">
               <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
               <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white my-0">Nossos Projetos</h2>
