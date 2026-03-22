@@ -138,12 +138,12 @@ Solicitar Atendimento
         </div>
 
         <div className="relative z-10 bg-white/[0.04] backdrop-blur-xl border-t border-white/[0.08]">
-          <div className="container md:px-16 py-0 mx-0 px-0 my-0">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-xl">
+          <div className="container mx-auto px-8 md:px-16 py-3">
+            <div className="grid grid-cols-4 gap-6 max-w-xl">
               {stats.map((s) =>
-              <div key={s.label} className="px-2 border-white/[0.08] bg-white/[0.04] backdrop-blur-md shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] py-0 mx-0 border-4 rounded-2xl mb-[110px] mr-[38px] pb-[70px] my-[111px] md:px-0">
-                  <p className="text-xl text-white font-display font-light px-0 my-0 mx-0 text-center md:text-lg py-0">{s.value}</p>
-                  <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1 font-display px-0">{s.label}</p>
+              <div key={s.label} className="px-3 py-2 border border-white/[0.08] bg-white/[0.04] backdrop-blur-md rounded-lg">
+                  <p className="text-base text-white font-display font-light text-center">{s.value}</p>
+                  <p className="text-[10px] text-white/40 uppercase tracking-widest mt-0.5 font-display text-center">{s.label}</p>
                 </div>
               )}
             </div>
