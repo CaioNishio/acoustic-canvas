@@ -91,9 +91,9 @@ const processSteps = [
 
 const portfolioGrid = [
 { img: imgEscritorioColorido, label: "Escritório Corporativo", span: "md:col-span-2 md:row-span-2" },
-{ img: imgPaineisLaranja, label: "Painéis Acústicos", span: "" },
-{ img: heroMdf, label: "Painéis MDF Vazado", span: "" },
-{ img: imgRaftsSuspensos, label: "Rafts Suspensos", span: "md:col-span-2" },
+{ img: imgAuditorioPaineis, label: "Auditório — Painéis Acústicos", span: "" },
+{ img: imgProdutorEstudio, label: "Estúdio de Produção Musical", span: "" },
+{ img: imgMontagemFixadores, label: "Sistema de Fixação Profissional", span: "md:col-span-2" },
 { img: heroDifusores, label: "Difusores Skyline", span: "" },
 { img: imgTetoColorido, label: "Nuvens Coloridas", span: "" },
 { img: imgRestauranteModerno, label: "Forro Restaurante", span: "" },
