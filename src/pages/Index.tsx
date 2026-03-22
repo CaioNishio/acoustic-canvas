@@ -39,7 +39,7 @@ const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0
 
 const spaces = [
 { label: "Estúdios", path: "/solucoes/estudios", image: imgEstudioProfissional },
-{ label: "Templos  e Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
+{ label: "Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
 { label: "Auditórios", path: "/solucoes/auditorios", image: heroMdf },
 { label: "Corporativo", path: "/solucoes/corporativo", image: imgEscritorioColorido },
 { label: "Residencial", path: "/solucoes/residencial", image: imgTetoColorido }];
@@ -210,10 +210,10 @@ const HomePage = () => {
         <SoundWaveBackground variant="b" flip />
 
         <div className="relative py-14 border-muted-foreground">
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-6 relative z-10 border-[sidebar-primary-foreground] border-[#e6e6e6]/[0.91]">
             <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] px-8 py-6 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
               <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
-              <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">Modelos e Projetos</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">Nossos Projetos</h2>
               <p className="mt-3 max-w-lg mx-auto text-white/50">Ambientes reais transformados com soluções acústicas Sonar.</p>
             </motion.div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
@@ -257,7 +257,7 @@ const HomePage = () => {
       </div>
 
       {/* ===== Process ===== */}
-      <section className="relative py-14 bg-[hsl(210,20%,96%)] overflow-hidden">
+      <section className="relative py-14 bg-[hsl(210,20%,96%)] overflow-hidden border-destructive">
         <SoundWaveBackground variant="c" />
 
         <div className="container mx-auto px-6 relative z-10">
