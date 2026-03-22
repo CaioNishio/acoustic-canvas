@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Calculator, Ruler, Wrench, Palette, Star, CheckCircle } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import SoundWaveBackground from "@/components/shared/SoundWaveBackground";
 
 
 // All images use ES6 imports for Vite optimization pipeline
