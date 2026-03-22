@@ -15,33 +15,33 @@ import HomeEducacao from "@/components/home/HomeEducacao";
 import HomeMicroBenefits from "@/components/home/HomeMicroBenefits";
 
 // All images use ES6 imports for Vite optimization pipeline
-import classroomBaffles from "@/assets/gallery/classroom-baffles.jpeg";
-import heroEstudioAzul from "@/assets/gallery/hero-estudio-azul.png";
-import heroMdf from "@/assets/gallery/hero-mdf-vazado.jpg";
+import classroomBaffles from "@/assets/gallery/classroom-baffles.webp";
+import heroEstudioAzul from "@/assets/gallery/hero-estudio-azul.webp";
+import heroMdf from "@/assets/gallery/hero-mdf-vazado.webp";
 import heroDifusores from "@/assets/gallery/hero-difusores-madeira.jpg";
-import heroNuvens from "@/assets/gallery/hero-nuvens-acusticas.jpg";
-import heroForro from "@/assets/gallery/hero-forro-industrial.jpg";
+import heroNuvens from "@/assets/gallery/hero-nuvens-acusticas.webp";
+import heroForro from "@/assets/gallery/hero-forro-industrial.webp";
 import heroBafflesColor from "@/assets/gallery/hero-baffles-coloridos.jpeg";
-import heroBafflesAzuis from "@/assets/gallery/hero-baffles-azuis.jpg";
-import heroForroCorp from "@/assets/gallery/hero-forro-corporativo.jpg";
-import heroHomeStudio from "@/assets/gallery/hero-home-studio.jpeg";
+import heroBafflesAzuis from "@/assets/gallery/hero-baffles-azuis.webp";
+import heroForroCorp from "@/assets/gallery/hero-forro-corporativo.webp";
+import heroHomeStudio from "@/assets/gallery/hero-home-studio.webp";
 import heroEstudioDark from "@/assets/gallery/hero-estudio-dark.jpeg";
-import imgEstudio from "@/assets/gallery/estudio-paineis.jpeg";
-import imgSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.png";
+import imgEstudio from "@/assets/gallery/estudio-paineis.webp";
+import imgSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.webp";
 import imgNuvem from "@/assets/gallery/nuvem-acustica.webp";
-import imgEscritorio from "@/assets/gallery/escritorio-paineis.png";
-import imgAcademiaBaffles from "@/assets/gallery/academia-baffles.jpeg";
-import imgEscritorioAzuis from "@/assets/gallery/escritorio-paineis-azuis.jpeg";
+import imgEscritorio from "@/assets/gallery/escritorio-paineis.webp";
+import imgAcademiaBaffles from "@/assets/gallery/academia-baffles.webp";
+import imgEscritorioAzuis from "@/assets/gallery/escritorio-paineis-azuis.webp";
 import imgSalaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
 import imgPaineisSeminario from "@/assets/gallery/paineis-seminario.jpg";
-import imgHexagonais from "@/assets/gallery/hexagonais-teto.png";
+import imgHexagonais from "@/assets/gallery/hexagonais-teto.webp";
 
 // New uploaded images
 import imgPaineisLaranja from "@/assets/gallery/paineis-laranja-preto.jpg";
 import imgTetoColorido from "@/assets/gallery/paineis-teto-coloridos.jpg";
-import imgEstudioProfissional from "@/assets/gallery/estudio-profissional-vermelho.png";
+import imgEstudioProfissional from "@/assets/gallery/estudio-profissional-vermelho.webp";
 import imgRaftsSuspensos from "@/assets/gallery/rafts-suspensos-industrial.jpg";
-import imgEscritorioColorido from "@/assets/gallery/escritorio-paineis-coloridos-grande.png";
+import imgEscritorioColorido from "@/assets/gallery/escritorio-paineis-coloridos-grande.webp";
 import imgRestauranteModerno from "@/assets/gallery/restaurante-forro-moderno.jpg";
 
 // Professional reference images
@@ -49,8 +49,8 @@ import imgEscritorioNeutros from "@/assets/gallery/escritorio-paineis-neutros.jp
 import imgAuditorioPaineis from "@/assets/gallery/auditorio-paineis-acusticos.jpeg";
 import imgInstalacaoAmarelo from "@/assets/gallery/instalacao-painel-amarelo.jpeg";
 import imgMontagemFixadores from "@/assets/gallery/montagem-fixadores-detalhe.jpeg";
-import imgProdutorEstudio from "@/assets/gallery/produtor-musical-estudio.png";
-import imgEngenheiroMedicao from "@/assets/gallery/engenheiro-medicao-industrial.png";
+import imgProdutorEstudio from "@/assets/gallery/produtor-musical-estudio.webp";
+import imgEngenheiroMedicao from "@/assets/gallery/engenheiro-medicao-industrial.webp";
 import imgSonometro from "@/assets/gallery/medicao-sonometro.webp";
 
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
