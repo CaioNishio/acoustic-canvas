@@ -35,6 +35,15 @@ import imgRaftsSuspensos from "@/assets/gallery/rafts-suspensos-industrial.jpg";
 import imgEscritorioColorido from "@/assets/gallery/escritorio-paineis-coloridos-grande.png";
 import imgRestauranteModerno from "@/assets/gallery/restaurante-forro-moderno.jpg";
 
+// Professional reference images
+import imgEscritorioNeutros from "@/assets/gallery/escritorio-paineis-neutros.jpg";
+import imgAuditorioPaineis from "@/assets/gallery/auditorio-paineis-acusticos.jpeg";
+import imgInstalacaoAmarelo from "@/assets/gallery/instalacao-painel-amarelo.jpeg";
+import imgMontagemFixadores from "@/assets/gallery/montagem-fixadores-detalhe.jpeg";
+import imgProdutorEstudio from "@/assets/gallery/produtor-musical-estudio.png";
+import imgEngenheiroMedicao from "@/assets/gallery/engenheiro-medicao-industrial.png";
+import imgSonometro from "@/assets/gallery/medicao-sonometro.webp";
+
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 const spaces = [
@@ -50,7 +59,7 @@ const processSteps = [
   icon: Calculator,
   title: "Calculadora Acústica",
   desc: "Insira as dimensões do seu ambiente e receba uma recomendação inteligente de quantidade e tipo de material — com visualização 3D em tempo real.",
-  image: imgSalaReuniao,
+  image: imgSonometro,
   cta: "Testar Calculadora",
   path: "/calculadora"
 },
@@ -58,7 +67,7 @@ const processSteps = [
   icon: Ruler,
   title: "Medição & Projeto",
   desc: "Nossa equipe analisa o espaço, identifica os pontos críticos de reflexão e projeta a solução acústica ideal com base em normas técnicas.",
-  image: imgEstudioProfissional,
+  image: imgEngenheiroMedicao,
   cta: "Solicitar Análise",
   path: "/orcamento"
 },
@@ -66,7 +75,7 @@ const processSteps = [
   icon: Palette,
   title: "Personalização",
   desc: "Mais de 40 cores, acabamentos em tecido, MDF ou madeira natural. Cada projeto é único — combinando performance acústica e design de interiores.",
-  image: imgPaineisLaranja,
+  image: imgEscritorioNeutros,
   cta: "Ver Cores",
   path: "/produtos"
 },
@@ -74,7 +83,7 @@ const processSteps = [
   icon: Wrench,
   title: "Instalação Profissional",
   desc: "Instalação realizada por equipe especializada em todo o Brasil, com acabamento impecável e garantia de resultado acústico.",
-  image: imgRaftsSuspensos,
+  image: imgInstalacaoAmarelo,
   cta: "Fale Conosco",
   path: "/contato"
 }];
@@ -82,9 +91,9 @@ const processSteps = [
 
 const portfolioGrid = [
 { img: imgEscritorioColorido, label: "Escritório Corporativo", span: "md:col-span-2 md:row-span-2" },
-{ img: imgPaineisLaranja, label: "Painéis Acústicos", span: "" },
-{ img: heroMdf, label: "Painéis MDF Vazado", span: "" },
-{ img: imgRaftsSuspensos, label: "Rafts Suspensos", span: "md:col-span-2" },
+{ img: imgAuditorioPaineis, label: "Auditório — Painéis Acústicos", span: "" },
+{ img: imgProdutorEstudio, label: "Estúdio de Produção Musical", span: "" },
+{ img: imgMontagemFixadores, label: "Sistema de Fixação Profissional", span: "md:col-span-2" },
 { img: heroDifusores, label: "Difusores Skyline", span: "" },
 { img: imgTetoColorido, label: "Nuvens Coloridas", span: "" },
 { img: imgRestauranteModerno, label: "Forro Restaurante", span: "" },
@@ -305,7 +314,7 @@ Solicitar Atendimento
           <div className="container mx-auto px-6 bg-destructive-foreground">
             <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-4 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] opacity-100 bg-[#a66026]">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {[imgEstudioProfissional, imgEscritorioAzuis, imgPaineisLaranja, imgEscritorioColorido].map((img, i) =>
+                {[imgEstudioProfissional, imgAuditorioPaineis, imgInstalacaoAmarelo, imgEscritorioColorido].map((img, i) =>
                 <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
                     <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width={400} height={300} />
                     <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/20 transition-colors duration-500" />
@@ -317,18 +326,18 @@ Solicitar Atendimento
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 rounded border-0 border-secondary">
               <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#a66026]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
-                  <img src={imgRaftsSuspensos} alt="Rafts acústicos suspensos" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
+                  <img src={imgMontagemFixadores} alt="Sistema de fixação e montagem profissional" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
               <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] mt-6 md:mt-12 bg-[#a66026]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
-                  <img src={imgTetoColorido} alt="Painéis coloridos no teto" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
+                  <img src={imgProdutorEstudio} alt="Produtor musical em estúdio tratado acusticamente" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
             </div>
             <div className="mt-6 rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#0e375d]">
               <div className="rounded-2xl overflow-hidden aspect-[21/9]">
-                <img src={imgRestauranteModerno} alt="Forro acústico em restaurante moderno" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1200} height={514} />
+                <img src={imgAuditorioPaineis} alt="Auditório com tratamento acústico completo" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1200} height={514} />
               </div>
             </div>
           </div>
@@ -393,12 +402,12 @@ Solicitar Atendimento
               <motion.div {...fadeUp} className="hidden lg:grid grid-cols-2 gap-4">
                 <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
                   <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                    <img src={imgPaineisLaranja} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
+                    <img src={imgInstalacaoAmarelo} alt="Instalação de painel acústico" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
                   </div>
                 </div>
                 <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 mt-12 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
                   <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                    <img src={heroDifusores} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
+                    <img src={imgSonometro} alt="Medição acústica com sonômetro" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
                   </div>
                 </div>
               </motion.div>
