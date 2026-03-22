@@ -314,7 +314,7 @@ Solicitar Atendimento
           <div className="container mx-auto px-6 bg-destructive-foreground">
             <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-4 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] opacity-100 bg-[#a66026]">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {[imgEstudioProfissional, imgEscritorioAzuis, imgPaineisLaranja, imgEscritorioColorido].map((img, i) =>
+                {[imgEstudioProfissional, imgAuditorioPaineis, imgInstalacaoAmarelo, imgEscritorioColorido].map((img, i) =>
                 <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
                     <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width={400} height={300} />
                     <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/20 transition-colors duration-500" />
