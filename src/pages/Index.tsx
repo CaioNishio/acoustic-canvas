@@ -157,7 +157,7 @@ Solicitar Atendimento
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,80%,55%)]/30" />
           <div className="flex items-end gap-[2px]">
             {[4, 8, 14, 20, 14, 8, 4].map((h, i) =>
-            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(25,80%,50%)]/60 border-secondary-foreground font-semibold" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(25,80%,50%)]/60 font-semibold border-secondary-foreground" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
             )}
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(25,80%,55%)]/30" />
@@ -168,7 +168,7 @@ Solicitar Atendimento
       <section className="relative py-12 overflow-hidden bg-neutral-500/[0.56] border-solid border-2 border-primary-foreground">
         <SoundWaveBackground variant="a" />
 
-        <div className="container relative z-10 border-solid bg-neutral-500/0 border-0 px-0 mx-0 my-0 opacity-100 mb-[53px] rounded-sm">
+        <div className="container relative z-10 border-solid border-0 px-0 mx-0 my-0 opacity-100 mb-[53px] rounded-sm bg-neutral-500/0">
           <motion.div {...fadeUp} className="rounded-2xl backdrop-blur-2xl border border-white/[0.06] px-6 py-4 mb-10 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#0e375d]/[0.91]">
             <p className="text-center text-white/60 uppercase tracking-[0.3em] shadow-none font-mono text-lg font-light border-[sidebar-primary-foreground] border-card-foreground">SOLUÇÕES ESPECIALIZADAS PARA CADA AMBIENTE
 
@@ -259,15 +259,15 @@ Solicitar Atendimento
         <SoundWaveBackground variant="c" />
 
         <div className="container mx-auto px-6 relative z-10 border-sidebar-ring">
-          <motion.div {...fadeUp} className="text-center mb-16 backdrop-blur-2xl px-8 py-6 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#bc6834] rounded-sm border-2 border-primary">
+          <motion.div {...fadeUp} className="text-center mb-16 backdrop-blur-2xl mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#bc6834] border-2 border-solid border-secondary rounded-none px-[118px] py-0">
             <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
-            <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-white">Como Funciona</h2>
-            <p className="mt-3 max-w-lg mx-auto text-white/50">Da medição à instalação — um processo completo e transparente.</p>
+            <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-white">Etapas técnicas</h2>
+            <p className="mt-3 max-w-lg mx-auto text-white/50">
+</p>
           </motion.div>
 
           <div className="space-y-8">
-            {processSteps.map((step, i) =>
-            <motion.div
+            {processSteps.map((step, i) => <motion.div
               key={step.title}
               {...fadeUp}
               transition={{ delay: 0.1 }}
@@ -301,9 +301,9 @@ Solicitar Atendimento
       <section className="relative bg-[hsl(210,20%,96%)] overflow-hidden">
         <SoundWaveBackground variant="d" flip />
 
-        <div className="relative py-10">
-          <div className="container mx-auto px-6">
-            <div className="rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-4 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
+        <div className="relative py-10 border-4 border-primary-foreground bg-[#b16420]/45">
+          <div className="container mx-auto px-6 bg-destructive-foreground">
+            <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-4 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] opacity-100 bg-[#a66026]">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[imgEstudioProfissional, imgEscritorioAzuis, imgPaineisLaranja, imgEscritorioColorido].map((img, i) =>
                 <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
@@ -315,18 +315,18 @@ Solicitar Atendimento
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              <div className="rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
+              <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#a66026]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
                   <img src={imgRaftsSuspensos} alt="Rafts acústicos suspensos" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
-              <div className="rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] mt-6 md:mt-12">
+              <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] mt-6 md:mt-12 bg-[#a66026]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
                   <img src={imgTetoColorido} alt="Painéis coloridos no teto" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
             </div>
-            <div className="mt-6 rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
+            <div className="mt-6 rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#0e375d]">
               <div className="rounded-2xl overflow-hidden aspect-[21/9]">
                 <img src={imgRestauranteModerno} alt="Forro acústico em restaurante moderno" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1200} height={514} />
               </div>

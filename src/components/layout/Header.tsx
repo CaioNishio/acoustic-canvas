@@ -141,15 +141,15 @@ export default function Header() {
               <button className={navItemClass("espacos")}>Ambientes</button>
             </div>
             <div onMouseEnter={() => openMenu("recursos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("recursos")}>Calculadora técnica     </button>
+              <button className={navItemClass("recursos")}>Calculadora sonar        </button>
             </div>
             <div className="relative" onMouseEnter={() => openMenu("sobre")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("sobre")}>Sobre</button>
               <AnimatePresence>
                 {activeMenu === "sobre" && <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 4 }} transition={{ duration: 0.15 }} onMouseEnter={cancelClose} onMouseLeave={scheduleClose} className="absolute top-full left-0 mt-2 bg-white rounded-xl border border-border shadow-xl z-50 min-w-[200px] py-3 px-4">
-                    <ul className="space-y-1">
+                    <ul className="space-y-1 font-serif">
                       {sobreLinks.map((link) => <li key={link.label}>
-                          <Link to={link.path} onClick={() => setActiveMenu(null)} className="block py-1.5 text-sm text-[hsl(205,78%,15%)] hover:text-primary transition-colors font-medium">
+                          <Link to={link.path} onClick={() => setActiveMenu(null)} className="block py-1.5 text-[hsl(205,78%,15%)] hover:text-primary transition-colors font-medium text-base">
                             {link.label}
                           </Link>
                         </li>)}
