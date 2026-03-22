@@ -262,8 +262,7 @@ Solicitar Atendimento
           <motion.div {...fadeUp} className="text-center mb-16 backdrop-blur-2xl mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#bc6834] border-2 border-solid border-secondary rounded-none px-[118px] py-0">
             <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
             <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-white">Etapas técnicas</h2>
-            <p className="mt-3 max-w-lg mx-auto text-white/50">
-</p>
+             <p className="mt-3 max-w-lg mx-auto text-white/50">Calculando... Projetando...Formalizando</p>
           </motion.div>
 
           <div className="space-y-8">
