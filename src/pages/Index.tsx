@@ -168,7 +168,7 @@ Solicitar Atendimento
       <section className="relative py-12 bg-[hsl(210,20%,96%)] overflow-hidden">
         <SoundWaveBackground variant="a" />
 
-        <div className="container mx-auto px-6 relative z-10 bg-neutral-500/35 border-2 border-solid">
+        <div className="container relative z-10 border-solid bg-neutral-500/0 border-0 px-0 mx-0 my-0 opacity-100 mb-[53px] rounded-sm">
           <motion.div {...fadeUp} className="rounded-2xl backdrop-blur-2xl border border-white/[0.06] px-6 py-4 mb-10 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#0e375d]/[0.91]">
             <p className="text-center text-white/60 uppercase tracking-[0.3em] shadow-none font-mono text-lg font-light border-[sidebar-primary-foreground] border-card-foreground">SOLUÇÕES ESPECIALIZADAS PARA CADA AMBIENTE
 
@@ -271,7 +271,7 @@ Solicitar Atendimento
               key={step.title}
               {...fadeUp}
               transition={{ delay: 0.1 }}
-              className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-4 md:p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.10] transition-all bg-[#0e375d]">
+              className="rounded-3xl backdrop-blur-2xl p-4 md:p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] transition-all bg-[#0e375d] border-8 border-[#a66026]">
 
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
                   <div className={`overflow-hidden rounded-2xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
