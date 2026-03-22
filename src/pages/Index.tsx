@@ -117,14 +117,14 @@ const HomePage = () => {
         <div className="flex-1 flex items-center relative z-10 pt-40">
           <div className="container mx-auto px-8 md:px-16">
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
-              <p className="tracking-[0.3em] uppercase text-sm font-medium text-secondary mb-4">
-                Projetado por Especialistas
+              <p className="tracking-[0.3em] uppercase text-sm font-medium text-secondary mb-4">PROJETADO POR ESPECIALISTASE APROVADO POR PROFISSIONAIS
+
               </p>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extralight leading-[1.08] tracking-[-0.04em] text-white">
-                Transformamos<br />Espaços com<br />Acústica
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extralight leading-[1.08] tracking-[-0.04em] text-white shadow-2xl">Eleve a qualidade e o conforto acústico do ambiente 
+                <br />Espaços com<br />Acústica
               </h1>
-              <p className="mt-6 text-base md:text-lg font-light text-white/70 max-w-md leading-relaxed">
-                Do projeto à instalação — soluções acústicas de alto padrão para ambientes que exigem performance e estética.
+              <p className="mt-6 text-base md:text-lg font-light text-white/70 max-w-md leading-relaxed">Soluções Eficientes  para Controle de Ruídos Sonoros. 
+
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-semibold text-white border border-accent/50 bg-accent/20 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 shadow-lg shadow-accent/20 transition-all">
@@ -154,11 +154,11 @@ const HomePage = () => {
 
       {/* ===== Transition: Hero → Spaces ===== */}
       <div className="relative bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(210,20%,96%)] py-6">
-        <div className="flex items-center justify-center gap-3 px-8">
+        <div className="flex items-center justify-center gap-3 px-8 border-8 border-[#a7551b]/[0.41]">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,80%,55%)]/30" />
           <div className="flex items-end gap-[2px]">
             {[4, 8, 14, 20, 14, 8, 4].map((h, i) =>
-            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(25,80%,50%)]/60" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(25,80%,50%)]/60 border-secondary-foreground" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
             )}
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(25,80%,55%)]/30" />
@@ -170,9 +170,9 @@ const HomePage = () => {
         <SoundWaveBackground variant="a" />
 
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div {...fadeUp} className="rounded-2xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] px-6 py-4 mb-10 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
-            <p className="text-center text-white/60 uppercase tracking-[0.3em] text-sm font-display">
-              Soluções para cada ambiente
+          <motion.div {...fadeUp} className="rounded-2xl backdrop-blur-2xl border border-white/[0.06] px-6 py-4 mb-10 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#0e375d]/[0.91]">
+            <p className="text-center text-white/60 uppercase tracking-[0.3em] font-display shadow-none text-base font-medium">SOLUÇÕES ESPECIALIZADAS PARA CADA AMBIENTE
+
             </p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -194,7 +194,7 @@ const HomePage = () => {
 
       {/* ===== Transition: Spaces → Portfolio ===== */}
       <div className="relative py-4 bg-[hsl(210,20%,96%)] overflow-hidden">
-        <div className="flex items-center justify-center gap-3 px-8">
+        <div className="flex items-center justify-center gap-3 px-8 bg-[#f97415]/[0.44]">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,70%,55%)]/25" />
           <div className="flex items-end gap-[2px]">
             {[3, 6, 10, 6, 3].map((h, i) =>
@@ -209,7 +209,7 @@ const HomePage = () => {
       <section className="relative overflow-hidden bg-[hsl(210,20%,96%)]">
         <SoundWaveBackground variant="b" flip />
 
-        <div className="relative py-14">
+        <div className="relative py-14 border-muted-foreground">
           <div className="container mx-auto px-6 relative z-10">
             <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] px-8 py-6 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
               <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>

@@ -125,7 +125,7 @@ export default function Header() {
 
       {/* Main Nav — frosted glass */}
       <div className="bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_8px_32px_-8px_rgba(0,0,0,0.4)]">
-        <div className="max-w-screen-xl mx-auto h-16 lg:h-20 px-6 lg:px-10 flex flex-row items-center justify-between gap-4">
+        <div className="max-w-screen-xl h-16 lg:h-20 px-6 my-[13px] flex-row flex items-center justify-between gap-[20px] mx-0 lg:px-[77px] py-[41px] text-center bg-[#0e375d]">
 
           {/* Logo - left */}
           <Link to="/" className="flex items-center flex-shrink-0">
@@ -135,13 +135,13 @@ export default function Header() {
           {/* Nav - center */}
           <nav className="hidden md:flex flex-row items-center gap-1 md:gap-1.5 lg:gap-2">
             <div onMouseEnter={() => openMenu("produtos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("produtos")}>Produto</button>
+              <button className={navItemClass("produtos")}>Produtos</button>
             </div>
             <div onMouseEnter={() => openMenu("espacos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("espacos")}>Ambiente</button>
+              <button className={navItemClass("espacos")}>Ambientes</button>
             </div>
             <div onMouseEnter={() => openMenu("recursos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("recursos")}>Calculadora</button>
+              <button className={navItemClass("recursos")}>Calculadora técnica     </button>
             </div>
             <div className="relative" onMouseEnter={() => openMenu("sobre")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("sobre")}>Sobre</button>
