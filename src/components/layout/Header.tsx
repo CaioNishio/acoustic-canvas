@@ -141,7 +141,7 @@ export default function Header() {
               <button className={navItemClass("espacos")}>Ambientes</button>
             </div>
             <div onMouseEnter={() => openMenu("recursos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("recursos")}>Calculadora sonar        </button>
+              <button className={navItemClass("recursos")}>Calculadora Acústica</button>
             </div>
             <div className="relative" onMouseEnter={() => openMenu("sobre")} onMouseLeave={scheduleClose}>
               <button className={navItemClass("sobre")}>Sobre</button>
