@@ -99,7 +99,7 @@ const testimonials = [
 
 const stats = [
 { value: "700+", label: "Projetos" },
-{ value: "93%", label: "Satisfação" },
+{ value: "Frete", label: " TODO O BRASIL " },
 { value: "5", label: "Anos" },
 { value: "40+", label: "Cores" }];
 
@@ -120,18 +120,17 @@ const HomePage = () => {
               <p className="tracking-[0.3em] uppercase text-sm text-secondary mb-4 font-normal border-primary-foreground">PROJETADO POR ESPECIALISTASE APROVADO POR PROFISSIONAIS
 
               </p>
-              <h1 className="text-4xl md:text-6xl font-display leading-[1.08] tracking-[-0.04em] text-white shadow-none lg:text-5xl font-medium">Eleve a qualidade e o conforto acústico do ambiente 
-<br />Espaços com<br />Acústica
+              <h1 className="text-4xl md:text-6xl font-display leading-[1.08] tracking-[-0.04em] text-white shadow-none lg:text-5xl font-medium">Eleve a qualidade e o conforto acústico do ambiente 
               </h1>
               <p className="mt-6 text-base md:text-lg text-white/70 max-w-md leading-relaxed font-extrabold text-left mx-0 my-0 px-0">Soluções Eficientes  para Controle de Ruídos Sonoros. 
 
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 <Link to="/orcamento" className="inline-flex items-center gap-3 text-white backdrop-blur-md shadow-accent/20 transition-all font-sans text-lg shadow-none border-solid py-0 my-[5px] border-4 rounded-lg px-[42px] bg-muted-foreground border-card font-semibold">
-<ArrowRight size={16} />
+Solicitar Atendimento
                 </Link>
-                <Link to="/projetos" className="inline-flex items-center gap-3 text-white backdrop-blur-md transition-all shadow-md text-lg rounded-xl opacity-100 border-4 border-solid py-[14px] my-0 px-[42px] text-center font-bold bg-muted-foreground border-primary-foreground">
-                  Ver Portfólio
+                <Link to="/produtos" className="inline-flex items-center gap-3 text-white backdrop-blur-md transition-all shadow-md text-lg rounded-xl opacity-100 border-4 border-solid py-[14px] my-0 px-[42px] text-center font-bold bg-muted-foreground border-primary-foreground">
+                  Conferir Catálogo de Produtos
                 </Link>
               </div>
             </motion.div>
