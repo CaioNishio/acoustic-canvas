@@ -120,17 +120,17 @@ const HomePage = () => {
               <p className="tracking-[0.3em] uppercase text-sm text-secondary mb-4 font-normal border-primary-foreground">PROJETADO POR ESPECIALISTASE APROVADO POR PROFISSIONAIS
 
               </p>
-              <h1 className="text-4xl md:text-6xl font-display leading-[1.08] tracking-[-0.04em] text-white shadow-none lg:text-5xl font-medium">Eleve a qualidade e o conforto acústico do ambiente 
+              <h1 className="text-4xl md:text-6xl font-display leading-[1.08] tracking-[-0.04em] text-white shadow-none font-medium lg:text-6xl">Eleve a qualidade e o conforto acústico do ambiente 
               </h1>
-              <p className="mt-6 text-base md:text-lg text-white/70 max-w-md leading-relaxed font-extrabold text-left mx-0 my-0 px-0">Soluções Eficientes  para Controle de Ruídos Sonoros. 
+              <p className="mt-6 text-base md:text-lg max-w-md leading-relaxed text-left mx-0 my-0 px-0 text-muted font-normal">Soluções Eficientes  para Controle de Ruídos Sonoros. 
 
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
-                <Link to="/orcamento" className="inline-flex items-center gap-3 text-white backdrop-blur-md shadow-accent/20 transition-all font-sans text-lg shadow-none border-solid py-0 my-[5px] border-4 rounded-lg px-[42px] bg-muted-foreground border-card font-semibold">
+                <Link to="/orcamento" className="inline-flex items-center gap-3 text-white backdrop-blur-md shadow-accent/20 transition-all font-sans text-lg shadow-none border-solid py-0 my-[5px] px-[42px] border-card font-semibold border-2 rounded-2xl bg-neutral-500/[0.36]">
 Solicitar Atendimento
                 </Link>
-                <Link to="/produtos" className="inline-flex items-center gap-3 text-white backdrop-blur-md transition-all shadow-md text-lg rounded-xl opacity-100 border-4 border-solid py-[14px] my-0 px-[42px] text-center font-bold bg-muted-foreground border-primary-foreground">
-                  Conferir Catálogo de Produtos
+                <Link to="/produtos" className="inline-flex items-center gap-3 text-white backdrop-blur-md transition-all text-lg rounded-xl opacity-100 border-solid py-[14px] my-0 px-[42px] text-center font-bold border-primary-foreground bg-neutral-500/[0.34] border-2 shadow-none">Catálogo de Produtos
+
                 </Link>
               </div>
             </motion.div>
@@ -153,11 +153,11 @@ Solicitar Atendimento
 
       {/* ===== Transition: Hero → Spaces ===== */}
       <div className="relative bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(210,20%,96%)] py-6">
-        <div className="flex items-center justify-center gap-3 px-8 border-8 border-[#a7551b]/[0.41]">
+        <div className="px-8 gap-0 flex items-end justify-center border-2 opacity-85 border-[#042a76]">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,80%,55%)]/30" />
           <div className="flex items-end gap-[2px]">
             {[4, 8, 14, 20, 14, 8, 4].map((h, i) =>
-            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(25,80%,50%)]/60 border-secondary-foreground" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(25,80%,50%)]/60 border-secondary-foreground font-semibold" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
             )}
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(25,80%,55%)]/30" />
@@ -168,9 +168,9 @@ Solicitar Atendimento
       <section className="relative py-12 bg-[hsl(210,20%,96%)] overflow-hidden">
         <SoundWaveBackground variant="a" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10 bg-neutral-500/35 border-2 border-solid">
           <motion.div {...fadeUp} className="rounded-2xl backdrop-blur-2xl border border-white/[0.06] px-6 py-4 mb-10 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#0e375d]/[0.91]">
-            <p className="text-center text-white/60 uppercase tracking-[0.3em] font-display shadow-none text-base font-medium">SOLUÇÕES ESPECIALIZADAS PARA CADA AMBIENTE
+            <p className="text-center text-white/60 uppercase tracking-[0.3em] shadow-none font-mono text-lg font-light border-[sidebar-primary-foreground] border-card-foreground">SOLUÇÕES ESPECIALIZADAS PARA CADA AMBIENTE
 
             </p>
           </motion.div>
@@ -178,7 +178,7 @@ Solicitar Atendimento
             {spaces.map((space) =>
             <Link key={space.path} to={space.path} className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-[hsl(205,78%,6%)]/60 backdrop-blur-2xl border border-white/[0.06] p-1 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.12] transition-all hover:shadow-lg">
                 <img src={space.image} alt={space.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110 brightness-[0.5] group-hover:brightness-[0.4]" width={400} height={300} loading="lazy" decoding="async" />
-                <div className="absolute inset-1 rounded-xl bg-gradient-to-t from-[hsl(205,78%,8%)]/70 via-transparent to-transparent" />
+                <div className="absolute inset-1 bg-gradient-to-t from-[hsl(205,78%,8%)]/70 via-transparent to-transparent opacity-90 rounded-md border-4 border-solid" />
                 <div className="absolute bottom-1 left-1 right-1 p-3 bg-white/[0.06] backdrop-blur-xl border-t border-white/[0.08] rounded-b-xl">
                   <div className="flex items-end justify-between">
                     <h3 className="text-white text-sm md:text-base font-display font-normal drop-shadow-lg">{space.label}</h3>
@@ -208,16 +208,16 @@ Solicitar Atendimento
       <section className="relative overflow-hidden bg-[hsl(210,20%,96%)]">
         <SoundWaveBackground variant="b" flip />
 
-        <div className="relative py-14 border-destructive bg-[#c9641d]/[0.66]">
-          <div className="container mx-auto relative z-10 border-[sidebar-primary-foreground] border-[#e6e6e6]/[0.91] bg-[sidebar-accent-foreground] py-[40px] bg-[#0e375d] px-[146px]">
-            <motion.div {...fadeUp} className="mb-14 bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl px-8 w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] rounded-md border-8 border-muted mx-[240px] py-0 text-center font-light">
+        <div className="relative py-14 border-[#0e4fc8] bg-[#07182c]">
+          <div className="container mx-auto relative z-10 border-[sidebar-primary-foreground] border-[#e6e6e6]/[0.91] bg-[sidebar-accent-foreground] py-[40px] px-[146px] bg-[#0e375d]/[0.51]">
+            <motion.div {...fadeUp} className="backdrop-blur-2xl w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] rounded-md border-muted border-2 mb-[30px] mr-[174px] px-[106px] text-center py-[28px] my-0 font-thin font-mono text-xs bg-[#03111c]/[0.76] mx-0">
               <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
-              <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">Nossos Projetos</h2>
-              <p className="mt-3 max-w-lg mx-auto text-white/50">Ambientes reais transformados com soluções acústicas Sonar.</p>
+              <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white my-0">Nossos Projetos</h2>
+              <p className="mt-3 max-w-lg text-white/50 mx-0 py-0 my-0">
+</p>
             </motion.div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
-              {portfolioGrid.map((item, i) =>
-              <motion.div
+              {portfolioGrid.map((item, i) => <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -260,7 +260,7 @@ Solicitar Atendimento
         <SoundWaveBackground variant="c" />
 
         <div className="container mx-auto px-6 relative z-10 border-sidebar-ring">
-          <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl backdrop-blur-2xl border border-white/[0.06] px-8 py-6 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#bc6834]">
+          <motion.div {...fadeUp} className="text-center mb-16 backdrop-blur-2xl px-8 py-6 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#bc6834] rounded-sm border-2 border-primary">
             <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
             <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-white">Como Funciona</h2>
             <p className="mt-3 max-w-lg mx-auto text-white/50">Da medição à instalação — um processo completo e transparente.</p>
@@ -423,13 +423,13 @@ Solicitar Atendimento
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
               {testimonials.map((t, i) =>
-              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
+              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 backdrop-blur-2xl border border-white/[0.06] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#a66026]/80">
                   <div className="flex gap-1 mb-5">
                     {[...Array(5)].map((_, j) =>
                   <Star key={j} size={14} className="fill-yellow-400 text-yellow-400 bg-transparent" />
                   )}
                   </div>
-                  <p className="leading-relaxed italic text-white/60">"{t.text}"</p>
+                  <p className="leading-relaxed italic text-muted">"{t.text}"</p>
                   <div className="mt-6 pt-5 border-t border-white/[0.06]">
                     <p className="font-semibold text-white font-display">{t.name}</p>
                     <p className="text-xs text-white/40 mt-0.5">{t.role}</p>

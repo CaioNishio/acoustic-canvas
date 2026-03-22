@@ -111,11 +111,11 @@ export default function Header() {
         </div>
 
         <div className="container relative h-9 text-xs mx-auto flex items-center justify-between px-6 lg:px-10">
-          <div className="flex items-center gap-5 text-white/50">
+          <div className="flex items-center gap-[42px] opacity-100 mx-[20px] px-0 py-0 bg-black/0 my-[43px] text-muted">
             <a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors" aria-label="Instagram"><Instagram size={15} /></a>
             <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors" aria-label="WhatsApp"><WhatsAppIcon size={15} /></a>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 text-muted font-sans text-xs font-normal">
             <Phone size={12} className="text-white/40" />
             <span className="tracking-[0.2em] text-[11px] font-light text-white/50 uppercase">Consultoria Acústica Gratuita</span>
           </div>
