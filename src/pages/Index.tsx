@@ -38,8 +38,8 @@ import imgRestauranteModerno from "@/assets/gallery/restaurante-forro-moderno.jp
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 const spaces = [
-{ label: "Estúdios", path: "/solucoes/estudios", image: imgEstudioProfissional },
-{ label: "Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
+{ label: "Mixagem e Gravação", path: "/solucoes/estudios", image: imgEstudioProfissional },
+{ label: "Templos e Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
 { label: "Auditórios", path: "/solucoes/auditorios", image: heroMdf },
 { label: "Corporativo", path: "/solucoes/corporativo", image: imgEscritorioColorido },
 { label: "Residencial", path: "/solucoes/residencial", image: imgTetoColorido }];
@@ -213,8 +213,7 @@ Solicitar Atendimento
             <motion.div {...fadeUp} className="backdrop-blur-2xl w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] rounded-md border-muted border-2 mb-[30px] mr-[174px] px-[106px] text-center py-[28px] my-0 font-thin font-mono text-xs bg-[#03111c]/[0.76] mx-0">
               <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
               <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white my-0">Nossos Projetos</h2>
-              <p className="mt-3 max-w-lg text-white/50 mx-0 py-0 my-0">
-</p>
+               <p className="mt-3 max-w-lg text-white/50 mx-0 py-0 my-0">design sob medida</p>
             </motion.div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
               {portfolioGrid.map((item, i) => <motion.div
