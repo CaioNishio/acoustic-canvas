@@ -152,7 +152,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Hero → Spaces ===== */}
-      <div className="relative bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(210,35%,12%)] py-6">
+      <div className="relative bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(210,20%,96%)] py-6">
         <div className="flex items-center justify-center gap-3 px-8">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,80%,55%)]/30" />
           <div className="flex items-end gap-[2px]">
@@ -165,7 +165,7 @@ const HomePage = () => {
       </div>
 
       {/* ===== Spaces ===== */}
-      <section className="relative py-12 bg-[hsl(210,35%,12%)] overflow-hidden">
+      <section className="relative py-12 bg-[hsl(210,20%,96%)] overflow-hidden">
         {/* Background decorative elements — warm tones */}
         <div className="hidden md:block absolute top-6 right-[8%] w-72 h-72 rounded-full bg-[hsl(25,75%,50%)]/[0.08] blur-3xl" />
         <div className="hidden md:block absolute bottom-10 left-[5%] w-52 h-52 rounded-full bg-[hsl(210,50%,25%)]/[0.15] blur-2xl" />
@@ -201,7 +201,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Spaces → Portfolio ===== */}
-      <div className="relative py-4 bg-[hsl(210,35%,12%)] overflow-hidden">
+      <div className="relative py-4 bg-[hsl(210,20%,96%)] overflow-hidden">
         <div className="flex items-center justify-center gap-3 px-8">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,70%,55%)]/25" />
           <div className="flex items-end gap-[2px]">
@@ -214,7 +214,7 @@ const HomePage = () => {
       </div>
 
       {/* ===== Portfolio ===== */}
-      <section className="relative overflow-hidden bg-[hsl(210,35%,12%)]">
+      <section className="relative overflow-hidden bg-[hsl(210,20%,96%)]">
         {/* Background decorative — warm organic shapes */}
         <div className="hidden md:block absolute top-0 left-[12%] w-80 h-80 rounded-full bg-[hsl(25,75%,50%)]/[0.07] blur-3xl" />
         <div className="hidden md:block absolute bottom-0 right-[8%] w-96 h-96 rounded-full bg-[hsl(210,50%,25%)]/[0.10] blur-3xl" />
@@ -261,7 +261,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Portfolio → Process ===== */}
-      <div className="relative py-4 bg-[hsl(210,35%,12%)] overflow-hidden">
+      <div className="relative py-4 bg-[hsl(210,20%,96%)] overflow-hidden">
         <div className="flex items-center justify-center px-8">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,70%,55%)]/25" />
           <div className="mx-4 flex items-center gap-2">
@@ -274,7 +274,7 @@ const HomePage = () => {
       </div>
 
       {/* ===== Process ===== */}
-      <section className="relative py-14 bg-[hsl(210,35%,12%)] overflow-hidden">
+      <section className="relative py-14 bg-[hsl(210,20%,96%)] overflow-hidden">
         {/* Background decorative — warm accents */}
         <div className="hidden md:block absolute top-12 right-[6%] w-80 h-80 rounded-full bg-[hsl(25,75%,50%)]/[0.08] blur-3xl" />
         <div className="hidden md:block absolute bottom-16 left-[10%] w-64 h-64 rounded-full bg-[hsl(210,50%,25%)]/[0.15] blur-2xl" />
@@ -326,7 +326,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Gallery strip ===== */}
-      <section className="relative bg-[hsl(210,35%,12%)] overflow-hidden">
+      <section className="relative bg-[hsl(210,20%,96%)] overflow-hidden">
         {/* Background decorative — warm glow */}
         <div className="hidden md:block absolute top-10 left-[18%] w-56 h-56 rounded-full bg-[hsl(25,75%,50%)]/[0.07] blur-3xl" />
         <div className="hidden md:block absolute bottom-10 right-[12%] w-72 h-72 rounded-full bg-[hsl(210,50%,25%)]/[0.10] blur-3xl" />
@@ -371,7 +371,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Gallery → Why Us ===== */}
-      <div className="relative h-8 bg-gradient-to-b from-[hsl(210,35%,12%)] to-[hsl(205,78%,8%)]" />
+      <div className="relative h-8 bg-gradient-to-b from-[hsl(210,20%,96%)] to-[hsl(205,78%,8%)]" />
 
       {/* ===== Why us ===== */}
       <section className="relative overflow-hidden">
@@ -443,10 +443,10 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Why Us → Testimonials ===== */}
-      <div className="relative h-8 bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(210,35%,12%)]" />
+      <div className="relative h-8 bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(210,20%,96%)]" />
 
       {/* ===== Testimonials ===== */}
-      <section className="relative overflow-hidden bg-[hsl(210,35%,12%)]">
+      <section className="relative overflow-hidden bg-[hsl(210,20%,96%)]">
         {/* Background decorative — warm tones */}
         <div className="hidden md:block absolute top-8 left-[8%] w-64 h-64 rounded-full bg-[hsl(25,75%,50%)]/[0.08] blur-3xl" />
         <div className="hidden md:block absolute bottom-8 right-[6%] w-80 h-80 rounded-full bg-[hsl(210,50%,25%)]/[0.12] blur-3xl" />
@@ -484,7 +484,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Testimonials → CTA ===== */}
-      <div className="relative h-6 bg-gradient-to-b from-[hsl(210,35%,12%)] to-transparent" />
+      <div className="relative h-6 bg-gradient-to-b from-[hsl(210,20%,96%)] to-transparent" />
 
       {/* ===== CTA ===== */}
       <section className="relative py-32 px-6 overflow-hidden">
