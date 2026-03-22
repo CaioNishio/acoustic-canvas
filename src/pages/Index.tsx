@@ -157,7 +157,7 @@ const HomePage = () => {
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,80%,55%)]/30" />
           <div className="flex items-end gap-[2px]">
             {[4, 8, 14, 20, 14, 8, 4].map((h, i) =>
-            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(25,80%,55%)]/50" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(25,80%,50%)]/60" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
             )}
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(25,80%,55%)]/30" />
@@ -167,15 +167,15 @@ const HomePage = () => {
       {/* ===== Spaces ===== */}
       <section className="relative py-12 bg-[hsl(210,35%,12%)] overflow-hidden">
         {/* Background decorative elements — warm tones */}
-        <div className="hidden md:block absolute top-6 right-[8%] w-72 h-72 rounded-full bg-[hsl(25,70%,55%)]/[0.06] blur-3xl" />
-        <div className="hidden md:block absolute bottom-10 left-[5%] w-52 h-52 rounded-full bg-[hsl(15,65%,50%)]/[0.05] blur-2xl" />
-        <div className="hidden md:block absolute top-[10%] left-[30%] w-36 h-36 rounded-full bg-[hsl(35,80%,60%)]/[0.07] blur-2xl" />
-        <div className="hidden md:block absolute bottom-[25%] right-[18%] w-28 h-28 rounded-full bg-[hsl(205,60%,45%)]/[0.05] blur-xl" />
+        <div className="hidden md:block absolute top-6 right-[8%] w-72 h-72 rounded-full bg-[hsl(25,75%,50%)]/[0.08] blur-3xl" />
+        <div className="hidden md:block absolute bottom-10 left-[5%] w-52 h-52 rounded-full bg-[hsl(210,50%,25%)]/[0.15] blur-2xl" />
+        <div className="hidden md:block absolute top-[10%] left-[30%] w-36 h-36 rounded-full bg-[hsl(25,80%,50%)]/[0.10] blur-2xl" />
+        <div className="hidden md:block absolute bottom-[25%] right-[18%] w-28 h-28 rounded-full bg-[hsl(210,60%,30%)]/[0.12] blur-xl" />
         <div className="hidden md:block absolute top-1/2 left-0 w-28 h-px bg-gradient-to-r from-[hsl(25,70%,55%)]/30 to-transparent" />
-        <div className="hidden md:block absolute top-[20%] left-[15%] w-px h-28 bg-gradient-to-b from-transparent via-[hsl(25,70%,55%)]/20 to-transparent" />
+        <div className="hidden md:block absolute top-[20%] left-[15%] w-px h-28 bg-gradient-to-b from-transparent via-[hsl(25,80%,50%)]/25 to-transparent" />
         <div className="hidden md:block absolute bottom-[30%] right-[20%] w-px h-24 bg-gradient-to-b from-transparent via-[hsl(15,65%,50%)]/20 to-transparent" />
-        <div className="hidden md:block absolute top-[15%] right-[30%] w-3 h-3 rounded-full bg-[hsl(25,80%,55%)]/30" />
-        <div className="hidden md:block absolute bottom-[40%] left-[12%] w-2.5 h-2.5 rounded-full bg-[hsl(15,65%,50%)]/25" />
+        <div className="hidden md:block absolute top-[15%] right-[30%] w-3 h-3 rounded-full bg-[hsl(25,80%,50%)]/35" />
+        <div className="hidden md:block absolute bottom-[40%] left-[12%] w-2.5 h-2.5 rounded-full bg-[hsl(210,50%,30%)]/25" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div {...fadeUp} className="rounded-2xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] px-6 py-4 mb-10 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
@@ -216,15 +216,15 @@ const HomePage = () => {
       {/* ===== Portfolio ===== */}
       <section className="relative overflow-hidden bg-[hsl(210,35%,12%)]">
         {/* Background decorative — warm organic shapes */}
-        <div className="hidden md:block absolute top-0 left-[12%] w-80 h-80 rounded-full bg-[hsl(25,70%,55%)]/[0.05] blur-3xl" />
-        <div className="hidden md:block absolute bottom-0 right-[8%] w-96 h-96 rounded-full bg-[hsl(15,65%,50%)]/[0.04] blur-3xl" />
-        <div className="hidden md:block absolute top-[8%] right-[25%] w-44 h-44 rounded-full bg-[hsl(35,80%,60%)]/[0.06] blur-2xl" />
-        <div className="hidden md:block absolute bottom-[15%] left-[5%] w-32 h-32 rounded-full bg-[hsl(205,50%,50%)]/[0.04] blur-xl" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
-        <div className="hidden md:block absolute top-[5%] right-[15%] w-3 h-3 rounded-full bg-[hsl(25,80%,55%)]/25" />
-        <div className="hidden md:block absolute bottom-[10%] left-[20%] w-2.5 h-2.5 rounded-full bg-[hsl(15,65%,50%)]/20" />
-        <div className="hidden md:block absolute top-[70%] right-[35%] w-2 h-2 rounded-full bg-[hsl(35,80%,60%)]/20" />
+        <div className="hidden md:block absolute top-0 left-[12%] w-80 h-80 rounded-full bg-[hsl(25,75%,50%)]/[0.07] blur-3xl" />
+        <div className="hidden md:block absolute bottom-0 right-[8%] w-96 h-96 rounded-full bg-[hsl(210,50%,25%)]/[0.10] blur-3xl" />
+        <div className="hidden md:block absolute top-[8%] right-[25%] w-44 h-44 rounded-full bg-[hsl(25,80%,50%)]/[0.08] blur-2xl" />
+        <div className="hidden md:block absolute bottom-[15%] left-[5%] w-32 h-32 rounded-full bg-[hsl(210,60%,30%)]/[0.10] blur-xl" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,80%,50%)]/20 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,80%,50%)]/20 to-transparent" />
+        <div className="hidden md:block absolute top-[5%] right-[15%] w-3 h-3 rounded-full bg-[hsl(25,80%,50%)]/30" />
+        <div className="hidden md:block absolute bottom-[10%] left-[20%] w-2.5 h-2.5 rounded-full bg-[hsl(210,50%,30%)]/20" />
+        <div className="hidden md:block absolute top-[70%] right-[35%] w-2 h-2 rounded-full bg-[hsl(25,80%,50%)]/20" />
 
         <div className="relative py-14">
           <div className="container mx-auto px-6 relative z-10">
@@ -266,7 +266,7 @@ const HomePage = () => {
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,70%,55%)]/25" />
           <div className="mx-4 flex items-center gap-2">
             {[0.15, 0.25, 0.35, 0.25, 0.15].map((op, i) =>
-            <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(25 70% 55% / ${op})` }} />
+            <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(25 80% 50% / ${op})` }} />
             )}
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(25,70%,55%)]/25" />
@@ -276,15 +276,15 @@ const HomePage = () => {
       {/* ===== Process ===== */}
       <section className="relative py-14 bg-[hsl(210,35%,12%)] overflow-hidden">
         {/* Background decorative — warm accents */}
-        <div className="hidden md:block absolute top-12 right-[6%] w-80 h-80 rounded-full bg-[hsl(25,70%,55%)]/[0.06] blur-3xl" />
-        <div className="hidden md:block absolute bottom-16 left-[10%] w-64 h-64 rounded-full bg-[hsl(15,65%,50%)]/[0.05] blur-2xl" />
-        <div className="hidden md:block absolute top-[8%] left-[30%] w-40 h-40 rounded-full bg-[hsl(35,80%,60%)]/[0.07] blur-2xl" />
-        <div className="hidden md:block absolute top-[55%] right-[12%] w-32 h-32 rounded-full bg-[hsl(205,50%,50%)]/[0.04] blur-xl" />
+        <div className="hidden md:block absolute top-12 right-[6%] w-80 h-80 rounded-full bg-[hsl(25,75%,50%)]/[0.08] blur-3xl" />
+        <div className="hidden md:block absolute bottom-16 left-[10%] w-64 h-64 rounded-full bg-[hsl(210,50%,25%)]/[0.15] blur-2xl" />
+        <div className="hidden md:block absolute top-[8%] left-[30%] w-40 h-40 rounded-full bg-[hsl(25,80%,50%)]/[0.10] blur-2xl" />
+        <div className="hidden md:block absolute top-[55%] right-[12%] w-32 h-32 rounded-full bg-[hsl(210,60%,30%)]/[0.10] blur-xl" />
         <div className="hidden md:block absolute top-1/3 left-0 w-32 h-px bg-gradient-to-r from-[hsl(25,70%,55%)]/25 to-transparent" />
         <div className="hidden md:block absolute bottom-1/3 right-0 w-36 h-px bg-gradient-to-l from-[hsl(15,65%,50%)]/20 to-transparent" />
-        <div className="hidden md:block absolute top-[5%] right-[35%] w-3 h-3 rounded-full bg-[hsl(25,80%,55%)]/25" />
-        <div className="hidden md:block absolute top-[25%] left-[8%] w-2.5 h-2.5 rounded-full bg-[hsl(15,65%,50%)]/20" />
-        <div className="hidden md:block absolute bottom-[15%] right-[8%] w-2 h-2 rounded-full bg-[hsl(35,80%,60%)]/20" />
+        <div className="hidden md:block absolute top-[5%] right-[35%] w-3 h-3 rounded-full bg-[hsl(25,80%,50%)]/30" />
+        <div className="hidden md:block absolute top-[25%] left-[8%] w-2.5 h-2.5 rounded-full bg-[hsl(210,50%,30%)]/20" />
+        <div className="hidden md:block absolute bottom-[15%] right-[8%] w-2 h-2 rounded-full bg-[hsl(25,80%,50%)]/20" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] px-8 py-6 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
@@ -328,13 +328,13 @@ const HomePage = () => {
       {/* ===== Gallery strip ===== */}
       <section className="relative bg-[hsl(210,35%,12%)] overflow-hidden">
         {/* Background decorative — warm glow */}
-        <div className="hidden md:block absolute top-10 left-[18%] w-56 h-56 rounded-full bg-[hsl(25,70%,55%)]/[0.05] blur-3xl" />
-        <div className="hidden md:block absolute bottom-10 right-[12%] w-72 h-72 rounded-full bg-[hsl(15,65%,50%)]/[0.04] blur-3xl" />
-        <div className="hidden md:block absolute top-[15%] right-[30%] w-36 h-36 rounded-full bg-[hsl(35,80%,60%)]/[0.06] blur-2xl" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
-        <div className="hidden md:block absolute top-[5%] left-[40%] w-3 h-3 rounded-full bg-[hsl(25,80%,55%)]/25" />
-        <div className="hidden md:block absolute bottom-[15%] right-[25%] w-2.5 h-2.5 rounded-full bg-[hsl(15,65%,50%)]/20" />
+        <div className="hidden md:block absolute top-10 left-[18%] w-56 h-56 rounded-full bg-[hsl(25,75%,50%)]/[0.07] blur-3xl" />
+        <div className="hidden md:block absolute bottom-10 right-[12%] w-72 h-72 rounded-full bg-[hsl(210,50%,25%)]/[0.10] blur-3xl" />
+        <div className="hidden md:block absolute top-[15%] right-[30%] w-36 h-36 rounded-full bg-[hsl(25,80%,50%)]/[0.08] blur-2xl" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,80%,50%)]/20 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,80%,50%)]/20 to-transparent" />
+        <div className="hidden md:block absolute top-[5%] left-[40%] w-3 h-3 rounded-full bg-[hsl(25,80%,50%)]/30" />
+        <div className="hidden md:block absolute bottom-[15%] right-[25%] w-2.5 h-2.5 rounded-full bg-[hsl(210,50%,30%)]/20" />
 
         <div className="relative py-10">
           <div className="container mx-auto px-6">
@@ -448,14 +448,14 @@ const HomePage = () => {
       {/* ===== Testimonials ===== */}
       <section className="relative overflow-hidden bg-[hsl(210,35%,12%)]">
         {/* Background decorative — warm tones */}
-        <div className="hidden md:block absolute top-8 left-[8%] w-64 h-64 rounded-full bg-[hsl(25,70%,55%)]/[0.06] blur-3xl" />
-        <div className="hidden md:block absolute bottom-8 right-[6%] w-80 h-80 rounded-full bg-[hsl(15,65%,50%)]/[0.05] blur-3xl" />
-        <div className="hidden md:block absolute top-[10%] right-[20%] w-40 h-40 rounded-full bg-[hsl(35,80%,60%)]/[0.07] blur-2xl" />
-        <div className="hidden md:block absolute bottom-[18%] left-[15%] w-32 h-32 rounded-full bg-[hsl(205,50%,50%)]/[0.04] blur-xl" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
-        <div className="hidden md:block absolute top-[8%] left-[45%] w-3 h-3 rounded-full bg-[hsl(25,80%,55%)]/25" />
-        <div className="hidden md:block absolute bottom-[12%] right-[40%] w-2.5 h-2.5 rounded-full bg-[hsl(15,65%,50%)]/20" />
+        <div className="hidden md:block absolute top-8 left-[8%] w-64 h-64 rounded-full bg-[hsl(25,75%,50%)]/[0.08] blur-3xl" />
+        <div className="hidden md:block absolute bottom-8 right-[6%] w-80 h-80 rounded-full bg-[hsl(210,50%,25%)]/[0.12] blur-3xl" />
+        <div className="hidden md:block absolute top-[10%] right-[20%] w-40 h-40 rounded-full bg-[hsl(25,80%,50%)]/[0.10] blur-2xl" />
+        <div className="hidden md:block absolute bottom-[18%] left-[15%] w-32 h-32 rounded-full bg-[hsl(210,60%,30%)]/[0.10] blur-xl" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,80%,50%)]/20 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,80%,50%)]/20 to-transparent" />
+        <div className="hidden md:block absolute top-[8%] left-[45%] w-3 h-3 rounded-full bg-[hsl(25,80%,50%)]/30" />
+        <div className="hidden md:block absolute bottom-[12%] right-[40%] w-2.5 h-2.5 rounded-full bg-[hsl(210,50%,30%)]/20" />
 
         <div className="relative py-14 px-6">
           <div className="container mx-auto relative z-10">
