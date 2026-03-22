@@ -114,23 +114,23 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/75 via-[hsl(205,78%,8%)]/35 to-transparent" />
         </div>
 
-        <div className="flex-1 flex items-center relative z-10 pt-40">
+        <div className="flex-1 relative z-10 pt-40 flex items-center justify-start">
           <div className="container mx-auto px-8 md:px-16">
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="max-w-2xl">
-              <p className="tracking-[0.3em] uppercase text-sm text-secondary mb-4 font-normal">PROJETADO POR ESPECIALISTASE APROVADO POR PROFISSIONAIS
+              <p className="tracking-[0.3em] uppercase text-sm text-secondary mb-4 font-normal border-primary-foreground">PROJETADO POR ESPECIALISTASE APROVADO POR PROFISSIONAIS
 
               </p>
               <h1 className="text-4xl md:text-6xl font-display leading-[1.08] tracking-[-0.04em] text-white shadow-none lg:text-5xl font-medium">Eleve a qualidade e o conforto acústico do ambiente 
-                <br />Espaços com<br />Acústica
+<br />Espaços com<br />Acústica
               </h1>
-              <p className="mt-6 text-base md:text-lg text-white/70 max-w-md leading-relaxed font-extrabold text-left">Soluções Eficientes  para Controle de Ruídos Sonoros. 
+              <p className="mt-6 text-base md:text-lg text-white/70 max-w-md leading-relaxed font-extrabold text-left mx-0 my-0 px-0">Soluções Eficientes  para Controle de Ruídos Sonoros. 
 
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
-                <Link to="/orcamento" className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-semibold text-white border border-accent/50 bg-accent/20 backdrop-blur-md hover:bg-accent/35 hover:border-accent/70 shadow-lg shadow-accent/20 transition-all">
-                  Solicitar Orçamento <ArrowRight size={16} />
+                <Link to="/orcamento" className="inline-flex items-center gap-3 text-white backdrop-blur-md shadow-accent/20 transition-all font-sans text-lg shadow-none border-solid py-0 my-[5px] border-4 rounded-lg px-[42px] bg-muted-foreground border-card font-semibold">
+<ArrowRight size={16} />
                 </Link>
-                <Link to="/projetos" className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-semibold text-white border border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
+                <Link to="/projetos" className="inline-flex items-center gap-3 text-white backdrop-blur-md transition-all shadow-md text-lg rounded-xl opacity-100 border-4 border-solid py-[14px] my-0 px-[42px] text-center font-bold bg-muted-foreground border-primary-foreground">
                   Ver Portfólio
                 </Link>
               </div>
@@ -139,12 +139,12 @@ const HomePage = () => {
         </div>
 
         <div className="relative z-10 bg-white/[0.04] backdrop-blur-xl border-t border-white/[0.08]">
-          <div className="container mx-auto px-8 md:px-16 py-5">
+          <div className="container md:px-16 py-0 mx-0 px-0 my-0">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-xl">
               {stats.map((s) =>
-              <div key={s.label} className="text-center px-2 md:px-4 py-3 rounded-xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-md shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
-                  <p className="text-xl md:text-3xl font-bold text-white font-display">{s.value}</p>
-                  <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1 font-display">{s.label}</p>
+              <div key={s.label} className="px-2 border-white/[0.08] bg-white/[0.04] backdrop-blur-md shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] py-0 mx-0 border-4 rounded-2xl mb-[110px] mr-[38px] pb-[70px] my-[111px] md:px-0">
+                  <p className="text-xl text-white font-display font-light px-0 my-0 mx-0 text-center md:text-lg py-0">{s.value}</p>
+                  <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1 font-display px-0">{s.label}</p>
                 </div>
               )}
             </div>
@@ -193,8 +193,8 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Spaces → Portfolio ===== */}
-      <div className="relative py-4 bg-[hsl(210,20%,96%)] overflow-hidden">
-        <div className="flex items-center justify-center gap-3 px-8 bg-[#f97415]/[0.44]">
+      <div className="relative py-4 bg-[hsl(210,20%,96%)] overflow-hidden border-primary">
+        <div className="px-8 bg-[#f97415]/[0.44] flex-row flex items-end justify-center gap-[9px]">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,70%,55%)]/25" />
           <div className="flex items-end gap-[2px]">
             {[3, 6, 10, 6, 3].map((h, i) =>
@@ -209,9 +209,9 @@ const HomePage = () => {
       <section className="relative overflow-hidden bg-[hsl(210,20%,96%)]">
         <SoundWaveBackground variant="b" flip />
 
-        <div className="relative py-14 border-muted-foreground">
-          <div className="container mx-auto px-6 relative z-10 border-[sidebar-primary-foreground] border-[#e6e6e6]/[0.91]">
-            <motion.div {...fadeUp} className="text-center mb-14 rounded-2xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] px-8 py-6 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
+        <div className="relative py-14 border-destructive bg-[#c9641d]/[0.66]">
+          <div className="container mx-auto relative z-10 border-[sidebar-primary-foreground] border-[#e6e6e6]/[0.91] bg-[sidebar-accent-foreground] py-[40px] bg-[#0e375d] px-[146px]">
+            <motion.div {...fadeUp} className="mb-14 bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl px-8 w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] rounded-md border-8 border-muted mx-[240px] py-0 text-center font-light">
               <span className="text-secondary text-xs font-semibold tracking-[0.3em] uppercase">Portfólio</span>
               <h2 className="text-3xl md:text-4xl font-display font-normal mt-3 text-white">Nossos Projetos</h2>
               <p className="mt-3 max-w-lg mx-auto text-white/50">Ambientes reais transformados com soluções acústicas Sonar.</p>
@@ -257,11 +257,11 @@ const HomePage = () => {
       </div>
 
       {/* ===== Process ===== */}
-      <section className="relative py-14 bg-[hsl(210,20%,96%)] overflow-hidden border-destructive">
+      <section className="relative bg-[hsl(210,20%,96%)] overflow-hidden border-destructive px-0 py-0">
         <SoundWaveBackground variant="c" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] px-8 py-6 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
+        <div className="container mx-auto px-6 relative z-10 border-sidebar-ring">
+          <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl backdrop-blur-2xl border border-white/[0.06] px-8 py-6 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#bc6834]">
             <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
             <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-white">Como Funciona</h2>
             <p className="mt-3 max-w-lg mx-auto text-white/50">Da medição à instalação — um processo completo e transparente.</p>
@@ -273,7 +273,7 @@ const HomePage = () => {
               key={step.title}
               {...fadeUp}
               transition={{ delay: 0.1 }}
-              className="rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-4 md:p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.10] transition-all">
+              className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-4 md:p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.10] transition-all bg-[#0e375d]">
 
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
                   <div className={`overflow-hidden rounded-2xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
