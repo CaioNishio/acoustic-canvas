@@ -126,10 +126,10 @@ const HomePage = () => {
 
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
-                <Link to="/orcamento" className="inline-flex items-center gap-3 text-white backdrop-blur-md shadow-accent/20 transition-all font-sans text-lg shadow-none border-solid py-0 my-[5px] px-[42px] border-card font-semibold border-2 rounded-2xl bg-neutral-500/[0.36]">
+                <Link to="/orcamento" className="inline-flex items-center gap-3 text-white backdrop-blur-md shadow-accent/20 transition-all text-lg shadow-none border-solid my-[5px] border-card border-2 rounded-2xl bg-neutral-500/[0.36] px-[88px] py-[14px] font-bold font-sans">
 Solicitar Atendimento
                 </Link>
-                <Link to="/produtos" className="inline-flex items-center gap-3 text-white backdrop-blur-md transition-all text-lg rounded-xl opacity-100 border-solid py-[14px] my-0 px-[42px] text-center font-bold border-primary-foreground bg-neutral-500/[0.34] border-2 shadow-none">Catálogo de Produtos
+                <Link to="/produtos" className="inline-flex items-center gap-3 text-white backdrop-blur-md transition-all text-lg rounded-xl opacity-100 border-solid py-[14px] my-0 text-center font-bold border-primary-foreground bg-neutral-500/[0.34] border-2 shadow-none px-[88px] font-sans">Catálogo de Produtos
 
                 </Link>
               </div>
