@@ -271,7 +271,7 @@ Solicitar Atendimento
               key={step.title}
               {...fadeUp}
               transition={{ delay: 0.1 }}
-              className="rounded-3xl backdrop-blur-2xl p-4 md:p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] transition-all bg-[#0e375d] border-8 border-[#a66026]">
+              className="rounded-3xl backdrop-blur-2xl p-4 md:p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] transition-all bg-[#0e375d] border-neutral-500 border-2">
 
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
                   <div className={`overflow-hidden rounded-2xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
@@ -314,7 +314,7 @@ Solicitar Atendimento
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 border-sidebar rounded border-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 rounded border-0 border-secondary">
               <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#a66026]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
                   <img src={imgRaftsSuspensos} alt="Rafts acústicos suspensos" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
