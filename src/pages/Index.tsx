@@ -326,18 +326,18 @@ Solicitar Atendimento
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 rounded border-0 border-secondary">
               <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#a66026]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
-                  <img src={imgRaftsSuspensos} alt="Rafts acústicos suspensos" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
+                  <img src={imgMontagemFixadores} alt="Sistema de fixação e montagem profissional" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
               <div className="rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] mt-6 md:mt-12 bg-[#a66026]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
-                  <img src={imgTetoColorido} alt="Painéis coloridos no teto" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
+                  <img src={imgProdutorEstudio} alt="Produtor musical em estúdio tratado acusticamente" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
             </div>
             <div className="mt-6 rounded-3xl backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#0e375d]">
               <div className="rounded-2xl overflow-hidden aspect-[21/9]">
-                <img src={imgRestauranteModerno} alt="Forro acústico em restaurante moderno" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1200} height={514} />
+                <img src={imgAuditorioPaineis} alt="Auditório com tratamento acústico completo" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1200} height={514} />
               </div>
             </div>
           </div>
