@@ -1,7 +1,7 @@
-import academiaBaffles from "@/assets/gallery/academia-baffles.jpeg";
+import academiaBaffles from "@/assets/gallery/academia-baffles.webp";
 import academiaTeto from "@/assets/gallery/academia-teto.jpeg";
 import salaAulaBaffles from "@/assets/gallery/sala-aula-baffles.jpeg";
-import escritorioPaineis from "@/assets/gallery/escritorio-paineis.png";
+import escritorioPaineis from "@/assets/gallery/escritorio-paineis.webp";
 import paineisSuspensos from "@/assets/gallery/paineis-suspensos.webp";
 
 import estudioTratamento from "@/assets/gallery/estudio-tratamento-completo.png";
@@ -19,7 +19,7 @@ import igrejaVermelho from "@/assets/gallery/igreja-paineis-vermelho.jpg";
 import igrejaAuditorio from "@/assets/gallery/igreja-auditorio-azul.png";
 import igrejaTemplo from "@/assets/gallery/igreja-templo-paineis.png";
 import igrejaMadeira from "@/assets/gallery/igreja-templo-madeira.png";
-import igrejaSalaEscura from "@/assets/gallery/igreja-sala-escura.jpeg";
+import igrejaSalaEscura from "@/assets/gallery/igreja-sala-escura.webp";
 import igrejaColoridos from "@/assets/gallery/igreja-paineis-coloridos.png";
 import igrejaLateral from "@/assets/gallery/igreja-paineis-lateral.png";
 import igrejaGrandes from "@/assets/gallery/igreja-paineis-grandes.png";
