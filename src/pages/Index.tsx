@@ -129,7 +129,7 @@ const HomePage = () => {
                 <Link to="/orcamento" className="inline-flex items-center gap-3 text-white backdrop-blur-md shadow-accent/20 transition-all text-lg shadow-none border-solid my-[5px] border-card border-2 rounded-2xl bg-neutral-500/[0.36] px-[88px] py-[14px] font-bold font-sans">
 Solicitar Atendimento
                 </Link>
-                <Link to="/produtos" className="inline-flex items-center gap-3 text-white backdrop-blur-md transition-all text-lg rounded-xl opacity-100 border-solid py-[14px] my-0 text-center font-bold border-primary-foreground bg-neutral-500/[0.34] border-2 shadow-none px-[88px] font-sans">Catálogo de Produtos
+                <Link to="/produtos" className="inline-flex items-center gap-3 text-white backdrop-blur-md transition-all text-lg rounded-xl opacity-100 border-solid py-[14px] my-0 text-center font-bold border-primary-foreground border-2 shadow-none px-[88px] font-sans bg-neutral-500/0">Catálogo de Produtos
 
                 </Link>
               </div>
@@ -165,7 +165,7 @@ Solicitar Atendimento
       </div>
 
       {/* ===== Spaces ===== */}
-      <section className="relative py-12 overflow-hidden bg-neutral-500/[0.56] border-solid border-2 border-primary-foreground">
+      <section className="relative py-12 overflow-hidden border-solid border-2 border-primary-foreground bg-neutral-500/[0.12]">
         <SoundWaveBackground variant="a" />
 
         <div className="container relative z-10 border-solid border-0 px-0 mx-0 my-0 opacity-100 mb-[53px] rounded-sm bg-neutral-500/0">
@@ -224,8 +224,8 @@ Solicitar Atendimento
                 transition={{ delay: i * 0.05 }}
                 className={`relative group overflow-hidden rounded-2xl cursor-pointer bg-[hsl(205,78%,6%)]/60 backdrop-blur-2xl border border-white/[0.06] p-1.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] hover:border-white/[0.12] transition-all hover:shadow-lg ${item.span}`}>
 
-                  <img src={item.img} alt={item.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width={640} height={480} />
-                  <div className="absolute inset-1.5 rounded-xl bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/40 transition-colors duration-500" />
+                  <img src={item.img} alt={item.label} className="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110 border-neutral-500/0" loading="lazy" decoding="async" width={640} height={480} />
+                  <div className="absolute inset-1.5 rounded-xl transition-colors duration-500 border-secondary bg-[#041825]/0" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                     <span className="inline-block text-white font-semibold text-sm drop-shadow-lg bg-[hsl(205,78%,8%)]/70 backdrop-blur-xl border border-white/[0.1] rounded-lg px-3 py-1.5">{item.label}</span>
                   </div>
@@ -259,9 +259,9 @@ Solicitar Atendimento
         <SoundWaveBackground variant="c" />
 
         <div className="container mx-auto px-6 relative z-10 border-sidebar-ring">
-          <motion.div {...fadeUp} className="text-center mb-16 backdrop-blur-2xl mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#bc6834] border-2 border-solid rounded-none px-[118px] py-0 border-primary">
+          <motion.div {...fadeUp} className="text-center mb-16 backdrop-blur-2xl mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] border-2 border-solid rounded-none px-[118px] py-0 border-primary bg-muted-foreground">
             <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
-            <h2 className="text-3xl md:text-5xl font-display font-normal mt-3 text-white">Etapas técnicas</h2>
+            <h2 className="text-3xl font-display font-normal mt-3 text-white md:text-2xl">Etapas técnicas</h2>
             <p className="mt-3 max-w-lg mx-auto text-white/50">
 </p>
           </motion.div>
@@ -271,7 +271,7 @@ Solicitar Atendimento
               key={step.title}
               {...fadeUp}
               transition={{ delay: 0.1 }}
-              className="rounded-3xl backdrop-blur-2xl p-4 md:p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] transition-all bg-[#0e375d] border-neutral-500 border-2">
+              className="rounded-3xl backdrop-blur-2xl p-4 md:p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] transition-all border-neutral-500 border-2 bg-[#0e375d]">
 
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
                   <div className={`overflow-hidden rounded-2xl aspect-[16/10] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
@@ -284,7 +284,7 @@ Solicitar Atendimento
                       </div>
                       <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/40 font-display">Etapa {i + 1}</span>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-display font-normal text-white">{step.title}</h3>
+                    <h3 className="text-2xl font-display font-normal text-white md:text-2xl">{step.title}</h3>
                     <p className="mt-4 leading-relaxed text-white/60 text-lg">{step.desc}</p>
                     <Link to={step.path} className="inline-flex items-center gap-2 mt-7 text-secondary font-semibold text-sm hover:gap-3 transition-all font-display">
                       {step.cta} <ArrowRight size={16} />
@@ -422,7 +422,7 @@ Solicitar Atendimento
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
               {testimonials.map((t, i) =>
-              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 backdrop-blur-2xl border border-white/[0.06] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#a66026]/80">
+              <motion.div key={t.name} {...fadeUp} transition={{ delay: i * 0.1 }} className="rounded-2xl p-8 backdrop-blur-2xl border border-white/[0.06] hover:border-white/[0.12] transition-all hover:shadow-lg shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] bg-[#db7624]">
                   <div className="flex gap-1 mb-5">
                     {[...Array(5)].map((_, j) =>
                   <Star key={j} size={14} className="fill-yellow-400 text-yellow-400 bg-transparent" />
