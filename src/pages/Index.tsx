@@ -26,14 +26,22 @@ import imgSalaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
 import imgPaineisSeminario from "@/assets/gallery/paineis-seminario.jpg";
 import imgHexagonais from "@/assets/gallery/hexagonais-teto.png";
 
+// New uploaded images
+import imgPaineisLaranja from "@/assets/gallery/paineis-laranja-preto.jpg";
+import imgTetoColorido from "@/assets/gallery/paineis-teto-coloridos.jpg";
+import imgEstudioProfissional from "@/assets/gallery/estudio-profissional-vermelho.png";
+import imgRaftsSuspensos from "@/assets/gallery/rafts-suspensos-industrial.jpg";
+import imgEscritorioColorido from "@/assets/gallery/escritorio-paineis-coloridos-grande.png";
+import imgRestauranteModerno from "@/assets/gallery/restaurante-forro-moderno.jpg";
+
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 const spaces = [
-{ label: "Estúdios", path: "/solucoes/estudios", image: heroEstudioAzul },
+{ label: "Estúdios", path: "/solucoes/estudios", image: imgEstudioProfissional },
 { label: "Igrejas", path: "/solucoes/igrejas", image: imgNuvem },
 { label: "Auditórios", path: "/solucoes/auditorios", image: heroMdf },
-{ label: "Corporativo", path: "/solucoes/corporativo", image: heroForroCorp },
-{ label: "Residencial", path: "/solucoes/residencial", image: heroHomeStudio }];
+{ label: "Corporativo", path: "/solucoes/corporativo", image: imgEscritorioColorido },
+{ label: "Residencial", path: "/solucoes/residencial", image: imgTetoColorido }];
 
 
 const processSteps = [
@@ -49,7 +57,7 @@ const processSteps = [
   icon: Ruler,
   title: "Medição & Projeto",
   desc: "Nossa equipe analisa o espaço, identifica os pontos críticos de reflexão e projeta a solução acústica ideal com base em normas técnicas.",
-  image: imgEstudio,
+  image: imgEstudioProfissional,
   cta: "Solicitar Análise",
   path: "/orcamento"
 },
@@ -57,7 +65,7 @@ const processSteps = [
   icon: Palette,
   title: "Personalização",
   desc: "Mais de 40 cores, acabamentos em tecido, MDF ou madeira natural. Cada projeto é único — combinando performance acústica e design de interiores.",
-  image: heroDifusores,
+  image: imgPaineisLaranja,
   cta: "Ver Cores",
   path: "/produtos"
 },
@@ -65,21 +73,21 @@ const processSteps = [
   icon: Wrench,
   title: "Instalação Profissional",
   desc: "Instalação realizada por equipe especializada em todo o Brasil, com acabamento impecável e garantia de resultado acústico.",
-  image: heroBafflesColor,
+  image: imgRaftsSuspensos,
   cta: "Fale Conosco",
   path: "/contato"
 }];
 
 
 const portfolioGrid = [
-{ img: heroEstudioAzul, label: "Estúdio Musical", span: "md:col-span-2 md:row-span-2" },
-{ img: heroBafflesAzuis, label: "Baffles Suspensos", span: "" },
+{ img: imgEscritorioColorido, label: "Escritório Corporativo", span: "md:col-span-2 md:row-span-2" },
+{ img: imgPaineisLaranja, label: "Painéis Acústicos", span: "" },
 { img: heroMdf, label: "Painéis MDF Vazado", span: "" },
-{ img: heroForro, label: "Forro Industrial", span: "md:col-span-2" },
+{ img: imgRaftsSuspensos, label: "Rafts Suspensos", span: "md:col-span-2" },
 { img: heroDifusores, label: "Difusores Skyline", span: "" },
-{ img: heroNuvens, label: "Nuvens Acústicas", span: "" },
-{ img: heroForroCorp, label: "Forro Corporativo", span: "" },
-{ img: imgSalaTratamento, label: "Sala de Tratamento", span: "" }];
+{ img: imgTetoColorido, label: "Nuvens Coloridas", span: "" },
+{ img: imgRestauranteModerno, label: "Forro Restaurante", span: "" },
+{ img: imgEstudioProfissional, label: "Estúdio Profissional", span: "" }];
 
 
 const testimonials = [
@@ -101,8 +109,8 @@ const HomePage = () => {
       {/* ===== HERO ===== */}
       <section className="relative min-h-screen flex flex-col overflow-hidden -mt-[11.5rem]">
         <div className="absolute inset-0">
-          <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover object-[center_30%]" width={1920} height={1080} fetchPriority="high" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/80 via-[hsl(205,78%,8%)]/40 to-transparent" />
+          <img src={imgEscritorioColorido} alt="Tratamento acústico profissional" className="w-full h-full object-cover object-[center_50%]" width={1920} height={1080} fetchPriority="high" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/75 via-[hsl(205,78%,8%)]/35 to-transparent" />
         </div>
 
         <div className="flex-1 flex items-center relative z-10 pt-40">
@@ -144,30 +152,30 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Hero → Spaces ===== */}
-      <div className="relative bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(205,30%,95%)] py-6">
+      <div className="relative bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(30,15%,96%)] py-6">
         <div className="flex items-center justify-center gap-3 px-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,78%,10%)]/40" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,80%,55%)]/30" />
           <div className="flex items-end gap-[2px]">
             {[4, 8, 14, 20, 14, 8, 4].map((h, i) =>
-            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(205,78%,10%)]/45" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+            <motion.div key={i} className="w-[1.5px] rounded-full bg-[hsl(25,80%,55%)]/50" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
             )}
           </div>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,78%,10%)]/40" />
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(25,80%,55%)]/30" />
         </div>
       </div>
 
       {/* ===== Spaces ===== */}
-      <section className="relative py-12 bg-[hsl(205,30%,95%)] overflow-hidden">
-        {/* Background fills — glass style (hidden on mobile) */}
-        <div className="hidden md:block absolute top-6 right-[8%] w-72 h-72 rounded-full bg-[hsl(205,78%,6%)]/[0.25] backdrop-blur-xl border border-white/[0.06]" />
-        <div className="hidden md:block absolute bottom-10 left-[5%] w-52 h-52 rounded-full bg-[hsl(205,78%,6%)]/[0.20] backdrop-blur-xl border border-white/[0.05]" />
-        <div className="hidden md:block absolute top-[10%] left-[30%] w-36 h-36 rounded-full bg-[hsl(205,78%,6%)]/[0.15] backdrop-blur-lg border border-white/[0.06]" />
-        <div className="hidden md:block absolute bottom-[25%] right-[18%] w-28 h-28 rounded-full bg-[hsl(205,78%,6%)]/[0.12] backdrop-blur-lg border border-white/[0.05]" />
-        <div className="hidden md:block absolute top-1/2 left-0 w-28 h-px bg-gradient-to-r from-[hsl(205,50%,20%)]/[0.50] to-transparent" />
-        <div className="hidden md:block absolute top-[20%] left-[15%] w-px h-28 bg-gradient-to-b from-transparent via-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="hidden md:block absolute bottom-[30%] right-[20%] w-px h-24 bg-gradient-to-b from-transparent via-[hsl(205,50%,20%)]/[0.40] to-transparent" />
-        <div className="hidden md:block absolute top-[15%] right-[30%] w-3 h-3 rounded-full bg-[hsl(205,50%,20%)]/[0.55] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.15]" />
-        <div className="hidden md:block absolute bottom-[40%] left-[12%] w-2.5 h-2.5 rounded-full bg-[hsl(205,50%,20%)]/[0.50] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.12]" />
+      <section className="relative py-12 bg-gradient-to-br from-[hsl(30,15%,96%)] via-[hsl(25,12%,94%)] to-[hsl(35,18%,95%)] overflow-hidden">
+        {/* Background decorative elements — warm tones */}
+        <div className="hidden md:block absolute top-6 right-[8%] w-72 h-72 rounded-full bg-[hsl(25,70%,55%)]/[0.06] blur-3xl" />
+        <div className="hidden md:block absolute bottom-10 left-[5%] w-52 h-52 rounded-full bg-[hsl(15,65%,50%)]/[0.05] blur-2xl" />
+        <div className="hidden md:block absolute top-[10%] left-[30%] w-36 h-36 rounded-full bg-[hsl(35,80%,60%)]/[0.07] blur-2xl" />
+        <div className="hidden md:block absolute bottom-[25%] right-[18%] w-28 h-28 rounded-full bg-[hsl(205,60%,45%)]/[0.05] blur-xl" />
+        <div className="hidden md:block absolute top-1/2 left-0 w-28 h-px bg-gradient-to-r from-[hsl(25,70%,55%)]/30 to-transparent" />
+        <div className="hidden md:block absolute top-[20%] left-[15%] w-px h-28 bg-gradient-to-b from-transparent via-[hsl(25,70%,55%)]/20 to-transparent" />
+        <div className="hidden md:block absolute bottom-[30%] right-[20%] w-px h-24 bg-gradient-to-b from-transparent via-[hsl(15,65%,50%)]/20 to-transparent" />
+        <div className="hidden md:block absolute top-[15%] right-[30%] w-3 h-3 rounded-full bg-[hsl(25,80%,55%)]/30" />
+        <div className="hidden md:block absolute bottom-[40%] left-[12%] w-2.5 h-2.5 rounded-full bg-[hsl(15,65%,50%)]/25" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div {...fadeUp} className="rounded-2xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] px-6 py-4 mb-10 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
@@ -193,39 +201,30 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Spaces → Portfolio ===== */}
-      <div className="relative py-4 bg-[hsl(205,30%,95%)] overflow-hidden">
+      <div className="relative py-4 bg-gradient-to-br from-[hsl(30,15%,96%)] via-[hsl(25,12%,94%)] to-[hsl(35,18%,95%)] overflow-hidden">
         <div className="flex items-center justify-center gap-3 px-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,50%,20%)]/[0.40]" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,70%,55%)]/25" />
           <div className="flex items-end gap-[2px]">
             {[3, 6, 10, 6, 3].map((h, i) =>
-            <motion.div key={i} className="w-[1px] rounded-full bg-[hsl(205,50%,20%)]/[0.50]" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
+            <motion.div key={i} className="w-[1px] rounded-full bg-[hsl(25,70%,55%)]/40" style={{ height: h }} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04, duration: 0.4 }} />
             )}
           </div>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,50%,20%)]/[0.40]" />
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(25,70%,55%)]/25" />
         </div>
       </div>
 
       {/* ===== Portfolio ===== */}
-      <section className="relative overflow-hidden bg-[hsl(205,30%,95%)]">
-        {/* Background fills — glass style (hidden on mobile) */}
-        <div className="hidden md:block absolute top-0 left-[12%] w-80 h-80 rounded-full bg-[hsl(205,78%,6%)]/[0.25] backdrop-blur-xl border border-white/[0.06]" />
-        <div className="hidden md:block absolute bottom-0 right-[8%] w-96 h-96 rounded-full bg-[hsl(205,78%,6%)]/[0.18] backdrop-blur-xl border border-white/[0.05]" />
-        <div className="hidden md:block absolute top-[8%] right-[25%] w-44 h-44 rounded-full bg-[hsl(205,78%,6%)]/[0.15] backdrop-blur-lg border border-white/[0.06]" />
-        <div className="hidden md:block absolute bottom-[15%] left-[5%] w-32 h-32 rounded-full bg-[hsl(205,78%,6%)]/[0.12] backdrop-blur-lg border border-white/[0.05]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="hidden md:block absolute top-8 left-8 w-32 h-32 rounded-full bg-[hsl(205,50%,20%)]/[0.20] backdrop-blur-lg border border-[hsl(205,50%,20%)]/[0.10]" />
-        <div className="hidden md:block absolute top-12 left-12 w-24 h-24 rounded-full bg-[hsl(205,50%,20%)]/[0.15] backdrop-blur-md border border-[hsl(205,50%,20%)]/[0.08]" />
-        <div className="hidden md:block absolute bottom-16 right-12 w-40 h-40 bg-[hsl(205,50%,20%)]/[0.18] backdrop-blur-lg border border-[hsl(205,50%,20%)]/[0.08] rotate-45" />
-        <div className="hidden md:block absolute top-1/2 right-6 w-px h-36 bg-gradient-to-b from-transparent via-[hsl(205,50%,20%)]/[0.50] to-transparent" />
-        <div className="hidden md:block absolute top-[40%] left-4 w-24 h-px bg-gradient-to-r from-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="hidden md:block absolute top-[20%] left-[40%] w-px h-28 bg-gradient-to-b from-transparent via-[hsl(205,50%,20%)]/[0.40] to-transparent" />
-        <div className="hidden md:block absolute top-[5%] right-[15%] w-3 h-3 rounded-full bg-[hsl(205,50%,20%)]/[0.55] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.15]" />
-        <div className="hidden md:block absolute bottom-[10%] left-[20%] w-2.5 h-2.5 rounded-full bg-[hsl(205,50%,20%)]/[0.50] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.12]" />
-        <div className="hidden md:block absolute top-[70%] right-[35%] w-2 h-2 rounded-full bg-[hsl(205,50%,20%)]/[0.45] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.10]" />
-        <svg className="hidden md:block absolute top-20 right-20 opacity-[0.25]" width="120" height="120" viewBox="0 0 120 120" fill="none">
-          <path d="M60 10 L110 90 L10 90 Z" stroke="hsl(205,50%,20%)" strokeWidth="1" />
-        </svg>
+      <section className="relative overflow-hidden bg-gradient-to-b from-[hsl(30,15%,96%)] via-[hsl(28,10%,95%)] to-[hsl(25,14%,94%)]">
+        {/* Background decorative — warm organic shapes */}
+        <div className="hidden md:block absolute top-0 left-[12%] w-80 h-80 rounded-full bg-[hsl(25,70%,55%)]/[0.05] blur-3xl" />
+        <div className="hidden md:block absolute bottom-0 right-[8%] w-96 h-96 rounded-full bg-[hsl(15,65%,50%)]/[0.04] blur-3xl" />
+        <div className="hidden md:block absolute top-[8%] right-[25%] w-44 h-44 rounded-full bg-[hsl(35,80%,60%)]/[0.06] blur-2xl" />
+        <div className="hidden md:block absolute bottom-[15%] left-[5%] w-32 h-32 rounded-full bg-[hsl(205,50%,50%)]/[0.04] blur-xl" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
+        <div className="hidden md:block absolute top-[5%] right-[15%] w-3 h-3 rounded-full bg-[hsl(25,80%,55%)]/25" />
+        <div className="hidden md:block absolute bottom-[10%] left-[20%] w-2.5 h-2.5 rounded-full bg-[hsl(15,65%,50%)]/20" />
+        <div className="hidden md:block absolute top-[70%] right-[35%] w-2 h-2 rounded-full bg-[hsl(35,80%,60%)]/20" />
 
         <div className="relative py-14">
           <div className="container mx-auto px-6 relative z-10">
@@ -262,34 +261,30 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Portfolio → Process ===== */}
-      <div className="relative py-4 bg-[hsl(205,30%,95%)] overflow-hidden">
+      <div className="relative py-4 bg-gradient-to-br from-[hsl(25,14%,94%)] to-[hsl(30,15%,96%)] overflow-hidden">
         <div className="flex items-center justify-center px-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(205,50%,20%)]/[0.40]" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[hsl(25,70%,55%)]/25" />
           <div className="mx-4 flex items-center gap-2">
-            {[0.25, 0.40, 0.55, 0.40, 0.25].map((op, i) =>
-            <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(205 50% 20% / ${op})` }} />
+            {[0.15, 0.25, 0.35, 0.25, 0.15].map((op, i) =>
+            <div key={i} className="w-1 h-1 rounded-full" style={{ backgroundColor: `hsl(25 70% 55% / ${op})` }} />
             )}
           </div>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(205,50%,20%)]/[0.40]" />
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[hsl(25,70%,55%)]/25" />
         </div>
       </div>
 
       {/* ===== Process ===== */}
-      <section className="relative py-14 bg-[hsl(205,30%,95%)] overflow-hidden">
-        {/* Background fills — glass style (hidden on mobile) */}
-        <div className="hidden md:block absolute top-12 right-[6%] w-80 h-80 rounded-full bg-[hsl(205,78%,6%)]/[0.25] backdrop-blur-xl border border-white/[0.06]" />
-        <div className="hidden md:block absolute bottom-16 left-[10%] w-64 h-64 rounded-full bg-[hsl(205,78%,6%)]/[0.20] backdrop-blur-xl border border-white/[0.05]" />
-        <div className="hidden md:block absolute top-[8%] left-[30%] w-40 h-40 rounded-full bg-[hsl(205,78%,6%)]/[0.15] backdrop-blur-lg border border-white/[0.06]" />
-        <div className="hidden md:block absolute top-[55%] right-[12%] w-32 h-32 rounded-full bg-[hsl(205,78%,6%)]/[0.12] backdrop-blur-lg border border-white/[0.05]" />
-        <div className="hidden md:block absolute top-1/3 left-0 w-32 h-px bg-gradient-to-r from-[hsl(205,50%,20%)]/[0.50] to-transparent" />
-        <div className="hidden md:block absolute bottom-1/3 right-0 w-36 h-px bg-gradient-to-l from-[hsl(205,50%,20%)]/[0.50] to-transparent" />
-        <div className="hidden md:block absolute top-[12%] left-[22%] w-px h-32 bg-gradient-to-b from-transparent via-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="hidden md:block absolute bottom-[20%] right-[25%] w-px h-28 bg-gradient-to-b from-transparent via-[hsl(205,50%,20%)]/[0.40] to-transparent" />
-        <div className="hidden md:block absolute top-[45%] left-[5%] w-20 h-20 rounded-full bg-[hsl(205,78%,6%)]/[0.12] backdrop-blur-md border border-white/[0.05]" />
-        <div className="hidden md:block absolute top-[75%] left-[40%] w-24 h-24 rounded-full bg-[hsl(205,78%,6%)]/[0.10] backdrop-blur-md border border-white/[0.05]" />
-        <div className="hidden md:block absolute top-[5%] right-[35%] w-3 h-3 rounded-full bg-[hsl(205,50%,20%)]/[0.55] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.15]" />
-        <div className="hidden md:block absolute top-[25%] left-[8%] w-2.5 h-2.5 rounded-full bg-[hsl(205,50%,20%)]/[0.50] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.12]" />
-        <div className="hidden md:block absolute bottom-[15%] right-[8%] w-2 h-2 rounded-full bg-[hsl(205,50%,20%)]/[0.45] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.10]" />
+      <section className="relative py-14 bg-gradient-to-br from-[hsl(30,15%,96%)] via-[hsl(28,12%,95%)] to-[hsl(25,16%,94%)] overflow-hidden">
+        {/* Background decorative — warm accents */}
+        <div className="hidden md:block absolute top-12 right-[6%] w-80 h-80 rounded-full bg-[hsl(25,70%,55%)]/[0.06] blur-3xl" />
+        <div className="hidden md:block absolute bottom-16 left-[10%] w-64 h-64 rounded-full bg-[hsl(15,65%,50%)]/[0.05] blur-2xl" />
+        <div className="hidden md:block absolute top-[8%] left-[30%] w-40 h-40 rounded-full bg-[hsl(35,80%,60%)]/[0.07] blur-2xl" />
+        <div className="hidden md:block absolute top-[55%] right-[12%] w-32 h-32 rounded-full bg-[hsl(205,50%,50%)]/[0.04] blur-xl" />
+        <div className="hidden md:block absolute top-1/3 left-0 w-32 h-px bg-gradient-to-r from-[hsl(25,70%,55%)]/25 to-transparent" />
+        <div className="hidden md:block absolute bottom-1/3 right-0 w-36 h-px bg-gradient-to-l from-[hsl(15,65%,50%)]/20 to-transparent" />
+        <div className="hidden md:block absolute top-[5%] right-[35%] w-3 h-3 rounded-full bg-[hsl(25,80%,55%)]/25" />
+        <div className="hidden md:block absolute top-[25%] left-[8%] w-2.5 h-2.5 rounded-full bg-[hsl(15,65%,50%)]/20" />
+        <div className="hidden md:block absolute bottom-[15%] right-[8%] w-2 h-2 rounded-full bg-[hsl(35,80%,60%)]/20" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div {...fadeUp} className="text-center mb-16 rounded-2xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] px-8 py-6 mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
@@ -331,24 +326,21 @@ const HomePage = () => {
       </section>
 
       {/* ===== Gallery strip ===== */}
-      <section className="relative bg-[hsl(205,30%,95%)] overflow-hidden">
-        {/* Background fills — glass style (hidden on mobile) */}
-        <div className="hidden md:block absolute top-10 left-[18%] w-56 h-56 rounded-full bg-[hsl(205,78%,6%)]/[0.25] backdrop-blur-xl border border-white/[0.06]" />
-        <div className="hidden md:block absolute bottom-10 right-[12%] w-72 h-72 rounded-full bg-[hsl(205,78%,6%)]/[0.20] backdrop-blur-xl border border-white/[0.05]" />
-        <div className="hidden md:block absolute top-[15%] right-[30%] w-36 h-36 rounded-full bg-[hsl(205,78%,6%)]/[0.15] backdrop-blur-lg border border-white/[0.06]" />
-        <div className="hidden md:block absolute bottom-[20%] left-[8%] w-28 h-28 rounded-full bg-[hsl(205,78%,6%)]/[0.12] backdrop-blur-lg border border-white/[0.05]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="hidden md:block absolute top-[30%] right-[5%] w-px h-28 bg-gradient-to-b from-transparent via-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="hidden md:block absolute bottom-[35%] left-[3%] w-px h-24 bg-gradient-to-b from-transparent via-[hsl(205,50%,20%)]/[0.40] to-transparent" />
-        <div className="hidden md:block absolute top-[5%] left-[40%] w-3 h-3 rounded-full bg-[hsl(205,50%,20%)]/[0.55] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.15]" />
-        <div className="hidden md:block absolute bottom-[15%] right-[25%] w-2.5 h-2.5 rounded-full bg-[hsl(205,50%,20%)]/[0.50] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.12]" />
+      <section className="relative bg-gradient-to-b from-[hsl(25,14%,94%)] via-[hsl(30,12%,95%)] to-[hsl(28,15%,96%)] overflow-hidden">
+        {/* Background decorative — warm glow */}
+        <div className="hidden md:block absolute top-10 left-[18%] w-56 h-56 rounded-full bg-[hsl(25,70%,55%)]/[0.05] blur-3xl" />
+        <div className="hidden md:block absolute bottom-10 right-[12%] w-72 h-72 rounded-full bg-[hsl(15,65%,50%)]/[0.04] blur-3xl" />
+        <div className="hidden md:block absolute top-[15%] right-[30%] w-36 h-36 rounded-full bg-[hsl(35,80%,60%)]/[0.06] blur-2xl" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
+        <div className="hidden md:block absolute top-[5%] left-[40%] w-3 h-3 rounded-full bg-[hsl(25,80%,55%)]/25" />
+        <div className="hidden md:block absolute bottom-[15%] right-[25%] w-2.5 h-2.5 rounded-full bg-[hsl(15,65%,50%)]/20" />
 
         <div className="relative py-10">
           <div className="container mx-auto px-6">
             <div className="rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-4 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {[heroEstudioDark, imgEscritorioAzuis, imgAcademiaBaffles, imgEscritorio].map((img, i) =>
+                {[imgEstudioProfissional, imgEscritorioAzuis, imgPaineisLaranja, imgEscritorioColorido].map((img, i) =>
                 <div key={i} className="relative group overflow-hidden aspect-[4/3] rounded-2xl">
                     <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width={400} height={300} />
                     <div className="absolute inset-0 bg-[hsl(205,78%,8%)]/0 group-hover:bg-[hsl(205,78%,8%)]/20 transition-colors duration-500" />
@@ -360,18 +352,18 @@ const HomePage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
               <div className="rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
-                  <img src={imgPaineisSeminario} alt="Painéis acústicos em seminário" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
+                  <img src={imgRaftsSuspensos} alt="Rafts acústicos suspensos" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
               <div className="rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] mt-6 md:mt-12">
                 <div className="rounded-2xl overflow-hidden aspect-[16/10]">
-                  <img src={imgHexagonais} alt="Painéis hexagonais no teto" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
+                  <img src={imgTetoColorido} alt="Painéis coloridos no teto" className="w-full h-full object-cover" loading="lazy" decoding="async" width={800} height={500} />
                 </div>
               </div>
             </div>
             <div className="mt-6 rounded-3xl bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border border-white/[0.06] p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]">
               <div className="rounded-2xl overflow-hidden aspect-[21/9]">
-                <img src={heroNuvens} alt="Nuvens acústicas em ambiente corporativo" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1200} height={514} />
+                <img src={imgRestauranteModerno} alt="Forro acústico em restaurante moderno" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1200} height={514} />
               </div>
             </div>
           </div>
@@ -379,7 +371,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Gallery → Why Us ===== */}
-      <div className="relative h-8 bg-gradient-to-b from-[hsl(205,30%,95%)] to-[hsl(205,78%,8%)]" />
+      <div className="relative h-8 bg-gradient-to-b from-[hsl(28,15%,96%)] to-[hsl(205,78%,8%)]" />
 
       {/* ===== Why us ===== */}
       <section className="relative overflow-hidden">
@@ -436,7 +428,7 @@ const HomePage = () => {
               <motion.div {...fadeUp} className="hidden lg:grid grid-cols-2 gap-4">
                 <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
                   <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                    <img src={heroBafflesColor} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
+                    <img src={imgPaineisLaranja} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
                   </div>
                 </div>
                 <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 mt-12 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
@@ -451,27 +443,19 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Why Us → Testimonials ===== */}
-      <div className="relative h-8 bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(205,30%,95%)]" />
+      <div className="relative h-8 bg-gradient-to-b from-[hsl(205,78%,8%)] to-[hsl(30,15%,96%)]" />
 
       {/* ===== Testimonials ===== */}
-      <section className="relative overflow-hidden bg-[hsl(205,30%,95%)]">
-        {/* Background fills — glass style (hidden on mobile) */}
-        <div className="hidden md:block absolute top-8 left-[8%] w-64 h-64 rounded-full bg-[hsl(205,78%,6%)]/[0.25] backdrop-blur-xl border border-white/[0.06]" />
-        <div className="hidden md:block absolute bottom-8 right-[6%] w-80 h-80 rounded-full bg-[hsl(205,78%,6%)]/[0.20] backdrop-blur-xl border border-white/[0.05]" />
-        <div className="hidden md:block absolute top-[10%] right-[20%] w-40 h-40 rounded-full bg-[hsl(205,78%,6%)]/[0.15] backdrop-blur-lg border border-white/[0.06]" />
-        <div className="hidden md:block absolute bottom-[18%] left-[15%] w-32 h-32 rounded-full bg-[hsl(205,78%,6%)]/[0.12] backdrop-blur-lg border border-white/[0.05]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="hidden md:block absolute top-6 right-16 w-24 h-24 rounded-full bg-[hsl(205,50%,20%)]/[0.20] backdrop-blur-lg border border-[hsl(205,50%,20%)]/[0.10]" />
-        <div className="hidden md:block absolute bottom-10 left-12 w-20 h-20 bg-[hsl(205,50%,20%)]/[0.18] backdrop-blur-lg border border-[hsl(205,50%,20%)]/[0.08] rotate-45" />
-        <div className="hidden md:block absolute top-1/2 left-0 w-24 h-px bg-gradient-to-r from-[hsl(205,50%,20%)]/[0.50] to-transparent" />
-        <div className="hidden md:block absolute top-[25%] right-[25%] w-px h-28 bg-gradient-to-b from-transparent via-[hsl(205,50%,20%)]/[0.45] to-transparent" />
-        <div className="hidden md:block absolute bottom-[30%] left-[35%] w-px h-24 bg-gradient-to-b from-transparent via-[hsl(205,50%,20%)]/[0.40] to-transparent" />
-        <div className="hidden md:block absolute top-[8%] left-[45%] w-3 h-3 rounded-full bg-[hsl(205,50%,20%)]/[0.55] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.15]" />
-        <div className="hidden md:block absolute bottom-[12%] right-[40%] w-2.5 h-2.5 rounded-full bg-[hsl(205,50%,20%)]/[0.50] backdrop-blur-sm border border-[hsl(205,50%,20%)]/[0.12]" />
-        <svg className="hidden md:block absolute bottom-6 right-1/3 opacity-[0.25]" width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <polygon points="30,5 55,50 5,50" stroke="hsl(205,50%,20%)" strokeWidth="1" fill="none" />
-        </svg>
+      <section className="relative overflow-hidden bg-gradient-to-br from-[hsl(30,15%,96%)] via-[hsl(25,12%,94%)] to-[hsl(35,18%,95%)]">
+        {/* Background decorative — warm tones */}
+        <div className="hidden md:block absolute top-8 left-[8%] w-64 h-64 rounded-full bg-[hsl(25,70%,55%)]/[0.06] blur-3xl" />
+        <div className="hidden md:block absolute bottom-8 right-[6%] w-80 h-80 rounded-full bg-[hsl(15,65%,50%)]/[0.05] blur-3xl" />
+        <div className="hidden md:block absolute top-[10%] right-[20%] w-40 h-40 rounded-full bg-[hsl(35,80%,60%)]/[0.07] blur-2xl" />
+        <div className="hidden md:block absolute bottom-[18%] left-[15%] w-32 h-32 rounded-full bg-[hsl(205,50%,50%)]/[0.04] blur-xl" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,70%,55%)]/15 to-transparent" />
+        <div className="hidden md:block absolute top-[8%] left-[45%] w-3 h-3 rounded-full bg-[hsl(25,80%,55%)]/25" />
+        <div className="hidden md:block absolute bottom-[12%] right-[40%] w-2.5 h-2.5 rounded-full bg-[hsl(15,65%,50%)]/20" />
 
         <div className="relative py-14 px-6">
           <div className="container mx-auto relative z-10">
@@ -500,7 +484,7 @@ const HomePage = () => {
       </section>
 
       {/* ===== Transition: Testimonials → CTA ===== */}
-      <div className="relative h-6 bg-gradient-to-b from-[hsl(205,30%,95%)] to-transparent" />
+      <div className="relative h-6 bg-gradient-to-b from-[hsl(30,15%,96%)] to-transparent" />
 
       {/* ===== CTA ===== */}
       <section className="relative py-32 px-6 overflow-hidden">
