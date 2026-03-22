@@ -59,7 +59,7 @@ const processSteps = [
   icon: Calculator,
   title: "Calculadora Acústica",
   desc: "Insira as dimensões do seu ambiente e receba uma recomendação inteligente de quantidade e tipo de material — com visualização 3D em tempo real.",
-  image: imgSalaReuniao,
+  image: imgSonometro,
   cta: "Testar Calculadora",
   path: "/calculadora"
 },
@@ -67,7 +67,7 @@ const processSteps = [
   icon: Ruler,
   title: "Medição & Projeto",
   desc: "Nossa equipe analisa o espaço, identifica os pontos críticos de reflexão e projeta a solução acústica ideal com base em normas técnicas.",
-  image: imgEstudioProfissional,
+  image: imgEngenheiroMedicao,
   cta: "Solicitar Análise",
   path: "/orcamento"
 },
@@ -75,7 +75,7 @@ const processSteps = [
   icon: Palette,
   title: "Personalização",
   desc: "Mais de 40 cores, acabamentos em tecido, MDF ou madeira natural. Cada projeto é único — combinando performance acústica e design de interiores.",
-  image: imgPaineisLaranja,
+  image: imgEscritorioNeutros,
   cta: "Ver Cores",
   path: "/produtos"
 },
@@ -83,7 +83,7 @@ const processSteps = [
   icon: Wrench,
   title: "Instalação Profissional",
   desc: "Instalação realizada por equipe especializada em todo o Brasil, com acabamento impecável e garantia de resultado acústico.",
-  image: imgRaftsSuspensos,
+  image: imgInstalacaoAmarelo,
   cta: "Fale Conosco",
   path: "/contato"
 }];
