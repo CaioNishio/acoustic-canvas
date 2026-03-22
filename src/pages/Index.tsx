@@ -402,12 +402,12 @@ Solicitar Atendimento
               <motion.div {...fadeUp} className="hidden lg:grid grid-cols-2 gap-4">
                 <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
                   <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                    <img src={imgPaineisLaranja} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
+                    <img src={imgInstalacaoAmarelo} alt="Instalação de painel acústico" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
                   </div>
                 </div>
                 <div className="rounded-2xl bg-[hsl(205,78%,8%)]/[0.5] backdrop-blur-xl border border-white/[0.07] p-2 mt-12 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
                   <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                    <img src={heroDifusores} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
+                    <img src={imgSonometro} alt="Medição acústica com sonômetro" className="w-full h-full object-cover" loading="lazy" decoding="async" width={400} height={533} />
                   </div>
                 </div>
               </motion.div>
