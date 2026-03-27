@@ -122,7 +122,7 @@ const stats = [
   { value: "700+", label: "Projetos" },
   { value: "Frete", label: " TODO O BRASIL " },
   { value: "5", label: "Anos" },
-  { value: "40+", label: "Cores" },
+  { value: "12+", label: "Cores" },
 ];
 
 const HomePage = () => {
