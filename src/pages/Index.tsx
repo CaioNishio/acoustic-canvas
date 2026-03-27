@@ -151,9 +151,6 @@ const HomePage = () => {
                 <Link to="/orcamento" className="inline-flex items-center gap-3 text-white backdrop-blur-md shadow-accent/20 transition-all text-lg shadow-none border-solid my-[5px] border-card border-2 rounded-2xl bg-neutral-500/[0.36] px-[88px] py-[14px] font-bold font-sans">
                   Quero melhorar meu ambiente
                 </Link>
-                <Link to="/produtos" className="inline-flex items-center gap-3 text-white backdrop-blur-md transition-all text-lg rounded-xl opacity-100 border-solid py-[14px] my-0 text-center font-bold border-primary-foreground border-2 shadow-none px-[88px] font-sans bg-neutral-500/0">
-                  Catálogo de Produtos
-                </Link>
               </div>
             </motion.div>
           </div>
