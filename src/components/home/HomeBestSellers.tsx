@@ -5,7 +5,7 @@ import { formatPrice } from "@/data/productPrices";
 import paineisSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.webp";
 import bassTrapCorner from "@/assets/gallery/bass-trap-corner-1.jpg";
 import difusorSkyline from "@/assets/gallery/difusor-skyline-produto.jpg";
-import salaTratamento from "@/assets/gallery/sala-tratamento.webp";
+import salaTratamento from "@/assets/gallery/sala-tratamento-acustico.jpeg";
 
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
