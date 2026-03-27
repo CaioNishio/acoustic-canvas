@@ -147,11 +147,6 @@ const HomePage = () => {
               <p className="mt-6 text-base md:text-lg max-w-md leading-relaxed text-left mx-0 my-0 px-0 text-muted font-normal">
                 Soluções para reverberação, ruído e isolamento com engenharia aplicada e resultado mensurável.
               </p>
-              <div className="flex flex-wrap gap-4 mt-8">
-                <Link to="/orcamento" className="inline-flex items-center gap-3 text-white backdrop-blur-md shadow-accent/20 transition-all text-lg shadow-none border-solid my-[5px] border-card border-2 rounded-2xl bg-neutral-500/[0.36] px-[88px] py-[14px] font-bold font-sans">
-                  Quero melhorar meu ambiente
-                </Link>
-              </div>
             </motion.div>
           </div>
         </div>
