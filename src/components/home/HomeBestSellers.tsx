@@ -102,7 +102,7 @@ export default function HomeBestSellers() {
                   <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-end justify-between">
                     <div>
                       <span className="text-[10px] text-white/30 uppercase">a partir de</span>
-                      <p className="text-xl font-bold text-[hsl(25,80%,55%)]">
+                      <p className="text-xl font-bold text-[hsl(25,80%,55%)] bg-zinc-300 border rounded-2xl px-[30px]">
                         {formatPrice(p.price)}
                       </p>
                     </div>
