@@ -70,35 +70,44 @@ export default function HomeBestSellers() {
             <motion.div key={p.slug} {...fadeUp} transition={{ delay: i * 0.08 }}>
               <Link
                 to={`/produtos/${p.slug}`}
-                className="group block h-full rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm p-6 hover:border-white/[0.15] transition-all duration-300 hover:shadow-xl"
+                className="group block h-full rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm overflow-hidden hover:border-white/[0.15] transition-all duration-300 hover:shadow-xl"
               >
-                <p className="text-[10px] uppercase tracking-widest text-white/30 font-mono mb-3">
-                  {p.use}
-                </p>
-                <h3 className="text-lg font-display font-medium text-white group-hover:text-[hsl(25,80%,55%)] transition-colors">
-                  {p.name}
-                </h3>
-                <p className="text-sm text-white/50 mt-3 leading-relaxed line-clamp-3">
-                  {p.desc}
-                </p>
-
-                {/* Specs chips */}
-                <div className="flex flex-wrap gap-1.5 mt-4">
-                  {p.specs.map((s) => (
-                    <span key={s} className="text-[10px] px-2 py-0.5 rounded-full border border-white/[0.08] text-white/50 bg-white/[0.03]">
-                      {s}
-                    </span>
-                  ))}
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
+                <div className="p-6">
+                  <p className="text-[10px] uppercase tracking-widest text-white/30 font-mono mb-3">
+                    {p.use}
+                  </p>
+                  <h3 className="text-lg font-display font-medium text-white group-hover:text-[hsl(25,80%,55%)] transition-colors">
+                    {p.name}
+                  </h3>
+                  <p className="text-sm text-white/50 mt-3 leading-relaxed line-clamp-3">
+                    {p.desc}
+                  </p>
 
-                <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-end justify-between">
-                  <div>
-                    <span className="text-[10px] text-white/30 uppercase">a partir de</span>
-                    <p className="text-xl font-bold text-[hsl(25,80%,55%)]">
-                      {formatPrice(p.price)}
-                    </p>
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {p.specs.map((s) => (
+                      <span key={s} className="text-[10px] px-2 py-0.5 rounded-full border border-white/[0.08] text-white/50 bg-white/[0.03]">
+                        {s}
+                      </span>
+                    ))}
                   </div>
-                  <ArrowRight size={16} className="text-white/30 group-hover:text-white/60 transition-colors" />
+
+                  <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-end justify-between">
+                    <div>
+                      <span className="text-[10px] text-white/30 uppercase">a partir de</span>
+                      <p className="text-xl font-bold text-[hsl(25,80%,55%)]">
+                        {formatPrice(p.price)}
+                      </p>
+                    </div>
+                    <ArrowRight size={16} className="text-white/30 group-hover:text-white/60 transition-colors" />
+                  </div>
                 </div>
               </Link>
             </motion.div>
