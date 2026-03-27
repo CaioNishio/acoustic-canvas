@@ -212,7 +212,7 @@ export default function ArtigoPage() {
               className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
               style={{ backgroundColor: `${article.heroColor}15` }}
             >
-              <Icon size={30} style={{ color: article.heroColor }} />
+              <Icon size={30} className="text-current" style={{ color: article.heroColor }} />
             </div>
             <h1 className="text-3xl md:text-5xl font-display font-medium text-foreground leading-tight max-w-3xl">
               {article.title}
@@ -280,7 +280,7 @@ export default function ArtigoPage() {
                     className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
                     style={{ backgroundColor: `${a.heroColor}15` }}
                   >
-                    <AIcon size={20} style={{ color: a.heroColor }} />
+                    <AIcon size={20} className="text-current" style={{ color: a.heroColor }} />
                   </div>
                   <h3 className="font-display font-medium text-sm text-foreground group-hover:text-primary transition-colors">
                     {a.title}

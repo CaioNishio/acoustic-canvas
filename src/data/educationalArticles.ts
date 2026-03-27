@@ -2,7 +2,7 @@ import { Ear, MapPin, AlertTriangle, Layers } from "lucide-react";
 
 export interface EducationalArticle {
   slug: string;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: React.ComponentType<any>;
   title: string;
   subtitle: string;
   desc: string;
