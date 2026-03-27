@@ -28,7 +28,7 @@ import heroHomeStudio from "@/assets/gallery/hero-home-studio.webp";
 import heroEstudioDark from "@/assets/gallery/hero-estudio-dark.jpeg";
 import imgEstudio from "@/assets/gallery/estudio-paineis.webp";
 import imgSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.webp";
-import imgNuvem from "@/assets/gallery/nuvem-acustica.webp";
+import imgNuvem from "@/assets/gallery/nuvem-acustica-v2.jpg";
 import imgEscritorio from "@/assets/gallery/escritorio-paineis.webp";
 import imgAcademiaBaffles from "@/assets/gallery/academia-baffles.webp";
 import imgEscritorioAzuis from "@/assets/gallery/escritorio-paineis-azuis.webp";
@@ -39,17 +39,17 @@ import imgHexagonais from "@/assets/gallery/hexagonais-teto.webp";
 // New uploaded images
 import imgPaineisLaranja from "@/assets/gallery/paineis-laranja-preto.jpg";
 import imgTetoColorido from "@/assets/gallery/paineis-teto-coloridos.jpg";
-import imgEstudioProfissional from "@/assets/gallery/estudio-profissional-vermelho.webp";
+import imgEstudioProfissional from "@/assets/gallery/estudio-profissional-v2.webp";
 import imgRaftsSuspensos from "@/assets/gallery/rafts-suspensos-industrial.jpg";
 import imgEscritorioColorido from "@/assets/gallery/escritorio-paineis-coloridos-grande.webp";
 import imgRestauranteModerno from "@/assets/gallery/restaurante-forro-moderno.jpg";
 
 // Professional reference images
-import imgEscritorioNeutros from "@/assets/gallery/escritorio-paineis-neutros.jpg";
+import imgEscritorioNeutros from "@/assets/gallery/escritorio-neutros-v2.jpg";
 import imgAuditorioPaineis from "@/assets/gallery/auditorio-paineis-acusticos.jpeg";
 import imgInstalacaoAmarelo from "@/assets/gallery/instalacao-painel-amarelo.jpeg";
 import imgMontagemFixadores from "@/assets/gallery/montagem-fixadores-detalhe.jpeg";
-import imgProdutorEstudio from "@/assets/gallery/produtor-musical-estudio.webp";
+import imgProdutorEstudio from "@/assets/gallery/produtor-estudio-v2.png";
 import imgEngenheiroMedicao from "@/assets/gallery/engenheiro-medicao-industrial.webp";
 import imgSonometro from "@/assets/gallery/medicao-sonometro.webp";
 
