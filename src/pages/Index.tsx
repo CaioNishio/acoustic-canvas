@@ -15,7 +15,7 @@ import HomeEducacao from "@/components/home/HomeEducacao";
 import HomeMicroBenefits from "@/components/home/HomeMicroBenefits";
 
 // All images use ES6 imports for Vite optimization pipeline
-import classroomBaffles from "@/assets/gallery/classroom-baffles.webp";
+import classroomBaffles from "@/assets/gallery/hero-capa-site.jpg";
 import heroEstudioAzul from "@/assets/gallery/hero-estudio-azul.webp";
 import heroMdf from "@/assets/gallery/hero-mdf-vazado.webp";
 import heroDifusores from "@/assets/gallery/hero-difusores-madeira.jpg";
