@@ -39,7 +39,7 @@ const productHighlights = [{
   path: "/produtos/painel-absorvedor-premium"
 }, {
   name: "Difusor Skyline",
-  image: imgDifusor,
+  image: "/lovable-uploads/74b98913-09e6-445e-8288-929f67944cbf.webp",
   path: "/produtos/difusor-skyline"
 }, {
   name: "Bass Trap Corner",
