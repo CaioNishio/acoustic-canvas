@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { formatPrice } from "@/data/productPrices";
+import paineisSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.webp";
+import bassTrapCorner from "@/assets/gallery/bass-trap-corner-1.jpg";
+import difusorSkyline from "@/assets/gallery/difusor-skyline-produto.jpg";
+import salaTratamento from "@/assets/gallery/sala-tratamento.webp";
 
 const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
@@ -13,6 +17,7 @@ const bestSellers = [
     use: "Reverberação · Clareza da fala",
     price: 92.45,
     specs: ["NRC 0,85", "32–144 kg/m³", "25–100 mm"],
+    image: paineisSalaReuniao,
   },
   {
     name: "Bass Trap Corner 3S",
@@ -21,6 +26,7 @@ const bestSellers = [
     use: "Graves · Modos de sala",
     price: 194.45,
     specs: ["Absorção < 200 Hz", "Densidade 64 kg/m³", "Triangular"],
+    image: bassTrapCorner,
   },
   {
     name: "Difusor QRD",
@@ -29,6 +35,7 @@ const bestSellers = [
     use: "Difusão · Campo sonoro",
     price: 339.45,
     specs: ["500–4000 Hz", "Madeira maciça", "Cálculo QRD"],
+    image: difusorSkyline,
   },
   {
     name: "Cortina Acústica Pro",
@@ -37,6 +44,7 @@ const bestSellers = [
     use: "Isolamento · Ruído externo",
     price: 774.45,
     specs: ["STC 18–25", "96 kg/m³", "Sob medida"],
+    image: salaTratamento,
   },
 ];
 
