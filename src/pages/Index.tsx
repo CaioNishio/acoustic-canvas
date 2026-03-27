@@ -131,7 +131,7 @@ const HomePage = () => {
       {/* ===== HERO ===== */}
       <section className="relative min-h-screen flex flex-col overflow-hidden -mt-[11.5rem]">
         <div className="absolute inset-0">
-          <img src={imgEscritorioColorido} alt="Tratamento acústico profissional" className="w-full h-full object-cover object-[center_50%]" width={1920} height={1080} fetchPriority="high" />
+          <img src={classroomBaffles} alt="Tratamento acústico profissional" className="w-full h-full object-cover object-[center_50%]" width={1920} height={1080} fetchPriority="high" />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(205,78%,8%)]/75 via-[hsl(205,78%,8%)]/35 to-transparent" />
         </div>
 
