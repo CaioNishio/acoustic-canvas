@@ -7,21 +7,25 @@ const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0
 const articles = [
   {
     icon: Ear,
+    slug: "tratamento-vs-isolamento",
     title: "Tratamento vs. Isolamento",
     desc: "Entenda a diferença entre absorver o som dentro do ambiente e bloquear o ruído externo — e quando usar cada abordagem.",
   },
   {
     icon: MapPin,
+    slug: "posicionamento-de-paineis",
     title: "Onde posicionar os painéis",
     desc: "Pontos de primeira reflexão, cantos, teto e parede traseira — cada posição resolve um problema diferente.",
   },
   {
     icon: AlertTriangle,
+    slug: "erros-comuns",
     title: "Erros comuns",
     desc: "Usar apenas espuma, tratar só uma parede ou ignorar os graves são os erros mais frequentes em projetos acústicos.",
   },
   {
     icon: Layers,
+    slug: "como-melhorar-acustica",
     title: "Como melhorar a acústica",
     desc: "Passo a passo para diagnóstico, escolha de materiais, posicionamento e verificação de resultado com medições.",
   },
@@ -49,19 +53,26 @@ export default function HomeEducacao() {
               key={a.title}
               {...fadeUp}
               transition={{ delay: i * 0.08 }}
-              className="rounded-2xl border-2 border-border/40 bg-background p-7 hover:border-[hsl(25,80%,50%)]/30 transition-all group cursor-pointer"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[hsl(25,80%,50%)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <a.icon size={20} className="text-[hsl(25,80%,50%)]" />
+              <Link
+                to={`/aprender/${a.slug}`}
+                className="block rounded-2xl border-2 border-border/40 bg-background p-7 hover:border-[hsl(25,80%,50%)]/30 transition-all group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-[hsl(25,80%,50%)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <a.icon size={20} className="text-[hsl(25,80%,50%)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-display font-medium text-foreground group-hover:text-[hsl(25,80%,50%)] transition-colors">
+                      {a.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{a.desc}</p>
+                    <span className="inline-flex items-center gap-1 mt-3 text-[hsl(25,80%,50%)] text-sm font-medium">
+                      Ler artigo <ArrowRight size={14} />
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-base font-display font-medium text-foreground group-hover:text-[hsl(25,80%,50%)] transition-colors">
-                    {a.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{a.desc}</p>
-                </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
