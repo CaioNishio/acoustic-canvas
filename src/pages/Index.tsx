@@ -237,7 +237,7 @@ const HomePage = () => {
         <div className="container mx-auto px-6 relative z-10 border-sidebar-ring">
           <motion.div {...fadeUp} className="text-center mb-16 backdrop-blur-2xl mx-auto w-fit shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] border-2 border-solid rounded-none px-[118px] py-0 border-primary bg-muted-foreground">
             <span className="text-secondary text-sm font-semibold tracking-[0.3em] uppercase">Processo</span>
-            <h2 className="text-3xl font-display font-normal mt-3 text-white md:text-2xl">Calculando... Projetando...Formalizando</h2>
+            <h2 className="text-3xl font-display font-normal mt-3 text-white md:text-2xl whitespace-pre-line">Como funcionam as etapas para a realização do{"\n"}projeto técnico</h2>
           </motion.div>
 
           <div className="space-y-8">

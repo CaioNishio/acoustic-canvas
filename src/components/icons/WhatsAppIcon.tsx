@@ -3,7 +3,7 @@ interface Props {
   className?: string;
 }
 
-export default function WhatsAppIcon({ size = 24, className = "" }: Props) {
+export default function WhatsAppIcon({ size = 24, className = "my-0" }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
