@@ -11,7 +11,7 @@ import imgSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.webp";
 import imgAcademia from "@/assets/gallery/academia-baffles.webp";
 import imgEscritorio from "@/assets/gallery/escritorio-paineis.webp";
 import imgPaineisAzuis from "@/assets/gallery/paineis-azuis.png";
-import imgDifusor from "@/assets/gallery/difusor-skyline-produto.jpg";
+
 import imgBassTrap from "@/assets/gallery/bass-trap-corner-1.jpg";
 type MenuKey = "produtos" | "espacos" | "recursos" | "sobre" | null;
 const productCategories = [{
