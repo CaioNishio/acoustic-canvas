@@ -125,7 +125,7 @@ export default function Header() {
 
       {/* Main Nav — frosted glass */}
       <div className="bg-[hsl(205,78%,6%)]/70 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_8px_32px_-8px_rgba(0,0,0,0.4)]">
-        <div className="w-full h-16 lg:h-20 px-6 my-0 flex-row flex items-center justify-between gap-[20px] mx-auto lg:px-[77px] py-[10px] text-center bg-[#071141]">
+        <div className="w-full h-16 lg:h-20 px-6 my-0 flex-row flex items-center justify-between gap-[20px] mx-auto lg:px-[77px] text-center bg-[#122e82] py-[36px]">
 
           {/* Logo - left */}
           <Link to="/" className="flex items-center flex-shrink-0">
