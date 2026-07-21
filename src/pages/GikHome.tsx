@@ -6,6 +6,7 @@ import GikProductSpotlight from "@/components/gik/GikProductSpotlight";
 import GikEnvironments from "@/components/gik/GikEnvironments";
 import GikTrustedBy from "@/components/gik/GikTrustedBy";
 import GikFabrics from "@/components/gik/GikFabrics";
+import GikShopTheLook from "@/components/gik/GikShopTheLook";
 import GikTestimonial from "@/components/gik/GikTestimonial";
 import GikPlanYourSpace from "@/components/gik/GikPlanYourSpace";
 import GikKnowledgeBase from "@/components/gik/GikKnowledgeBase";
@@ -24,6 +25,7 @@ const GikHome = () => (
       <GikEnvironments />
       <GikTrustedBy />
       <GikFabrics />
+      <GikShopTheLook />
       <GikTestimonial />
       <GikPlanYourSpace />
       <GikKnowledgeBase />
