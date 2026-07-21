@@ -15,6 +15,8 @@ const GikFabrics = () => {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[rgb(11,14,17)]/90 via-[rgb(11,14,17)]/40 to-[rgb(11,14,17)]/10" />
+        {/* Reforço lateral: a foto de fundo tem áreas claras que apagam o texto branco */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[rgb(11,14,17)]/85 via-[rgb(11,14,17)]/45 to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-[504px] max-w-[1440px] flex-col justify-end px-6 pb-14 pt-24 lg:px-12">
           <div className="max-w-2xl text-[rgb(253,254,254)]">

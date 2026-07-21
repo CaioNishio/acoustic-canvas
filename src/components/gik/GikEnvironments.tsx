@@ -82,7 +82,7 @@ export default function GikEnvironments() {
                 src={env.image}
                 alt={`Tratamento acústico para ${env.application}`}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover opacity-80 grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[rgb(11,14,17)]/70 via-transparent to-transparent" />
               <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-5 text-[rgb(253,254,254)]">

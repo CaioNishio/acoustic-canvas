@@ -105,7 +105,7 @@ export default function GikShopTheLook() {
           {/* Featured product card */}
           <Link
             to={`/produtos/${active.slug}`}
-            className="group flex flex-col justify-center rounded-2xl bg-[#F5F5F5] p-8 transition-shadow duration-300 hover:shadow-lg"
+            className="group flex h-full flex-col justify-center rounded-2xl bg-[#F5F5F5] p-8 transition-shadow duration-300 hover:shadow-lg"
           >
             <div className="overflow-hidden rounded-lg">
               <img
