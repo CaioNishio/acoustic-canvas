@@ -14,18 +14,19 @@ export default {
   	},
   	extend: {
   		fontFamily: {
+  			// Tipografia no padrão GIK Acoustics: Lexend Giga nos títulos, Lexend no texto
   			display: [
-  				'Sora',
-  				'Plus Jakarta Sans',
+  				'Lexend Giga',
+  				'Lexend',
   				'sans-serif'
   			],
   			body: [
-  				'Plus Jakarta Sans',
-  				'Sora',
+  				'Lexend',
+  				'Lexend Giga',
   				'sans-serif'
   			],
   			sans: [
-  				'Space Grotesk',
+  				'Lexend',
   				'ui-sans-serif',
   				'system-ui',
   				'-apple-system',

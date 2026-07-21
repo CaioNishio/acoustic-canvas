@@ -11,6 +11,89 @@ import roomPhoto from "@/assets/products/painel-acustico-snr3250/panneaux_acoust
  * refletidas à esquerda, organizadas e de menor amplitude à direita.
  */
 
+interface Point {
+  x: number;
+  y: number;
+}
+
+/**
+ * Traça o caminho de um raio sonoro dentro do ambiente.
+ * Em cada parede o ângulo de reflexão espelha o de incidência — é isso
+ * que produz o acúmulo de reflexos quando não há absorção.
+ */
+function traceRay(
+  origin: Point,
+  angle: number,
+  bounces: number,
+  w: number,
+  h: number,
+): Point[] {
+  const points: Point[] = [{ ...origin }];
+  let dx = Math.cos(angle);
+  let dy = Math.sin(angle);
+  let cx = origin.x;
+  let cy = origin.y;
+
+  for (let b = 0; b <= bounces; b++) {
+    let t = Infinity;
+    let axis: "x" | "y" | null = null;
+
+    if (dx > 1e-9) { const tt = (w - cx) / dx; if (tt < t) { t = tt; axis = "x"; } }
+    else if (dx < -1e-9) { const tt = -cx / dx; if (tt < t) { t = tt; axis = "x"; } }
+
+    if (dy > 1e-9) { const tt = (h - cy) / dy; if (tt < t) { t = tt; axis = "y"; } }
+    else if (dy < -1e-9) { const tt = -cy / dy; if (tt < t) { t = tt; axis = "y"; } }
+
+    if (!isFinite(t) || t <= 0) break;
+
+    cx += dx * t;
+    cy += dy * t;
+    points.push({ x: cx, y: cy });
+
+    if (axis === "x") dx = -dx;
+    else dy = -dy;
+
+    // desloca minimamente para dentro para não travar na parede
+    cx += dx * 0.02;
+    cy += dy * 0.02;
+  }
+
+  return points;
+}
+
+/** Comprimento acumulado ao longo do caminho, para posicionar o pulso. */
+function cumulativeLengths(points: Point[]) {
+  const lengths = [0];
+  for (let i = 1; i < points.length; i++) {
+    const d = Math.hypot(points[i].x - points[i - 1].x, points[i].y - points[i - 1].y);
+    lengths.push(lengths[i - 1] + d);
+  }
+  return lengths;
+}
+
+function pointAt(points: Point[], lengths: number[], distance: number): Point | null {
+  const total = lengths[lengths.length - 1];
+  if (distance < 0 || distance > total) return null;
+  for (let i = 1; i < lengths.length; i++) {
+    if (distance <= lengths[i]) {
+      const seg = lengths[i] - lengths[i - 1];
+      const t = seg === 0 ? 0 : (distance - lengths[i - 1]) / seg;
+      return {
+        x: points[i - 1].x + (points[i].x - points[i - 1].x) * t,
+        y: points[i - 1].y + (points[i].y - points[i - 1].y) * t,
+      };
+    }
+  }
+  return points[points.length - 1];
+}
+
+/**
+ * Campo sonoro do comparador.
+ *
+ * Sem tratamento: cada raio reflete repetidamente nas paredes, acumulando
+ * reflexos que voltam ao ambiente e se cruzam.
+ * Com tratamento: o raio chega ao painel e é absorvido — não retorna.
+ */
 const WaveField = ({ treated }: { treated: boolean }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -21,60 +104,127 @@ const WaveField = ({ treated }: { treated: boolean }) => {
     if (!ctx) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let frame = 0;
     let raf = 0;
+    let time = 0;
+    let rays: { points: Point[]; lengths: number[]; total: number; offset: number }[] = [];
+    let source: Point = { x: 0, y: 0 };
 
-    const resize = () => {
+    const build = () => {
       const rect = canvas.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-    resize();
-    window.addEventListener("resize", resize);
 
-    // Sem tratamento: muitas ondas, amplitudes altas, frequências dissonantes.
-    // Tratado: poucas ondas, amplitude baixa, movimento lento e regular.
-    const lines = treated ? 4 : 9;
-    const speed = treated ? 0.006 : 0.019;
+      const w = rect.width;
+      const h = rect.height;
+      // fonte sonora posicionada como quem fala/toca dentro da sala
+      source = { x: w * 0.2, y: h * 0.62 };
 
-    const draw = () => {
-      const { width, height } = canvas.getBoundingClientRect();
-      ctx.clearRect(0, 0, width, height);
+      // sem absorção o som volta muitas vezes; com painéis, morre na primeira parede
+      const bounces = treated ? 0 : 6;
+      const count = treated ? 22 : 26;
 
-      for (let i = 0; i < lines; i++) {
-        const progress = i / lines;
-        const amplitude = treated
-          ? 8 + progress * 6
-          : 20 + progress * 26 + Math.sin(frame * 0.02 + i) * 6;
-        const wavelength = treated ? 260 + progress * 60 : 90 + progress * 55;
-        const yBase = height * (0.18 + progress * 0.66);
-        const phase = frame * speed * (treated ? 1 : 1 + progress * 0.9);
-
-        ctx.beginPath();
-        for (let x = 0; x <= width; x += 4) {
-          const y =
-            yBase +
-            Math.sin(x / wavelength + phase) * amplitude +
-            // reflexões secundárias só existem no lado sem tratamento
-            (treated ? 0 : Math.sin(x / (wavelength * 0.38) - phase * 1.6) * amplitude * 0.45);
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        ctx.strokeStyle = treated
-          ? `hsla(199, 68%, 62%, ${0.32 - progress * 0.12})`
-          : `hsla(18, 82%, 60%, ${0.34 - progress * 0.14})`;
-        ctx.lineWidth = treated ? 1.4 : 1;
-        ctx.stroke();
+      rays = [];
+      for (let i = 0; i < count; i++) {
+        // leque completo, com raios quase paralelos às paredes para
+        // evidenciar o flutter echo entre superfícies opostas
+        const angle = (i / count) * Math.PI * 2 + (treated ? 0.04 : 0.017);
+        const points = traceRay(source, angle, bounces, w, h);
+        const lengths = cumulativeLengths(points);
+        rays.push({
+          points,
+          lengths,
+          total: lengths[lengths.length - 1],
+          offset: (i / count) * 0.9,
+        });
       }
+    };
 
-      frame += 1;
+    build();
+    window.addEventListener("resize", build);
+
+    const hue = treated ? 199 : 18; // azul-oceano controlado / laranja descontrolado
+    const speed = treated ? 620 : 780; // px por segundo
+
+    const draw = (now: number) => {
+      time = now / 1000;
+      const rect = canvas.getBoundingClientRect();
+      const w = rect.width;
+      const h = rect.height;
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.lineCap = "round";
+
+      rays.forEach((ray) => {
+        const { points, lengths, total } = ray;
+        if (total <= 0) return;
+
+        // 1. rastro do caminho — mostra a geometria das reflexões
+        for (let i = 1; i < points.length; i++) {
+          const decay = Math.pow(0.62, i - 1); // cada reflexão perde energia
+          ctx.beginPath();
+          ctx.moveTo(points[i - 1].x, points[i - 1].y);
+          ctx.lineTo(points[i].x, points[i].y);
+          ctx.strokeStyle = `hsla(${hue}, ${treated ? 70 : 85}%, ${treated ? 62 : 58}%, ${
+            (treated ? 0.3 : 0.26) * decay
+          })`;
+          ctx.lineWidth = treated ? 1.5 : 1.2;
+          ctx.stroke();
+        }
+
+        // 2. pulso viajando pelo caminho — a energia em movimento
+        const cycle = (time * speed + ray.offset * total) % (total * 1.35);
+        const head = cycle;
+        const tail = Math.max(0, head - (treated ? 130 : 96));
+
+        for (let d = tail; d < head; d += 7) {
+          const p = pointAt(points, lengths, d);
+          if (!p) continue;
+          const along = d / total;
+          const fade = 1 - (head - d) / (treated ? 130 : 96);
+          // no lado tratado a energia cai rápido ao se aproximar do painel
+          const energy = treated ? Math.pow(1 - along, 0.8) : Math.pow(0.78, along * 6);
+          const alpha = fade * energy * (treated ? 0.85 : 0.95);
+          if (alpha <= 0.02) continue;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, treated ? 2.1 : 1.9, 0, Math.PI * 2);
+          ctx.fillStyle = `hsla(${hue}, ${treated ? 78 : 92}%, ${treated ? 66 : 60}%, ${alpha})`;
+          ctx.fill();
+        }
+
+        // 3. no lado tratado, marca de absorção onde o raio encontra o painel
+        if (treated && points.length > 1) {
+          const end = points[points.length - 1];
+          const arrived = ((time * speed + ray.offset * total) % (total * 1.35)) / total;
+          if (arrived > 0.9 && arrived < 1.12) {
+            const glow = 1 - Math.abs(arrived - 1) / 0.12;
+            ctx.beginPath();
+            ctx.arc(end.x, end.y, 9 * glow, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(199, 70%, 62%, ${0.22 * glow})`;
+            ctx.fill();
+          }
+        }
+      });
+
+      // 4. fonte sonora pulsando
+      const pulse = 0.5 + 0.5 * Math.sin(time * 3.4);
+      ctx.beginPath();
+      ctx.arc(source.x, source.y, 5 + pulse * 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${hue}, 90%, ${treated ? 70 : 62}%, 0.9)`;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(source.x, source.y, 12 + pulse * 7, 0, Math.PI * 2);
+      ctx.strokeStyle = `hsla(${hue}, 90%, 65%, ${0.32 * (1 - pulse)})`;
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+
       raf = requestAnimationFrame(draw);
     };
 
     if (reduced) {
-      draw();
+      draw(0);
       cancelAnimationFrame(raf);
     } else {
       raf = requestAnimationFrame(draw);
@@ -82,7 +232,7 @@ const WaveField = ({ treated }: { treated: boolean }) => {
 
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", build);
     };
   }, [treated]);
 
@@ -135,8 +285,9 @@ export default function AcousticComparator() {
           </SectionTitle>
         </div>
         <Lead className="lg:max-w-md lg:text-right">
-          Arraste para comparar. À esquerda, reflexões se acumulam sem controle. À direita, o
-          tratamento organiza a energia sonora e devolve clareza ao ambiente.
+          Arraste para comparar. À esquerda, o som bate nas superfícies e volta repetidas vezes,
+          somando reflexos. À direita, os painéis absorvem essa energia — ela chega à parede e não
+          retorna.
         </Lead>
       </div>
 
@@ -155,9 +306,9 @@ export default function AcousticComparator() {
             src={roomPhoto}
             alt="Ambiente com tratamento acústico Sonar instalado"
             className="h-full w-full object-cover"
-            style={{ filter: "saturate(1.04) contrast(1.02) brightness(1.02)" }}
+            style={{ filter: "saturate(1.02) contrast(1.02) brightness(0.62)" }}
           />
-          <div className="absolute inset-0 bg-snr-petrol/10" />
+          <div className="absolute inset-0 bg-snr-graphite-deep/45" />
           <WaveField treated />
         </div>
 
@@ -170,9 +321,9 @@ export default function AcousticComparator() {
             src={roomPhoto}
             alt="O mesmo ambiente sem tratamento acústico"
             className="h-full w-full object-cover"
-            style={{ filter: "saturate(0.72) contrast(1.22) brightness(0.86) hue-rotate(-8deg)" }}
+            style={{ filter: "saturate(0.6) contrast(1.25) brightness(0.5) hue-rotate(-10deg)" }}
           />
-          <div className="absolute inset-0 bg-snr-graphite-deep/25" />
+          <div className="absolute inset-0 bg-snr-graphite-deep/55" />
           <WaveField treated={false} />
         </div>
 

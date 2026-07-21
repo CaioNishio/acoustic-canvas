@@ -123,17 +123,17 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Plus Jakarta Sans', 'Sora', sans-serif;
+    font-family: 'Lexend', sans-serif;
     font-size: 16px;
-    line-height: 1.7;
-    letter-spacing: 0.015em;
-    font-weight: 300;
+    line-height: 1.65;
+    letter-spacing: 0;
+    font-weight: 400;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Sora', 'Plus Jakarta Sans', sans-serif;
-    @apply font-extralight;
-    letter-spacing: -0.035em;
+    font-family: 'Lexend Giga', 'Lexend', sans-serif;
+    @apply font-bold;
+    letter-spacing: -0.02em;
   }
 
   h1 {
