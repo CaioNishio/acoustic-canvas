@@ -1,0 +1,2442 @@
+{
+  "announcement-topbar": {
+    "top": 0,
+    "height": 48,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section shopify-section-group-header-group topbar-section",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(253, 254, 254)",
+        "backgroundColor": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "48px",
+        "display": "block",
+        "flexDirection": "row",
+        "border": "0px none rgb(253, 254, 254)",
+        "position": "static",
+        "opacity": "1",
+        "transition": "height 0.5s cubic-bezier(0.6, 0, 0.4, 1)",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": ":root {--topbar-height: var(--sp-12);}\n    \n    @media screen and (min-width: 1536px) {\n      :root {--topbar-height: var(--sp-14);}\n    }\n\n    #shopify-section-sections--22216640331989__announcement-bar {\n      --gradient-background: #0b0e11;\n      ",
+          "img": null,
+          "styles": {
+            "fontSize": "13px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(253, 254, 254)",
+            "flexDirection": "row",
+            "border": "0px none rgb(253, 254, 254)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "topbar topbar--center page-width page-width--full",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "13px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(253, 254, 254)",
+            "backgroundColor": "rgb(11, 14, 17)",
+            "padding": "0px 48px",
+            "width": "1440px",
+            "height": "48px",
+            "display": "grid",
+            "flexDirection": "row",
+            "alignItems": "center",
+            "gap": "21.6px",
+            "gridTemplateColumns": "371.656px 557.484px 371.672px",
+            "border": "0px none rgb(253, 254, 254)",
+            "position": "relative",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "social-icons hidden lg:flex items-center",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "13px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(253, 254, 254)",
+                "width": "371.656px",
+                "height": "20px",
+                "display": "flex",
+                "flexDirection": "row",
+                "alignItems": "center",
+                "border": "0px none rgb(253, 254, 254)",
+                "position": "static",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "ul",
+                  "cls": "flex flex-wrap items-center gap-6",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "13px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(253, 254, 254)",
+                    "width": "152px",
+                    "height": "20px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "alignItems": "center",
+                    "gap": "24px",
+                    "border": "0px none rgb(253, 254, 254)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "div",
+              "cls": "announcement-bar h-full flex justify-center",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "13px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(253, 254, 254)",
+                "width": "557.484px",
+                "height": "48px",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "border": "0px none rgb(253, 254, 254)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "announcement-bar",
+                  "cls": "announcement__slides flex justify-center w-full",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "13px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(253, 254, 254)",
+                    "width": "448px",
+                    "maxWidth": "448px",
+                    "height": "48px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                    "border": "0px none rgb(253, 254, 254)",
+                    "position": "relative",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "div",
+              "cls": "localization hidden lg:flex items-center",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "13px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(253, 254, 254)",
+                "width": "371.672px",
+                "height": "48px",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+                "alignItems": "center",
+                "gap": "21.6px",
+                "border": "0px none rgb(253, 254, 254)",
+                "position": "static",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "localization__item h-full relative",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "13px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(253, 254, 254)",
+                    "width": "193.672px",
+                    "height": "48px",
+                    "display": "block",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(253, 254, 254)",
+                    "position": "relative",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": ":root {--topbar-height: var(--sp-12);} @media screen and (min-width: 1536px) { :root {--topbar-height: var(--sp-14);} } #shopify-section-sections--22216640331989__announcement-bar { --gradient-background: #0b0e11; --color-background: 11 14 17; --color-foreground: 253 254 254; --color-highlight: 52 248 255; } Facebook Instagram YouTube LinkedIn Free Expert Room Advice Handmade to order, for your room. United States (USD $) Canada (CAD $) United States (USD $)"
+  },
+  "header": {
+    "top": 48,
+    "height": 109,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section shopify-section-group-header-group header-section header-sticky",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "109.438px",
+        "display": "block",
+        "flexDirection": "row",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "sticky",
+        "zIndex": "20",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-sections--22216640331989__header {\n    --section-padding-top: 32px;\n    --section-padding-bottom: 32px;\n    --color-background: 253 254 254;\n    --color-foreground: 25 49 57;\n    --color-transparent: 253 254 254;\n  }",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "menu-drawer",
+          "cls": "menu-drawer drawer drawer--start z-30",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "width": "100%",
+            "height": "100%",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "fixed",
+            "zIndex": "30",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "overlay-element",
+              "cls": "overlay fixed-modal invisible opacity-0",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(11, 14, 17)",
+                "backgroundImage": "linear-gradient(to left, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.5) 80%)",
+                "width": "100%",
+                "height": "900px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(11, 14, 17)",
+                "position": "fixed",
+                "opacity": "0",
+                "transition": "opacity 0.8s cubic-bezier(0.7, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.7, 0, 0.2, 1), background-color 0.8s cubic-bezier(0.7, 0, 0.2, 1)",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": []
+            },
+            {
+              "tag": "div",
+              "cls": "drawer__inner z-10 absolute top-0",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(11, 14, 17)",
+                "backgroundColor": "rgb(243, 246, 246)",
+                "width": "100%",
+                "maxWidth": "576px",
+                "height": "100%",
+                "display": "flex",
+                "flexDirection": "column",
+                "borderRadius": "0px 34px 34px 0px",
+                "border": "0px none rgb(11, 14, 17)",
+                "position": "absolute",
+                "zIndex": "10",
+                "opacity": "1",
+                "transition": "transform 0.6s cubic-bezier(0.7, 0, 0.2, 1)",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "hidden"
+              },
+              "children": [
+                {
+                  "tag": "gesture-element",
+                  "cls": "drawer__header flex justify-between opacity-0",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "padding": "32px 20px 16px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "relative",
+                    "opacity": "0",
+                    "transition": "opacity 0.5s cubic-bezier(0.3, 1, 0.3, 1) 0.1s, visibility 0.5s cubic-bezier(0.3, 1, 0.3, 1) 0.1s",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "div",
+                  "cls": "drawer__content opacity-0 invisible flex",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "height": "100%",
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "0",
+                    "transition": "opacity 0.5s cubic-bezier(0.3, 1, 0.3, 1) 0.1s, visibility 0.5s cubic-bezier(0.3, 1, 0.3, 1) 0.1s",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "hidden auto"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "header",
+          "cls": "header header--left-center mobile:header--center page-width",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(25, 49, 57)",
+            "padding": "28.6573px 48px",
+            "width": "1440px",
+            "height": "109.438px",
+            "display": "grid",
+            "flexDirection": "row",
+            "alignItems": "center",
+            "gridTemplateColumns": "317.766px 708.453px 317.781px",
+            "borderRadius": "22.7232px 22.7232px 0px 0px",
+            "border": "0px none rgb(25, 49, 57)",
+            "position": "relative",
+            "zIndex": "20",
+            "opacity": "1",
+            "transition": "opacity 0.5s cubic-bezier(0.6, 0, 0.4, 1), transform 0.5s cubic-bezier(0.6, 0, 0.4, 1), padding-block-start 0.5s cubic-bezier(0.6, 0, 0.4, 1), padding-block-end 0.5s cubic-bezier(0.6, 0, 0.4, 1)",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "header__icons header__icons--start flex justify-start",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(25, 49, 57)",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "border": "0px none rgb(25, 49, 57)",
+                "position": "static",
+                "zIndex": "2",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "header__buttons flex items-center gap-1d5",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(25, 49, 57)",
+                    "margin": "0px -10px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "alignItems": "center",
+                    "gap": "6px",
+                    "border": "0px none rgb(25, 49, 57)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "color 0.5s cubic-bezier(0.6, 0, 0.4, 1) 0.1s",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "div",
+              "cls": "header__logo flex justify-center z-2",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(25, 49, 57)",
+                "width": "245px",
+                "maxWidth": "max-content",
+                "height": "52.125px",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "border": "0px none rgb(25, 49, 57)",
+                "position": "static",
+                "zIndex": "2",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "a",
+                  "cls": "header__logo-link has-white-logo flex items-center",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(25, 49, 57)",
+                    "width": "245px",
+                    "height": "52.125px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "alignItems": "center",
+                    "border": "0px none rgb(25, 49, 57)",
+                    "position": "relative",
+                    "opacity": "1",
+                    "transition": "opacity 0.5s cubic-bezier(0.6, 0, 0.4, 1) 0.1s",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "div",
+              "cls": "header__navigation hidden lg:flex lg:gap-5",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(25, 49, 57)",
+                "width": "708.453px",
+                "height": "42px",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "gap": "20px",
+                "border": "0px none rgb(25, 49, 57)",
+                "position": "static",
+                "opacity": "1",
+                "transition": "color 0.5s cubic-bezier(0.6, 0, 0.4, 1) 0.1s",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "nav",
+                  "cls": "header__menu hidden lg:flex",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(25, 49, 57)",
+                    "width": "708.453px",
+                    "height": "42px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(25, 49, 57)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "div",
+              "cls": "header__icons header__icons--end flex justify-end",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(25, 49, 57)",
+                "width": "317.781px",
+                "height": "44px",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+                "border": "0px none rgb(25, 49, 57)",
+                "position": "static",
+                "zIndex": "2",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "header__buttons flex items-center gap-1d5",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(25, 49, 57)",
+                    "margin": "0px -10px",
+                    "width": "144px",
+                    "height": "44px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "alignItems": "center",
+                    "gap": "6px",
+                    "border": "0px none rgb(25, 49, 57)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "color 0.5s cubic-bezier(0.6, 0, 0.4, 1) 0.1s",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "span",
+              "cls": "header__corner corner left bottom",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgba(253, 254, 254, 0.42)",
+                "width": "9.48438px",
+                "height": "9.48438px",
+                "display": "flex",
+                "flexDirection": "row",
+                "border": "0px none rgba(253, 254, 254, 0.42)",
+                "position": "absolute",
+                "opacity": "1",
+                "transform": "matrix(1, 0, 0, 1, 0, 0)",
+                "transition": "0.5s cubic-bezier(0.6, 0, 0.4, 1)",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "svg",
+                  "cls": "[object SVGAnimatedString]",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgba(253, 254, 254, 0.42)",
+                    "width": "9.48438px",
+                    "height": "9.48438px",
+                    "display": "block",
+                    "flexDirection": "row",
+                    "border": "0px none rgba(253, 254, 254, 0.42)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "hidden"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "span",
+              "cls": "header__corner corner right bottom",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgba(253, 254, 254, 0.42)",
+                "width": "9.48438px",
+                "height": "9.48438px",
+                "display": "flex",
+                "flexDirection": "row",
+                "border": "0px none rgba(253, 254, 254, 0.42)",
+                "position": "absolute",
+                "opacity": "1",
+                "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+                "transition": "0.5s cubic-bezier(0.6, 0, 0.4, 1)",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "svg",
+                  "cls": "[object SVGAnimatedString]",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgba(253, 254, 254, 0.42)",
+                    "width": "9.48438px",
+                    "height": "9.48438px",
+                    "display": "block",
+                    "flexDirection": "row",
+                    "border": "0px none rgba(253, 254, 254, 0.42)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "hidden"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "span",
+              "cls": "header__cutout cutout opacity-0 absolute",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(25, 49, 57)",
+                "backgroundColor": "rgba(25, 49, 57, 0.114)",
+                "width": "1440px",
+                "height": "1px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(25, 49, 57)",
+                "position": "absolute",
+                "zIndex": "-1",
+                "opacity": "0.417833",
+                "transition": "opacity 0.5s cubic-bezier(0.6, 0, 0.4, 1)",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "tag": "span",
+          "cls": "overlay opacity-0 z-1 fixed",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "backgroundImage": "linear-gradient(to top, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5) 80%)",
+            "width": "1440px",
+            "height": "900px",
+            "display": "block",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "fixed",
+            "zIndex": "1",
+            "opacity": "0",
+            "transition": "opacity 0.8s cubic-bezier(0.7, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.7, 0, 0.2, 1)",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "script",
+          "cls": "",
+          "text": "if (Shopify.designMode) {\n    document.documentElement.style.setProperty('--header-height', Math.round(document.getElementById('shopify-section-sections--22216640331989__header').clientHeight) + 'px');\n  }",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        }
+      ]
+    },
+    "fullText": "#shopify-section-sections--22216640331989__header { --section-padding-top: 32px; --section-padding-bottom: 32px; --color-background: 253 254 254; --color-foreground: 25 49 57; --color-transparent: 253 254 254; } Shop Shop Spaces Spaces Resources Resources About About Free Expert AdviceDesign Your Room United States (USD $) Login Facebook Instagram YouTube LinkedIn Search Site navigation GIK Acoustics ShopShop Acoustic PanelsBass TrapsDiffusersGobos, Booths & ShieldsAcoustic ArtAccessories Browse All Products Shop Acoustic Panels(9) Classic Acoustic Panels Start at $64.00 PATENTED FlexRange® Acoustic Panels Start at $84.00 PATENTED Amplitude™ Acoustic Panels Start at $104.00 SlatFusor™ Acoustic Panels Start at $104.00 FREE ROOM ADVICE Expert Consulting Tailored to Your Room Shop Bass Traps(15) TriTrap™ Corner Bass Traps Start at $179.00 PATENTED FlexRange® Bass Trap Panels Start at $104.00 PATENTED Amplitude™ Bass Trap Panels Start at $134.00 TurboTrap™ Cylindrical Bass Traps $399.00 FREE ROOM ADVICE Expert Consulting Tailored to Your Room Shop Diffusers(12) Q11D Quadratic Residue Diffusers Start at $399.00 Gotham Primitive Root Diffusers $249.00 Q7D Quadratic Residue Diffusers Start at $299.00 PATENTED Amplitude™ Acoustic Panels Start at $104.00 FREE ROOM ADVICE Expert Consulting Tailored to Your Room Shop Gobos, Booths & Shields(8) PATENTED PIB™ Portable Vocal Screen $499.00 PATENTED PIB™ Vocal Booth Pro $999.00 FreeStand Acoustic Panels $199.00 FreeStand Bass Trap Panels Start at $249.00 FREE ROOM ADVICE Expert Consulting Tailored to Your Room Shop Accessories(6) Ceiling Cloud Brackets $19.00 FlexRange Panel Stand $69.00 Sold Out Acoustic Fabric By Yard $19.00 Gift Card Start at $100.00 SpacesSpaces Music Studio Hi-Fi Listening Home Theater Office Space All Spaces ResourcesResources ToolsProjectsNews & PressReviews & MediaKnowledge Base View all Tools Room Acoustic Designer3D Rendering SoftwareStart Planning Acoustic Panel CalculatorHow many panels do I need?Start Calculating Product ComparisonCompare product specsCompare Now AboutAbout About Us Meet The Experts Distributors Contact Us FAQs Free Expert AdviceFree Expert Advice Design Your RoomDesign Your Room Search Login Cart 0 Site navigation if (Shopify.designMode) { document.documentElement.style.setProperty('--header-height', Math.round(document.getElementById('shopify-section-sections--22216640331989__header').clientHeight) + 'px'); }"
+  },
+  "hero": {
+    "top": 164,
+    "height": 638,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "637.5px",
+        "display": "flow-root",
+        "flexDirection": "row",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-template--22216647016661__image_with_text_overlay_K3tF84 {\n    --section-padding-top: 0px;\n    --section-padding-bottom: 0px;--color-foreground: 253 254 254;\n  --color-border: var(--color-foreground)/ 0.1;\n  --color-border-dark: var(",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "section section--padding section--rounded relative",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(253, 254, 254)",
+            "backgroundColor": "rgb(253, 254, 254)",
+            "width": "1440px",
+            "height": "637.5px",
+            "display": "block",
+            "flexDirection": "row",
+            "borderRadius": "22.7232px 22.7232px 0px 0px",
+            "border": "0px none rgb(253, 254, 254)",
+            "position": "relative",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "relative",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(253, 254, 254)",
+                "width": "1440px",
+                "height": "637.5px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(253, 254, 254)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "banner media--750px mobile:media--auto relative",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(253, 254, 254)",
+                    "width": "1440px",
+                    "height": "637.5px",
+                    "display": "block",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(253, 254, 254)",
+                    "position": "relative",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": "#shopify-section-template--22216647016661__image_with_text_overlay_K3tF84 { --section-padding-top: 0px; --section-padding-bottom: 0px;--color-foreground: 253 254 254; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-highlight: 189 79 15;--color-button-background: 253 254 254; --color-button-border: 253 254 254;--color-button-text: 23 23 23;--color-overlay: 11 14 17;--overlay-opacity: 0.5;} Designed by Experts. Trusted by Pros.The Global Benchmark in Acoustic Treatment Discover All Products"
+  },
+  "best-sellers": {
+    "top": 802,
+    "height": 868,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section featured-collections",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "867.656px",
+        "display": "flow-root",
+        "flexDirection": "row",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-template--22216647016661__featured_collections_PxC6rQ {\n    --section-padding-top: 72px;\n    --section-padding-bottom: 72px;--color-button-background: 33 76 90;\n  --color-button-border: 33 76 90;--color-button-text: 253 254 254;}\n  \n",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "section section--padding",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "backgroundColor": "rgb(253, 254, 254)",
+            "padding": "72px 0px",
+            "width": "1440px",
+            "height": "867.656px",
+            "display": "block",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "relative",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "page-width relative",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(11, 14, 17)",
+                "padding": "0px 48px",
+                "width": "1440px",
+                "height": "723.656px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(11, 14, 17)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "title-wrapper leading-none gap-4 lg:gap-8",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "lineHeight": "16px",
+                    "color": "rgb(11, 14, 17)",
+                    "margin": "0px 0px 24px",
+                    "width": "1344px",
+                    "height": "89.5938px",
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "justifyContent": "space-between",
+                    "alignItems": "center",
+                    "gap": "32px",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "relative",
+                    "zIndex": "1",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "center",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "tabs-element",
+                  "cls": "tab-list flex gap-6 justify-between",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "margin": "0px 0px 36.3744px",
+                    "width": "1344px",
+                    "height": "51.2656px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "alignItems": "center",
+                    "gap": "24px",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "div",
+                  "cls": "",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "width": "1344px",
+                    "height": "522.438px",
+                    "display": "block",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "div",
+                  "cls": "",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "div",
+                  "cls": "",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "div",
+                  "cls": "",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "div",
+                  "cls": "",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": "#shopify-section-template--22216647016661__featured_collections_PxC6rQ { --section-padding-top: 72px; --section-padding-bottom: 72px;--color-button-background: 33 76 90; --color-button-border: 33 76 90;--color-button-text: 253 254 254;} #shopify-section-template--22216647016661__featured_collections_PxC6rQ .navigation-arrows { flex-shrink: 0; } #shopify-section-template--22216647016661__featured_collections_PxC6rQ .carousel-nav-button { border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; } #shopify-section-template--22216647016661__featured_collections_PxC6rQ .carousel-nav-button .icon { width: clamp(var(--sp-8), 2.105vw, var(--sp-10)); height: clamp(var(--sp-8), 2.105vw, var(--sp-10)); } #shopify-section-template--22216647016661__featured_collections_PxC6rQ .carousel-nav-button:disabled { cursor: not-allowed; opacity: 0.5; } BEST SELLERSThe Top Choice of Industry Professionals Acoustic Panels Bass Traps Diffusers Vocal Booths & Gobos Art Panels Classic Acoustic Panels Start at $64.00 PATENTED FlexRange® Acoustic Panels Start at $84.00 PATENTED Amplitude™ Acoustic Panels Start at $104.00 SlatFusor™ Acoustic Panels Start at $104.00 DecoShape™ Acoustic Panels Start at $75.00 FreeStand Acoustic Panels $199.00 Acoustic Art Panels Start at $179.00 Ceiling Acoustic Panels Start at $74.00 Room Kits Start at $999.00 TriTrap™ Corner Bass Traps Start at $179.00 PATENTED FlexRange® Bass Trap Panels Start at $104.00 PATENTED Amplitude™ Bass Trap Panels Start at $134.00 TurboTrap™ Cylindrical Bass Traps $399.00 Soffit Corner Bass Traps Start at $249.00 Classic Bass Trap Panels Start at $84.00 PATENTED Amplitude™ Corner Bass Traps Start at $199.00 SlatFusor™ Bass Trap Panels Start at $134.00 Scopus™ Tuned Membrane Bass Traps $349.00 SlatFusor™ Corner Bass Traps Start at $219.00 PATENTED SoundBlocks™ - Stack $749.00 FreeStand Bass Trap Panels Start at $249.00 Q11D Quadratic Residue Diffusers Start at $399.00 Gotham Primitive Root Diffusers $249.00 Q7D Quadratic Residue Diffusers Start at $299.00 PATENTED Amplitude™ Acoustic Panels Start at $104.00 PATENTED Amplitude™ Bass Trap Panels Start at $134.00 PATENTED Amplitude™ Corner Bass Traps Start at $199.00 Evolution PolyFusor™ Polycylindrical Diffuser Start at $129.00 SlatFusor™ Acoustic Panels Start at $104.00 SlatFusor™ Bass Trap Panels Start at $134.00 SlatFusor™ Corner Bass Traps Start at $219.00 SlatFusor™ Polycylindrical Diffusers Start at $149.00 GridFusor™ $69.00 PATENTED PIB™ Portable Vocal Screen $499.00 PATENTED PIB™ Vocal Booth Pro $999.00 FreeStand Acoustic Panels $199.00 FreeStand Bass Trap Panels Start at $249.00 ScreenPanel Vocal Screen $399.00 PATENTED SoundBlocks™ - Stack $749.00 PATENTED GoboBlocks™ - Modular Gobo System Start at $999.00 PATENTED SoundBlocks™ - Stack (RS TEST) Start at $250.00 Acoustic Art Panels Start at $179.00"
+  },
+  "video-overlay-q11d": {
+    "top": 1654,
+    "height": 638,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "637.5px",
+        "display": "flow-root",
+        "flexDirection": "row",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-template--22216647016661__video_with_text_overlay_axkPXk {\n    --section-padding-top: 0px;\n    --section-padding-bottom: 0px;--color-foreground: 255 255 255;\n  --color-border: var(--color-foreground)/ 0.1;\n  --color-border-dark: var(",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "section section--padding section--rounded relative",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(253, 254, 254)",
+            "width": "1440px",
+            "height": "637.5px",
+            "display": "block",
+            "flexDirection": "row",
+            "borderRadius": "22.7232px 22.7232px 0px 0px",
+            "border": "0px none rgb(255, 255, 255)",
+            "position": "relative",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "relative",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(255, 255, 255)",
+                "width": "1440px",
+                "height": "637.5px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(255, 255, 255)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "video-hero banner media--750px mobile:media--auto",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(255, 255, 255)",
+                    "width": "1440px",
+                    "height": "637.5px",
+                    "display": "block",
+                    "flexDirection": "row",
+                    "borderRadius": "22.7232px 22.7232px 0px 0px",
+                    "border": "0px none rgb(255, 255, 255)",
+                    "position": "relative",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": "#shopify-section-template--22216647016661__video_with_text_overlay_axkPXk { --section-padding-top: 0px; --section-padding-bottom: 0px;--color-foreground: 255 255 255; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-highlight: 224 165 128;--color-button-background: 255 255 255; --color-button-border: 255 255 255;--color-button-text: 23 23 23;--color-overlay: 11 14 17;--overlay-opacity: 0.43;} THE NEWQ11D DiffuserThe Q11D Diffuser brings depth and balance to any room. With 11 wells engineered for precise quadratic diffusion, it scatters sound evenly to eliminate flutter echoes and create a natural, spacious soundstage. Perfect for studios, listening rooms, or home theaters, it delivers both acoustic performance and modern design in one sleek solution. SHOP NOW"
+  },
+  "environments": {
+    "top": 2291,
+    "height": 746,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section collection-list",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "745.844px",
+        "display": "flow-root",
+        "flexDirection": "row",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-template--22216647016661__collection_list_ExpfHq {\n    --section-padding-top: 72px;\n    --section-padding-bottom: 72px;}",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "section section--padding",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "backgroundColor": "rgb(253, 254, 254)",
+            "padding": "72px 0px",
+            "width": "1440px",
+            "height": "745.844px",
+            "display": "block",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "relative",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "page-width relative",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(11, 14, 17)",
+                "padding": "0px 48px",
+                "width": "1440px",
+                "height": "601.844px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(11, 14, 17)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "title-wrapper leading-none gap-4 lg:gap-8",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "lineHeight": "16px",
+                    "color": "rgb(11, 14, 17)",
+                    "margin": "0px 0px 36.3744px",
+                    "width": "1344px",
+                    "height": "162.547px",
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "justifyContent": "space-between",
+                    "alignItems": "center",
+                    "gap": "32px",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "relative",
+                    "zIndex": "1",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "center",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "slider-element",
+                  "cls": "grid slider slider--desktop slider--tablet",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "padding": "0px 48px",
+                    "margin": "0px -48px",
+                    "width": "1440px",
+                    "height": "402.938px",
+                    "display": "grid",
+                    "flexDirection": "row",
+                    "gridTemplateColumns": "1684.48px",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "auto hidden"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "p",
+                  "cls": "hidden lg:block",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "margin": "36.3744px 0px 0px",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "center",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": "#shopify-section-template--22216647016661__collection_list_ExpfHq { --section-padding-top: 72px; --section-padding-bottom: 72px;} Professional Acoustic TreatmentFOR EVERY ENVIRONMENT #shopify-block-collection_LwmrmY {--color-foreground: 253 254 254; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-overlay: 11 14 17;--overlay-opacity: 0.25;} Music Studio #shopify-block-collection_CMnXrX {--color-foreground: 253 254 254; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-overlay: 11 14 17;--overlay-opacity: 0.25;} House of Worship #shopify-block-collection_RPFEyd {--color-foreground: 253 254 254; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-overlay: 11 14 17;--overlay-opacity: 0.25;} Hi-Fi Listening #shopify-block-collection_LANfGK {--color-foreground: 253 254 254; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-overlay: 11 14 17;--overlay-opacity: 0.25;} Office Space #shopify-block-collection_78aEVj {--color-foreground: 253 254 254; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-overlay: 0 0 0;--overlay-opacity: 0.25;} Restaurant"
+  },
+  "trusted-experts": {
+    "top": 3037,
+    "height": 416,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "415.547px",
+        "display": "flow-root",
+        "flexDirection": "row",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-template--22216647016661__logo_list_WGEfQG {\n    --section-padding-top: 92px;\n    --section-padding-bottom: 92px;--color-background: 243 246 246;--section-grid-gap: 100px;\n  }",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "section section--padding",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "backgroundColor": "rgb(243, 246, 246)",
+            "padding": "92px 0px",
+            "width": "1440px",
+            "height": "415.547px",
+            "display": "block",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "relative",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "page-width relative",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(11, 14, 17)",
+                "padding": "0px 48px",
+                "width": "1440px",
+                "height": "231.547px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(11, 14, 17)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "title-wrapper leading-none gap-4 lg:gap-8",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "lineHeight": "16px",
+                    "color": "rgb(11, 14, 17)",
+                    "margin": "0px 0px 36.3744px",
+                    "width": "1344px",
+                    "height": "115.188px",
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "justifyContent": "space-between",
+                    "alignItems": "center",
+                    "gap": "32px",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "relative",
+                    "zIndex": "1",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "center",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "div",
+                  "cls": "text-center md:items-center overflow-hidden",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "width": "1344px",
+                    "height": "80px",
+                    "display": "block",
+                    "flexDirection": "row",
+                    "alignItems": "center",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "center",
+                    "overflow": "hidden"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": "#shopify-section-template--22216647016661__logo_list_WGEfQG { --section-padding-top: 92px; --section-padding-bottom: 92px;--color-background: 243 246 246;--section-grid-gap: 100px; } Trusted by the ExpertsChosen by leading studios, artists, venues, and brands worldwide. Our product has been recognized by industry leaders across the world for its superior quality and performance."
+  },
+  "fabrics": {
+    "top": 3452,
+    "height": 504,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "504.344px",
+        "display": "flow-root",
+        "flexDirection": "row",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-template--22216647016661__image_with_text_overlay_wCfjw6 {\n    --section-padding-top: 0px;\n    --section-padding-bottom: 0px;--color-foreground: 253 254 254;\n  --color-border: var(--color-foreground)/ 0.1;\n  --color-border-dark: var(",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "section section--padding",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(253, 254, 254)",
+            "backgroundColor": "rgb(253, 254, 254)",
+            "width": "1440px",
+            "height": "504.344px",
+            "display": "block",
+            "flexDirection": "row",
+            "border": "0px none rgb(253, 254, 254)",
+            "position": "relative",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "relative",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(253, 254, 254)",
+                "width": "1440px",
+                "height": "504.344px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(253, 254, 254)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "banner media--adapt mobile:media--auto relative",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(253, 254, 254)",
+                    "padding": "0px 0px 504.344px",
+                    "width": "1440px",
+                    "height": "504.344px",
+                    "display": "block",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(253, 254, 254)",
+                    "position": "relative",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": "#shopify-section-template--22216647016661__image_with_text_overlay_wCfjw6 { --section-padding-top: 0px; --section-padding-bottom: 0px;--color-foreground: 253 254 254; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-highlight: 224 165 128;--color-button-background: 255 255 255; --color-button-border: 255 255 255;--color-button-text: 11 14 17;--color-overlay: 11 14 17;--overlay-opacity: 0.0; --ratio-percent: 35.02444987775061%; } Premium Acoustic FabricsWoven with precision and engineered for durability, Camira fabric delivers exceptional performance with a sophisticated look and feel. The result: panels that look as good as they sound – available in a wide range of colors."
+  },
+  "shop-the-look": {
+    "error": "not found"
+  },
+  "testimonial": {
+    "top": 4879,
+    "height": 595,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "595px",
+        "display": "flow-root",
+        "flexDirection": "row",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-template--22216647016661__testimonials_banner_RVweP8 {\n    --section-padding-top: 0px;\n    --section-padding-bottom: 0px;--color-foreground: 253 254 254;\n  --color-border: var(--color-foreground)/ 0.1;\n  --color-border-dark: var(--co",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "section section--padding",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(253, 254, 254)",
+            "backgroundColor": "rgb(253, 254, 254)",
+            "width": "1440px",
+            "height": "595px",
+            "display": "block",
+            "flexDirection": "row",
+            "border": "0px none rgb(253, 254, 254)",
+            "position": "relative",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "relative",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(253, 254, 254)",
+                "width": "1440px",
+                "height": "595px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(253, 254, 254)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "banner media--700px mobile:media--auto relative",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(253, 254, 254)",
+                    "width": "1440px",
+                    "height": "595px",
+                    "display": "block",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(253, 254, 254)",
+                    "position": "relative",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": "#shopify-section-template--22216647016661__testimonials_banner_RVweP8 { --section-padding-top: 0px; --section-padding-bottom: 0px;--color-foreground: 253 254 254; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-highlight: 224 165 128;--color-overlay: 23 23 23;--overlay-opacity: 0.62;} Since installing GIK treatments, the sonic difference has been really astounding.— Rupert NeveRupert Neve Designs The GIK Acoustics Monster Bass Trap was the perfect trap to reduce a resonance that I detected in studio B.— Bob KatzMastering Engineer We are delighted to work with GIK Acoustics. Their products and expertise have allowed us to set up one of our studios very quickly and with great results.— Luca BarassiManaging Director | Abbey Road Institute"
+  },
+  "plan-your-space": {
+    "top": 148,
+    "height": 638,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "637.5px",
+        "display": "flow-root",
+        "flexDirection": "row",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-template--22216647016661__image_with_text_overlay_K3tF84 {\n    --section-padding-top: 0px;\n    --section-padding-bottom: 0px;--color-foreground: 253 254 254;\n  --color-border: var(--color-foreground)/ 0.1;\n  --color-border-dark: var(",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "section section--padding section--rounded relative",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(253, 254, 254)",
+            "backgroundColor": "rgb(253, 254, 254)",
+            "width": "1440px",
+            "height": "637.5px",
+            "display": "block",
+            "flexDirection": "row",
+            "borderRadius": "22.7232px 22.7232px 0px 0px",
+            "border": "0px none rgb(253, 254, 254)",
+            "position": "relative",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "relative",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(253, 254, 254)",
+                "width": "1440px",
+                "height": "637.5px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(253, 254, 254)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "banner media--750px mobile:media--auto relative",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(253, 254, 254)",
+                    "width": "1440px",
+                    "height": "637.5px",
+                    "display": "block",
+                    "flexDirection": "row",
+                    "border": "0px none rgb(253, 254, 254)",
+                    "position": "relative",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": "#shopify-section-template--22216647016661__image_with_text_overlay_K3tF84 { --section-padding-top: 0px; --section-padding-bottom: 0px;--color-foreground: 253 254 254; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-highlight: 189 79 15;--color-button-background: 253 254 254; --color-button-border: 253 254 254;--color-button-text: 23 23 23;--color-overlay: 11 14 17;--overlay-opacity: 0.5;} Designed by Experts. Trusted by Pros.The Global Benchmark in Acoustic Treatment Discover All Products"
+  },
+  "knowledge-base": {
+    "top": 6647,
+    "height": 1256,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "1256.36px",
+        "display": "flow-root",
+        "flexDirection": "row",
+        "borderRadius": "0px 0px 22.7232px 22.7232px",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-template--22216647016661__blog_posts_collage_VA8aec {\n    --section-padding-top: 100px;\n    --section-padding-bottom: 100px;}",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "link",
+          "cls": "",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "noscript",
+          "cls": "",
+          "text": "<link href=\"//www.gikacoustics.com/cdn/shop/t/91/assets/blog.css?v=74667900373203458591784135822\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "display": "inline",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "section section--padding",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "backgroundColor": "rgb(253, 254, 254)",
+            "padding": "100px 0px",
+            "width": "1440px",
+            "height": "1256.36px",
+            "display": "block",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "relative",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "div",
+              "cls": "page-width relative",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(11, 14, 17)",
+                "padding": "0px 48px",
+                "width": "1440px",
+                "height": "1056.36px",
+                "display": "block",
+                "flexDirection": "row",
+                "border": "0px none rgb(11, 14, 17)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "title-wrapper leading-none gap-4 lg:gap-8",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "lineHeight": "16px",
+                    "color": "rgb(11, 14, 17)",
+                    "margin": "0px 0px 36.3744px",
+                    "width": "1344px",
+                    "height": "149.734px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "alignItems": "flex-end",
+                    "gap": "32px",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "relative",
+                    "zIndex": "1",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "slider-element",
+                  "cls": "grid slider",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(11, 14, 17)",
+                    "width": "1344px",
+                    "height": "870.266px",
+                    "display": "grid",
+                    "flexDirection": "row",
+                    "gridTemplateColumns": "1344px",
+                    "border": "0px none rgb(11, 14, 17)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": "#shopify-section-template--22216647016661__blog_posts_collage_VA8aec { --section-padding-top: 100px; --section-padding-bottom: 100px;} <link href=\"//www.gikacoustics.com/cdn/shop/t/91/assets/blog.css?v=74667900373203458591784135822\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" /> The Science of SoundAcoustic Knowledge BaseGain a deeper understanding of the impact of sound in confined areas and the role of acoustic treatment in improving acoustics View all Acoustic Theory May 05, 2026by James Lindenschmidt What is RT60? RT60 is a traditional metric used to measure reverberation time, specifically, how long it takes for sound energy to decay by 60 decibels after a sound source stops. While it is often viewed as a dead-room goal, we treat RT60... Read more Treatment Strategies May 05, 2026by James Lindenschmidt How to Build a Podcast Studio for Clear Audio The explosion of podcasting and digital content creation has made high-quality audio more accessible than ever. However, many creators make the mistake of over-investing in expensive gear while completely overlooking the most critical component of the signal chain: the room... Read more Treatment Strategies May 05, 2026by James Lindenschmidt How Thick Should Acoustic Panels Be? The short answer to how thick an acoustic panel should be depends entirely on the frequencies you need to control. For basic speech clarity in an office or hallway, a two-inch panel is the effective minimum to manage the mid-range... Read more"
+  },
+  "footer": {
+    "top": 8137,
+    "height": 310,
+    "tree": {
+      "tag": "div",
+      "cls": "shopify-section shopify-section-group-footer-group",
+      "text": null,
+      "img": null,
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "width": "1440px",
+        "height": "310px",
+        "display": "block",
+        "flexDirection": "row",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "static",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start",
+        "overflow": "visible"
+      },
+      "children": [
+        {
+          "tag": "style",
+          "cls": "",
+          "text": "#shopify-section-sections--22216640266453__footer {\n    --section-padding-top: 72px;\n    --section-padding-bottom: 72px;--gradient-background: linear-gradient(180deg, rgba(25, 49, 57, 1) 12%, rgba(11, 14, 17, 1) 81%);--color-background: 253 254 254;-",
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(11, 14, 17)",
+            "flexDirection": "row",
+            "border": "0px none rgb(11, 14, 17)",
+            "position": "static",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": []
+        },
+        {
+          "tag": "div",
+          "cls": "section section--padding section--rounded section--next-rounded",
+          "text": null,
+          "img": null,
+          "styles": {
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "fontFamily": "Lexend, sans-serif",
+            "color": "rgb(253, 254, 254)",
+            "backgroundColor": "rgb(253, 254, 254)",
+            "backgroundImage": "linear-gradient(rgb(25, 49, 57) 12%, rgb(11, 14, 17) 81%)",
+            "padding": "72px 0px",
+            "width": "1440px",
+            "height": "310px",
+            "display": "block",
+            "flexDirection": "row",
+            "borderRadius": "22.7232px",
+            "border": "0px none rgb(253, 254, 254)",
+            "position": "relative",
+            "zIndex": "2",
+            "opacity": "1",
+            "transition": "all",
+            "objectFit": "fill",
+            "textAlign": "start",
+            "overflow": "visible"
+          },
+          "children": [
+            {
+              "tag": "footer",
+              "cls": "footer page-width relative flex",
+              "text": null,
+              "img": null,
+              "styles": {
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "fontFamily": "Lexend, sans-serif",
+                "color": "rgb(253, 254, 254)",
+                "padding": "0px 48px",
+                "width": "1440px",
+                "height": "166px",
+                "display": "flex",
+                "flexDirection": "row",
+                "gridTemplateColumns": "repeat(2, minmax(0px, 1fr))",
+                "border": "0px none rgb(253, 254, 254)",
+                "position": "relative",
+                "opacity": "1",
+                "transition": "all",
+                "objectFit": "fill",
+                "textAlign": "start",
+                "overflow": "visible"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "cls": "footer__left flex flex-col md:flex-row",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(253, 254, 254)",
+                    "width": "927.359px",
+                    "height": "166px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "gap": "56px",
+                    "border": "0px none rgb(253, 254, 254)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                },
+                {
+                  "tag": "div",
+                  "cls": "footer__right grid gap-6",
+                  "text": null,
+                  "img": null,
+                  "styles": {
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "fontFamily": "Lexend, sans-serif",
+                    "color": "rgb(253, 254, 254)",
+                    "padding": "0px 0px 0px 56px",
+                    "width": "416.625px",
+                    "height": "166px",
+                    "display": "grid",
+                    "flexDirection": "row",
+                    "gap": "24px 0px",
+                    "gridTemplateColumns": "360.625px 0px 0px",
+                    "border": "0px none rgb(253, 254, 254)",
+                    "position": "static",
+                    "opacity": "1",
+                    "transition": "all",
+                    "objectFit": "fill",
+                    "textAlign": "start",
+                    "overflow": "visible"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "fullText": "#shopify-section-sections--22216640266453__footer { --section-padding-top: 72px; --section-padding-bottom: 72px;--gradient-background: linear-gradient(180deg, rgba(25, 49, 57, 1) 12%, rgba(11, 14, 17, 1) 81%);--color-background: 253 254 254;--color-foreground: 253 254 254; --color-border: var(--color-foreground)/ 0.1; --color-border-dark: var(--color-foreground)/ 0.4; --color-border-light: var(--color-foreground)/ 0.06;--color-button-background: 253 254 254; --color-button-border: 253 254 254;--color-button-text: 11 14 17;} GIK Acoustics Designed by Experts. Trusted by Pros. Explore Shop All GIK Products Acoustic Panels Bass Traps Diffusers Gobos, Booths & Shields Tools & Education Free Acoustic Consultation 3D Room Acoustics Designer Acoustic Knowledge Base What's Inside Our Panels Meet Our Designers News Help Contact Us About GIK General FAQ Stay in the loop with our weekly newsletter Enter your email Facebook Instagram YouTube LinkedIn"
+  }
+}

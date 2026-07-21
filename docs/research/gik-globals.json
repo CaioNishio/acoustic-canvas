@@ -1,0 +1,1341 @@
+{
+  "title": "Acoustic Treatment: Panels, Bass Traps & Diffusers | GIK Acoustics",
+  "fonts": [
+    "Lexend, sans-serif",
+    "\"Lexend Giga\", sans-serif"
+  ],
+  "fontLinks": [
+    "https://fonts.shopifycdn.com/",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Lexend+Giga:wght@100..900&display=swap",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/"
+  ],
+  "colors": {
+    "h1": {
+      "color": "rgb(253, 254, 254)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fontFamily": "\"Lexend Giga\", sans-serif",
+      "fontSize": "40px",
+      "fontWeight": "700"
+    },
+    "h2": {
+      "color": "rgb(11, 14, 17)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fontFamily": "\"Lexend Giga\", sans-serif",
+      "fontSize": "29.7008px",
+      "fontWeight": "700"
+    },
+    "h3": {
+      "color": "rgb(25, 49, 57)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fontFamily": "\"Lexend Giga\", sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "600"
+    },
+    "p": {
+      "color": "rgb(253, 254, 254)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fontFamily": "Lexend, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400"
+    },
+    "a": {
+      "color": "rgb(11, 14, 17)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fontFamily": "Lexend, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400"
+    },
+    "button": {
+      "color": "rgb(253, 254, 254)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fontFamily": "Lexend, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400"
+    },
+    "body": {
+      "color": "rgb(11, 14, 17)",
+      "bg": "rgb(253, 254, 254)",
+      "fontFamily": "Lexend, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400"
+    },
+    "header": {
+      "color": "rgb(25, 49, 57)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fontFamily": "Lexend, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400"
+    },
+    "footer": {
+      "color": "rgb(253, 254, 254)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fontFamily": "Lexend, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400"
+    },
+    "nav": {
+      "color": "rgb(11, 14, 17)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fontFamily": "Lexend, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400"
+    }
+  },
+  "favicons": [
+    {
+      "href": "https://www.gikacoustics.com/cdn/shop/files/Frame_1886.svg?crop=center&height=32&v=1754949476&width=32",
+      "sizes": ""
+    }
+  ],
+  "sections": [
+    {
+      "tag": "div",
+      "id": "shopify-section-sections--22216640331989__announcement-bar",
+      "classes": "shopify-section shopify-section-group-header-group topbar-section",
+      "rect": {
+        "top": 0,
+        "h": 48
+      },
+      "text": ":root {--topbar-height: var(--sp-12);}\n    \n    @media screen and (min-width: 1536px) {\n      :root {--topbar-height: va"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-sections--22216640331989__header",
+      "classes": "shopify-section shopify-section-group-header-group header-section header-sticky",
+      "rect": {
+        "top": 48,
+        "h": 116
+      },
+      "text": "#shopify-section-sections--22216640331989__header {\n    --section-padding-top: 32px;\n    --section-padding-bottom: 32px;"
+    },
+    {
+      "tag": "div",
+      "id": "PageContainer",
+      "classes": "page-container",
+      "rect": {
+        "top": 164,
+        "h": 7750
+      },
+      "text": "(function () {\n    if (window.gikGeo) return;\n\n    window.gikGeo = fetch('/browsing_context_suggestions.json', { credent"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-template--22216647016661__image_with_text_overlay_K3tF84",
+      "classes": "shopify-section",
+      "rect": {
+        "top": 164,
+        "h": 638
+      },
+      "text": "#shopify-section-template--22216647016661__image_with_text_overlay_K3tF84 {\n    --section-padding-top: 0px;\n    --sectio"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-template--22216647016661__featured_collections_PxC6rQ",
+      "classes": "shopify-section featured-collections",
+      "rect": {
+        "top": 802,
+        "h": 868
+      },
+      "text": "#shopify-section-template--22216647016661__featured_collections_PxC6rQ {\n    --section-padding-top: 72px;\n    --section-"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-template--22216647016661__video_with_text_overlay_axkPXk",
+      "classes": "shopify-section",
+      "rect": {
+        "top": 1669,
+        "h": 638
+      },
+      "text": "#shopify-section-template--22216647016661__video_with_text_overlay_axkPXk {\n    --section-padding-top: 0px;\n    --sectio"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-template--22216647016661__collection_list_ExpfHq",
+      "classes": "shopify-section collection-list",
+      "rect": {
+        "top": 2307,
+        "h": 746
+      },
+      "text": "#shopify-section-template--22216647016661__collection_list_ExpfHq {\n    --section-padding-top: 72px;\n    --section-paddi"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-template--22216647016661__logo_list_WGEfQG",
+      "classes": "shopify-section",
+      "rect": {
+        "top": 3053,
+        "h": 416
+      },
+      "text": "#shopify-section-template--22216647016661__logo_list_WGEfQG {\n    --section-padding-top: 92px;\n    --section-padding-bot"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-template--22216647016661__image_with_text_overlay_wCfjw6",
+      "classes": "shopify-section",
+      "rect": {
+        "top": 3468,
+        "h": 504
+      },
+      "text": "#shopify-section-template--22216647016661__image_with_text_overlay_wCfjw6 {\n    --section-padding-top: 0px;\n    --sectio"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-template--22216647016661__shop-the-look",
+      "classes": "shopify-section",
+      "rect": {
+        "top": 3973,
+        "h": 922
+      },
+      "text": "#shopify-section-template--22216647016661__shop-the-look {\n    --section-padding-top: 72px;\n    --section-padding-bottom"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-template--22216647016661__testimonials_banner_RVweP8",
+      "classes": "shopify-section",
+      "rect": {
+        "top": 4895,
+        "h": 595
+      },
+      "text": "#shopify-section-template--22216647016661__testimonials_banner_RVweP8 {\n    --section-padding-top: 0px;\n    --section-pa"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-template--22216647016661__multicolumn_46MGWq",
+      "classes": "shopify-section",
+      "rect": {
+        "top": 5490,
+        "h": 1168
+      },
+      "text": "#shopify-section-template--22216647016661__multicolumn_46MGWq {\n    --section-padding-top: 72px;\n    --section-padding-b"
+    },
+    {
+      "tag": "div",
+      "id": "shopify-section-template--22216647016661__blog_posts_collage_VA8aec",
+      "classes": "shopify-section",
+      "rect": {
+        "top": 6658,
+        "h": 1256
+      },
+      "text": "#shopify-section-template--22216647016661__blog_posts_collage_VA8aec {\n    --section-padding-top: 100px;\n    --section-p"
+    }
+  ],
+  "imgs": [
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Frame_1882.svg?v=1754949555&width=245",
+      "alt": "",
+      "w": 893,
+      "h": 190
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Frame_1886.svg?v=1754949476&width=60",
+      "alt": "",
+      "w": 286,
+      "h": 189
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/white_logo_desktop.svg?v=1754949683&width=245",
+      "alt": "",
+      "w": 302,
+      "h": 91
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/white_logo_mobile.svg?v=1754949716&width=60",
+      "alt": "",
+      "w": 157,
+      "h": 104
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CLASSIC_PANEL_2a062a3c-8d99-40c2-a967-9cf852749722.jpg?v=1759186974&width=1080",
+      "alt": "Classic Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FLEXRANGE_GROUP.jpg?v=1774942187&width=1080",
+      "alt": "FlexRange® Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Amplitude_Acoustic_Panels4.jpg?v=1774942441&width=1080",
+      "alt": "Amplitude™ Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SLAT_PANEL_eda77048-e0df-4aa1-bd3e-bae44e5b6ddf.jpg?v=1757098273&width=1080",
+      "alt": "SlatFusor™ Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/IMG_9712-2.jpg?v=1755717948&width=1080",
+      "alt": "",
+      "w": 1440,
+      "h": 1800
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CORNER_TRAP_fff7284c-4045-46af-9aa5-4a60c534a7ad.jpg?v=1757097316&width=1100",
+      "alt": "TriTrap™ Corner Bass Traps",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FLEXRANGE_BT_PANELS.jpg?v=1759951437&width=1080",
+      "alt": "FlexRange® Bass Trap Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Amplitude_Acoustic_Panels3.jpg?v=1774942181&width=1080",
+      "alt": "Amplitude™ Bass Trap Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/TURBO_TRAP_b0a681d3-62ef-43f7-8975-710aeca71da9.jpg?v=1774942049&width=1100",
+      "alt": "TurboTrap™ Cylindrical Bass Traps",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Lukas_RImbach_-_headshot_cropped.jpg?v=1757081402&width=1024",
+      "alt": "",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Q11D_f370db68-0485-483d-bd5a-34fc249a6003.jpg?v=1757098324&width=1100",
+      "alt": "Q11D Quadratic Residue Diffusers",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/GOTHAM_NATURAL_121e1be8-a265-4461-afac-68b4744decf3.jpg?v=1757098295&width=1100",
+      "alt": "Gotham Primitive Root Diffusers",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Q7D_8d423619-74f9-4ace-a107-17cdbc815558.jpg?v=1757098406&width=1100",
+      "alt": "Q7D Quadratic Residue Diffusers",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Amplitude_Acoustic_Panels4.jpg?v=1774942441&width=1080",
+      "alt": "Amplitude™ Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/IMG_9698-2.jpg?v=1756409921&width=1638",
+      "alt": "",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/PIB_V2_3d08a8bd-b6f9-405d-87a1-bcee50bef544.jpg?v=1757097413&width=1100",
+      "alt": "Portable vocal booth with wood diffuser panels and black circular acoustic pattern.",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/PIB_PACK_3f3ee8a8-b4b9-4c72-98be-c2748a8987b1.jpg?v=1757098240&width=1100",
+      "alt": "PIB™ Vocal Booth Pro",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FREESTAND_ACOUSTIC_PANEL_2041e109-ea4f-4076-874d-59d5a855c922.jpg?v=1757620294&width=1080",
+      "alt": "Freestanding gray acoustic panel with metal support feet",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FREESTAND_BASS_d638ca5d-8844-43ea-bccb-0132e27a274c.jpg?v=1757098375&width=1100",
+      "alt": "FreeStand Bass Trap Panels",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/mike-major-headshot.jpg?v=1757017836&width=1638",
+      "alt": "",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/ZBRACKET_2ef4cdde-8b2e-4193-839b-572e903e5e5a.jpg?v=1758029143&width=1100",
+      "alt": "Ceiling Cloud Brackets",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/DSC01795T.png?v=1765468024&width=5760",
+      "alt": "FlexRange Panel Stand",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FABRIC.jpg?v=1759764791&width=1100",
+      "alt": "Acoustic Fabric By Yard",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/gift_card.jpg?v=1759189463&width=1100",
+      "alt": "Gift Card",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/ayan_black_and_white.jpg?v=1755721624&width=1080",
+      "alt": "",
+      "w": 1440,
+      "h": 1713
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Frame_95.jpg?v=1755875422&width=1080",
+      "alt": "",
+      "w": 1440,
+      "h": 1713
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/PXL_20210618_010038610_320a87dd-1288-4410-bf45-09f0e3e6efd4.jpg?v=1758028892&width=2048",
+      "alt": "",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Frame_97.jpg?v=1755875640&width=1080",
+      "alt": "",
+      "w": 1440,
+      "h": 1713
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Frame_98.jpg?v=1755875660&width=1080",
+      "alt": "",
+      "w": 1440,
+      "h": 1713
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/image.jpg?v=1756231324&width=400",
+      "alt": "",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Comparison.jpg?v=1756231848&width=400",
+      "alt": "",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CALCULATOR_1770fa56-0628-4263-b8e8-ba0b3d205866.jpg?v=1756231947&width=400",
+      "alt": "",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Kepek10.jpg?v=1756819222&width=1600",
+      "alt": "",
+      "w": 1440,
+      "h": 960
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CLASSIC_PANEL_2a062a3c-8d99-40c2-a967-9cf852749722.jpg?v=1759186974&width=1080",
+      "alt": "Classic Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FLEXRANGE_GROUP.jpg?v=1774942187&width=1080",
+      "alt": "FlexRange® Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Amplitude_Acoustic_Panels4.jpg?v=1774942441&width=1080",
+      "alt": "Amplitude™ Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SLAT_PANEL_eda77048-e0df-4aa1-bd3e-bae44e5b6ddf.jpg?v=1757098273&width=1080",
+      "alt": "SlatFusor™ Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/DECO_SHAPE_2_dfa824d8-201b-4562-8ef4-ba8401f8e582.jpg?v=1757097382&width=1080",
+      "alt": "Gray hexagon acoustic panel standing upright against a light background",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FREESTAND_ACOUSTIC_PANEL_2041e109-ea4f-4076-874d-59d5a855c922.jpg?v=1757620294&width=1080",
+      "alt": "Freestanding gray acoustic panel with metal support feet",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/ART_PANEL_ee832a53-9b80-4dd4-8efe-10f6b2393014.jpg?v=1757096766&width=1080",
+      "alt": "Classical painting on an acoustic art panel",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/DropCeiling.jpg?v=1757608779&width=1080",
+      "alt": "Black acoustic wall panel standing upright on a light background",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/ROOM_KIT_2.jpg?v=1759326647&width=1080",
+      "alt": "Room Kits",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CORNER_TRAP_fff7284c-4045-46af-9aa5-4a60c534a7ad.jpg?v=1757097316&width=1100",
+      "alt": "TriTrap™ Corner Bass Traps",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FLEXRANGE_BT_PANELS.jpg?v=1759951437&width=1080",
+      "alt": "FlexRange® Bass Trap Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Amplitude_Acoustic_Panels3.jpg?v=1774942181&width=1080",
+      "alt": "Amplitude™ Bass Trap Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/TURBO_TRAP_b0a681d3-62ef-43f7-8975-710aeca71da9.jpg?v=1774942049&width=1100",
+      "alt": "TurboTrap™ Cylindrical Bass Traps",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SOFFIT_CORNER_048c6c87-5ca5-4755-bd38-340c3235b90d.jpg?v=1757096688&width=1100",
+      "alt": "Soffit Corner Bass Traps",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CLASSIC_BT_PANEL.jpg?v=1759187825&width=1080",
+      "alt": "Classic Bass Trap Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/AMPLITUDE_CORNER.jpg?v=1774942452&width=1100",
+      "alt": "Amplitude™ Corner Bass Traps",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SLAT_BASS.jpg?v=1757617169&width=1100",
+      "alt": "SlatFusor™ Bass Trap Panels",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SCOPUS_UPDATE.jpg?v=1759324111&width=1100",
+      "alt": "Scopus™ Tuned Membrane Bass Traps",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SLATFUSOR_CORNER_e2dc1a72-935c-47ca-ab44-9cfb42451e02.jpg?v=1757096450&width=1100",
+      "alt": "SlatFusor™ Corner Bass Traps",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SOUND_BLOCKS_340977a8-f16a-46b5-92e9-5354d61a4231.jpg?v=1757097841&width=1100",
+      "alt": "SoundBlocks™ - Stack",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FREESTAND_BASS_d638ca5d-8844-43ea-bccb-0132e27a274c.jpg?v=1757098375&width=1100",
+      "alt": "FreeStand Bass Trap Panels",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Q11D_f370db68-0485-483d-bd5a-34fc249a6003.jpg?v=1757098324&width=1100",
+      "alt": "Q11D Quadratic Residue Diffusers",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/GOTHAM_NATURAL_121e1be8-a265-4461-afac-68b4744decf3.jpg?v=1757098295&width=1100",
+      "alt": "Gotham Primitive Root Diffusers",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Q7D_8d423619-74f9-4ace-a107-17cdbc815558.jpg?v=1757098406&width=1100",
+      "alt": "Q7D Quadratic Residue Diffusers",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Amplitude_Acoustic_Panels4.jpg?v=1774942441&width=1080",
+      "alt": "Amplitude™ Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Amplitude_Acoustic_Panels3.jpg?v=1774942181&width=1080",
+      "alt": "Amplitude™ Bass Trap Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/AMPLITUDE_CORNER.jpg?v=1774942452&width=1100",
+      "alt": "Amplitude™ Corner Bass Traps",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/POLFUSOR_2.jpg?v=1757096823&width=1100",
+      "alt": "Evolution PolyFusor™ Polycylindrical Diffuser",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SLAT_PANEL_eda77048-e0df-4aa1-bd3e-bae44e5b6ddf.jpg?v=1757098273&width=1080",
+      "alt": "SlatFusor™ Acoustic Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SLAT_BASS.jpg?v=1757617169&width=1100",
+      "alt": "SlatFusor™ Bass Trap Panels",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SLATFUSOR_CORNER_e2dc1a72-935c-47ca-ab44-9cfb42451e02.jpg?v=1757096450&width=1100",
+      "alt": "SlatFusor™ Corner Bass Traps",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SLAT_PL_4e24d415-af78-4dc0-9555-6e815e636653.jpg?v=1757098688&width=1100",
+      "alt": "SlatFusor™ Polycylindrical Diffusers",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/GRIDFUSOR_USA.jpg?v=1765468919&width=1100",
+      "alt": "GridFusor™",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/PIB_V2_3d08a8bd-b6f9-405d-87a1-bcee50bef544.jpg?v=1757097413&width=1100",
+      "alt": "Portable vocal booth with wood diffuser panels and black circular acoustic pattern.",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/PIB_PACK_3f3ee8a8-b4b9-4c72-98be-c2748a8987b1.jpg?v=1757098240&width=1100",
+      "alt": "PIB™ Vocal Booth Pro",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FREESTAND_ACOUSTIC_PANEL_2041e109-ea4f-4076-874d-59d5a855c922.jpg?v=1757620294&width=1080",
+      "alt": "Freestanding gray acoustic panel with metal support feet",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FREESTAND_BASS_d638ca5d-8844-43ea-bccb-0132e27a274c.jpg?v=1757098375&width=1100",
+      "alt": "FreeStand Bass Trap Panels",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/screen_panel_ce7f1630-b5b3-4a2f-9e77-d28bcabe1b00.jpg?v=1757098348&width=1100",
+      "alt": "ScreenPanel Vocal Screen",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SOUND_BLOCKS_340977a8-f16a-46b5-92e9-5354d61a4231.jpg?v=1757097841&width=1100",
+      "alt": "SoundBlocks™ - Stack",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/GOBO_BLOCK_c238778b-e42b-4c1f-8372-97885136d865.jpg?v=1757098177&width=1100",
+      "alt": "GoboBlocks™ - Modular Gobo System",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/SOUND_BLOCKS_340977a8-f16a-46b5-92e9-5354d61a4231.jpg?v=1757097841&width=1100",
+      "alt": "SoundBlocks™ - Stack (RS TEST)",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/ART_PANEL_ee832a53-9b80-4dd4-8efe-10f6b2393014.jpg?v=1757096766&width=1080",
+      "alt": "Classical painting on an acoustic art panel",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/preview_images/50c21037b6b34f2597fca4661242bbe1.thumbnail.0000000000.jpg?v=1756302351&width=1600",
+      "alt": "Load video: ",
+      "w": 1440,
+      "h": 810
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/preview_images/50c21037b6b34f2597fca4661242bbe1.thumbnail.0000000000_800x.jpg?v=1756302351",
+      "alt": "",
+      "w": 800,
+      "h": 450
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/ayan_black_and_white.jpg?v=1755721624&width=1080",
+      "alt": "",
+      "w": 1440,
+      "h": 1713
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Frame_96.jpg?v=1755875444&width=1080",
+      "alt": "",
+      "w": 1440,
+      "h": 1713
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Frame_95.jpg?v=1755875422&width=1080",
+      "alt": "",
+      "w": 1440,
+      "h": 1713
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Frame_97.jpg?v=1755875640&width=1080",
+      "alt": "",
+      "w": 1440,
+      "h": 1713
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Frame_98.jpg?v=1755875660&width=1080",
+      "alt": "",
+      "w": 1440,
+      "h": 1713
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/apple_731985.png?height=48&v=1756028207",
+      "alt": "",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CNET-Logo.png?height=60&v=1755716510",
+      "alt": "",
+      "w": 107,
+      "h": 60
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Genelec_logo_RGB_green.png?height=24&v=1756028271",
+      "alt": "",
+      "w": 139,
+      "h": 24
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Sonos_logo.png?height=24&v=1756028030",
+      "alt": "",
+      "w": 116,
+      "h": 24
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/sound-on-sound-logo-png_seeklogo-586203.png?height=80&v=1755716620",
+      "alt": "",
+      "w": 80,
+      "h": 80
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/pmc-logo-no-dots.png?height=32&v=1756028569",
+      "alt": "",
+      "w": 139,
+      "h": 32
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/tapeop-logo_black_notag_png.webp?height=28&v=1755716454",
+      "alt": "",
+      "w": 125,
+      "h": 28
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/REC-Logo-410x90-_2x_885b504e-9f53-4451-99b4-bb5b49d81353.png?height=32&v=1755716659",
+      "alt": "",
+      "w": 146,
+      "h": 32
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/wired-logo-png-transparent.png?height=28&v=1756244372",
+      "alt": "",
+      "w": 140,
+      "h": 28
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/so142sond681-sony-logo-sony-group-portal-home.png?height=60&v=1756243996",
+      "alt": "",
+      "w": 167,
+      "h": 60
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/apple_731985.png?height=48&v=1756028207",
+      "alt": "",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CNET-Logo.png?height=60&v=1755716510",
+      "alt": "",
+      "w": 107,
+      "h": 60
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Genelec_logo_RGB_green.png?height=24&v=1756028271",
+      "alt": "",
+      "w": 139,
+      "h": 24
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Sonos_logo.png?height=24&v=1756028030",
+      "alt": "",
+      "w": 116,
+      "h": 24
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/sound-on-sound-logo-png_seeklogo-586203.png?height=80&v=1755716620",
+      "alt": "",
+      "w": 80,
+      "h": 80
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/pmc-logo-no-dots.png?height=32&v=1756028569",
+      "alt": "",
+      "w": 139,
+      "h": 32
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/tapeop-logo_black_notag_png.webp?height=28&v=1755716454",
+      "alt": "",
+      "w": 125,
+      "h": 28
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/REC-Logo-410x90-_2x_885b504e-9f53-4451-99b4-bb5b49d81353.png?height=32&v=1755716659",
+      "alt": "",
+      "w": 146,
+      "h": 32
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/wired-logo-png-transparent.png?height=28&v=1756244372",
+      "alt": "",
+      "w": 140,
+      "h": 28
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/so142sond681-sony-logo-sony-group-portal-home.png?height=60&v=1756243996",
+      "alt": "",
+      "w": 167,
+      "h": 60
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/apple_731985.png?height=48&v=1756028207",
+      "alt": "",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CNET-Logo.png?height=60&v=1755716510",
+      "alt": "",
+      "w": 107,
+      "h": 60
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Genelec_logo_RGB_green.png?height=24&v=1756028271",
+      "alt": "",
+      "w": 139,
+      "h": 24
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Sonos_logo.png?height=24&v=1756028030",
+      "alt": "",
+      "w": 116,
+      "h": 24
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/sound-on-sound-logo-png_seeklogo-586203.png?height=80&v=1755716620",
+      "alt": "",
+      "w": 80,
+      "h": 80
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/pmc-logo-no-dots.png?height=32&v=1756028569",
+      "alt": "",
+      "w": 139,
+      "h": 32
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/tapeop-logo_black_notag_png.webp?height=28&v=1755716454",
+      "alt": "",
+      "w": 125,
+      "h": 28
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/REC-Logo-410x90-_2x_885b504e-9f53-4451-99b4-bb5b49d81353.png?height=32&v=1755716659",
+      "alt": "",
+      "w": 146,
+      "h": 32
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/wired-logo-png-transparent.png?height=28&v=1756244372",
+      "alt": "",
+      "w": 140,
+      "h": 28
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/so142sond681-sony-logo-sony-group-portal-home.png?height=60&v=1756243996",
+      "alt": "",
+      "w": 167,
+      "h": 60
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/apple_731985.png?height=48&v=1756028207",
+      "alt": "",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CNET-Logo.png?height=60&v=1755716510",
+      "alt": "",
+      "w": 107,
+      "h": 60
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Genelec_logo_RGB_green.png?height=24&v=1756028271",
+      "alt": "",
+      "w": 139,
+      "h": 24
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Sonos_logo.png?height=24&v=1756028030",
+      "alt": "",
+      "w": 116,
+      "h": 24
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/sound-on-sound-logo-png_seeklogo-586203.png?height=80&v=1755716620",
+      "alt": "",
+      "w": 80,
+      "h": 80
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/pmc-logo-no-dots.png?height=32&v=1756028569",
+      "alt": "",
+      "w": 139,
+      "h": 32
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/tapeop-logo_black_notag_png.webp?height=28&v=1755716454",
+      "alt": "",
+      "w": 125,
+      "h": 28
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/REC-Logo-410x90-_2x_885b504e-9f53-4451-99b4-bb5b49d81353.png?height=32&v=1755716659",
+      "alt": "",
+      "w": 146,
+      "h": 32
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/wired-logo-png-transparent.png?height=28&v=1756244372",
+      "alt": "",
+      "w": 140,
+      "h": 28
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/so142sond681-sony-logo-sony-group-portal-home.png?height=60&v=1756243996",
+      "alt": "",
+      "w": 167,
+      "h": 60
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/fabric_hero.jpg?v=1759248330&width=1600",
+      "alt": "",
+      "w": 1440,
+      "h": 504
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/OllipopStudio1_Olof_Lindskog.jpg?v=1755121639&width=1600",
+      "alt": "Home recording studio with acoustic wall panels, studio monitors, and sound treatment.",
+      "w": 1440,
+      "h": 960
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Amplitude_Acoustic_Panels3.jpg?v=1774942181&width=540",
+      "alt": "Amplitude™ Bass Trap Panels",
+      "w": 1440,
+      "h": 1920
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FLEXRANGE_BT_PANELS.jpg?v=1759951437&width=540",
+      "alt": "FlexRange® Bass Trap Panels",
+      "w": 1440,
+      "h": 1920
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CLASSIC_BT_PANEL.jpg?v=1759187825&width=540",
+      "alt": "Classic Bass Trap Panels",
+      "w": 1440,
+      "h": 1920
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Amplitude_Acoustic_Panels3.jpg?v=1774942181&width=1080",
+      "alt": "Amplitude™ Bass Trap Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/FLEXRANGE_BT_PANELS.jpg?v=1759951437&width=1080",
+      "alt": "FlexRange® Bass Trap Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/CLASSIC_BT_PANEL.jpg?v=1759187825&width=1080",
+      "alt": "Classic Bass Trap Panels",
+      "w": 1440,
+      "h": 1918
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/DSC00464.jpg?v=1755121812&width=1600",
+      "alt": "",
+      "w": 1440,
+      "h": 962
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/rupert-neve-sept-12.jpg?v=1756527080&width=416",
+      "alt": "",
+      "w": 1440,
+      "h": 951
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Bob_Katz_600x600-small.jpg?v=1755717531&width=416",
+      "alt": "",
+      "w": 1440,
+      "h": 1440
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/Screenshot_2025-08-20_at_2.15.34_PM.png?v=1755717509&width=416",
+      "alt": "",
+      "w": 1440,
+      "h": 1973
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/IMG_9712-2.jpg?v=1755717948&width=540",
+      "alt": "",
+      "w": 440,
+      "h": 550
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/image.jpg?v=1756231324&width=540",
+      "alt": "",
+      "w": 440,
+      "h": 220
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/articles/manuel-nageli-NsgsQjHA1mM-unsplash.jpg?v=1778073835&width=1600",
+      "alt": "What is RT60?",
+      "w": 1440,
+      "h": 960
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/articles/processed-74D94977-FDC3-4887-805A-E035B19C2A1F.jpg?v=1778073850&width=1600",
+      "alt": "How to Build a Podcast Studio for Clear Audio",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/articles/Bass_Traps_Laying_on_Top_of_Each_Other_fe1476d6-0b71-4665-ac22-533569db4eea.jpg?v=1778073896&width=1600",
+      "alt": "How Thick Should Acoustic Panels Be?",
+      "w": 1440,
+      "h": 1154
+    },
+    {
+      "src": "https://www.gikacoustics.com/cdn/shop/files/GIK_-_Logo_White_-_Footer.png?v=1760691874&width=222",
+      "alt": "",
+      "w": 111,
+      "h": 50
+    },
+    {
+      "src": "https://bat.bing.com/action/0?ti=97155299&tm=gtm002&Ver=2&mid=e90e8eff-944d-4e56-8487-e60b5a3733b0&bo=1&sid=30b24d10852b11f193d913691a5141e1&vid=30b27c20852b11f18a991dc7294f820f&vids=1&msclkid=N&uach=pv%3D10.0.0&pi=0&lg=pt-BR&sw=1440&sh=900&sc=24&nwd=1&tl=Acoustic%20Treatment%3A%20Panels,%20Bass%20Traps%20%26%20Diffusers%20%7C%20GIK%20Acoustics&p=https%3A%2F%2Fwww.gikacoustics.com%2F&r=&lt=2334&evt=pageLoad&sv=2&cdb=AQAS&rn=202138",
+      "alt": "",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://d3k81ch9hvuctc.cloudfront.net/company/VbhgUX/images/ca894e91-adcf-409b-87b3-c1a1ae5028d9.png",
+      "alt": "ACOUSTIC PANELS",
+      "w": 550,
+      "h": 850
+    }
+  ],
+  "bgImgs": [
+    "url(\"https://d3k81ch9hvuctc.cloudfront.net/company/VbhgUX/images/7201d68e-b58c-4d2e-a1d7-faca4e7172bc.jpeg\")"
+  ],
+  "nav": [
+    {
+      "text": "Free Expert Advice",
+      "href": "https://www.gikacoustics.com/pages/acoustic-consultation"
+    },
+    {
+      "text": "Design Your Room",
+      "href": "https://www.gikacoustics.com/pages/acoustic-room-designer"
+    },
+    {
+      "text": "Search",
+      "href": "https://www.gikacoustics.com/search"
+    },
+    {
+      "text": "GIK Acoustics",
+      "href": "https://www.gikacoustics.com/"
+    },
+    {
+      "text": "Acoustic Art",
+      "href": "https://www.gikacoustics.com/products/acoustic-art-panel"
+    },
+    {
+      "text": "Browse All Products",
+      "href": "https://www.gikacoustics.com/collections/shop-all"
+    },
+    {
+      "text": "Shop Acoustic Panels(9)",
+      "href": "https://www.gikacoustics.com/collections/acoustic-panels"
+    },
+    {
+      "text": "Classic Acoustic Panels",
+      "href": "https://www.gikacoustics.com/products/classic-acoustic-panel"
+    },
+    {
+      "text": "FlexRange® Acoustic Panels",
+      "href": "https://www.gikacoustics.com/products/flexrange-acoustic-panel"
+    },
+    {
+      "text": "Amplitude™ Acoustic Panels",
+      "href": "https://www.gikacoustics.com/products/amplitude-acoustic-panel"
+    },
+    {
+      "text": "SlatFusor™ Acoustic Panels",
+      "href": "https://www.gikacoustics.com/products/slatfusor-acoustic-panel"
+    },
+    {
+      "text": "FREE ROOM ADVICE\n                        \n                          \n                                Expert Consulting\n                              Tailored to Your Room",
+      "href": "https://www.gikacoustics.com/pages/acoustic-consultation"
+    },
+    {
+      "text": "Shop Bass Traps(15)",
+      "href": "https://www.gikacoustics.com/collections/bass-traps"
+    },
+    {
+      "text": "TriTrap™ Corner Bass Traps",
+      "href": "https://www.gikacoustics.com/products/tritrap-corner-bass-trap"
+    },
+    {
+      "text": "FlexRange® Bass Trap Panels",
+      "href": "https://www.gikacoustics.com/products/flexrange-bass-trap-panel"
+    },
+    {
+      "text": "Amplitude™ Bass Trap Panels",
+      "href": "https://www.gikacoustics.com/products/amplitude-bass-trap-panel"
+    },
+    {
+      "text": "TurboTrap™ Cylindrical Bass Traps",
+      "href": "https://www.gikacoustics.com/products/turbotrap-cylindrical-bass-trap"
+    },
+    {
+      "text": "FREE ROOM ADVICE\n                        \n                          \n                                Expert Consulting\n                              Tailored to Your Room",
+      "href": "https://www.gikacoustics.com/pages/acoustic-consultation"
+    },
+    {
+      "text": "Shop Diffusers(12)",
+      "href": "https://www.gikacoustics.com/collections/diffusers"
+    },
+    {
+      "text": "Q11D Quadratic Residue Diffusers",
+      "href": "https://www.gikacoustics.com/products/q11d-quadratic-residue-diffuser"
+    },
+    {
+      "text": "Gotham Primitive Root Diffusers",
+      "href": "https://www.gikacoustics.com/products/gotham-primitive-root-diffuser"
+    },
+    {
+      "text": "Q7D Quadratic Residue Diffusers",
+      "href": "https://www.gikacoustics.com/products/q7d-quadratic-residue-diffuser"
+    },
+    {
+      "text": "Amplitude™ Acoustic Panels",
+      "href": "https://www.gikacoustics.com/products/amplitude-acoustic-panel"
+    },
+    {
+      "text": "FREE ROOM ADVICE\n                        \n                          \n                                Expert Consulting\n                              Tailored to Your Room",
+      "href": "https://www.gikacoustics.com/pages/acoustic-consultation"
+    },
+    {
+      "text": "Shop Gobos, Booths & Shields(8)",
+      "href": "https://www.gikacoustics.com/collections/gobos-booths-shields"
+    },
+    {
+      "text": "PIB™ Portable Vocal Screen",
+      "href": "https://www.gikacoustics.com/products/pib-portable-vocal-booth"
+    },
+    {
+      "text": "PIB™ Vocal Booth Pro",
+      "href": "https://www.gikacoustics.com/products/pib-vocal-booth-pro"
+    },
+    {
+      "text": "FreeStand Acoustic Panels",
+      "href": "https://www.gikacoustics.com/products/freestand-acoustic-panel"
+    },
+    {
+      "text": "FreeStand Bass Trap Panels",
+      "href": "https://www.gikacoustics.com/products/freestand-bass-trap"
+    },
+    {
+      "text": "FREE ROOM ADVICE\n                        \n                          \n                                Expert Consulting\n                              Tailored to Your Room",
+      "href": "https://www.gikacoustics.com/pages/acoustic-consultation"
+    },
+    {
+      "text": "Shop Accessories(6)",
+      "href": "https://www.gikacoustics.com/collections/accessories-supplies"
+    },
+    {
+      "text": "Ceiling Cloud Brackets",
+      "href": "https://www.gikacoustics.com/products/ceiling-brackets"
+    },
+    {
+      "text": "FlexRange Panel Stand",
+      "href": "https://www.gikacoustics.com/products/custom-stand"
+    },
+    {
+      "text": "Acoustic Fabric By Yard",
+      "href": "https://www.gikacoustics.com/products/acoustic-fabric"
+    },
+    {
+      "text": "Gift Card",
+      "href": "https://www.gikacoustics.com/products/gift-card"
+    },
+    {
+      "text": "Music Studio",
+      "href": "https://www.gikacoustics.com/collections/music-studio"
+    },
+    {
+      "text": "Hi-Fi Listening",
+      "href": "https://www.gikacoustics.com/collections/hi-fi-listening-room"
+    },
+    {
+      "text": "Home Theater",
+      "href": "https://www.gikacoustics.com/collections/home-theater"
+    },
+    {
+      "text": "Office Space",
+      "href": "https://www.gikacoustics.com/collections/office-space"
+    },
+    {
+      "text": "All Spaces",
+      "href": "https://www.gikacoustics.com/pages/spaces"
+    },
+    {
+      "text": "Projects",
+      "href": "https://www.gikacoustics.com/blogs/case-studies"
+    },
+    {
+      "text": "News & Press",
+      "href": "https://www.gikacoustics.com/blogs/news"
+    },
+    {
+      "text": "Reviews & Media",
+      "href": "https://www.gikacoustics.com/blogs/reviews"
+    },
+    {
+      "text": "Knowledge Base",
+      "href": "https://www.gikacoustics.com/blogs/knowledge-base"
+    },
+    {
+      "text": "View all Tools",
+      "href": "https://www.gikacoustics.com/pages/tools"
+    },
+    {
+      "text": "Room Acoustic Designer3D Rendering SoftwareStart Planning",
+      "href": "https://www.gikacoustics.com/pages/acoustic-room-designer"
+    },
+    {
+      "text": "Acoustic Panel CalculatorHow many panels do I need?Start Calculating",
+      "href": "https://www.gikacoustics.com/pages/acoustic-panels-calculator"
+    },
+    {
+      "text": "Product ComparisonCompare product specsCompare Now",
+      "href": "https://www.gikacoustics.com/pages/comparison-tool"
+    },
+    {
+      "text": "About Us",
+      "href": "https://www.gikacoustics.com/pages/about-us"
+    },
+    {
+      "text": "Meet The Experts",
+      "href": "https://www.gikacoustics.com/blogs/meet-the-team"
+    },
+    {
+      "text": "Distributors",
+      "href": "https://www.gikacoustics.com/pages/dealers"
+    },
+    {
+      "text": "Contact Us",
+      "href": "https://www.gikacoustics.com/pages/contact"
+    },
+    {
+      "text": "FAQs",
+      "href": "https://www.gikacoustics.com/pages/faq"
+    },
+    {
+      "text": "Free Expert AdviceFree Expert Advice",
+      "href": "https://www.gikacoustics.com/pages/acoustic-consultation"
+    },
+    {
+      "text": "Design Your RoomDesign Your Room",
+      "href": "https://www.gikacoustics.com/pages/acoustic-room-designer"
+    },
+    {
+      "text": "Search",
+      "href": "https://www.gikacoustics.com/search"
+    },
+    {
+      "text": "Login",
+      "href": "https://www.gikacoustics.com/customer_authentication/redirect?locale=en&region_country=US"
+    },
+    {
+      "text": "Cart\n          \n        0",
+      "href": "https://www.gikacoustics.com/cart"
+    }
+  ],
+  "bodyClasses": "template-index loaded klaviyo-prevent-body-scrolling"
+}

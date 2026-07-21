@@ -1,0 +1,14 @@
+{
+  "before": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none",
+    "pos": "relative",
+    "h": 100.125
+  },
+  "after": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none",
+    "pos": "relative",
+    "h": 100.125
+  }
+}

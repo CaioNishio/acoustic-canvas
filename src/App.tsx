@@ -23,6 +23,7 @@ const EnvioFotos = lazy(() => import("./pages/EnvioFotos"));
 const EnvioFotosDetalhe = lazy(() => import("./pages/EnvioFotosDetalhe"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const Artigo = lazy(() => import("./pages/Artigo"));
+const GikHome = lazy(() => import("./pages/GikHome"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ function AppContent() {
         <Route path="/aprender/:slug" element={<Artigo />} />
         <Route path="/envio-fotos" element={<EnvioFotos />} />
         <Route path="/envio-fotos/:slug" element={<EnvioFotosDetalhe />} />
+        <Route path="/gik-home" element={<GikHome />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
