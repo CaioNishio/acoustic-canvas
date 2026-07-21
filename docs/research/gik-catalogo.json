@@ -1,0 +1,1177 @@
+{
+ "toolbar": {
+  "found": "[class*=\"facets\"], [class*=\"filter\"], [class*=\"toolbar\"], form[id*=\"Facet\"]",
+  "tree": {
+   "tag": "svg",
+   "cls": "[object SVGAnimatedString]",
+   "text": null,
+   "img": null,
+   "styles": {
+    "fontSize": "15.2693px",
+    "fontWeight": "500",
+    "fontFamily": "Lexend, sans-serif",
+    "lineHeight": "15.2693px",
+    "letterSpacing": "0.305386px",
+    "color": "rgb(243, 246, 246)",
+    "width": "20px",
+    "height": "20px",
+    "display": "block",
+    "flexDirection": "row",
+    "border": "0px none rgb(243, 246, 246)",
+    "position": "static",
+    "opacity": "1",
+    "transition": "all",
+    "objectFit": "fill",
+    "textAlign": "center"
+   },
+   "children": [
+    {
+     "tag": "path",
+     "cls": "[object SVGAnimatedString]",
+     "text": null,
+     "img": null,
+     "styles": {
+      "fontSize": "15.2693px",
+      "fontWeight": "500",
+      "fontFamily": "Lexend, sans-serif",
+      "lineHeight": "15.2693px",
+      "letterSpacing": "0.305386px",
+      "color": "rgb(243, 246, 246)",
+      "display": "inline",
+      "flexDirection": "row",
+      "border": "0px none rgb(243, 246, 246)",
+      "position": "static",
+      "opacity": "1",
+      "transition": "all",
+      "objectFit": "fill",
+      "textAlign": "center"
+     },
+     "children": []
+    }
+   ]
+  },
+  "text": ""
+ },
+ "grid": {
+  "found": "[class*=\"product-grid\"], ul[class*=\"grid\"], #product-grid",
+  "tree": {
+   "tag": "motion-list",
+   "cls": "product-grid card-grid card-grid--4 mobile:card-grid--1",
+   "text": null,
+   "img": null,
+   "styles": {
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "fontFamily": "Lexend, sans-serif",
+    "color": "rgb(25, 49, 57)",
+    "width": "574.062px",
+    "height": "340px",
+    "display": "flex",
+    "flexDirection": "row",
+    "gap": "18.1872px",
+    "gridTemplateColumns": "repeat(4, minmax(0px, 1fr))",
+    "border": "0px none rgb(25, 49, 57)",
+    "position": "static",
+    "opacity": "1",
+    "transition": "all",
+    "objectFit": "fill",
+    "textAlign": "start"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "cls": "card product-card product-card--card flex",
+     "text": null,
+     "img": null,
+     "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontFamily": "Lexend, sans-serif",
+      "lineHeight": "16px",
+      "color": "rgb(25, 49, 57)",
+      "backgroundColor": "rgb(243, 246, 246)",
+      "padding": "15px",
+      "width": "176.094px",
+      "maxWidth": "213px",
+      "height": "340px",
+      "display": "flex",
+      "flexDirection": "column",
+      "borderRadius": "15px",
+      "border": "0px solid rgba(25, 49, 57, 0)",
+      "boxShadow": "rgb(168, 232, 226) 0px 0px 0px 0px",
+      "position": "relative",
+      "opacity": "1",
+      "transition": "all",
+      "objectFit": "fill",
+      "textAlign": "start"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "cls": "product-card__media relative h-auto",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "width": "146.094px",
+        "height": "182.609px",
+        "display": "block",
+        "flexDirection": "row",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "cls": "badges z-2 absolute grid",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "flexDirection": "row",
+          "gap": "12px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "absolute",
+          "top": "20px",
+          "left": "20px",
+          "zIndex": "2",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        },
+        {
+         "tag": "a",
+         "cls": "block relative media media--portrait",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "backgroundColor": "rgb(243, 246, 246)",
+          "width": "146.094px",
+          "height": "182.609px",
+          "display": "block",
+          "flexDirection": "row",
+          "borderRadius": "12px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "relative",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "product-card__content grow flex flex-col",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "padding": "14px 16px",
+        "width": "146.094px",
+        "height": "127.391px",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "gridTemplateColumns": "minmax(0px, 1fr)",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "static",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "cls": "product-card__details flex flex-col items-center",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "width": "114.094px",
+          "height": "99.3906px",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "gap": "5px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "static",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "card product-card product-card--card flex",
+     "text": null,
+     "img": null,
+     "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontFamily": "Lexend, sans-serif",
+      "lineHeight": "16px",
+      "color": "rgb(25, 49, 57)",
+      "backgroundColor": "rgb(243, 246, 246)",
+      "padding": "15px",
+      "width": "176.438px",
+      "maxWidth": "213px",
+      "height": "340px",
+      "display": "flex",
+      "flexDirection": "column",
+      "borderRadius": "15px",
+      "border": "0px solid rgba(25, 49, 57, 0)",
+      "boxShadow": "rgb(168, 232, 226) 0px 0px 0px 0px",
+      "position": "relative",
+      "opacity": "1",
+      "transition": "all",
+      "objectFit": "fill",
+      "textAlign": "start"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "cls": "product-card__media relative h-auto",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "width": "146.438px",
+        "height": "183px",
+        "display": "block",
+        "flexDirection": "row",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "cls": "badges z-2 absolute grid",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "width": "105.375px",
+          "height": "34px",
+          "display": "grid",
+          "flexDirection": "row",
+          "gap": "12px",
+          "gridTemplateColumns": "105.375px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "absolute",
+          "top": "20px",
+          "left": "20px",
+          "zIndex": "2",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        },
+        {
+         "tag": "a",
+         "cls": "block relative media media--portrait",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "backgroundColor": "rgb(243, 246, 246)",
+          "width": "146.438px",
+          "height": "183px",
+          "display": "block",
+          "flexDirection": "row",
+          "borderRadius": "12px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "relative",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "product-card__content grow flex flex-col",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "padding": "14px 16px",
+        "width": "146.438px",
+        "height": "127px",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "gridTemplateColumns": "minmax(0px, 1fr)",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "static",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "cls": "product-card__details flex flex-col items-center",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "width": "114.438px",
+          "height": "99px",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "gap": "5px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "static",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "card product-card product-card--card flex",
+     "text": null,
+     "img": null,
+     "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontFamily": "Lexend, sans-serif",
+      "lineHeight": "16px",
+      "color": "rgb(25, 49, 57)",
+      "backgroundColor": "rgb(243, 246, 246)",
+      "padding": "15px",
+      "width": "185.188px",
+      "maxWidth": "213px",
+      "height": "340px",
+      "display": "flex",
+      "flexDirection": "column",
+      "borderRadius": "15px",
+      "border": "0px solid rgba(25, 49, 57, 0)",
+      "boxShadow": "rgb(168, 232, 226) 0px 0px 0px 0px",
+      "position": "relative",
+      "opacity": "1",
+      "transition": "all",
+      "objectFit": "fill",
+      "textAlign": "start"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "cls": "product-card__media relative h-auto",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "width": "155.188px",
+        "height": "183px",
+        "display": "block",
+        "flexDirection": "row",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "cls": "badges z-2 absolute grid",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "width": "105.375px",
+          "height": "34px",
+          "display": "grid",
+          "flexDirection": "row",
+          "gap": "12px",
+          "gridTemplateColumns": "105.375px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "absolute",
+          "top": "20px",
+          "left": "20px",
+          "zIndex": "2",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        },
+        {
+         "tag": "a",
+         "cls": "block relative media media--portrait",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "backgroundColor": "rgb(243, 246, 246)",
+          "width": "155.188px",
+          "height": "183px",
+          "display": "block",
+          "flexDirection": "row",
+          "borderRadius": "12px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "relative",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "product-card__content grow flex flex-col",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "padding": "14px 16px",
+        "width": "155.188px",
+        "height": "127px",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "gridTemplateColumns": "minmax(0px, 1fr)",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "static",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "cls": "product-card__details flex flex-col items-center",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "width": "123.188px",
+          "height": "99px",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "gap": "5px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "static",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "card product-card product-card--card flex",
+     "text": null,
+     "img": null,
+     "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontFamily": "Lexend, sans-serif",
+      "lineHeight": "16px",
+      "color": "rgb(25, 49, 57)",
+      "backgroundColor": "rgb(243, 246, 246)",
+      "padding": "15px",
+      "width": "100%",
+      "maxWidth": "213px",
+      "flexDirection": "column",
+      "borderRadius": "15px",
+      "border": "0px solid rgba(25, 49, 57, 0)",
+      "boxShadow": "rgb(168, 232, 226) 0px 0px 0px 0px",
+      "position": "relative",
+      "opacity": "1",
+      "transition": "all",
+      "objectFit": "fill",
+      "textAlign": "start"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "cls": "product-card__media relative h-auto",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "display": "block",
+        "flexDirection": "row",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "cls": "badges z-2 absolute grid",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "flexDirection": "row",
+          "gap": "12px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "absolute",
+          "top": "20px",
+          "left": "20px",
+          "zIndex": "2",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        },
+        {
+         "tag": "a",
+         "cls": "block relative media media--portrait",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "backgroundColor": "rgb(243, 246, 246)",
+          "display": "block",
+          "flexDirection": "row",
+          "borderRadius": "12px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "relative",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "product-card__content grow flex flex-col",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "padding": "14px 16px",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "gridTemplateColumns": "minmax(0px, 1fr)",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "static",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "cls": "product-card__details flex flex-col items-center",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "width": "100%",
+          "height": "100%",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "gap": "5px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "static",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "text": "Classic Acoustic Panels Start at $64.00 PATENTED FlexRange® Acoustic Panels Start at $84.00 PATENTED Amplitude™ Acoustic Panels Start at $104.00 SlatFusor™ Acoustic Panels Start at $104.00"
+ },
+ "card": {
+  "found": "[class*=\"product-grid\"] li, ul[class*=\"grid\"] li, .card",
+  "tree": {
+   "tag": "div",
+   "cls": "card product-card product-card--card flex",
+   "text": null,
+   "img": null,
+   "styles": {
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "fontFamily": "Lexend, sans-serif",
+    "lineHeight": "16px",
+    "color": "rgb(25, 49, 57)",
+    "backgroundColor": "rgb(243, 246, 246)",
+    "padding": "15px",
+    "width": "176.094px",
+    "maxWidth": "213px",
+    "height": "340px",
+    "display": "flex",
+    "flexDirection": "column",
+    "borderRadius": "15px",
+    "border": "0px solid rgba(25, 49, 57, 0)",
+    "boxShadow": "rgb(168, 232, 226) 0px 0px 0px 0px",
+    "position": "relative",
+    "opacity": "1",
+    "transition": "all",
+    "objectFit": "fill",
+    "textAlign": "start"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "cls": "product-card__media relative h-auto",
+     "text": null,
+     "img": null,
+     "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontFamily": "Lexend, sans-serif",
+      "lineHeight": "16px",
+      "color": "rgb(25, 49, 57)",
+      "width": "146.094px",
+      "height": "182.609px",
+      "display": "block",
+      "flexDirection": "row",
+      "border": "0px none rgb(25, 49, 57)",
+      "position": "relative",
+      "opacity": "1",
+      "transition": "all",
+      "objectFit": "fill",
+      "textAlign": "start"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "cls": "badges z-2 absolute grid",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "flexDirection": "row",
+        "gap": "12px",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "absolute",
+        "top": "20px",
+        "left": "20px",
+        "zIndex": "2",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": []
+      },
+      {
+       "tag": "a",
+       "cls": "block relative media media--portrait",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "backgroundColor": "rgb(243, 246, 246)",
+        "width": "146.094px",
+        "height": "182.609px",
+        "display": "block",
+        "flexDirection": "row",
+        "borderRadius": "12px",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "relative",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": [
+        {
+         "tag": "img",
+         "cls": "",
+         "text": null,
+         "img": {
+          "src": "https://www.gikacoustics.com/cdn/shop/files/CLASSIC_PANEL_2a062a3c-8d99-40c2-a967-9cf852749722.jpg?v=1759186974&width=1080",
+          "alt": "Classic Acoustic Panels"
+         },
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "width": "146.094px",
+          "maxWidth": "100%",
+          "height": "182.609px",
+          "display": "block",
+          "flexDirection": "row",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "static",
+          "opacity": "0",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "transition": "opacity 0.5s cubic-bezier(0.3, 1, 0.3, 1), transform 0.5s cubic-bezier(0.3, 1, 0.3, 1)",
+          "objectFit": "cover",
+          "textAlign": "start",
+          "aspectRatio": "4 / 5"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "cls": "product-card__content grow flex flex-col",
+     "text": null,
+     "img": null,
+     "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontFamily": "Lexend, sans-serif",
+      "lineHeight": "16px",
+      "color": "rgb(25, 49, 57)",
+      "padding": "14px 16px",
+      "width": "146.094px",
+      "height": "127.391px",
+      "display": "flex",
+      "flexDirection": "column",
+      "justifyContent": "center",
+      "gridTemplateColumns": "minmax(0px, 1fr)",
+      "border": "0px none rgb(25, 49, 57)",
+      "position": "static",
+      "opacity": "1",
+      "transition": "all",
+      "objectFit": "fill",
+      "textAlign": "start"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "cls": "product-card__details flex flex-col items-center",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "lineHeight": "16px",
+        "color": "rgb(25, 49, 57)",
+        "width": "114.094px",
+        "height": "99.3906px",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+        "alignItems": "center",
+        "gap": "5px",
+        "border": "0px none rgb(25, 49, 57)",
+        "position": "static",
+        "opacity": "1",
+        "transition": "all",
+        "objectFit": "fill",
+        "textAlign": "start"
+       },
+       "children": [
+        {
+         "tag": "p",
+         "cls": "grow",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "width": "114.094px",
+          "height": "72px",
+          "display": "block",
+          "flexDirection": "row",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "static",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        },
+        {
+         "tag": "div",
+         "cls": "price flex flex-wrap lg:flex-col",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "16px",
+          "color": "rgb(25, 49, 57)",
+          "width": "114.094px",
+          "height": "22.3906px",
+          "display": "flex",
+          "flexDirection": "column",
+          "alignItems": "flex-end",
+          "gap": "6px",
+          "border": "0px none rgb(25, 49, 57)",
+          "position": "static",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "start"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "text": "Classic Acoustic Panels Start at $64.00"
+ },
+ "sidebar": {
+  "found": "aside, [class*=\"sidebar\"], [id*=\"Facet\"]",
+  "tree": {
+   "tag": "drawer-element",
+   "cls": "facet-drawer drawer drawer--start z-30",
+   "text": null,
+   "img": null,
+   "styles": {
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "fontFamily": "Lexend, sans-serif",
+    "color": "rgb(11, 14, 17)",
+    "width": "100%",
+    "height": "100%",
+    "flexDirection": "row",
+    "border": "0px none rgb(11, 14, 17)",
+    "position": "fixed",
+    "zIndex": "30",
+    "opacity": "1",
+    "transition": "all",
+    "objectFit": "fill",
+    "textAlign": "center"
+   },
+   "children": [
+    {
+     "tag": "overlay-element",
+     "cls": "overlay fixed-modal invisible opacity-0",
+     "text": null,
+     "img": null,
+     "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontFamily": "Lexend, sans-serif",
+      "color": "rgb(11, 14, 17)",
+      "width": "100%",
+      "height": "900px",
+      "display": "block",
+      "flexDirection": "row",
+      "border": "0px none rgb(11, 14, 17)",
+      "position": "fixed",
+      "opacity": "0",
+      "transition": "opacity 0.8s cubic-bezier(0.7, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.7, 0, 0.2, 1), background-color 0.8s cubic-bezier(0.7, 0, 0.2, 1)",
+      "objectFit": "fill",
+      "textAlign": "center"
+     },
+     "children": []
+    },
+    {
+     "tag": "div",
+     "cls": "drawer__inner z-10 absolute top-0",
+     "text": null,
+     "img": null,
+     "styles": {
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontFamily": "Lexend, sans-serif",
+      "color": "rgb(11, 14, 17)",
+      "backgroundColor": "rgb(243, 246, 246)",
+      "width": "100%",
+      "maxWidth": "576px",
+      "height": "100%",
+      "display": "flex",
+      "flexDirection": "column",
+      "borderRadius": "0px 34px 34px 0px",
+      "border": "0px none rgb(11, 14, 17)",
+      "position": "absolute",
+      "zIndex": "10",
+      "opacity": "1",
+      "transition": "transform 0.6s cubic-bezier(0.7, 0, 0.2, 1)",
+      "objectFit": "fill",
+      "textAlign": "center"
+     },
+     "children": [
+      {
+       "tag": "gesture-element",
+       "cls": "drawer__header flex justify-between opacity-0",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "padding": "32px 48px 24px",
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "position": "relative",
+        "opacity": "0",
+        "transition": "opacity 0.5s cubic-bezier(0.3, 1, 0.3, 1) 0.1s, visibility 0.5s cubic-bezier(0.3, 1, 0.3, 1) 0.1s",
+        "objectFit": "fill",
+        "textAlign": "center"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "cls": "drawer__title heading lg:text-3xl text-2xl",
+         "text": "Filters",
+         "img": null,
+         "styles": {
+          "fontSize": "30px",
+          "fontWeight": "700",
+          "fontFamily": "\"Lexend Giga\", sans-serif",
+          "lineHeight": "30px",
+          "letterSpacing": "-0.75px",
+          "color": "rgb(11, 14, 17)",
+          "display": "block",
+          "flexDirection": "row",
+          "border": "0px none rgb(11, 14, 17)",
+          "position": "static",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "center"
+         },
+         "children": []
+        },
+        {
+         "tag": "button",
+         "cls": "button button--secondary button--close drawer__close",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "15.2693px",
+          "fontWeight": "500",
+          "fontFamily": "Lexend, sans-serif",
+          "lineHeight": "15.2693px",
+          "letterSpacing": "0.305386px",
+          "color": "rgb(33, 76, 90)",
+          "margin": "0px 0px 0px auto",
+          "width": "48px",
+          "height": "48px",
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "borderRadius": "9999px",
+          "border": "0px none rgb(33, 76, 90)",
+          "boxShadow": "rgba(168, 232, 226, 0) 0px 0px 0px 0px",
+          "position": "relative",
+          "opacity": "1",
+          "transition": "box-shadow 0.5s cubic-bezier(0.3, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.7, 0, 0.3, 1)",
+          "objectFit": "fill",
+          "textAlign": "center"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "cls": "drawer__content opacity-0 invisible flex",
+       "text": null,
+       "img": null,
+       "styles": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "fontFamily": "Lexend, sans-serif",
+        "color": "rgb(11, 14, 17)",
+        "height": "100%",
+        "display": "flex",
+        "flexDirection": "column",
+        "border": "0px none rgb(11, 14, 17)",
+        "position": "static",
+        "opacity": "0",
+        "transition": "opacity 0.5s cubic-bezier(0.3, 1, 0.3, 1) 0.1s, visibility 0.5s cubic-bezier(0.3, 1, 0.3, 1) 0.1s",
+        "objectFit": "fill",
+        "textAlign": "center"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "cls": "drawer__scrollable relative flex flex-col",
+         "text": null,
+         "img": null,
+         "styles": {
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "fontFamily": "Lexend, sans-serif",
+          "color": "rgb(11, 14, 17)",
+          "padding": "32px 48px 0px",
+          "display": "flex",
+          "flexDirection": "column",
+          "border": "0px none rgb(11, 14, 17)",
+          "position": "relative",
+          "opacity": "1",
+          "transition": "all",
+          "objectFit": "fill",
+          "textAlign": "center"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "text": "Filters FeaturedMost relevantBest sellingAlphabetically, A-ZAlphabetically, Z-APrice, low to highPrice, high to lowDate, old to newDate, new to old Sort by Apply0"
+ },
+ "_pageTitle": "All Products – GIK Acoustics"
+}

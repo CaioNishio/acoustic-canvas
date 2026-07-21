@@ -90,6 +90,48 @@ import painelLedFoscoReal1 from "@/assets/products/painel-led-fosco/2.jpg";
 import kitEstudioPremiumReal1 from "@/assets/products/kit-estudio-premium/81g4Y8NZO5S._AC_SL1500_.jpg";
 
 import { fabricColors, woodColors, type ProductColor } from "./productColors";
+import nvPainelPretoParedeSala from "@/assets/novas/painel-preto-parede-sala.webp";
+import nvPaineisCinzaSalaReuniao from "@/assets/novas/paineis-cinza-sala-reuniao.png";
+import nvPainelBrancoEstudio from "@/assets/novas/painel-branco-estudio.png";
+import nvDifusorEspumaPiramidalCinza from "@/assets/novas/difusor-espuma-piramidal-cinza.webp";
+import nvPaineisBegeSalaViolao from "@/assets/novas/paineis-bege-sala-violao.jpg";
+import nvPainelSetupGamerRoxo from "@/assets/novas/painel-setup-gamer-roxo.jpg";
+import nvPainelGradienteCinzaGrande from "@/assets/novas/painel-gradiente-cinza-grande.jpg";
+import nvPainelGradienteQuarto from "@/assets/novas/painel-gradiente-quarto.jpg";
+import nvEstudioDifusoresProdutor from "@/assets/novas/estudio-difusores-produtor.png";
+import nvMedicaoSonometroTecnico from "@/assets/novas/medicao-sonometro-tecnico.jpg";
+import nvBiomboEstudioEmUso from "@/assets/novas/biombo-estudio-em-uso.png";
+import nvMesaSomEstudioProfissional from "@/assets/novas/mesa-som-estudio-profissional.webp";
+import nvDifusorBlocos3dClaro from "@/assets/novas/difusor-blocos-3d-claro.webp";
+import nvPaineisGeometricosParede from "@/assets/novas/paineis-geometricos-parede.jpg";
+import nvNuvensColoridasSalaEstar from "@/assets/novas/nuvens-coloridas-sala-estar.jpg";
+import nvLaDeRochaPlacas from "@/assets/novas/la-de-rocha-placas.png";
+import nvNuvemAcusticaFormatoNuvem from "@/assets/novas/nuvem-acustica-formato-nuvem.webp";
+import nvBassTrapMadeiraRanhurada from "@/assets/novas/bass-trap-madeira-ranhurada.webp";
+import nvPainelRipadoMolduraPreta from "@/assets/novas/painel-ripado-moldura-preta.png";
+import nvPainelLaranjaSalaEstar from "@/assets/novas/painel-laranja-sala-estar.jpg";
+import nvDivisoriaAmarelaEscritorioConjunto from "@/assets/novas/divisoria-amarela-escritorio-conjunto.png";
+import nvBassTrapCantoEspumaPreta from "@/assets/novas/bass-trap-canto-espuma-preta.webp";
+import nvBassTrapBrancoCanto from "@/assets/novas/bass-trap-branco-canto.webp";
+import nvDifusorEspumaPiramidalBranco from "@/assets/novas/difusor-espuma-piramidal-branco.webp";
+import nvDifusorEspumaAzul from "@/assets/novas/difusor-espuma-azul.webp";
+import nvDifusorEspumaAzulFrontal from "@/assets/novas/difusor-espuma-azul-frontal.webp";
+import nvNuvensHexagonaisTeto from "@/assets/novas/nuvens-hexagonais-teto.jpg";
+import nvPainelMdfVazadoRanhuras from "@/assets/novas/painel-mdf-vazado-ranhuras.webp";
+import nvPaineisRipadosParedeDecor from "@/assets/novas/paineis-ripados-parede-decor.jpg";
+import nvBiomboCavaleteCinza from "@/assets/novas/biombo-cavalete-cinza.png";
+import nvPainelLedCianoFrontal from "@/assets/novas/painel-led-ciano-frontal.jpg";
+import nvNuvemCircularAzulEscuro from "@/assets/novas/nuvem-circular-azul-escuro.png";
+import nvDifusorEspumaPiramidalClaro from "@/assets/novas/difusor-espuma-piramidal-claro.webp";
+import nvDifusorSkylineBlocosMadeira from "@/assets/novas/difusor-skyline-blocos-madeira.webp";
+import nvPainelRipadoVerticalMadeira from "@/assets/novas/painel-ripado-vertical-madeira.webp";
+import nvDivisoriaAmarelaMesaReuniao from "@/assets/novas/divisoria-amarela-mesa-reuniao.png";
+import nvPainelRipadoHorizontalClaro from "@/assets/novas/painel-ripado-horizontal-claro.jpg";
+import nvDivisoriaAmarelaDupla from "@/assets/novas/divisoria-amarela-dupla.jpg";
+import nvPainelLedCianoAmbiente from "@/assets/novas/painel-led-ciano-ambiente.jpg";
+import nvDivisoriaAmarelaPar from "@/assets/novas/divisoria-amarela-par.jpg";
+import nvPaineisLedCianoSala from "@/assets/novas/paineis-led-ciano-sala.jpg";
+import nvPainelMdfVazadoFrontal from "@/assets/novas/painel-mdf-vazado-frontal.webp";
 export type { ProductColor };
 
 export interface AbsorptionData {
@@ -250,7 +292,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Absorção em baixas e médias frequências com densidade 64 kg/m³. Controle modal avançado.",
     description: "O Painel Acústico SNR6450 utiliza lã de rocha de alta densidade (64 kg/m³) para absorção eficiente em baixas e médias frequências. Ideal para ambientes onde o controle de graves é essencial, como estúdios de gravação, igrejas e salas de home theater.",
-    image: estudioPaineis,
+    image: nvEstudioDifusoresProdutor,
     gallery: [estudioPaineis, paineisSalaReuniao, paineisAzuis, escritorioPaineisAzuis],
     sizes: [
       { label: "Quadrado", dimensions: "600 × 600 mm" },
@@ -286,7 +328,7 @@ export const products: Product[] = [
     thickness: "25mm",
     shortDescription: "Painel ultrafino de 25mm para tratamento acústico discreto em ambientes com espaço limitado.",
     description: "O Painel SNR3225 Slim possui apenas 25mm de espessura, ideal para ambientes onde o espaço é limitado. Seu perfil fino permite instalação em qualquer superfície, incluindo divisórias e paredes de drywall, sem comprometer o espaço útil.",
-    image: paineisAzuis,
+    image: nvDifusorEspumaAzulFrontal,
     gallery: [paineisAzuis, escritorioPaineisAzuis, painelImagemDigital],
     specs: [
       { label: "NRC", value: "0.65" },
@@ -312,7 +354,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Painel SNR3250 com moldura externa em madeira natural para acabamento premium.",
     description: "Combinando a performance acústica do SNR3250 com uma moldura externa em madeira natural, este painel oferece uma estética sofisticada para ambientes que exigem tratamento acústico com visual de alto padrão.",
-    image: paineisEscritorioRustico,
+    image: nvPainelRipadoHorizontalClaro,
     gallery: [paineisEscritorioRustico, escritorioPaineis, paineisSeminario],
     specs: [
       { label: "NRC", value: "0.95" },
@@ -335,7 +377,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Painel acústico revestido com tecido personalizado com impressão de imagem em alta definição.",
     description: "Transforme seu tratamento acústico em arte. O painel com imagem plotada combina a absorção do SNR3250 com um tecido personalizado impresso em alta definição. Envie sua arte, foto ou design e nós produzimos o painel.",
-    image: painelImagemDigital,
+    image: nvDivisoriaAmarelaDupla,
     gallery: [painelImagemDigital, paineisAzuis, paineisSalaReuniao],
     specs: [
       { label: "NRC", value: "0.95" },
@@ -356,7 +398,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Absorção acústica com estética de madeira vazada e fendas verticais — design sofisticado.",
     description: "O Painel com MDF Vazado combina design sofisticado com performance acústica. As fendas verticais no painel frontal em MDF permitem a passagem do som até o núcleo absorvente de lã de rocha, proporcionando absorção eficiente em médias e altas frequências.",
-    image: mdfVazadoAbsorvedor,
+    image: nvPainelMdfVazadoRanhuras,
     gallery: [mdfVazadoAbsorvedor, mdfVazadoDifusor, paineisSeminario, escritorioPaineisAzuis],
     specs: [
       { label: "NRC", value: "0.85" },
@@ -403,7 +445,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Painel acústico circular de 360° para composições diferenciadas. Absorção High-Mid.",
     description: "O Circle 360 traz um formato circular que quebra a linearidade dos ambientes, criando pontos focais visuais enquanto oferece absorção acústica na faixa High-Mid.",
-    image: painelCircle360Real1,
+    image: nvNuvemCircularAzulEscuro,
     gallery: [painelCircle360Real1, painelCircle360Real2, painelCircle360Real3, paineisColoridosTeto, hexagonaisTeto, paineisSalaReuniao],
     specs: [
       { label: "NRC", value: "0.90" },
@@ -425,7 +467,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Painel acústico triangular para composições geométricas modernas. Absorção High-Mid.",
     description: "O Painel 3S Triangular permite criar composições geométricas ousadas, combinando absorção acústica com design contemporâneo. Ideal para paredes de destaque.",
-    image: paineisColoridosTeto,
+    image: nvDifusorEspumaPiramidalClaro,
     gallery: [paineisColoridosTeto, paineisAzuis],
     specs: [
       { label: "NRC", value: "0.90" },
@@ -470,7 +512,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Painel acústico com iluminação LED fosca para ambientação suave e elegante.",
     description: "Iluminação LED fosca integrada ao painel acústico para criar uma ambientação suave, sem brilho direto. Ideal para escritórios, restaurantes e salas de estar.",
-    image: painelLedFoscoReal1,
+    image: nvPainelLedCianoFrontal,
     gallery: [painelLedFoscoReal1, escritorioPaineisAzuis, escritorioPaineis],
     specs: [
       { label: "NRC", value: "0.90" },
@@ -492,7 +534,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Módulo hexagonal com LED integrado para composições luminosas suspensas.",
     description: "Hexágonos decorativos com LED que podem ser suspensos do teto, criando composições luminosas e acústicas. Sistema modular de encaixe para infinitas possibilidades.",
-    image: hexagonaisTeto,
+    image: nvNuvensHexagonaisTeto,
     gallery: [hexagonaisTeto, paineisColoridosTeto],
     specs: [
       { label: "Formato", value: "Hexagonal" },
@@ -511,7 +553,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Painéis reflexivos para preservar a energia sonora e direcionar o som de forma controlada.",
     description: "Os Reflexive Panels são projetados para ambientes onde a reflexão controlada do som é desejada, como salas de concerto e auditórios. Preservam a energia sonora enquanto direcionam as reflexões de forma precisa.",
-    image: paineisSeminario,
+    image: nvPainelRipadoVerticalMadeira,
     gallery: [paineisSeminario, escritorioPaineis],
     specs: [
       { label: "Tipo", value: "Reflexão Controlada" },
@@ -585,7 +627,7 @@ export const products: Product[] = [
     thickness: "100mm",
     shortDescription: "Bass trap com membrana ressonante para absorção precisa de frequências graves específicas.",
     description: "O Bass Trap Membrana SNR6420 utiliza o princípio de ressonância de membrana para absorção cirúrgica em frequências graves específicas. A membrana frontal em borracha/MDF vibra em frequências calculadas, dissipando a energia sonora no núcleo de lã de rocha D64.",
-    image: bassTrapStudio,
+    image: nvBassTrapCantoEspumaPreta,
     gallery: [bassTrapStudio, bassTrapCorner, bassTrapPair],
     specs: [
       { label: "NRC", value: "0.75" },
@@ -656,7 +698,7 @@ export const products: Product[] = [
     thickness: "75mm",
     shortDescription: "Difusão em dois eixos para espalhamento sonoro completo — ideal para paredes traseiras.",
     description: "O Difusor Bidimensional espalha o som em ambos os eixos (horizontal e vertical), garantindo a eliminação total de reflexões especulares sem perder energia sonora. Ideal para paredes traseiras de estúdios e salas de concerto.",
-    image: difusorBidimensionalReal1,
+    image: nvDifusorSkylineBlocosMadeira,
     gallery: [difusorBidimensionalReal1, difusorBidimensionalReal2, wavefuserHibrido, difusorSkyline, mdfVazadoDifusor],
     specs: [
       { label: "Faixa de Difusão", value: "500Hz – 6kHz" },
@@ -700,7 +742,7 @@ export const products: Product[] = [
     thickness: "25mm",
     shortDescription: "Sistema de forro modular com absorção integrada e grid metálico.",
     description: "Forro acústico modular com design clean e alta absorção. Sistema de fixação rápida com grid metálico. A modularidade permite fácil manutenção e acesso ao plenum.",
-    image: forroCorporativo,
+    image: nvPainelLedCianoAmbiente,
     gallery: [forroCorporativo, forroIndustrial],
     specs: [
       { label: "NRC", value: "0.80" },
@@ -723,7 +765,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Biombo retrátil de 3 folhas para divisão acústica portátil. 3 tamanhos disponíveis.",
     description: "O Biombo Acústico Retrátil permite criar divisões acústicas temporárias sem obras. Com 3 folhas articuladas, pode ser posicionado em configurações diversas e recolhido quando não necessário.",
-    image: biomboRetratilReal1,
+    image: nvDivisoriaAmarelaPar,
     gallery: [biomboRetratilReal1, biomboRetratilReal2, biomboRetratilReal3, biomboRetratilReal4, escritorioPaineis, paineisSalaReuniao],
     sizes: [
       { label: "Alto", dimensions: "180 × 60 × 5 cm (cada folha)" },
@@ -749,7 +791,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Biombo acústico de 1 folha com base tipo cavalete — divisão rápida e estável.",
     description: "Biombo acústico independente com base tipo cavalete para estabilidade sem fixação. Ideal para escritórios open-plan, estúdios de podcast e espaços de coworking.",
-    image: biomboCavaleteReal1,
+    image: nvBiomboCavaleteCinza,
     gallery: [biomboCavaleteReal1, biomboCavaleteReal2, biomboCavaleteReal3, paineisSalaReuniao, escritorioPaineis],
     specs: [
       { label: "NRC", value: "0.85" },
@@ -793,7 +835,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Porta acústica com sistema duplo para máximo isolamento sonoro.",
     description: "Porta acústica com câmara dupla para isolamento superior. Sistema de vedação com gaxetas perimetrais e soleira automática. Ideal para estúdios profissionais e salas de ensaio.",
-    image: salaTratamento,
+    image: nvPainelPretoParedeSala,
     gallery: [salaTratamento],
     specs: [
       { label: "STC", value: "45–55" },
@@ -813,7 +855,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Porta acústica com barra anti-pânico para conformidade com normas de segurança.",
     description: "Combina isolamento acústico com conformidade às normas de segurança contra incêndio. Barra anti-pânico certificada, ideal para auditórios, igrejas e espaços públicos.",
-    image: salaTratamento,
+    image: nvPaineisCinzaSalaReuniao,
     gallery: [salaTratamento],
     specs: [
       { label: "STC", value: "40–50" },
@@ -832,7 +874,7 @@ export const products: Product[] = [
     thickness: "100mm",
     shortDescription: "Sistema de isolamento acústico com lã D96, câmara de ar (GAP) e MDF estrutural.",
     description: "Sistema completo de isolamento acústico que combina lã de rocha de alta densidade (D96), câmara de ar (GAP) e painéis de MDF para máxima redução de transmissão sonora entre ambientes.",
-    image: salaTratamento,
+    image: nvPainelBrancoEstudio,
     gallery: [salaTratamento, estudioPaineis],
     specs: [
       { label: "Tipo", value: "Isolamento (Massa-Mola-Massa)" },
@@ -853,7 +895,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Lã de rocha D32 para fabricação de painéis e tratamento acústico High-Mid.",
     description: "Lã de rocha com densidade de 32 kg/m³, ideal para absorção em médias e altas frequências. Material base para fabricação de painéis acústicos, nuvens e baffles.",
-    image: paineisSalaReuniao,
+    image: nvLaDeRochaPlacas,
     gallery: [paineisSalaReuniao],
     specs: [
       { label: "Densidade", value: "32 kg/m³" },
@@ -875,7 +917,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Lã de rocha D64 para absorção em baixas e médias frequências.",
     description: "Lã de rocha com densidade de 64 kg/m³, proporcionando maior absorção em frequências graves. Ideal para bass traps e painéis Low-Mid.",
-    image: bassTrapStudio,
+    image: nvBassTrapBrancoCanto,
     gallery: [bassTrapStudio],
     specs: [
       { label: "Densidade", value: "64 kg/m³" },
@@ -896,7 +938,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Lã de rocha D96 para isolamento e absorção broadband de alta performance.",
     description: "Lã de rocha com densidade de 96 kg/m³, a mais densa da linha. Para aplicações que exigem máximo isolamento e absorção broadband.",
-    image: bassTrapStudio,
+    image: nvDifusorEspumaPiramidalBranco,
     gallery: [bassTrapStudio],
     specs: [
       { label: "Densidade", value: "96 kg/m³" },
@@ -917,7 +959,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Lã de PET reciclada — alternativa ecológica para absorção acústica.",
     description: "Fabricada a partir de garrafas PET recicladas, a Lã de PET é uma alternativa sustentável para tratamento acústico. Não causa irritação na pele, é livre de formaldeído e segura para manipulação.",
-    image: paineisSalaReuniao,
+    image: nvNuvemAcusticaFormatoNuvem,
     gallery: [paineisSalaReuniao],
     specs: [
       { label: "Material", value: "PET Reciclado" },
@@ -937,7 +979,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Membrana de borracha de alta massa para isolamento acústico e bass traps de membrana.",
     description: "Membrana de borracha de alta massa para uso em sistemas de isolamento acústico e como componente de bass traps de membrana ressonante.",
-    image: bassTrapStudio,
+    image: nvDifusorEspumaAzul,
     gallery: [bassTrapStudio],
     specs: [
       { label: "Material", value: "Borracha de Alta Massa" },
@@ -956,7 +998,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Tecidos acústicos transparentes ao som em 34+ cores para revestimento de painéis.",
     description: "Linha completa de tecidos acústicos 100% poliéster, transparentes ao som e resistentes ao fogo. Disponíveis em mais de 34 cores para personalizar seus painéis.",
-    image: paineisAzuis,
+    image: nvDivisoriaAmarelaMesaReuniao,
     gallery: [paineisAzuis, paineisColoridosTeto],
     specs: [
       { label: "Material", value: "100% Poliéster" },
@@ -977,7 +1019,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Carpete para tratamento acústico de pisos — redução de impacto e reverberação.",
     description: "Carpete acústico para redução de ruído de impacto e absorção complementar em pisos. Ideal para estúdios, salas de reunião e home theaters.",
-    image: salaTratamento,
+    image: nvPaineisBegeSalaViolao,
     gallery: [salaTratamento],
     specs: [
       { label: "Tipo", value: "Carpete Acústico" },
@@ -995,7 +1037,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Piso emborrachado para isolamento de impacto e vibração em estúdios e academias.",
     description: "Piso emborrachado de alta densidade para isolamento de ruído de impacto e vibrações. Ideal para estúdios de gravação, salas de bateria e academias.",
-    image: salaTratamento,
+    image: nvPainelSetupGamerRoxo,
     gallery: [salaTratamento],
     specs: [
       { label: "Material", value: "Borracha Reciclada" },
@@ -1013,7 +1055,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Placas de drywall para sistemas de isolamento massa-mola-massa.",
     description: "Placas de drywall para uso em sistemas de isolamento acústico. Componente essencial do sistema massa-mola-massa para paredes e tetos acústicos.",
-    image: salaTratamento,
+    image: nvPainelGradienteCinzaGrande,
     gallery: [salaTratamento],
     specs: [
       { label: "Tipo", value: "Placa de Gesso" },
@@ -1031,7 +1073,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Espuma expansiva para vedação de frestas e junções em projetos de isolamento.",
     description: "Espuma expansiva PU para vedação de frestas, juntas e passagens em projetos de isolamento acústico. Garante a estanqueidade do sistema.",
-    image: salaTratamento,
+    image: nvDifusorEspumaPiramidalCinza,
     gallery: [salaTratamento],
     specs: [
       { label: "Tipo", value: "PU Expansiva" },
@@ -1050,7 +1092,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Kit completo com 3 tipos de parafusos, buchas, cabos de aço, ganchos e suportes dentados.",
     description: "Kit completo de fixação para todos os produtos Sonar. Inclui 3 tipos de parafusos (alvenaria, drywall, madeira), 3 tipos de buchas, cabos de aço para suspensão, ganchos abertos e suportes dentados.",
-    image: paineisSalaReuniao,
+    image: nvBassTrapMadeiraRanhurada,
     gallery: [paineisSalaReuniao],
     specs: [
       { label: "Parafusos", value: "3 tipos (Alvenaria/Drywall/Madeira)" },
@@ -1070,7 +1112,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Velcro adesivo de 50mm para fixação removível de painéis acústicos.",
     description: "Velcro industrial de 50mm com adesivo de alta aderência para fixação removível de painéis acústicos. Permite reposicionamento sem danificar paredes.",
-    image: paineisSalaReuniao,
+    image: nvPainelRipadoMolduraPreta,
     gallery: [paineisSalaReuniao],
     specs: [
       { label: "Largura", value: "50mm" },
@@ -1089,7 +1131,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Microfone de medição omnidirecional para análise acústica de ambientes (RT60, frequência).",
     description: "Microfone de medição com resposta omnidirecional e curva plana para análise acústica profissional. Compatível com softwares de medição como REW, Smaart e Room EQ Wizard.",
-    image: estudioPaineis,
+    image: nvMedicaoSonometroTecnico,
     gallery: [estudioPaineis],
     specs: [
       { label: "Padrão Polar", value: "Omnidirecional" },
@@ -1108,7 +1150,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Mobiliário especializado para estúdios de gravação e escritórios de produção.",
     description: "Linha de mobiliário projetado para estúdios: cadeiras ergonômicas para longas sessões, mesas de produção com gerenciamento de cabos e racks integrados.",
-    image: estudioPaineis,
+    image: nvBiomboEstudioEmUso,
     gallery: [estudioPaineis],
     specs: [
       { label: "Tipo", value: "Mobiliário de Estúdio" },
@@ -1126,7 +1168,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Tapetes de alta densidade para absorção complementar e redução de ruído de impacto.",
     description: "Tapetes acústicos de alta densidade para complementar o tratamento de pisos. Reduzem ruído de impacto e contribuem para absorção de médias-altas frequências.",
-    image: salaTratamento,
+    image: nvPainelGradienteQuarto,
     gallery: [salaTratamento],
     specs: [
       { label: "Tipo", value: "Tapete Acústico" },
@@ -1145,7 +1187,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "2 Bass Traps + 4 Painéis + 2 Nuvens — o essencial para começar seu tratamento.",
     description: "O Kit Classic é a porta de entrada para o tratamento acústico profissional. Inclui 2 Bass Traps Corner para controle de graves, 4 Painéis SNR3250 para reflexões primárias e 2 Nuvens para o teto. Ideal para salas de até 15m².",
-    image: estudioPaineis,
+    image: nvMesaSomEstudioProfissional,
     gallery: [estudioPaineis, bassTrapCorner, paineisSalaReuniao, nuvemAcustica],
     specs: [
       { label: "Bass Traps", value: "2× Corner 3S SNR6430" },
@@ -1167,7 +1209,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "4 Bass Traps + 8 Painéis + 3 Nuvens — tratamento completo para ambientes sérios.",
     description: "O Kit Premium oferece tratamento acústico completo para estúdios de gravação e mixagem. 4 Bass Traps para todos os cantos, 8 Painéis para reflexões primárias e paredes laterais, e 3 Nuvens para o teto. Ideal para salas de 15 a 25m².",
-    image: kitEstudioPremiumReal1,
+    image: nvPaineisLedCianoSala,
     gallery: [kitEstudioPremiumReal1, estudioPaineis, bassTrapPair, paineisSalaReuniao, nuvemAcustica],
     specs: [
       { label: "Bass Traps", value: "4× Corner 3S SNR6430" },
@@ -1189,7 +1231,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "8 Bass Traps + 12 Painéis + 3 Nuvens + 4 Difusores Skyline — o tratamento definitivo.",
     description: "O Kit Pro é o tratamento acústico definitivo. 8 Bass Traps para controle modal completo, 12 Painéis para todas as reflexões, 3 Nuvens para o teto e 4 Difusores Skyline para a parede traseira. Para profissionais que exigem o melhor.",
-    image: estudioPaineis,
+    image: nvDifusorBlocos3dClaro,
     gallery: [estudioPaineis, bassTrapPair, paineisSalaReuniao, nuvemAcustica, difusorSkyline],
     specs: [
       { label: "Bass Traps", value: "8× Corner 3S SNR6430" },
@@ -1213,7 +1255,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Modelagem 3D do seu ambiente com posicionamento otimizado de produtos acústicos.",
     description: "Nosso serviço de Projeto 3D cria uma modelagem realista do seu ambiente com posicionamento otimizado de todos os produtos acústicos. Você recebe visualizações renderizadas antes da compra, garantindo que o resultado atenda suas expectativas.",
-    image: paineisSalaReuniao,
+    image: nvPainelLaranjaSalaEstar,
     gallery: [paineisSalaReuniao, estudioPaineis, escritorioPaineis],
     specs: [
       { label: "Tipo", value: "Projeto 3D" },
@@ -1232,7 +1274,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Análise acústica completa: RT60, absorção, modos de sala e recomendações.",
     description: "Serviço de consultoria acústica com medição de RT60, análise de modos de sala, cálculo de absorção necessária e recomendações de tratamento personalizadas. Realizada por engenheiros acústicos especializados.",
-    image: estudioPaineis,
+    image: nvPaineisGeometricosParede,
     gallery: [estudioPaineis],
     specs: [
       { label: "Tipo", value: "Consultoria Acústica" },
@@ -1251,7 +1293,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Visita técnica presencial para levantamento e medição acústica no local.",
     description: "Visita presencial de nosso engenheiro acústico ao seu ambiente para levantamento dimensional, medições acústicas in loco e definição da melhor estratégia de tratamento.",
-    image: estudioPaineis,
+    image: nvNuvensColoridasSalaEstar,
     gallery: [estudioPaineis],
     specs: [
       { label: "Tipo", value: "Visita Presencial" },
@@ -1270,7 +1312,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Envio nacional com transportadoras parceiras — embalagem reforçada para segurança.",
     description: "Serviço de logística integrada com transportadoras parceiras para entrega em todo o Brasil. Embalagem reforçada com proteção contra impacto para garantir a integridade dos produtos.",
-    image: paineisSalaReuniao,
+    image: nvDivisoriaAmarelaEscritorioConjunto,
     gallery: [paineisSalaReuniao],
     specs: [
       { label: "Abrangência", value: "Todo o Brasil" },
@@ -1291,7 +1333,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Revestimento de parede com estética premium e absorção acústica integrada.",
     description: "Revestimento ripado que combina estética sofisticada com performance acústica. As ripas em madeira natural criam um visual premium enquanto o núcleo absorvente trata a acústica do ambiente.",
-    image: escritorioPaineis,
+    image: nvPaineisRipadosParedeDecor,
     gallery: [escritorioPaineis, paineisSeminario],
     specs: [
       { label: "NRC", value: "0.70" },
@@ -1315,7 +1357,7 @@ export const products: Product[] = [
     shortDescription: "Kit completo com fixadores dentados, buchas e parafusos para instalação de painéis, bass traps, difusores e painéis ripados.",
     description: "O Kit de Fixação Acústica Sonar contém todos os componentes necessários para a instalação segura e profissional dos produtos acústicos. Inclui fixadores dentados (sawtooth hangers) de aço galvanizado, buchas universais S6 e parafusos panela — compatíveis com alvenaria, drywall e madeira. Ideal para painéis acústicos, bass traps, difusores skyline e revestimentos ripados.",
     longDescription: "Cada kit é dimensionado de acordo com o peso e tamanho do produto a ser instalado. Os fixadores dentados garantem um ajuste fino horizontal sem necessidade de ferramentas especiais, permitindo nivelamento perfeito do painel após fixação na parede. As buchas universais S6 são compatíveis com blocos de concreto, tijolos maciços, drywall e madeira — dispensando buchas especiais na maioria dos casos.\n\nPara painéis de até 5 kg, basta 1 fixador central. Painéis maiores (acima de 1200mm) utilizam 2 fixadores. Bass traps e difusores podem exigir parafusos adicionais conforme o peso.\n\nDisponível nas versões prata (galvanizado) e preto (fosfatizado), para combinar com o acabamento do produto.",
-    image: fixadorKitPreto,
+    image: nvPainelMdfVazadoFrontal,
     gallery: [fixadorKitPreto, fixadorKitPrata, fixadorDetalhe, fixadorBuchaParafuso],
     sizes: [
       { label: "Kit Unitário", dimensions: "1 fixador + 2 parafusos + 2 buchas" },
