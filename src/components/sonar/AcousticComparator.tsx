@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Eyebrow, Lead, Section, SectionTitle } from "./primitives";
-import roomPhoto from "@/assets/products/painel-acustico-snr3250/panneaux_acoustiques_noir_gris_podcast - Copia.jpg";
+import roomUntreated from "@/assets/comparador/restaurante-sem-tratamento.png";
+import roomTreated from "@/assets/comparador/restaurante-com-tratamento.png";
 
 /**
  * Comparador acústico — assinatura visual da homepage.
@@ -27,6 +28,9 @@ function traceRay(
   bounces: number,
   w: number,
   h: number,
+  /** quando verdadeiro, o teto absorve o raio em vez de refleti-lo —
+      é onde os painéis estão instalados na foto tratada */
+  absorbCeiling = false,
 ): Point[] {
   const points: Point[] = [{ ...origin }];
   let dx = Math.cos(angle);
@@ -37,18 +41,22 @@ function traceRay(
   for (let b = 0; b <= bounces; b++) {
     let t = Infinity;
     let axis: "x" | "y" | null = null;
+    let hitCeiling = false;
 
-    if (dx > 1e-9) { const tt = (w - cx) / dx; if (tt < t) { t = tt; axis = "x"; } }
-    else if (dx < -1e-9) { const tt = -cx / dx; if (tt < t) { t = tt; axis = "x"; } }
+    if (dx > 1e-9) { const tt = (w - cx) / dx; if (tt < t) { t = tt; axis = "x"; hitCeiling = false; } }
+    else if (dx < -1e-9) { const tt = -cx / dx; if (tt < t) { t = tt; axis = "x"; hitCeiling = false; } }
 
-    if (dy > 1e-9) { const tt = (h - cy) / dy; if (tt < t) { t = tt; axis = "y"; } }
-    else if (dy < -1e-9) { const tt = -cy / dy; if (tt < t) { t = tt; axis = "y"; } }
+    if (dy > 1e-9) { const tt = (h - cy) / dy; if (tt < t) { t = tt; axis = "y"; hitCeiling = false; } }
+    else if (dy < -1e-9) { const tt = -cy / dy; if (tt < t) { t = tt; axis = "y"; hitCeiling = true; } }
 
     if (!isFinite(t) || t <= 0) break;
 
     cx += dx * t;
     cy += dy * t;
     points.push({ x: cx, y: cy });
+
+    // painel absorvente no teto: a energia termina aqui
+    if (absorbCeiling && hitCeiling) break;
 
     if (axis === "x") dx = -dx;
     else dy = -dy;
@@ -118,19 +126,21 @@ const WaveField = ({ treated }: { treated: boolean }) => {
 
       const w = rect.width;
       const h = rect.height;
-      // fonte sonora posicionada como quem fala/toca dentro da sala
-      source = { x: w * 0.2, y: h * 0.62 };
+      // fonte na altura das mesas, onde as conversas acontecem
+      source = { x: w * 0.34, y: h * 0.6 };
 
-      // sem absorção o som volta muitas vezes; com painéis, morre na primeira parede
-      const bounces = treated ? 0 : 6;
-      const count = treated ? 22 : 26;
+      // Sem painéis o som ricocheteia por toda a sala. Com os painéis no
+      // teto, cada raio que sobe termina ali — só o que segue rente ao
+      // piso ainda devolve alguma reflexão.
+      const bounces = treated ? 2 : 6;
+      const count = treated ? 26 : 30;
 
       rays = [];
       for (let i = 0; i < count; i++) {
         // leque completo, com raios quase paralelos às paredes para
         // evidenciar o flutter echo entre superfícies opostas
         const angle = (i / count) * Math.PI * 2 + (treated ? 0.04 : 0.017);
-        const points = traceRay(source, angle, bounces, w, h);
+        const points = traceRay(source, angle, bounces, w, h, treated);
         const lengths = cumulativeLengths(points);
         rays.push({
           points,
@@ -285,9 +295,9 @@ export default function AcousticComparator() {
           </SectionTitle>
         </div>
         <Lead className="lg:max-w-md lg:text-right">
-          Arraste para comparar. À esquerda, o som bate nas superfícies e volta repetidas vezes,
-          somando reflexos. À direita, os painéis absorvem essa energia — ela chega à parede e não
-          retorna.
+          Arraste para comparar. O mesmo salão, na mesma hora: à esquerda o teto exposto devolve
+          cada conversa de volta à sala. À direita, os painéis instalados no teto absorvem essa
+          energia antes que ela retorne.
         </Lead>
       </div>
 
@@ -303,12 +313,12 @@ export default function AcousticComparator() {
         {/* Lado tratado (base) */}
         <div className="absolute inset-0">
           <img
-            src={roomPhoto}
-            alt="Ambiente com tratamento acústico Sonar instalado"
+            src={roomTreated}
+            alt="O mesmo restaurante depois, com painéis acústicos instalados no teto"
             className="h-full w-full object-cover"
-            style={{ filter: "saturate(1.02) contrast(1.02) brightness(0.62)" }}
+            style={{ filter: "saturate(1.04) contrast(1.02) brightness(0.78)" }}
           />
-          <div className="absolute inset-0 bg-snr-graphite-deep/45" />
+          <div className="absolute inset-0 bg-snr-graphite-deep/25" />
           <WaveField treated />
         </div>
 
@@ -318,12 +328,12 @@ export default function AcousticComparator() {
           style={{ clipPath: `polygon(0 0, ${position}% 0, ${position}% 100%, 0 100%)` }}
         >
           <img
-            src={roomPhoto}
-            alt="O mesmo ambiente sem tratamento acústico"
+            src={roomUntreated}
+            alt="Restaurante antes do tratamento, com o teto exposto e sem painéis"
             className="h-full w-full object-cover"
-            style={{ filter: "saturate(0.6) contrast(1.25) brightness(0.5) hue-rotate(-10deg)" }}
+            style={{ filter: "saturate(0.72) contrast(1.18) brightness(0.62) hue-rotate(-8deg)" }}
           />
-          <div className="absolute inset-0 bg-snr-graphite-deep/55" />
+          <div className="absolute inset-0 bg-snr-graphite-deep/40" />
           <WaveField treated={false} />
         </div>
 
