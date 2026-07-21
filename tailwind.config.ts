@@ -59,6 +59,35 @@ export default {
   			]
   		},
   		colors: {
+  			// Sistema Sonar — paleta da nova homepage (70% neutros / 20% azul / 7% madeira / 3% laranja)
+  			snr: {
+  				white: 'hsl(var(--snr-white))',
+  				paper: 'hsl(var(--snr-paper))',
+  				mineral: {
+  					100: 'hsl(var(--snr-mineral-100))',
+  					300: 'hsl(var(--snr-mineral-300))',
+  					500: 'hsl(var(--snr-mineral-500))',
+  					700: 'hsl(var(--snr-mineral-700))'
+  				},
+  				graphite: {
+  					DEFAULT: 'hsl(var(--snr-graphite))',
+  					deep: 'hsl(var(--snr-graphite-deep))'
+  				},
+  				petrol: {
+  					DEFAULT: 'hsl(var(--snr-petrol))',
+  					light: 'hsl(var(--snr-petrol-light))'
+  				},
+  				ocean: {
+  					DEFAULT: 'hsl(var(--snr-ocean))',
+  					light: 'hsl(var(--snr-ocean-light))',
+  					wash: 'hsl(var(--snr-ocean-wash))'
+  				},
+  				wood: {
+  					DEFAULT: 'hsl(var(--snr-wood))',
+  					light: 'hsl(var(--snr-wood-light))'
+  				},
+  				orange: 'hsl(var(--snr-orange))'
+  			},
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
@@ -143,6 +172,14 @@ export default {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			'fade-in-up': 'fade-in-up 0.6s ease-out forwards'
+  		},
+  		transitionDuration: {
+  			micro: 'var(--snr-micro)',
+  			ui: 'var(--snr-ui)',
+  			narrative: 'var(--snr-narrative)'
+  		},
+  		transitionTimingFunction: {
+  			snr: 'var(--snr-ease)'
   		},
   		boxShadow: {
   			'2xs': 'var(--shadow-2xs)',
