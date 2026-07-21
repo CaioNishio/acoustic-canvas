@@ -171,11 +171,11 @@ export default function ProblemNavigator() {
 
           <div className="mt-8 grid gap-8 sm:grid-cols-2">
             <div>
-              <p className="snr-caption text-snr-mineral-500">O que está acontecendo</p>
+              <p className="snr-caption text-snr-mineral-300">O que está acontecendo</p>
               <p className="snr-body mt-3 text-snr-mineral-300">{active.diagnosis}</p>
             </div>
             <div>
-              <p className="snr-caption text-snr-mineral-500">Caminho recomendado</p>
+              <p className="snr-caption text-snr-mineral-300">Caminho recomendado</p>
               <p className="snr-body mt-3 text-snr-white">{active.solution}</p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <SonarButton to={`/produtos/${active.productSlug}`} variant="onDark">

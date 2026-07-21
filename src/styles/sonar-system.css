@@ -15,7 +15,9 @@
   --snr-paper: 210 17% 95%; /* fundo alternativo de seção */
   --snr-mineral-100: 210 14% 88%;
   --snr-mineral-300: 210 11% 72%;
-  --snr-mineral-500: 210 9% 55%; /* cinza mineral */
+  /* 45% de luminosidade dá 4.88:1 sobre o branco frio — acima do mínimo AA.
+     Em seções escuras use mineral-300, que é o par correto ali. */
+  --snr-mineral-500: 210 10% 45%; /* cinza mineral */
   --snr-mineral-700: 212 12% 34%;
   --snr-graphite: 213 22% 15%; /* grafite azulado — texto e fundos escuros */
   --snr-graphite-deep: 214 26% 9%;

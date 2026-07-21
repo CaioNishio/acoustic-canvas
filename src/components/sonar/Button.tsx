@@ -17,10 +17,15 @@ const variants: Record<Variant, string> = {
   onDark: "border border-snr-white/70 text-snr-white hover:bg-snr-white hover:text-snr-graphite",
 };
 
-/* Alvos de toque: mínimo 44px de altura */
+/* Alvos de toque: mínimo 44px de altura, inclusive na variante sem preenchimento */
 const sizes: Record<Size, string> = {
   md: "min-h-11 px-6 text-sm",
   lg: "min-h-12 px-8 text-base",
+};
+
+const ghostSizes: Record<Size, string> = {
+  md: "min-h-11 text-sm",
+  lg: "min-h-12 text-base",
 };
 
 interface Props {
@@ -46,7 +51,12 @@ export function SonarButton({
   type = "button",
   ...rest
 }: Props) {
-  const classes = cn(base, variants[variant], variant !== "ghost" && sizes[size], className);
+  const classes = cn(
+    base,
+    variants[variant],
+    variant === "ghost" ? ghostSizes[size] : sizes[size],
+    className,
+  );
 
   if (to) {
     return (

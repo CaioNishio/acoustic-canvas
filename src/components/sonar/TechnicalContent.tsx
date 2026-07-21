@@ -92,7 +92,7 @@ export default function TechnicalContent() {
             {notes.map((note) => (
               <li key={note.title} className="flex items-baseline justify-between gap-4">
                 <span className="font-display text-sm font-medium text-snr-graphite">{note.title}</span>
-                <span className="text-right text-[13px] text-snr-mineral-500">{note.text}</span>
+                <span className="text-right text-[13px] text-snr-mineral-700">{note.text}</span>
               </li>
             ))}
           </ul>

@@ -77,7 +77,7 @@ export default function AcousticTools() {
             <div className="flex h-full flex-col rounded-2xl border border-snr-ocean/12 bg-snr-white p-7">
               <div className="flex items-start justify-between">
                 <tool.icon className="h-6 w-6 text-snr-ocean" strokeWidth={1.5} aria-hidden="true" />
-                <span className="font-display text-sm font-medium text-snr-mineral-300">{tool.number}</span>
+                <span className="font-display text-sm font-medium text-snr-mineral-500">{tool.number}</span>
               </div>
 
               <h3 className="snr-card-title mt-5 text-snr-graphite">{tool.title}</h3>

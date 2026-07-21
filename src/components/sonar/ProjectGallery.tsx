@@ -32,6 +32,7 @@ export default function ProjectGallery() {
               <div className="grid items-center gap-8 lg:grid-cols-10 lg:gap-14">
                 <Link
                   to={`/projetos/${project.slug}`}
+                  aria-label={`Ver o projeto ${project.title}`}
                   className={`group relative block aspect-[16/10] overflow-hidden rounded-2xl bg-snr-graphite lg:col-span-6 ${
                     i % 2 === 1 ? "lg:order-2" : ""
                   }`}
