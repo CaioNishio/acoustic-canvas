@@ -55,7 +55,7 @@ export default function GikBestSellers() {
               type="button"
               onClick={() => switchTab(i)}
               aria-pressed={i === active}
-              className={`rounded-full border px-5 py-2.5 text-sm font-medium transition-colors duration-200 ${
+              className={`cursor-pointer rounded-full border px-5 py-2.5 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(25,49,57)] focus-visible:ring-offset-2 ${
                 i === active
                   ? "border-[rgb(25,49,57)] bg-[rgb(25,49,57)] text-[rgb(253,254,254)]"
                   : "border-[rgb(11,14,17)]/20 bg-transparent text-[rgb(11,14,17)] hover:border-[rgb(11,14,17)]/50"

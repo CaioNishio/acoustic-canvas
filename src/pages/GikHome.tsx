@@ -11,9 +11,10 @@ import GikPlanYourSpace from "@/components/gik/GikPlanYourSpace";
 import GikKnowledgeBase from "@/components/gik/GikKnowledgeBase";
 import GikFeaturesBar from "@/components/gik/GikFeaturesBar";
 import GikFooter from "@/components/gik/GikFooter";
+import "@/components/gik/gik.css";
 
 const GikHome = () => (
-  <div className="bg-[#FDFEFE] text-[#0B0E11] font-['Lexend']">
+  <div className="gik-page bg-[#FDFEFE] text-[#0B0E11] font-['Lexend']">
     <GikTopBar />
     <GikHeader />
     <main>

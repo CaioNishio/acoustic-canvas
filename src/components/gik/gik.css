@@ -1,0 +1,31 @@
+/* Acessibilidade e interação — escopo da página GIK */
+.gik-page button,
+.gik-page a {
+  cursor: pointer;
+}
+
+.gik-page button:focus-visible,
+.gik-page a:focus-visible,
+.gik-page input:focus-visible {
+  outline: 2px solid #193139;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Seções escuras: anel claro para manter contraste */
+.gik-dark button:focus-visible,
+.gik-dark a:focus-visible,
+.gik-dark input:focus-visible {
+  outline-color: #fdfefe;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gik-page *,
+  .gik-page *::before,
+  .gik-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
