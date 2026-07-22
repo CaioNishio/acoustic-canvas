@@ -62,11 +62,11 @@ import biomboCavaleteReal1 from "@/assets/products/biombo-acustico-cavalete/imag
 import biomboCavaleteReal2 from "@/assets/products/biombo-acustico-cavalete/image00056.png";
 import biomboCavaleteReal3 from "@/assets/products/biombo-acustico-cavalete/image00057.png";
 
-import bassTrapCornerReal1 from "@/assets/products/bass-trap-corner-3s-snr6430/bass-trap-01-black-side - Copia.jpg";
+import bassTrapCornerReal1 from "@/assets/products/bass-trap-corner-3s-snr6430/bass-trap-01-black-side - Copia.png";
 import bassTrapCornerReal2 from "@/assets/products/bass-trap-corner-3s-snr6430/IMG_1197.webp";
 import bassTrapCornerReal3 from "@/assets/products/bass-trap-corner-3s-snr6430/panneau-acoustique-bass-traps - Copia.jpg";
 
-import difusorQrdReal1 from "@/assets/products/difusor-qrd/QRD_Difusor_EA - Copia.jpg";
+import difusorQrdReal1 from "@/assets/products/difusor-qrd/QRD_Difusor_EA - Copia.png";
 import difusorQrdReal2 from "@/assets/products/difusor-qrd/61svKZQQjsL - Copia.jpg";
 import difusorQrdReal3 from "@/assets/products/difusor-qrd/61FejPY8n-L - Copia.jpg";
 
@@ -75,7 +75,7 @@ import difusorSkylineReal2 from "@/assets/products/difusor-skyline/IMG_1104.webp
 import difusorSkylineReal3 from "@/assets/products/difusor-skyline/unnamed (12).jpg";
 
 import difusorBidimensionalReal1 from "@/assets/products/difusor-bidimensional/61jSS2XhfpL._AC_UF894,1000_QL80_.jpg";
-import difusorBidimensionalReal2 from "@/assets/products/difusor-bidimensional/71ntnRYF-ML.jpg";
+import difusorBidimensionalReal2 from "@/assets/products/difusor-bidimensional/71ntnRYF-ML.png";
 
 import painelCircle360Real1 from "@/assets/products/painel-circle-360/0254649d.webp";
 import painelCircle360Real2 from "@/assets/products/painel-circle-360/4615382-19363738 - Copia.jpg";
@@ -90,6 +90,7 @@ import painelLedFoscoReal1 from "@/assets/products/painel-led-fosco/2.jpg";
 import kitEstudioPremiumReal1 from "@/assets/products/kit-estudio-premium/81g4Y8NZO5S._AC_SL1500_.jpg";
 
 import { fabricColors, woodColors, type ProductColor } from "./productColors";
+import { coverFromFolder, galleryFromFolder } from "./productImages";
 import nvPainelPretoParedeSala from "@/assets/novas/painel-preto-parede-sala.webp";
 import nvPaineisCinzaSalaReuniao from "@/assets/novas/paineis-cinza-sala-reuniao.png";
 import nvPainelBrancoEstudio from "@/assets/novas/painel-branco-estudio.png";
@@ -126,10 +127,10 @@ import nvDifusorEspumaPiramidalClaro from "@/assets/novas/difusor-espuma-piramid
 import nvDifusorSkylineBlocosMadeira from "@/assets/novas/difusor-skyline-blocos-madeira.webp";
 import nvPainelRipadoVerticalMadeira from "@/assets/novas/painel-ripado-vertical-madeira.webp";
 import nvDivisoriaAmarelaMesaReuniao from "@/assets/novas/divisoria-amarela-mesa-reuniao.png";
-import nvPainelRipadoHorizontalClaro from "@/assets/novas/painel-ripado-horizontal-claro.jpg";
-import nvDivisoriaAmarelaDupla from "@/assets/novas/divisoria-amarela-dupla.jpg";
+import nvPainelRipadoHorizontalClaro from "@/assets/novas/painel-ripado-horizontal-claro.png";
+import nvDivisoriaAmarelaDupla from "@/assets/novas/divisoria-amarela-dupla.png";
 import nvPainelLedCianoAmbiente from "@/assets/novas/painel-led-ciano-ambiente.jpg";
-import nvDivisoriaAmarelaPar from "@/assets/novas/divisoria-amarela-par.jpg";
+import nvDivisoriaAmarelaPar from "@/assets/novas/divisoria-amarela-par.png";
 import nvPaineisLedCianoSala from "@/assets/novas/paineis-led-ciano-sala.jpg";
 import nvPainelMdfVazadoFrontal from "@/assets/novas/painel-mdf-vazado-frontal.webp";
 export type { ProductColor };
@@ -1394,3 +1395,16 @@ export const products: Product[] = [
     ],
   },
 ];
+
+/**
+ * As pastas em `src/assets/produtos/<slug>/` têm prioridade sobre as
+ * imagens declaradas acima. Adicionar ou remover um arquivo na pasta
+ * altera o site sem tocar em código — veja `productImages.ts`.
+ */
+for (const product of products) {
+  const cover = coverFromFolder(product.slug);
+  if (cover) product.image = cover;
+
+  const gallery = galleryFromFolder(product.slug);
+  if (gallery) product.gallery = gallery;
+}

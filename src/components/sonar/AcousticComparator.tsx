@@ -96,13 +96,22 @@ function pointAt(points: Point[], lengths: number[], distance: number): Point | 
 }
 
 /**
- * Campo sonoro do comparador.
+ * Campo sonoro do comparador — frentes de onda esféricas.
  *
- * Sem tratamento: cada raio reflete repetidamente nas paredes, acumulando
- * reflexos que voltam ao ambiente e se cruzam.
- * Com tratamento: o raio chega ao painel e é absorvido — não retorna.
+ * O som sai da fonte como anéis que se expandem. Onde a superfície é dura,
+ * a reflexão equivale a uma fonte-imagem espelhada além da parede: por isso
+ * o lado sem tratamento acumula frentes vindas de várias direções, que se
+ * cruzam. Com os painéis no teto, a energia que sobe é absorvida — a frente
+ * apenas se afasta e desvanece, sem devolver nada à sala.
  */
-const WaveField = ({ treated }: { treated: boolean }) => {
+interface Emitter {
+  x: number;
+  y: number;
+  /** ordem da reflexão: 0 = fonte real */
+  order: number;
+}
+
+const WaveFieldRays = ({ treated }: { treated: boolean }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -228,6 +237,154 @@ const WaveField = ({ treated }: { treated: boolean }) => {
       ctx.arc(source.x, source.y, 12 + pulse * 7, 0, Math.PI * 2);
       ctx.strokeStyle = `hsla(${hue}, 90%, 65%, ${0.32 * (1 - pulse)})`;
       ctx.lineWidth = 1.4;
+      ctx.stroke();
+
+      raf = requestAnimationFrame(draw);
+    };
+
+    if (reduced) {
+      draw(0);
+      cancelAnimationFrame(raf);
+    } else {
+      raf = requestAnimationFrame(draw);
+    }
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", build);
+    };
+  }, [treated]);
+
+  return <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" aria-hidden="true" />;
+};
+
+/** Frentes de onda esféricas — a representação usada no comparador. */
+const WaveField = ({ treated }: { treated: boolean }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let raf = 0;
+    let emitters: Emitter[] = [];
+    let source = { x: 0, y: 0 };
+    let W = 0;
+    let H = 0;
+
+    const build = () => {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      W = rect.width;
+      H = rect.height;
+
+      // fonte na altura das mesas, onde as conversas acontecem
+      source = { x: W * 0.36, y: H * 0.58 };
+      emitters = [{ ...source, order: 0 }];
+
+      if (!treated) {
+        // superfícies duras: cada parede devolve uma fonte-imagem
+        const first: Emitter[] = [
+          { x: -source.x, y: source.y, order: 1 },
+          { x: 2 * W - source.x, y: source.y, order: 1 },
+          { x: source.x, y: -source.y, order: 1 },
+          { x: source.x, y: 2 * H - source.y, order: 1 },
+        ];
+        // segunda ordem: as reflexões refletem de novo
+        const second: Emitter[] = [
+          { x: -source.x, y: -source.y, order: 2 },
+          { x: 2 * W - source.x, y: -source.y, order: 2 },
+          { x: -source.x, y: 2 * H - source.y, order: 2 },
+          { x: 2 * W - source.x, y: 2 * H - source.y, order: 2 },
+        ];
+        emitters.push(...first, ...second);
+      } else {
+        // painéis no teto absorvem: só o piso ainda devolve algo, e fraco
+        emitters.push({ x: source.x, y: 2 * H - source.y, order: 1 });
+      }
+    };
+
+    build();
+    window.addEventListener("resize", build);
+
+    const hue = treated ? 199 : 18;
+    const period = treated ? 3.1 : 2.2; // segundos até a frente cruzar a sala
+    const rings = treated ? 3 : 7; // sem absorção as frentes se acumulam
+
+    const draw = (now: number) => {
+      const t = now / 1000;
+      ctx.clearRect(0, 0, W, H);
+      ctx.lineCap = "round";
+
+      const maxR = Math.hypot(W, H) * 1.15;
+
+      for (const em of emitters) {
+        // reflexões chegam mais fracas e mais tarde
+        const orderFade = em.order === 0 ? 1 : em.order === 1 ? 0.62 : 0.4;
+        const base = treated ? 0.3 : 0.5;
+
+        for (let k = 0; k < rings; k++) {
+          const age = ((t + (k * period) / rings + em.order * 0.35) % period) / period;
+          const r = age * maxR;
+          if (r < 6) continue;
+
+          // A frente perde energia ao se espalhar. Sem absorção esse
+          // decaimento é lento, então várias frentes coexistem na sala.
+          const spread = Math.pow(1 - age, treated ? 1.5 : 0.75);
+          let alpha = base * orderFade * spread;
+          if (alpha <= 0.012) continue;
+
+          // desenha em segmentos para modular a opacidade ao longo do arco
+          const SEG = 46;
+          for (let s = 0; s < SEG; s++) {
+            const a0 = (s / SEG) * Math.PI * 2;
+            const a1 = ((s + 1) / SEG) * Math.PI * 2;
+            const mid = (a0 + a1) / 2;
+
+            const px = em.x + Math.cos(mid) * r;
+            const py = em.y + Math.sin(mid) * r;
+            // fora do ambiente não há o que mostrar
+            if (px < -40 || px > W + 40 || py < -40 || py > H + 40) continue;
+
+            let segAlpha = alpha;
+
+            if (treated) {
+              // no lado tratado a energia que sobe morre no painel:
+              // quanto mais o segmento aponta para cima, mais fraco ele fica
+              const upward = -Math.sin(mid); // 1 = subindo
+              segAlpha *= 1 - Math.max(0, upward) * 0.82;
+              // e some ao se aproximar do teto
+              const nearCeiling = 1 - Math.min(1, py / (H * 0.45));
+              segAlpha *= 1 - Math.max(0, nearCeiling) * 0.75;
+            }
+
+            if (segAlpha <= 0.012) continue;
+
+            ctx.beginPath();
+            ctx.arc(em.x, em.y, r, a0, a1);
+            ctx.strokeStyle = `hsla(${hue}, ${treated ? 72 : 88}%, ${treated ? 68 : 60}%, ${segAlpha})`;
+            ctx.lineWidth = em.order === 0 ? 1.25 : 0.9;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // fonte: ponto discreto com um halo suave
+      const pulse = 0.5 + 0.5 * Math.sin(t * 2.6);
+      ctx.beginPath();
+      ctx.arc(source.x, source.y, 3.2, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${hue}, 88%, ${treated ? 74 : 64}%, 0.82)`;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(source.x, source.y, 8 + pulse * 5, 0, Math.PI * 2);
+      ctx.strokeStyle = `hsla(${hue}, 88%, 68%, ${0.24 * (1 - pulse)})`;
+      ctx.lineWidth = 1;
       ctx.stroke();
 
       raf = requestAnimationFrame(draw);
