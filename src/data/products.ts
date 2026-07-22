@@ -222,8 +222,19 @@ const defaultProperties = [
   { title: "Inércia Química", text: "Não ataca as superfícies com as quais mantém contato. Não há proliferação de fungos e bactérias." },
 ];
 
-const defaultCertifications = ["ABNT – NBR 11364", "Petrobrás N-1618", "ISO/R 354", "ASTM C 423"];
+const defaultCertifications = [
+  "ABNT – NBR 11364",
+  "Petrobrás N-1618",
+  "ISO/R 354 e ASTM C 423 (absorção acústica)",
+  "ISO 1182 – Incombustível (IPT nº 953.688-203)",
+  "ASTM C 518 (condutividade térmica)",
+];
 
+/**
+ * Coeficientes de absorção sonora da lã de rocha THERMAX® (ROCKFIBRAS/SOPREMA),
+ * medidos conforme ISO/R 354 e ASTM C 423 em corpos de prova de 51 mm.
+ * Valores acima de 1,0 são previstos em norma; para projeto, considerar 1,0.
+ */
 const absorptionTableD32_50: AbsorptionData[] = [
   { density: 32, thickness: 51, nrc: 0.80, coefficients: [{ freq: 125, value: 0.16 }, { freq: 250, value: 0.52 }, { freq: 500, value: 0.82 }, { freq: 1000, value: 0.92 }, { freq: 2000, value: 0.94 }, { freq: 4000, value: 0.96 }] },
   { density: 48, thickness: 51, nrc: 0.89, coefficients: [{ freq: 125, value: 0.26 }, { freq: 250, value: 0.70 }, { freq: 500, value: 1.08 }, { freq: 1000, value: 1.02 }, { freq: 2000, value: 0.76 }, { freq: 4000, value: 0.96 }] },
@@ -233,6 +244,26 @@ const absorptionTableD32_50: AbsorptionData[] = [
   { density: 144, thickness: 51, nrc: 0.93, coefficients: [{ freq: 125, value: 0.16 }, { freq: 250, value: 0.66 }, { freq: 500, value: 1.00 }, { freq: 1000, value: 1.05 }, { freq: 2000, value: 1.02 }, { freq: 4000, value: 1.04 }] },
   { density: 160, thickness: 51, nrc: 1.00, coefficients: [{ freq: 125, value: 0.43 }, { freq: 250, value: 0.89 }, { freq: 500, value: 1.00 }, { freq: 1000, value: 0.99 }, { freq: 2000, value: 0.98 }, { freq: 4000, value: 0.99 }] },
 ];
+
+/** NRC por densidade, conforme o ensaio acima (51 mm). */
+const NRC_POR_DENSIDADE: Record<number, string> = {
+  32: "0,80", 48: "0,89", 64: "0,93", 96: "1,07", 128: "1,00", 144: "0,93", 160: "1,00",
+};
+
+/** Condutividade térmica a 24 °C, ASTM C 518 (W/m·K). */
+const CONDUTIVIDADE_POR_DENSIDADE: Record<number, string> = {
+  32: "0,039 W/m·K", 48: "0,036 W/m·K", 64: "0,035 W/m·K", 96: "0,040 W/m·K",
+  128: "0,042 W/m·K", 144: "0,050 W/m·K", 160: "0,048 W/m·K",
+};
+
+/**
+ * Reação ao fogo do núcleo em lã de rocha: ensaio de incombustibilidade
+ * ISO 1182 no IPT (relatório 953.688-203) — perda média de massa de 5% e
+ * nenhum chamejamento, contra limites de 50% e 20 s. Produtos com frente em
+ * MDF ou madeira usam a variante que qualifica apenas o núcleo.
+ */
+const FOGO_INCOMBUSTIVEL = "Incombustível (ISO 1182)";
+const FOGO_NUCLEO = "Núcleo incombustível (ISO 1182)";
 
 // ─── PRODUCTS ─────────────────────────────────────────────────
 export const products: Product[] = [
@@ -259,14 +290,15 @@ export const products: Product[] = [
       { label: "Sob Medida", dimensions: "Até 2000 × 600 mm" },
     ],
     specs: [
-      { label: "NRC", value: "0.95" },
+      { label: "NRC", value: "0,80" },
       { label: "Código", value: "SNR3250" },
       { label: "Espessura", value: "50mm" },
       { label: "Densidade", value: "32 kg/m³" },
+      { label: "Condutividade Térmica", value: "0,039 W/m·K" },
       { label: "Faixa", value: "High-Mid (250Hz – 4kHz)" },
       { label: "Dimensões", value: "600×600 até 2000×600mm" },
       { label: "Peso", value: "2.5 – 5.8 kg" },
-      { label: "Classe de Fogo", value: "A2" },
+      { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
     ],
     materials: ["Lã de Rocha D32 (50mm)", "Tecido Acústico 100% Poliéster", "Moldura em Alumínio", "Manta Acústica TNT"],
     colors: fabricColors,
@@ -307,10 +339,11 @@ export const products: Product[] = [
       { label: "Código", value: "SNR6450" },
       { label: "Espessura", value: "50mm" },
       { label: "Densidade", value: "64 kg/m³" },
+      { label: "Condutividade Térmica", value: "0,035 W/m·K" },
       { label: "Faixa", value: "Low-Mid (125Hz – 2kHz)" },
       { label: "Dimensões", value: "600×600 até 1800×600mm" },
       { label: "Peso", value: "3.8 – 8.2 kg" },
-      { label: "Classe de Fogo", value: "A2" },
+      { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
     ],
     materials: ["Lã de Rocha D64 (50mm)", "Tecido Acústico 100% Poliéster", "Moldura em Alumínio"],
     colors: fabricColors,
@@ -332,10 +365,13 @@ export const products: Product[] = [
     image: nvDifusorEspumaAzulFrontal,
     gallery: [paineisAzuis, escritorioPaineisAzuis, painelImagemDigital],
     specs: [
-      { label: "NRC", value: "0.65" },
+      // O ensaio ISO/R 354 do fabricante cobre 51 mm; com 25 mm a absorção
+      // em médias e baixas cai, então mantemos um valor conservador.
+      { label: "NRC", value: "0,65 (estimado)" },
       { label: "Código", value: "SNR3225" },
       { label: "Espessura", value: "25mm" },
       { label: "Densidade", value: "32 kg/m³" },
+      { label: "Condutividade Térmica", value: "0,039 W/m·K" },
       { label: "Faixa", value: "High-Mid (500Hz – 4kHz)" },
       { label: "Dimensões", value: "600×600mm" },
       { label: "Peso", value: "1.2 kg" },
@@ -407,7 +443,7 @@ export const products: Product[] = [
       { label: "Espessura MDF", value: "6mm" },
       { label: "Dimensões", value: "600×600mm" },
       { label: "Peso", value: "4.2 kg" },
-      { label: "Classe de Fogo", value: "B1" },
+      { label: "Classe de Fogo", value: "Núcleo incombustível (ISO 1182)" },
       { label: "Faixa de Absorção", value: "250Hz – 4kHz" },
     ],
     materials: ["MDF Vazado 6mm", "Lã de Rocha 48kg/m³", "Manta Acústica TNT", "Moldura em MDF 18mm"],
@@ -603,13 +639,14 @@ export const products: Product[] = [
     image: bassTrapCornerReal1,
     gallery: [bassTrapCornerReal1, bassTrapCornerReal2, bassTrapCornerReal3, bassTrapCorner, bassTrapPair, bassTrapStudio],
     specs: [
-      { label: "NRC", value: "0.85" },
+      { label: "NRC", value: "0,93" },
       { label: "Código", value: "SNR6430" },
       { label: "Espessura", value: "100mm" },
       { label: "Densidade", value: "64 kg/m³" },
+      { label: "Condutividade Térmica", value: "0,035 W/m·K" },
       { label: "Dimensões", value: "300×300×1200mm (triangular)" },
       { label: "Peso", value: "4.8 kg" },
-      { label: "Classe de Fogo", value: "A2" },
+      { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
       { label: "Faixa de Absorção", value: "60Hz – 500Hz" },
     ],
     materials: ["Lã de Rocha D64 (100mm)", "Tecido Acústico", "Estrutura Metálica"],
@@ -631,11 +668,12 @@ export const products: Product[] = [
     image: nvBassTrapCantoEspumaPreta,
     gallery: [bassTrapStudio, bassTrapCorner, bassTrapPair],
     specs: [
-      { label: "NRC", value: "0.75" },
+      { label: "NRC", value: "0,93" },
       { label: "Código", value: "SNR6420" },
       { label: "Tipo", value: "Membrana Ressonante" },
       { label: "Espessura", value: "100mm" },
       { label: "Densidade", value: "64 kg/m³" },
+      { label: "Condutividade Térmica", value: "0,035 W/m·K" },
       { label: "Faixa de Absorção", value: "40Hz – 300Hz" },
       { label: "Dimensões", value: "600×600×100mm" },
     ],
@@ -750,7 +788,7 @@ export const products: Product[] = [
       { label: "Espessura", value: "25mm" },
       { label: "Dimensões", value: "625×625mm" },
       { label: "Peso", value: "1.8 kg" },
-      { label: "Classe de Fogo", value: "A1" },
+      { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
     ],
     materials: ["Fibra de Vidro", "Véu de Vidro", "Grid em Aço Galvanizado"],
     colors: fabricColors.slice(0, 10),
@@ -880,6 +918,7 @@ export const products: Product[] = [
     specs: [
       { label: "Tipo", value: "Isolamento (Massa-Mola-Massa)" },
       { label: "Densidade", value: "96 kg/m³" },
+      { label: "Condutividade Térmica", value: "0,040 W/m·K" },
       { label: "Sistema", value: "D96 + GAP + MDF" },
       { label: "STC", value: "55–65" },
     ],
@@ -900,8 +939,9 @@ export const products: Product[] = [
     gallery: [paineisSalaReuniao],
     specs: [
       { label: "Densidade", value: "32 kg/m³" },
+      { label: "Condutividade Térmica", value: "0,039 W/m·K" },
       { label: "Espessura", value: "50mm" },
-      { label: "Classe de Fogo", value: "A1" },
+      { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
       { label: "Faixa", value: "High-Mid" },
     ],
     materials: ["Lã de Rocha Mineral"],
@@ -922,8 +962,9 @@ export const products: Product[] = [
     gallery: [bassTrapStudio],
     specs: [
       { label: "Densidade", value: "64 kg/m³" },
+      { label: "Condutividade Térmica", value: "0,035 W/m·K" },
       { label: "Espessura", value: "50mm" },
-      { label: "Classe de Fogo", value: "A1" },
+      { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
       { label: "Faixa", value: "Low-Mid" },
     ],
     materials: ["Lã de Rocha Mineral"],
@@ -943,8 +984,9 @@ export const products: Product[] = [
     gallery: [bassTrapStudio],
     specs: [
       { label: "Densidade", value: "96 kg/m³" },
+      { label: "Condutividade Térmica", value: "0,040 W/m·K" },
       { label: "Espessura", value: "50mm" },
-      { label: "Classe de Fogo", value: "A1" },
+      { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
       { label: "Faixa", value: "Broadband" },
     ],
     materials: ["Lã de Rocha Mineral"],
@@ -1005,7 +1047,7 @@ export const products: Product[] = [
       { label: "Material", value: "100% Poliéster" },
       { label: "Cores", value: "34+ opções" },
       { label: "Transparência Sonora", value: "Alta" },
-      { label: "Classe de Fogo", value: "M1" },
+      { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
     ],
     materials: ["Poliéster Acústico"],
     colors: fabricColors,

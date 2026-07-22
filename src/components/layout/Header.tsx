@@ -5,46 +5,43 @@ import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { CartDrawer } from "@/components/shared/CartDrawer";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-sonar.png";
-import imgEstudio from "@/assets/gallery/estudio-paineis.webp";
-import imgForro from "@/assets/gallery/forro-corporativo.webp";
-import imgSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.webp";
-import imgAcademia from "@/assets/gallery/academia-baffles.webp";
-import imgEscritorio from "@/assets/gallery/escritorio-paineis.webp";
-import imgPaineisAzuis from "@/assets/gallery/paineis-azuis.png";
+// Ambientes — uma imagem própria e coerente para cada área
+import imgEstudio from "@/assets/novas/estudio-difusores-produtor.png";
+import imgIgreja from "@/assets/gallery/igreja-templo-paineis.png";
+import imgAuditorio from "@/assets/gallery/auditorio-paineis-acusticos.jpeg";
+import imgCorporativo from "@/assets/gallery/escritorio-neutros-v2.jpg";
+import imgResidencial from "@/assets/novas/paineis-bege-sala-violao.jpg";
 
-import imgBassTrap from "@/assets/gallery/bass-trap-corner-1.jpg";
+// Destaques de produto — capas recortadas, sem fundo
+import imgPainelDestaque from "@/assets/products/painel-acustico-snr3250/image00017.png";
+import imgDifusorDestaque from "@/assets/produtos/difusor-skyline/01-capa.png";
+import imgBassTrapDestaque from "@/assets/products/bass-trap-corner-3s-snr6430/bass-trap-01-black-side - Copia.png";
+
 type MenuKey = "produtos" | "espacos" | "recursos" | "sobre" | null;
-const productCategories = [{
-  label: "Absorção Acústica",
-  path: "/produtos"
-}, {
-  label: "Controle de Graves",
-  path: "/produtos"
-}, {
-  label: "Difusão Sonora",
-  path: "/produtos"
-}, {
-  label: "Soluções Especiais",
-  path: "/produtos"
-}, {
-  label: "Tratamento Aéreo",
-  path: "/produtos"
-}, {
-  label: "Isolamento Acústico",
-  path: "/produtos"
-}];
+/** cada categoria abre o catálogo já filtrado */
+const catUrl = (label: string) => `/produtos?categoria=${encodeURIComponent(label)}`;
+const productCategories = [
+  "Absorção Acústica",
+  "Controle de Graves",
+  "Difusão Sonora",
+  "Soluções Especiais",
+  "Tratamento Aéreo",
+  "Isolamento Acústico",
+].map((label) => ({ label, path: catUrl(label) }));
+
+/** destaques apontam para slugs que existem de fato em products.ts */
 const productHighlights = [{
-  name: "Painel Absorvedor Premium",
-  image: imgPaineisAzuis,
-  path: "/produtos/painel-absorvedor-premium"
+  name: "Painel Acústico SNR3250",
+  image: imgPainelDestaque,
+  path: "/produtos/painel-acustico-snr3250"
 }, {
   name: "Difusor Skyline",
-  image: "/lovable-uploads/74b98913-09e6-445e-8288-929f67944cbf.webp",
+  image: imgDifusorDestaque,
   path: "/produtos/difusor-skyline"
 }, {
-  name: "Bass Trap Corner",
-  image: imgBassTrap,
-  path: "/produtos/bass-trap-corner"
+  name: "Bass Trap Corner 3S",
+  image: imgBassTrapDestaque,
+  path: "/produtos/bass-trap-corner-3s-snr6430"
 }];
 const spaces = [{
   label: "Estúdios",
@@ -53,19 +50,19 @@ const spaces = [{
 }, {
   label: "Igrejas",
   path: "/solucoes/igrejas",
-  image: imgForro
+  image: imgIgreja
 }, {
   label: "Auditórios",
   path: "/solucoes/auditorios",
-  image: imgSalaReuniao
+  image: imgAuditorio
 }, {
   label: "Corporativo",
   path: "/solucoes/corporativo",
-  image: imgEscritorio
+  image: imgCorporativo
 }, {
   label: "Residencial",
   path: "/solucoes/residencial",
-  image: imgAcademia
+  image: imgResidencial
 }];
 const recursos = [{
   label: "Calculadora Acústica",
@@ -101,7 +98,9 @@ export default function Header() {
   const cancelClose = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
-  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2 text-[13px] lg:text-sm font-medium tracking-[0.15em] transition-all duration-300 ease-out rounded-full cursor-pointer whitespace-nowrap uppercase font-[\'Space_Grotesk\',sans-serif] ${activeMenu === key ? "text-white bg-white/[0.18] backdrop-blur-xl border border-white/[0.15] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]" : "text-white/90 hover:text-white hover:bg-white/[0.10] hover:backdrop-blur-xl"}`;
+  // Lexend em caixa alta com espaçamento largo: mais leve e contemporâneo
+  // que o peso médio anterior, sem perder legibilidade sobre o azul.
+  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2 text-[12px] lg:text-[13px] font-normal tracking-[0.22em] transition-all duration-300 ease-out rounded-full cursor-pointer whitespace-nowrap uppercase font-[\'Lexend\',sans-serif] ${activeMenu === key ? "text-white bg-white/[0.16] backdrop-blur-xl border border-white/[0.14]" : "text-white/85 hover:text-white hover:bg-white/[0.09] hover:backdrop-blur-xl"}`;
   return <motion.header initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px] border-destructive">
       {/* Top Bar — frosted glass */}
       <div className="relative text-white bg-[hsl(205,78%,6%)]/80 backdrop-blur-2xl border-b border-white/[0.06] overflow-hidden">
@@ -134,17 +133,18 @@ export default function Header() {
 
           {/* Nav - center */}
           <nav className="hidden md:flex flex-row items-center gap-1 md:gap-1.5 lg:gap-2">
+            {/* Cada item navega ao ser clicado; o menu abre no hover */}
             <div onMouseEnter={() => openMenu("produtos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("produtos")}>Produtos</button>
+              <Link to="/produtos" onClick={() => setActiveMenu(null)} className={navItemClass("produtos")}>Produtos</Link>
             </div>
             <div onMouseEnter={() => openMenu("espacos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("espacos")}>Ambientes</button>
+              <Link to="/solucoes" onClick={() => setActiveMenu(null)} className={navItemClass("espacos")}>Ambientes</Link>
             </div>
             <div onMouseEnter={() => openMenu("recursos")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("recursos")}>Calculadora Acústica</button>
+              <Link to="/calculadora" onClick={() => setActiveMenu(null)} className={navItemClass("recursos")}>Calculadora Acústica</Link>
             </div>
             <div className="relative" onMouseEnter={() => openMenu("sobre")} onMouseLeave={scheduleClose}>
-              <button className={navItemClass("sobre")}>Sobre</button>
+              <Link to="/contato" onClick={() => setActiveMenu(null)} className={navItemClass("sobre")}>Sobre</Link>
               <AnimatePresence>
                 {activeMenu === "sobre" && <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 4 }} transition={{ duration: 0.15 }} onMouseEnter={cancelClose} onMouseLeave={scheduleClose} className="absolute top-full left-0 mt-2 bg-white rounded-xl border border-border shadow-xl z-50 min-w-[200px] py-3 px-4">
                     <ul className="space-y-1 font-serif">
@@ -247,7 +247,7 @@ export default function Header() {
                   <div className="flex-1 grid grid-cols-2 gap-4">
                     <Link to="/calculadora" onClick={() => setActiveMenu(null)} className="group bg-muted/50 rounded-xl overflow-hidden">
                       <div className="aspect-[16/9] overflow-hidden">
-                        <img src={imgEscritorio} alt="Calculadora" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <img src={imgCorporativo} alt="Calculadora acústica" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       </div>
                       <div className="p-4">
                         <p className="font-semibold text-[hsl(205,78%,15%)]">Calculadora Acústica</p>

@@ -1,4 +1,5 @@
-import { Fragment, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Search, X } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/sonar/ProductCard";
@@ -15,12 +16,28 @@ import "@/components/gik/gik.css";
 type SortKey = "destaque" | "nome" | "categoria";
 
 export default function ProdutosPage() {
-  const [cat, setCat] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [cat, setCat] = useState(searchParams.get("categoria") ?? "");
   const [app, setApp] = useState("");
   const [mat, setMat] = useState("");
   const [thick, setThick] = useState("");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<SortKey>("destaque");
+
+  // a categoria vive na URL: links do menu chegam já filtrados e o
+  // endereço continua compartilhável quando o filtro muda aqui
+  const paramCat = searchParams.get("categoria") ?? "";
+  useEffect(() => {
+    setCat(paramCat);
+  }, [paramCat]);
+
+  const selectCategory = (next: string) => {
+    setCat(next);
+    const params = new URLSearchParams(searchParams);
+    if (next) params.set("categoria", next);
+    else params.delete("categoria");
+    setSearchParams(params, { replace: true });
+  };
 
   const filtered = useMemo(() => {
     const list = products.filter((p) => {
@@ -50,7 +67,7 @@ export default function ProdutosPage() {
 
   const hasFilters = Boolean(cat || app || mat || thick || search);
   const clearAll = () => {
-    setCat("");
+    selectCategory("");
     setApp("");
     setMat("");
     setThick("");
@@ -83,7 +100,7 @@ export default function ProdutosPage() {
               <div className="flex flex-1 flex-wrap items-center gap-2">
                 <button
                   type="button"
-                  onClick={() => setCat("")}
+                  onClick={() => selectCategory("")}
                   aria-pressed={!cat}
                   className={`min-h-11 cursor-pointer rounded-full border px-5 text-sm font-medium transition-colors duration-micro ease-snr ${
                     !cat
@@ -101,7 +118,7 @@ export default function ProdutosPage() {
                     <button
                       key={c}
                       type="button"
-                      onClick={() => setCat(active ? "" : c)}
+                      onClick={() => selectCategory(active ? "" : c)}
                       aria-pressed={active}
                       className={`min-h-11 cursor-pointer rounded-full border px-5 text-sm font-medium transition-colors duration-micro ease-snr ${
                         active
