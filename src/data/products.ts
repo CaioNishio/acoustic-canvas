@@ -199,7 +199,7 @@ export const thicknesses = ["25mm", "50mm", "75mm", "100mm", "Variável"];
 const defaultHighlights: ProductHighlight[] = [
   { icon: "waveform", title: "Reduz Eco e Reverberação", desc: "Som mais limpo e definido" },
   { icon: "ruler", title: "Tamanhos Sob Medida", desc: "Fabricado para seu espaço" },
-  { icon: "palette", title: "34+ Cores Disponíveis", desc: "Combine com qualquer estilo" },
+  { icon: "palette", title: "12 Cores em Linha", desc: "Pronta-entrega — outras sob consulta" },
   { icon: "tool", title: "Instalação Rápida", desc: "Sem ferramentas pesadas" },
   { icon: "layout", title: "Parede e Teto", desc: "Tratamento onde importa" },
   { icon: "target", title: "Controle de Reflexões", desc: "Imagem estéreo mais precisa" },
@@ -278,7 +278,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Absorção de alta performance em médias e altas frequências. Medidas de 60x60 até 200x60 cm — sob medida.",
     description: "O Painel Acústico SNR3250 é o absorvedor broadband mais versátil da linha Sonar, projetado para controle sonoro profissional em qualquer espaço que exija um perfil visual elegante e fino. Fino, estiloso e altamente eficaz, reduz reflexões e reverberação em uma ampla faixa de frequência.",
-    longDescription: "O Painel SNR3250 é projetado para resolver uma das questões mais comuns em ambientes sonoros: reverberação excessiva e baixa inteligibilidade causadas por superfícies rígidas e paredes sem tratamento. Estes painéis são especialmente eficazes na eliminação de eco, controle de flutter echoes e reflexões primárias.\n\nEmbora compacto e visualmente elegante, este painel oferece uma quantidade impressionante de performance. Construído com núcleo de lã de rocha D32, oferece mais absorção em baixas frequências do que painéis de espuma típicos da mesma espessura. Com mais de 34 opções de cores de tecido acústico, adapta-se perfeitamente a qualquer ambiente.",
+    longDescription: "O Painel SNR3250 é projetado para resolver uma das questões mais comuns em ambientes sonoros: reverberação excessiva e baixa inteligibilidade causadas por superfícies rígidas e paredes sem tratamento. Estes painéis são especialmente eficazes na eliminação de eco, controle de flutter echoes e reflexões primárias.\n\nEmbora compacto e visualmente elegante, este painel oferece uma quantidade impressionante de performance. Construído com núcleo de lã de rocha D32, oferece mais absorção em baixas frequências do que painéis de espuma típicos da mesma espessura. Disponível em 12 cores de linha com pronta-entrega, e demais tons do catálogo sob consulta.",
     image: snr3250Real1,
     gallery: [snr3250Real1, snr3250Real2, snr3250Real3, snr3250Real4, snr3250Real5, snr3250Real6, paineisSalaReuniao, paineisAzuis, paineisEscritorioRustico, paineisSeminario, escritorioPaineisAzuis, estudioPaineis],
     sizes: [
@@ -310,7 +310,7 @@ export const products: Product[] = [
     faq: [
       { question: "Quais frequências este painel mais afeta?", answer: "O SNR3250 é mais eficaz em frequências médias a altas (250Hz a 4kHz), melhorando a clareza e reduzindo eco. Para graves, recomendamos os Bass Traps SNR6430." },
       { question: "O que está incluso e como instalar?", answer: "Cada painel vem com hardware de montagem (suportes dentados), tecido acústico certificado e documentação técnica. Instale em paredes ou tetos, em drywall ou alvenaria." },
-      { question: "Posso personalizar o visual?", answer: "Sim. 34+ cores de tecido, 6 tamanhos padrão e tamanhos sob medida. Opcionais: moldura em madeira, tecido com imagem plotada, ou frontal em MDF vazado." },
+      { question: "Posso personalizar o visual?", answer: "Sim. 12 cores de tecido em linha (outras sob consulta), 6 tamanhos padrão e tamanhos sob medida. Opcionais: moldura em madeira, tecido com imagem plotada, ou frontal em MDF vazado." },
       { question: "Qual a diferença entre SNR3250 e SNR6450?", answer: "O SNR3250 (D32) é otimizado para High-Mid (250Hz–4kHz). O SNR6450 (D64) tem maior densidade, atuando em Low-Mid (125Hz–2kHz) com maior absorção em graves." },
     ],
   },
@@ -375,7 +375,7 @@ export const products: Product[] = [
       { label: "Faixa", value: "High-Mid (500Hz – 4kHz)" },
       { label: "Dimensões", value: "600×600mm" },
       { label: "Peso", value: "1.2 kg" },
-      { label: "Cores", value: "34+ opções" },
+      { label: "Cores", value: "12 em linha + sob consulta" },
     ],
     materials: ["Lã de Rocha D32 (25mm)", "Tecido 100% Poliéster", "Base em MDF 3mm"],
     colors: fabricColors,
@@ -791,7 +791,7 @@ export const products: Product[] = [
       { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
     ],
     materials: ["Fibra de Vidro", "Véu de Vidro", "Grid em Aço Galvanizado"],
-    colors: fabricColors.slice(0, 10),
+    colors: fabricColors,
   },
 
   // ── BIOMBOS ACÚSTICOS ───────────────────────────────────────
@@ -862,7 +862,7 @@ export const products: Product[] = [
       { label: "Dimensões", value: "Sob medida" },
     ],
     materials: ["Tecido Acústico Multicamada", "Massa Vinílica", "Trilho em Alumínio", "Ilhoses em Aço"],
-    colors: fabricColors.slice(0, 12),
+    colors: fabricColors,
   },
 
   {
@@ -1039,13 +1039,13 @@ export const products: Product[] = [
     application: ["Estúdio", "Corporativo", "Residencial"],
     material: "Tecido",
     thickness: "Variável",
-    shortDescription: "Tecidos acústicos transparentes ao som em 34+ cores para revestimento de painéis.",
-    description: "Linha completa de tecidos acústicos 100% poliéster, transparentes ao som e resistentes ao fogo. Disponíveis em mais de 34 cores para personalizar seus painéis.",
+    shortDescription: "Tecidos acústicos transparentes ao som, 12 cores em linha e demais tons sob consulta.",
+    description: "Linha completa de tecidos acústicos 100% poliéster, transparentes ao som e resistentes ao fogo. Disponíveis em 12 cores de linha com pronta-entrega, e demais tons do catálogo sob consulta.",
     image: nvDivisoriaAmarelaMesaReuniao,
     gallery: [paineisAzuis, paineisColoridosTeto],
     specs: [
       { label: "Material", value: "100% Poliéster" },
-      { label: "Cores", value: "34+ opções" },
+      { label: "Cores", value: "12 em linha + sob consulta" },
       { label: "Transparência Sonora", value: "Alta" },
       { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
     ],

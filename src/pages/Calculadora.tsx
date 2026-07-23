@@ -7,6 +7,13 @@ import { Link } from "react-router-dom";
 import CalculatorForm, { useTypes, instrumentOptions, monitorSizes, type EquipmentData } from "@/components/calculadora/CalculatorForm";
 import AcousticMetrics from "@/components/calculadora/AcousticMetrics";
 import type { LayoutPreset } from "@/components/calculadora/Room3DViewer";
+import {
+  dimension,
+  bareAbsorption,
+  treatedAbsorption,
+  rt60ByBand,
+  type BandValues } from
+"@/components/calculadora/acousticsEngine";
 
 const Room3DViewer = lazy(() => import("@/components/calculadora/Room3DViewer"));
 
@@ -39,6 +46,14 @@ export default function CalculadoraPage() {
     panelsNeeded: number;
     useLabel: string;
     equipmentNotes: string[];
+    /** RT60 por banda antes e depois, calculado por Sabine/Eyring */
+    rtBefore: BandValues;
+    rtAfter: BandValues;
+    method: ("sabine" | "eyring")[];
+    schroeder: number;
+    /** avisos e suposições declaradas ao usuário */
+    warnings: string[];
+    assumptions: string[];
   }>(null);
 
   const calculate = () => {
@@ -48,43 +63,44 @@ export default function CalculadoraPage() {
     const useType = useTypes.find((u) => u.value === use);
     if (!w || !l || !h || !useType) return;
 
-    const volume = w * l * h;
-    const totalSurface = 2 * (w * l + w * h + l * h);
+    const room = { w, l, h };
 
-    // ── Equipment-adjusted absorption percentage ──
-    let absPercent = useType.absPercent;
+    // ── Notas de equipamento (informativas) ──
     const equipmentNotes: string[] = [];
+    // Demanda extra de graves gerada pelo equipamento. NÃO altera a área total de
+    // absorção — graves se tratam nos cantos, não cobrindo mais parede de painel fino.
+    let lowFreqDemand = 0;
 
     // Low-freq impact from instruments
     const selectedInstruments = instrumentOptions.filter((i) => equipment.instruments.includes(i.id));
     const totalLowImpact = selectedInstruments.reduce((sum, i) => sum + i.lowFreqImpact, 0);
     if (totalLowImpact > 0) {
-      absPercent += totalLowImpact * 0.08;
-      equipmentNotes.push(`Instrumentos detectados exigem +${Math.round(totalLowImpact * 8)}% absorção em graves`);
+      lowFreqDemand += totalLowImpact;
+      equipmentNotes.push(`Instrumentos com energia em graves — priorize os cantos, não mais área de painel`);
     }
 
-    // Monitor size impact — larger monitors = more low extension = more bass treatment
     const monitor = monitorSizes.find((m) => m.value === equipment.monitorSize);
     if (monitor) {
-      const monitorFactor = (parseInt(monitor.value) - 5) * 0.01;
-      absPercent += monitorFactor;
+      lowFreqDemand += (parseInt(monitor.value) - 5) * 0.05;
       equipmentNotes.push(`Monitores ${monitor.label} — extensão até ~${monitor.lowExtension}Hz — ${monitor.power}W`);
     }
 
-    // Subwoofer impact — significant low-freq energy
     if (equipment.hasSub) {
       const subInch = parseInt(equipment.subSize) || 10;
-      const subFactor = 0.04 + (subInch - 8) * 0.008;
-      absPercent += subFactor;
-      equipmentNotes.push(`Subwoofer ${subInch}" — extensão até ~${Math.max(20, 50 - subInch * 2)}Hz — requer bass traps reforçados`);
+      lowFreqDemand += 0.3;
+      equipmentNotes.push(`Subwoofer ${subInch}" — extensão até ~${Math.max(20, 50 - subInch * 2)}Hz — exige bass trap nos 4 cantos`);
     }
 
-    // Cap absorption at 60%
-    absPercent = Math.min(absPercent, 0.6);
+    const needsHighDensity = lowFreqDemand > 0.2;
+    const mainPanelSlug = needsHighDensity ? "painel-acustico-snr6450" : "painel-acustico-snr3250";
 
-    const absorptionArea = Math.round(totalSurface * absPercent);
-    const panelArea = 0.6 * 1.2;
-    const panelsNeeded = Math.ceil(absorptionArea / panelArea);
+    // ── Dimensionamento por Sabine/Eyring (ver acousticsEngine.ts) ──
+    // RT alvo → absorção requerida → desconta a sala nua → converte pelo α real.
+    const dim = dimension(room, useType.rtTarget, mainPanelSlug);
+    const volume = dim.volume;
+    const totalSurface = dim.surface;
+    const panelsNeeded = dim.mainPanelQty;
+    const absorptionArea = Math.round(dim.missingAtRef);
 
     // ── Product recommendation based on use + equipment ──
     const products: {name: string;placement: string;qty: number;slug: string;}[] = [];
@@ -106,13 +122,12 @@ export default function CalculadoraPage() {
       equipmentNotes.push("Monitores ≥8\" requerem nuvem acústica na posição de escuta");
     }
 
-    // Determine density based on low-freq demands
-    const needsHighDensity = totalLowImpact > 0.2 || equipment.hasSub || monitor && parseInt(monitor.value) >= 8;
-
     if (useType.value === "estudio" || useType.value === "home-theater" || useType.value === "ensaio" || useType.value === "podcast") {
-      const wallPanels = Math.ceil(panelsNeeded * 0.45);
+      // Painéis de parede recebem a maior fatia; o restante da absorção vem de nuvem e
+      // bass trap, que são contabilizados por seu próprio α no balanço final.
+      const wallPanels = Math.max(2, Math.ceil(panelsNeeded * 0.55));
       const panelName = needsHighDensity ? "Painel SNR6450 (Low-Mid)" : "Painel SNR3250 (High-Mid)";
-      const panelSlug = needsHighDensity ? "painel-acustico-snr6450" : "painel-acustico-snr3250";
+      const panelSlug = mainPanelSlug;
 
       products.push({ name: panelName, placement: "Paredes laterais e primeira reflexão", qty: wallPanels, slug: panelSlug });
       products.push({ name: "Bass Trap Corner 3S", placement: "Cantos verticais — do piso ao teto", qty: bassTrapCount, slug: "bass-trap-corner-3s-snr6430" });
@@ -132,7 +147,29 @@ export default function CalculadoraPage() {
       products.push({ name: "Painel SNR3225 Slim", placement: "Divisórias", qty: Math.ceil(panelsNeeded * 0.1), slug: "painel-acustico-snr3225-slim" });
     }
 
-    setResult({ volume, totalSurface, absorptionArea, rtTarget: useType.rtTarget, products, panelsNeeded, useLabel: useType.label, equipmentNotes });
+    // ── Balanço acústico: antes x depois, por banda de oitava ──
+    const before = rt60ByBand(room, bareAbsorption(room));
+    const afterAbs = treatedAbsorption(room, products.map((p) => ({ slug: p.slug, qty: p.qty })));
+    const after = rt60ByBand(room, afterAbs);
+
+    const warnings = [...dim.warnings];
+    if (lowFreqDemand > 0.2 && bassTrapCount < 4) {
+      warnings.push("Com esta fonte de graves, os 4 cantos verticais devem receber bass trap.");
+    }
+
+    setResult({
+      volume, totalSurface, absorptionArea,
+      rtTarget: useType.rtTarget,
+      products, panelsNeeded,
+      useLabel: useType.label,
+      equipmentNotes,
+      rtBefore: before.rt,
+      rtAfter: after.rt,
+      method: after.method,
+      schroeder: dim.schroeder,
+      warnings,
+      assumptions: dim.assumptions
+    });
   };
 
   const hasRoomDimensions = parseFloat(width) > 0 && parseFloat(length) > 0 && parseFloat(height) > 0;
@@ -302,7 +339,13 @@ export default function CalculadoraPage() {
                     absorptionArea={result.absorptionArea}
                     rtTarget={result.rtTarget}
                     panelsNeeded={result.panelsNeeded}
-                    useLabel={result.useLabel} />
+                    useLabel={result.useLabel}
+                    rtBefore={result.rtBefore}
+                    rtAfter={result.rtAfter}
+                    method={result.method}
+                    schroeder={result.schroeder}
+                    warnings={result.warnings}
+                    assumptions={result.assumptions} />
 
 
                     {/* Material */}
@@ -394,7 +437,10 @@ export default function CalculadoraPage() {
                       </div>
 
                       <p className="text-[9px] text-muted-foreground/60 mt-3">
-                        * Valores estimados com base na fórmula de Sabine. Para um projeto detalhado, solicite uma análise acústica profissional.
+                        * Dimensionamento por Sabine/Eyring a partir do RT60 alvo, usando os coeficientes de
+                        absorção das fichas técnicas. O acabamento da sala nua é uma suposição declarada em
+                        "Base do cálculo" — não uma medição do seu ambiente. Para projeto executivo, solicite
+                        análise acústica com medição in loco.
                       </p>
                     </div>
                   </motion.div>
