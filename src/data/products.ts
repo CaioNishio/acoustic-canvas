@@ -737,7 +737,7 @@ export const products: Product[] = [
     thickness: "75mm",
     shortDescription: "Difusão em dois eixos para espalhamento sonoro completo — ideal para paredes traseiras.",
     description: "O Difusor Bidimensional espalha o som em ambos os eixos (horizontal e vertical), garantindo a eliminação total de reflexões especulares sem perder energia sonora. Ideal para paredes traseiras de estúdios e salas de concerto.",
-    image: nvDifusorSkylineBlocosMadeira,
+    image: difusorBidimensionalReal1,
     gallery: [difusorBidimensionalReal1, difusorBidimensionalReal2, wavefuserHibrido, difusorSkyline, mdfVazadoDifusor],
     specs: [
       { label: "Faixa de Difusão", value: "500Hz – 6kHz" },
@@ -781,7 +781,7 @@ export const products: Product[] = [
     thickness: "25mm",
     shortDescription: "Sistema de forro modular com absorção integrada e grid metálico.",
     description: "Forro acústico modular com design clean e alta absorção. Sistema de fixação rápida com grid metálico. A modularidade permite fácil manutenção e acesso ao plenum.",
-    image: nvPainelLedCianoAmbiente,
+    image: forroCorporativo,
     gallery: [forroCorporativo, forroIndustrial],
     specs: [
       { label: "NRC", value: "0.80" },
@@ -958,7 +958,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Lã de rocha D64 para absorção em baixas e médias frequências.",
     description: "Lã de rocha com densidade de 64 kg/m³, proporcionando maior absorção em frequências graves. Ideal para bass traps e painéis Low-Mid.",
-    image: nvBassTrapBrancoCanto,
+    image: nvLaDeRochaPlacas,
     gallery: [bassTrapStudio],
     specs: [
       { label: "Densidade", value: "64 kg/m³" },
@@ -980,7 +980,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Lã de rocha D96 para isolamento e absorção broadband de alta performance.",
     description: "Lã de rocha com densidade de 96 kg/m³, a mais densa da linha. Para aplicações que exigem máximo isolamento e absorção broadband.",
-    image: nvDifusorEspumaPiramidalBranco,
+    image: nvLaDeRochaPlacas,
     gallery: [bassTrapStudio],
     specs: [
       { label: "Densidade", value: "96 kg/m³" },
@@ -1002,7 +1002,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Lã de PET reciclada — alternativa ecológica para absorção acústica.",
     description: "Fabricada a partir de garrafas PET recicladas, a Lã de PET é uma alternativa sustentável para tratamento acústico. Não causa irritação na pele, é livre de formaldeído e segura para manipulação.",
-    image: nvNuvemAcusticaFormatoNuvem,
+    image: nvLaDeRochaPlacas,
     gallery: [paineisSalaReuniao],
     specs: [
       { label: "Material", value: "PET Reciclado" },
@@ -1135,7 +1135,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Kit completo com 3 tipos de parafusos, buchas, cabos de aço, ganchos e suportes dentados.",
     description: "Kit completo de fixação para todos os produtos Sonar. Inclui 3 tipos de parafusos (alvenaria, drywall, madeira), 3 tipos de buchas, cabos de aço para suspensão, ganchos abertos e suportes dentados.",
-    image: nvBassTrapMadeiraRanhurada,
+    image: fixadorKitPrata,
     gallery: [paineisSalaReuniao],
     specs: [
       { label: "Parafusos", value: "3 tipos (Alvenaria/Drywall/Madeira)" },
@@ -1155,7 +1155,7 @@ export const products: Product[] = [
     thickness: "Variável",
     shortDescription: "Velcro adesivo de 50mm para fixação removível de painéis acústicos.",
     description: "Velcro industrial de 50mm com adesivo de alta aderência para fixação removível de painéis acústicos. Permite reposicionamento sem danificar paredes.",
-    image: nvPainelRipadoMolduraPreta,
+    image: fixadorBuchaParafuso,
     gallery: [paineisSalaReuniao],
     specs: [
       { label: "Largura", value: "50mm" },
@@ -1400,7 +1400,7 @@ export const products: Product[] = [
     shortDescription: "Kit completo com fixadores dentados, buchas e parafusos para instalação de painéis, bass traps, difusores e painéis ripados.",
     description: "O Kit de Fixação Acústica Sonar contém todos os componentes necessários para a instalação segura e profissional dos produtos acústicos. Inclui fixadores dentados (sawtooth hangers) de aço galvanizado, buchas universais S6 e parafusos panela — compatíveis com alvenaria, drywall e madeira. Ideal para painéis acústicos, bass traps, difusores skyline e revestimentos ripados.",
     longDescription: "Cada kit é dimensionado de acordo com o peso e tamanho do produto a ser instalado. Os fixadores dentados garantem um ajuste fino horizontal sem necessidade de ferramentas especiais, permitindo nivelamento perfeito do painel após fixação na parede. As buchas universais S6 são compatíveis com blocos de concreto, tijolos maciços, drywall e madeira — dispensando buchas especiais na maioria dos casos.\n\nPara painéis de até 5 kg, basta 1 fixador central. Painéis maiores (acima de 1200mm) utilizam 2 fixadores. Bass traps e difusores podem exigir parafusos adicionais conforme o peso.\n\nDisponível nas versões prata (galvanizado) e preto (fosfatizado), para combinar com o acabamento do produto.",
-    image: nvPainelMdfVazadoFrontal,
+    image: fixadorKitPreto,
     gallery: [fixadorKitPreto, fixadorKitPrata, fixadorDetalhe, fixadorBuchaParafuso],
     sizes: [
       { label: "Kit Unitário", dimensions: "1 fixador + 2 parafusos + 2 buchas" },

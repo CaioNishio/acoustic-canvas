@@ -175,7 +175,9 @@ describe("integridade do catálogo acústico", () => {
     for (const [slug, p] of Object.entries(CATALOG_ACOUSTIC)) {
       expect(p.alpha.length, slug).toBe(BANDS.length);
       expect(p.unitArea, slug).toBeGreaterThan(0);
-      expect(p.alpha.every((a) => a >= 0 && a <= 1.5), slug).toBe(true);
+      // Teto de projeto: o ensaio reporta α > 1,0 em algumas bandas (previsto em
+      // norma), mas o catálogo determina considerar 1,0 para dimensionamento.
+      expect(p.alpha.every((a) => a >= 0 && a <= 1.0), slug).toBe(true);
     }
   });
 

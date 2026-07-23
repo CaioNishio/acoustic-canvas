@@ -12,12 +12,24 @@
  *   - Limite de absorção ....... Toole, "Sound Reproduction", cap. 9
  *
  * PROCEDÊNCIA DOS COEFICIENTES
- *   - Produtos: `absorptionTableD32_50` em `src/data/products.ts` — dados por densidade
- *     a 51 mm. São os mesmos publicados na ficha de produto.
+ *   - Produtos: lã de rocha THERMAX® (ROCKFIBRAS/SOPREMA), ensaiada conforme
+ *     ISO/R 354 e ASTM C 423 em corpos de prova de 51 mm. Mesma fonte de
+ *     `absorptionTableD32_50` em `src/data/products.ts` e das fichas de produto.
  *   - Sala nua: valores típicos de literatura para os acabamentos assumidos. NÃO são
  *     ensaio do ambiente do cliente — por isso o resultado é declarado como estimativa,
  *     e a suposição de acabamento é exibida na interface.
+ *
+ * LIMITE DE PROJETO: o ensaio reporta α > 1,0 em algumas bandas (previsto em norma,
+ * por difração de borda no corpo de prova). Para dimensionamento, o próprio catálogo
+ * determina considerar 1,0 — usar 1,28 superestimaria a absorção e entregaria uma sala
+ * mais reverberante que o previsto. O limite é aplicado em `clampForDesign()`.
  */
+
+/** Teto de projeto para α. Ver nota de norma no cabeçalho. */
+const clampForDesign = (a: BandValuesLike): BandValues =>
+  a.map((v) => Math.min(v, 1.0)) as BandValues;
+
+type BandValuesLike = readonly number[];
 
 /** Bandas de oitava usadas em todo o motor. Coincidem com as do catálogo. */
 export const BANDS = [125, 250, 500, 1000, 2000, 4000] as const;
@@ -51,10 +63,10 @@ const BARE = {
  * Chave = densidade do núcleo em kg/m³, espessura 51 mm.
  */
 const PRODUCT_ALPHA: Record<number, BandValues> = {
-  32: [0.16, 0.52, 0.82, 0.92, 0.94, 0.96],
-  48: [0.26, 0.7, 1.08, 1.02, 0.76, 0.96],
-  64: [0.16, 0.66, 1.0, 1.05, 1.02, 1.04],
-  96: [0.13, 0.66, 1.13, 1.28, 1.23, 1.26],
+  32: clampForDesign([0.16, 0.52, 0.82, 0.92, 0.94, 0.96]),
+  48: clampForDesign([0.26, 0.7, 1.08, 1.02, 0.76, 0.96]),
+  64: clampForDesign([0.16, 0.66, 1.0, 1.05, 1.02, 1.04]),
+  96: clampForDesign([0.13, 0.66, 1.13, 1.28, 1.23, 1.26]),
 };
 
 export type ProductAcoustic = {
