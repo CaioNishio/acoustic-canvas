@@ -252,8 +252,27 @@ const NRC_POR_DENSIDADE: Record<number, string> = {
 
 /** Condutividade térmica a 24 °C, ASTM C 518 (W/m·K). */
 const CONDUTIVIDADE_POR_DENSIDADE: Record<number, string> = {
-  32: "0,039 W/m·K", 48: "0,036 W/m·K", 64: "0,035 W/m·K", 96: "0,040 W/m·K",
+  32: "0,0391 W/m·K", 48: "0,036 W/m·K", 64: "0,035 W/m·K", 96: "0,040 W/m·K",
   128: "0,042 W/m·K", 144: "0,050 W/m·K", 160: "0,048 W/m·K",
+};
+
+/**
+ * Linha ROCKFIBRAS THERMAX® por densidade do núcleo.
+ * Fonte: "ROCK FIBRAS — Especificação Técnica PSL, PSE e PSR", ref. Fevereiro/26 v1.5.
+ *
+ * A nomenclatura do fabricante é <linha>-<densidade>, e cada linha tem um limite de
+ * temperatura próprio:
+ *   PSL — até 150 °C  — existe apenas em 32 kg/m³
+ *   PSE — até 350 °C  — 48 e 64 kg/m³
+ *   PSR — até 750 °C  — 96, 128, 144 e 160 kg/m³
+ *
+ * Para acústica arquitetônica não há requisito de alta temperatura, então PSL atende;
+ * as densidades maiores só existem nas linhas PSE/PSR por decisão do fabricante, não
+ * por exigência do nosso uso.
+ */
+const LINHA_ROCKFIBRAS: Record<number, string> = {
+  32: "PSL-32", 48: "PSE-48", 64: "PSE-64", 96: "PSR-96",
+  128: "PSR-128", 144: "PSR-144", 160: "PSR-160",
 };
 
 /**
@@ -294,6 +313,7 @@ export const products: Product[] = [
       { label: "Código", value: "SNR3250" },
       { label: "Espessura", value: "50mm" },
       { label: "Densidade", value: "32 kg/m³" },
+      { label: "Núcleo", value: "ROCKFIBRAS THERMAX® PSL-32" },
       { label: "Condutividade Térmica", value: "0,039 W/m·K" },
       { label: "Faixa", value: "High-Mid (250Hz – 4kHz)" },
       { label: "Dimensões", value: "600×600 até 2000×600mm" },
@@ -339,6 +359,7 @@ export const products: Product[] = [
       { label: "Código", value: "SNR6450" },
       { label: "Espessura", value: "50mm" },
       { label: "Densidade", value: "64 kg/m³" },
+      { label: "Núcleo", value: "ROCKFIBRAS THERMAX® PSE-64" },
       { label: "Condutividade Térmica", value: "0,035 W/m·K" },
       { label: "Faixa", value: "Low-Mid (125Hz – 2kHz)" },
       { label: "Dimensões", value: "600×600 até 1800×600mm" },
@@ -371,6 +392,7 @@ export const products: Product[] = [
       { label: "Código", value: "SNR3225" },
       { label: "Espessura", value: "25mm" },
       { label: "Densidade", value: "32 kg/m³" },
+      { label: "Núcleo", value: "ROCKFIBRAS THERMAX® PSL-32" },
       { label: "Condutividade Térmica", value: "0,039 W/m·K" },
       { label: "Faixa", value: "High-Mid (500Hz – 4kHz)" },
       { label: "Dimensões", value: "600×600mm" },
@@ -643,6 +665,7 @@ export const products: Product[] = [
       { label: "Código", value: "SNR6430" },
       { label: "Espessura", value: "100mm" },
       { label: "Densidade", value: "64 kg/m³" },
+      { label: "Núcleo", value: "ROCKFIBRAS THERMAX® PSE-64" },
       { label: "Condutividade Térmica", value: "0,035 W/m·K" },
       { label: "Dimensões", value: "300×300×1200mm (triangular)" },
       { label: "Peso", value: "4.8 kg" },
@@ -673,6 +696,7 @@ export const products: Product[] = [
       { label: "Tipo", value: "Membrana Ressonante" },
       { label: "Espessura", value: "100mm" },
       { label: "Densidade", value: "64 kg/m³" },
+      { label: "Núcleo", value: "ROCKFIBRAS THERMAX® PSE-64" },
       { label: "Condutividade Térmica", value: "0,035 W/m·K" },
       { label: "Faixa de Absorção", value: "40Hz – 300Hz" },
       { label: "Dimensões", value: "600×600×100mm" },
@@ -918,6 +942,7 @@ export const products: Product[] = [
     specs: [
       { label: "Tipo", value: "Isolamento (Massa-Mola-Massa)" },
       { label: "Densidade", value: "96 kg/m³" },
+      { label: "Núcleo", value: "ROCKFIBRAS THERMAX® PSR-96" },
       { label: "Condutividade Térmica", value: "0,040 W/m·K" },
       { label: "Sistema", value: "D96 + GAP + MDF" },
       { label: "STC", value: "55–65" },
@@ -939,6 +964,7 @@ export const products: Product[] = [
     gallery: [paineisSalaReuniao],
     specs: [
       { label: "Densidade", value: "32 kg/m³" },
+      { label: "Núcleo", value: "ROCKFIBRAS THERMAX® PSL-32" },
       { label: "Condutividade Térmica", value: "0,039 W/m·K" },
       { label: "Espessura", value: "50mm" },
       { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
@@ -962,6 +988,7 @@ export const products: Product[] = [
     gallery: [bassTrapStudio],
     specs: [
       { label: "Densidade", value: "64 kg/m³" },
+      { label: "Núcleo", value: "ROCKFIBRAS THERMAX® PSE-64" },
       { label: "Condutividade Térmica", value: "0,035 W/m·K" },
       { label: "Espessura", value: "50mm" },
       { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },
@@ -984,6 +1011,7 @@ export const products: Product[] = [
     gallery: [bassTrapStudio],
     specs: [
       { label: "Densidade", value: "96 kg/m³" },
+      { label: "Núcleo", value: "ROCKFIBRAS THERMAX® PSR-96" },
       { label: "Condutividade Térmica", value: "0,040 W/m·K" },
       { label: "Espessura", value: "50mm" },
       { label: "Classe de Fogo", value: "Incombustível (ISO 1182)" },

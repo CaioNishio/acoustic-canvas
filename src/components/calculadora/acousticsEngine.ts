@@ -62,11 +62,29 @@ const BARE = {
  * α dos produtos, por banda. Origem: `absorptionTableD32_50` (products.ts).
  * Chave = densidade do núcleo em kg/m³, espessura 51 mm.
  */
+/**
+ * Densidades usadas pela Sonar e a linha ROCKFIBRAS correspondente.
+ * Fonte: "ROCK FIBRAS — Especificação Técnica PSL, PSE e PSR", ref. Fevereiro/26 v1.5.
+ *
+ *   32 kg/m³ → PSL-32   (até 150 °C)
+ *   64 kg/m³ → PSE-64   (até 350 °C)
+ *   96 kg/m³ → PSR-96   (até 750 °C)
+ *  144 kg/m³ → PSR-144  (até 750 °C)
+ *
+ * A linha é escolhida pelo limite de temperatura do fabricante, não por acústica:
+ * cada densidade só existe em uma delas.
+ *
+ * ATENÇÃO ao dimensionar: pelo ensaio, **144 kg/m³ tem exatamente os mesmos
+ * coeficientes de 64 kg/m³** em todas as bandas (NRC 0,93 nos dois). Especificar D144
+ * por motivo acústico não entrega absorção nenhuma a mais — a escolha se justifica por
+ * resistência mecânica, térmica ou reação ao fogo, e assim deve ser comunicada.
+ */
 const PRODUCT_ALPHA: Record<number, BandValues> = {
   32: clampForDesign([0.16, 0.52, 0.82, 0.92, 0.94, 0.96]),
   48: clampForDesign([0.26, 0.7, 1.08, 1.02, 0.76, 0.96]),
   64: clampForDesign([0.16, 0.66, 1.0, 1.05, 1.02, 1.04]),
   96: clampForDesign([0.13, 0.66, 1.13, 1.28, 1.23, 1.26]),
+  144: clampForDesign([0.16, 0.66, 1.0, 1.05, 1.02, 1.04]),
 };
 
 export type ProductAcoustic = {

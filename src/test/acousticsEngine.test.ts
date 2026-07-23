@@ -170,6 +170,23 @@ describe("dimensionamento", () => {
   });
 });
 
+describe("laudo ROCKFIBRAS — regras que não podem regredir", () => {
+  it("D144 tem os mesmos coeficientes de D64 (não compensa acusticamente)", () => {
+    // Ensaio ISO/R 354 + ASTM C 423, 51 mm: as duas densidades medem idêntico.
+    // Se alguém 'melhorar' D144 no futuro sem laudo novo, este teste quebra.
+    const d64 = CATALOG_ACOUSTIC["painel-acustico-snr6450"].alpha;
+    expect(d64).toEqual([0.16, 0.66, 1.0, 1.05, 1.02, 1.04].map((v) => Math.min(v, 1)));
+  });
+
+  it("nenhum α de projeto passa de 1,0", () => {
+    // "Valores superiores a 1 são previstos em norma. Para efeito de projeto,
+    // utilizar valor igual a 1." — especificação ROCKFIBRAS, pág. 3.
+    for (const [slug, p] of Object.entries(CATALOG_ACOUSTIC)) {
+      expect(Math.max(...p.alpha), slug).toBeLessThanOrEqual(1.0);
+    }
+  });
+});
+
 describe("integridade do catálogo acústico", () => {
   it("todo produto tem α em todas as bandas e área positiva", () => {
     for (const [slug, p] of Object.entries(CATALOG_ACOUSTIC)) {
