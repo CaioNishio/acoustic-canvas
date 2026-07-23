@@ -115,7 +115,7 @@ export default function CalculadoraPage() {
       const panelSlug = needsHighDensity ? "painel-acustico-snr6450" : "painel-acustico-snr3250";
 
       products.push({ name: panelName, placement: "Paredes laterais e primeira reflexão", qty: wallPanels, slug: panelSlug });
-      products.push({ name: "Bass Trap Corner 3S", placement: "Cantos verticais", qty: bassTrapCount, slug: "bass-trap-corner" });
+      products.push({ name: "Bass Trap Corner 3S", placement: "Cantos verticais — do piso ao teto", qty: bassTrapCount, slug: "bass-trap-corner-3s-snr6430" });
       products.push({ name: "Nuvem Acústica SNR3250", placement: "Teto — acima da posição de escuta", qty: cloudCount, slug: "nuvem-acustica-snr3250" });
       products.push({ name: "Difusor Skyline", placement: "Parede traseira", qty: Math.ceil(w / 0.5), slug: "difusor-skyline" });
 
