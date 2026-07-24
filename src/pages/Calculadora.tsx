@@ -1,5 +1,5 @@
 import { useState, Suspense, lazy } from "react";
-import { ArrowRight, Box, Maximize2, Minimize2, LayoutGrid } from "lucide-react";
+import { ArrowRight, Box, Maximize2, Minimize2, LayoutGrid, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/shared/SectionHeading";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import CalculatorForm, { useTypes, instrumentOptions, monitorSizes, type EquipmentData } from "@/components/calculadora/CalculatorForm";
 import AcousticMetrics from "@/components/calculadora/AcousticMetrics";
 import type { LayoutPreset } from "@/components/calculadora/Room3DViewer";
+import { LAYOUT_PATTERN_OPTIONS } from "@/components/calculadora/layoutEngine";
 import {
   dimension,
   bareAbsorption,
@@ -17,10 +18,12 @@ import {
 
 const Room3DViewer = lazy(() => import("@/components/calculadora/Room3DViewer"));
 
-const layoutPresets: {value: LayoutPreset;label: string;desc: string;}[] = [
-{ value: "simetrico", label: "Simétrico", desc: "Distribuição espelhada nas paredes — visual limpo e equilibrado" },
-{ value: "reflexao", label: "Reflexão", desc: "Baseado nos pontos de primeira reflexão — máxima precisão acústica" },
-{ value: "hibrido", label: "Híbrido", desc: "Checkerboard decorativo — visual premium com boa performance" }];
+// 30 padrões de posicionamento vindos do motor de layout, agrupados para o seletor.
+const layoutPresets = LAYOUT_PATTERN_OPTIONS;
+const layoutGroups = layoutPresets.reduce<Record<string, typeof layoutPresets>>((acc, p) => {
+  (acc[p.group] ??= []).push(p);
+  return acc;
+}, {});
 
 
 export default function CalculadoraPage() {
@@ -235,23 +238,45 @@ export default function CalculadoraPage() {
                     }
                   </h3>
                   <div className="flex items-center gap-2">
-                    {/* Layout Selector */}
+                    {/* Seletor de padrão de posicionamento — 30 modelos agrupados */}
                     {result &&
-                    <div className="flex gap-1">
-                        {layoutPresets.map((lp) =>
-                      <button
-                        key={lp.value}
-                        onClick={() => setLayout(lp.value)}
-                        title={lp.desc}
-                        className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all ${
-                        layout === lp.value ?
-                        "bg-primary/15 text-primary border border-primary/30" :
-                        "text-muted-foreground hover:text-foreground border border-transparent"}`
-                        }>
+                    <div className="flex items-center gap-1">
+                        <button
+                        aria-label="Padrão anterior"
+                        onClick={() => {
+                          const i = layoutPresets.findIndex((lp) => lp.value === layout);
+                          const prev = (i - 1 + layoutPresets.length) % layoutPresets.length;
+                          setLayout(layoutPresets[prev].value);
+                        }}
+                        className="p-1 rounded-md hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors">
+                          <ChevronLeft size={14} />
+                        </button>
+                        <select
+                        aria-label="Padrão de posicionamento dos materiais"
+                        value={layout}
+                        onChange={(e) => setLayout(e.target.value)}
+                        className="max-w-[190px] rounded-md border border-primary/30 bg-primary/10 text-primary text-[11px] font-medium px-2 py-1 focus:outline-none focus:ring-1 focus:ring-primary/40">
 
-                            {lp.label}
-                          </button>
-                      )}
+                          {Object.entries(layoutGroups).map(([group, opts]) =>
+                        <optgroup key={group} label={group} className="bg-background text-foreground">
+                              {opts.map((lp) =>
+                          <option key={lp.value} value={lp.value} className="bg-background text-foreground">
+                                  {lp.label}
+                                </option>
+                          )}
+                            </optgroup>
+                        )}
+                        </select>
+                        <button
+                        aria-label="Próximo padrão"
+                        onClick={() => {
+                          const i = layoutPresets.findIndex((lp) => lp.value === layout);
+                          const next = (i + 1) % layoutPresets.length;
+                          setLayout(layoutPresets[next].value);
+                        }}
+                        className="p-1 rounded-md hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors">
+                          <ChevronRight size={14} />
+                        </button>
                       </div>
                     }
                     <button

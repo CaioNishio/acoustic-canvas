@@ -14,7 +14,20 @@
  *   - Cox & D'Antonio, "Acoustic Absorbers and Diffusers", 3ª ed. — cap. 9 (campo do difusor)
  */
 
-export type LayoutPreset = "simetrico" | "reflexao" | "hibrido";
+/**
+ * Identificador de um dos 30 padrões de posicionamento (ver PANEL_PATTERNS).
+ * Mantido como string para o seletor da interface; os ids válidos são os de
+ * `PANEL_PATTERNS`. Os três históricos — "simetrico", "reflexao", "hibrido" —
+ * continuam válidos e são os padrões de entrada.
+ */
+export type LayoutPreset = string;
+
+/** Dimensões da sala, em metros. */
+export interface Room {
+  w: number;
+  l: number;
+  h: number;
+}
 
 export type Surface = "left" | "right" | "back" | "front" | "ceiling";
 
@@ -194,6 +207,251 @@ export function classify(name: string): ItemKind | null {
 }
 
 // ─────────────────────────────────────────────────────────────
+// CATÁLOGO DE 30 PADRÕES DE POSICIONAMENTO
+// ─────────────────────────────────────────────────────────────
+//
+// Cada padrão é uma CONFIGURAÇÃO, não uma função de geometria à parte. Todos passam
+// pela mesma máquina de grade (buildGrid) e pelo mesmo posicionador (placePanels),
+// então a ausência de sobreposição e o alinhamento são garantidos por construção —
+// variar o padrão nunca reintroduz os bugs que já corrigimos.
+//
+// A variação estética vem de quatro eixos combináveis, todos determinísticos
+// (nunca aleatórios — ritmo, não ruído):
+//   - superfícies usadas (quais paredes recebem painel)
+//   - número de fileiras horizontais e a banda vertical
+//   - o "stagger": como a cota vertical varia de coluna para coluna
+//   - inclinação (tilt) opcional para composições dinâmicas
+//
+// Base estética: 36 referências do cliente + `sonar-3d-layout-patterns` na memória.
+
+export type PanelSurface = "left" | "right" | "back" | "front";
+
+/** Como a cota vertical de cada coluna varia ao longo da parede. Determinístico. */
+type Stagger =
+  | "none" // tudo na mesma linha de base
+  | "brick" // fileira de cima deslocada meia-célula na horizontal
+  | "stairUp" // sobe da esquerda para a direita
+  | "stairDown" // desce da esquerda para a direita
+  | "valley" // desce em direção ao centro (vale)
+  | "peak" // sobe em direção ao centro (crista)
+  | "sawtooth"; // alterna acima/abaixo, coluna a coluna
+
+type Band = "ear" | "upper" | "lower" | "full";
+
+export interface PanelPattern {
+  id: string;
+  label: string;
+  group: string;
+  desc: string;
+  /** paredes que recebem painel; a simetria L/R é mantida quando ambas entram */
+  surfaces: PanelSurface[];
+  rows: 1 | 2 | 3;
+  band: Band;
+  stagger: Stagger;
+  /** inclinação em radianos, para os padrões dinâmicos */
+  tilt?: number;
+  /** quando true, esquerda e direita recebem stagger espelhado (não idêntico) */
+  mirrorStagger?: boolean;
+  /** rota para o cálculo acústico de primeira reflexão */
+  special?: "reflexao";
+  /** também trata a parede do fundo no modo reflexão */
+  reflexaoBack?: boolean;
+}
+
+const L: PanelSurface[] = ["left", "right"];
+const LB: PanelSurface[] = ["left", "right", "back"];
+const LBF: PanelSurface[] = ["left", "right", "back", "front"];
+
+export const PANEL_PATTERNS: PanelPattern[] = [
+  // ── A. Simétricos clássicos ──
+  { id: "simetrico", label: "Simétrico", group: "Simétricos", desc: "Fileira única no nível do ouvido, espelhada nas laterais.", surfaces: L, rows: 1, band: "ear", stagger: "none" },
+  { id: "simetrico-duplo", label: "Simétrico Duplo", group: "Simétricos", desc: "Duas fileiras espelhadas, cobertura ampliada.", surfaces: L, rows: 2, band: "ear", stagger: "none" },
+  { id: "simetrico-triplo", label: "Simétrico Triplo", group: "Simétricos", desc: "Três fileiras densas para salas de alto tratamento.", surfaces: L, rows: 3, band: "full", stagger: "none" },
+  { id: "cinturao", label: "Cinturão", group: "Simétricos", desc: "Faixa contínua a meia-altura nas laterais e no fundo.", surfaces: LB, rows: 1, band: "ear", stagger: "none" },
+  { id: "moldura", label: "Moldura Perimetral", group: "Simétricos", desc: "Contorna as quatro paredes como uma moldura equilibrada.", surfaces: LBF, rows: 1, band: "ear", stagger: "none" },
+
+  // ── B. Reflexão / técnicos ──
+  { id: "reflexao", label: "Primeira Reflexão", group: "Técnicos", desc: "Painéis nos pontos de reflexão precoce — máxima precisão de escuta.", surfaces: L, rows: 1, band: "ear", stagger: "none", special: "reflexao" },
+  { id: "reflexao-amplo", label: "Reflexão + Fundo", group: "Técnicos", desc: "Primeira reflexão nas laterais e absorção na parede traseira.", surfaces: L, rows: 1, band: "ear", stagger: "none", special: "reflexao", reflexaoBack: true },
+  { id: "foco-frontal", label: "Foco Frontal", group: "Técnicos", desc: "Concentra o tratamento à frente, ao redor da fonte sonora.", surfaces: ["left", "right", "front"], rows: 1, band: "ear", stagger: "none" },
+  { id: "fundo-forte", label: "Fundo Reforçado", group: "Técnicos", desc: "Parede traseira densa para conter reflexões de retorno.", surfaces: LB, rows: 2, band: "ear", stagger: "none" },
+  { id: "frontal-difusor", label: "Frontal Difusor", group: "Técnicos", desc: "Frente tratada e laterais leves, para preservar vivacidade.", surfaces: ["left", "right", "front"], rows: 2, band: "ear", stagger: "none" },
+
+  // ── C. Ritmo e estética ──
+  { id: "hibrido", label: "Tijolo (Híbrido)", group: "Ritmo", desc: "Duas fileiras em padrão de tijolo — visual premium equilibrado.", surfaces: L, rows: 2, band: "ear", stagger: "brick" },
+  { id: "escada-sobe", label: "Escada Ascendente", group: "Ritmo", desc: "As peças sobem em direção ao fundo, dando movimento à sala.", surfaces: L, rows: 1, band: "ear", stagger: "stairUp", mirrorStagger: true },
+  { id: "escada-desce", label: "Escada Descendente", group: "Ritmo", desc: "Descida suave da frente para o fundo.", surfaces: L, rows: 1, band: "ear", stagger: "stairDown", mirrorStagger: true },
+  { id: "onda-vale", label: "Onda em Vale", group: "Ritmo", desc: "Cota desce em direção ao centro e sobe nas pontas.", surfaces: L, rows: 1, band: "ear", stagger: "valley", mirrorStagger: true },
+  { id: "onda-crista", label: "Onda em Crista", group: "Ritmo", desc: "Cota sobe ao centro — foco visual na posição de escuta.", surfaces: L, rows: 1, band: "ear", stagger: "peak", mirrorStagger: true },
+  { id: "diagonal", label: "Diagonal Espelhada", group: "Ritmo", desc: "Sobe de um lado, desce do outro — dinâmica simétrica.", surfaces: L, rows: 1, band: "ear", stagger: "stairUp", mirrorStagger: true },
+  { id: "dente-serra", label: "Dente de Serra", group: "Ritmo", desc: "Alterna acima e abaixo, coluna a coluna, com ritmo constante.", surfaces: L, rows: 1, band: "ear", stagger: "sawtooth" },
+  { id: "mosaico", label: "Mosaico Rítmico", group: "Ritmo", desc: "Três fileiras em tijolo — textura densa e sofisticada.", surfaces: L, rows: 3, band: "full", stagger: "brick" },
+
+  // ── D. Bandas horizontais ──
+  { id: "faixa-superior", label: "Faixa Superior", group: "Bandas", desc: "Banda alta contínua — libera a parede na altura dos móveis.", surfaces: LB, rows: 1, band: "upper", stagger: "none" },
+  { id: "faixa-inferior", label: "Faixa Inferior", group: "Bandas", desc: "Banda baixa, como um rodapé acústico.", surfaces: L, rows: 1, band: "lower", stagger: "none" },
+  { id: "bandas-alternadas", label: "Bandas Alternadas", group: "Bandas", desc: "Duas alturas alternadas, ritmo horizontal marcado.", surfaces: L, rows: 2, band: "ear", stagger: "sawtooth" },
+  { id: "torres", label: "Torres Verticais", group: "Bandas", desc: "Colunas de três peças empilhadas em pontos-chave.", surfaces: L, rows: 3, band: "full", stagger: "none" },
+
+  // ── E. Inclinados / dinâmicos ──
+  { id: "inclinado", label: "Inclinado Suave", group: "Dinâmicos", desc: "Leve inclinação uniforme — profundidade sem exagero.", surfaces: L, rows: 1, band: "ear", stagger: "none", tilt: 0.09 },
+  { id: "leque", label: "Leque", group: "Dinâmicos", desc: "Inclinação que abre em leque a partir do centro.", surfaces: L, rows: 1, band: "ear", stagger: "peak", tilt: 0.12, mirrorStagger: true },
+  { id: "ascendente-3d", label: "Ascendente 3D", group: "Dinâmicos", desc: "Sobe e inclina — o mais escultural do conjunto.", surfaces: L, rows: 1, band: "ear", stagger: "stairUp", tilt: 0.1, mirrorStagger: true },
+
+  // ── F. Densidade ──
+  { id: "denso-total", label: "Cobertura Total", group: "Densidade", desc: "Três fileiras em todas as paredes — tratamento máximo.", surfaces: LBF, rows: 3, band: "full", stagger: "none" },
+  { id: "minimalista", label: "Minimalista", group: "Densidade", desc: "Poucas peças nos pontos que mais rendem.", surfaces: L, rows: 1, band: "ear", stagger: "none", special: "reflexao" },
+  { id: "quadro-central", label: "Quadro Central", group: "Densidade", desc: "Bloco compacto e centralizado em cada parede.", surfaces: LB, rows: 2, band: "ear", stagger: "none" },
+
+  // ── G. Editoriais ──
+  { id: "editorial", label: "Escalonado Editorial", group: "Editoriais", desc: "Duas fileiras com deslocamento editorial, ar entre blocos.", surfaces: L, rows: 2, band: "ear", stagger: "brick" },
+  { id: "galeria", label: "Galeria", group: "Editoriais", desc: "Ritmo de galeria de arte: peças alinhadas com respiro largo.", surfaces: LBF, rows: 1, band: "ear", stagger: "none" },
+];
+
+const PATTERN_BY_ID = new Map(PANEL_PATTERNS.map((p) => [p.id, p]));
+
+/** Lista para a interface, com id/rótulo/grupo/descrição. */
+export const LAYOUT_PATTERN_OPTIONS = PANEL_PATTERNS.map(({ id, label, group, desc }) => ({
+  value: id,
+  label,
+  group,
+  desc,
+}));
+
+// ── Posicionador genérico de painéis ────────────────────────
+// Emite as peças de UM padrão sobre as superfícies escolhidas, atravessando a grade
+// centrada. O stagger vertical é aplicado por coluna e SEMPRE clampado dentro da
+// parede, então nenhuma peça ultrapassa piso ou teto.
+
+interface SurfaceAxis {
+  /** largura útil ao longo do eixo horizontal da superfície */
+  spanW: number;
+  /** monta a posição 3D a partir de (offset horizontal, cota vertical) */
+  toPos: (u: number, y: number) => [number, number, number];
+}
+
+function surfaceAxis(surface: PanelSurface, room: Room, depth: number): SurfaceAxis {
+  const { w, l } = room;
+  switch (surface) {
+    case "left":
+      return { spanW: l, toPos: (u, y) => [-w / 2 + depth / 2, y, u] };
+    case "right":
+      return { spanW: l, toPos: (u, y) => [w / 2 - depth / 2, y, u] };
+    case "back":
+      return { spanW: w, toPos: (u, y) => [u, y, -l / 2 + depth / 2] };
+    case "front":
+      return { spanW: w, toPos: (u, y) => [u, y, l / 2 - depth / 2] };
+  }
+}
+
+/** Cota vertical de cada coluna, em torno da linha de base. Determinístico. */
+function staggerDelta(kind: Stagger, i: number, n: number, amp: number, invert: boolean): number {
+  const mid = (n - 1) / 2;
+  const s = invert ? -1 : 1;
+  switch (kind) {
+    case "stairUp":
+      return s * (n > 1 ? ((i - mid) / mid) * amp : 0);
+    case "stairDown":
+      return -s * (n > 1 ? ((i - mid) / mid) * amp : 0);
+    case "valley":
+      return (Math.abs(i - mid) / (mid || 1)) * amp - amp / 2;
+    case "peak":
+      return (-Math.abs(i - mid) / (mid || 1)) * amp + amp / 2;
+    case "sawtooth":
+      return (i % 2 === 0 ? 1 : -1) * (amp / 2);
+    default:
+      return 0;
+  }
+}
+
+interface PanelPlacer {
+  push: (p: Placement) => void;
+  earH: number;
+  room: Room;
+  idPrefix: string;
+}
+
+/** Distribui `count` painéis sobre as superfícies do padrão. Retorna quantos coube. */
+function placePanels(pattern: PanelPattern, count: number, pl: PanelPlacer): number {
+  const { w: pw, h: ph, d: pd } = GEO.panel;
+  const { room, earH } = pl;
+  const surfaces = pattern.surfaces;
+  if (count <= 0 || surfaces.length === 0) return 0;
+
+  // Linha de base vertical conforme a banda e o nº de fileiras (pilha centrada).
+  const stackH = (pattern.rows - 1) * (ph + MIN_GAP);
+  let baseline: number;
+  switch (pattern.band) {
+    case "upper":
+      baseline = room.h - EDGE_MARGIN - ph / 2 - stackH;
+      break;
+    case "lower":
+      baseline = EDGE_MARGIN + ph / 2;
+      break;
+    case "full":
+      baseline = Math.max(EDGE_MARGIN + ph / 2, earH - stackH / 2);
+      break;
+    default: // ear
+      baseline = earH - stackH / 2;
+  }
+  baseline = Math.max(EDGE_MARGIN + ph / 2, Math.min(baseline, room.h - EDGE_MARGIN - ph / 2 - stackH));
+
+  // Amplitude do stagger, limitada ao espaço livre acima/abaixo da pilha.
+  const headroom = Math.min(baseline - (EDGE_MARGIN + ph / 2), room.h - EDGE_MARGIN - ph / 2 - (baseline + stackH));
+  const amp = Math.max(0, Math.min(0.32, headroom * 1.8));
+
+  // Reparte a quantidade entre as superfícies; laterais recebem peso maior.
+  const weightOf = (s: PanelSurface) => (s === "left" || s === "right" ? 1.4 : 1);
+  const totalW = surfaces.reduce((a, s) => a + weightOf(s), 0);
+
+  let placed = 0;
+  for (const surface of surfaces) {
+    const share = Math.round((count * weightOf(surface)) / totalW);
+    if (share <= 0) continue;
+
+    const ax = surfaceAxis(surface, room, pd);
+    const grid = buildGrid(ax.spanW, room.h, pw, ph, Math.ceil(share / pattern.rows), {
+      baseline,
+      maxRows: pattern.rows,
+    });
+    const nCols = grid.cols.length;
+    if (nCols === 0) continue;
+
+    // Espelha o stagger da parede direita, para dar simetria dinâmica.
+    const invert = pattern.mirrorStagger === true && surface === "right";
+
+    let k = 0;
+    for (let r = 0; r < grid.rows.length && k < share; r++) {
+      for (let c = 0; c < nCols && k < share; c++) {
+        // Brick: fileira ímpar desloca meia-célula na horizontal.
+        const brick = pattern.stagger === "brick" && r % 2 === 1 ? (pw + MIN_GAP) / 2 : 0;
+        const u = grid.cols[c] + brick;
+        // fora do vão após o deslocamento? pula a peça (não força borda).
+        if (Math.abs(u) > ax.spanW / 2 - EDGE_MARGIN - pw / 2) continue;
+
+        const dv = pattern.stagger === "brick" ? 0 : staggerDelta(pattern.stagger, c, nCols, amp, invert);
+        let y = grid.rows[r] + dv;
+        y = Math.max(EDGE_MARGIN + ph / 2, Math.min(y, room.h - EDGE_MARGIN - ph / 2));
+
+        pl.push({
+          id: `${pl.idPrefix}-${surface}-${r}-${c}`,
+          kind: "panel",
+          surface,
+          position: ax.toPos(u, y),
+          size: [pw, ph],
+          depth: pd,
+          tilt: pattern.tilt,
+          color: r % 2 === 0 ? COLOR.panelSecondary : COLOR.panelPrimary,
+        });
+        placed++;
+        k++;
+      }
+    }
+  }
+  return placed;
+}
+
+// ─────────────────────────────────────────────────────────────
 // MOTOR PRINCIPAL
 // ─────────────────────────────────────────────────────────────
 
@@ -259,29 +517,25 @@ export function computeLayout(
     record("Bass Traps", bass.qty, n);
   }
 
-  // ── PAINÉIS DE PAREDE ──
+  // ── PAINÉIS DE PAREDE (dirigido pelo catálogo de 30 padrões) ──
   const panel = byKind.get("panel");
   if (panel) {
     const requested = panel.qty;
-    let placed = 0;
+    const pattern = PATTERN_BY_ID.get(preset) ?? PATTERN_BY_ID.get("simetrico")!;
     const { w: pw, h: ph, d: pd } = GEO.panel;
+    let placed = 0;
 
-    if (preset === "reflexao") {
-      // Posição de escuta no eixo, a ~38% do comprimento (razão áurea de Bolt).
-      const listenerZ = -l / 2 + l * 0.38;
+    if (pattern.special === "reflexao") {
+      // Par de primeira reflexão — cálculo acústico, sempre espelhado (Kuttruff cap. 4).
+      const listenerZ = -l / 2 + l * 0.38; // ouvinte a ~38% (Bolt)
       const speakerZ = -l / 2 + l * 0.15;
       const speakerX = Math.min(w * 0.25, 1.1);
-
       const zL = firstReflectionZ(-w / 2, -speakerX, speakerZ, 0, listenerZ);
       const zR = firstReflectionZ(w / 2, speakerX, speakerZ, 0, listenerZ);
       const clampZ = (z: number) =>
         Math.max(-l / 2 + EDGE_MARGIN + pw / 2, Math.min(l / 2 - EDGE_MARGIN - pw / 2, z));
 
-      // Par de primeira reflexão — sempre espelhado, mesma cota.
-      for (const [side, z] of [
-        [-1, clampZ(zL)],
-        [1, clampZ(zR)],
-      ] as const) {
+      for (const [side, z] of [[-1, clampZ(zL)], [1, clampZ(zR)]] as const) {
         placements.push({
           id: `panel-frp-${side < 0 ? "l" : "r"}`,
           kind: "panel",
@@ -294,8 +548,8 @@ export function computeLayout(
         placed++;
       }
 
-      // O restante vai para as laterais atrás do ouvinte, em grade alinhada.
-      const remaining = Math.max(0, requested - placed);
+      // Restante em grade espelhada nas laterais atrás do ouvinte.
+      const remaining = Math.max(0, requested - placed - (pattern.reflexaoBack ? 2 : 0));
       const perSide = Math.floor(remaining / 2);
       if (perSide > 0) {
         const zoneStart = clampZ(zL) + pw / 2 + MIN_GAP;
@@ -322,62 +576,32 @@ export function computeLayout(
           }
         }
       }
-    } else {
-      // simetrico e hibrido: grade espelhada nas laterais + parede traseira.
-      const sideShare = preset === "hibrido" ? 0.7 : 0.8;
-      const perSide = Math.max(1, Math.floor((requested * sideShare) / 2));
-      const backCount = Math.max(0, requested - perSide * 2);
 
-      // No híbrido usamos DUAS fileiras com offset regular (padrão das
-      // referências do cliente) — rítmico, nunca aleatório.
-      const maxRows = preset === "hibrido" ? 2 : 1;
-      const baseline = preset === "hibrido" ? earH - (ph + MIN_GAP) / 2 : earH;
-
-      const grid = buildGrid(l, h, pw, ph, perSide, { baseline, maxRows });
-      let k = 0;
-      for (let r = 0; r < grid.rows.length; r++) {
-        for (let c = 0; c < grid.cols.length; c++) {
-          if (k >= perSide) break;
-          // offset de meia-célula na fileira de cima → padrão de tijolo alinhado
-          const stagger = preset === "hibrido" && r % 2 === 1 ? (pw + MIN_GAP) / 2 : 0;
-          const z = grid.cols[c] + stagger;
-          if (Math.abs(z) > l / 2 - EDGE_MARGIN - pw / 2) continue;
-          for (const side of [-1, 1] as const) {
-            placements.push({
-              id: `panel-${side < 0 ? "l" : "r"}-${r}-${c}`,
-              kind: "panel",
-              surface: side < 0 ? "left" : "right",
-              position: [(side * w) / 2 - (side * pd) / 2, grid.rows[r], z],
-              size: [pw, ph],
-              depth: pd,
-              color: r % 2 === 0 ? COLOR.panelSecondary : COLOR.panelPrimary,
-            });
-          }
-          placed += 2;
-          k++;
-        }
-      }
-
-      if (backCount > 0) {
-        const backGrid = buildGrid(w, h, pw, ph, backCount, { baseline: earH, maxRows: 2 });
+      if (pattern.reflexaoBack) {
+        const backGrid = buildGrid(w, h, pw, ph, 2, { baseline: earH, maxRows: 1 });
         let b = 0;
-        for (const row of backGrid.rows) {
-          for (const col of backGrid.cols) {
-            if (b >= backCount) break;
-            placements.push({
-              id: `panel-back-${b}`,
-              kind: "panel",
-              surface: "back",
-              position: [col, row, -l / 2 + pd / 2],
-              size: [pw, ph],
-              depth: pd,
-              color: COLOR.panelPrimary,
-            });
-            placed++;
-            b++;
-          }
+        for (const col of backGrid.cols) {
+          if (b >= 2) break;
+          placements.push({
+            id: `panel-back-${b}`,
+            kind: "panel",
+            surface: "back",
+            position: [col, earH, -l / 2 + pd / 2],
+            size: [pw, ph],
+            depth: pd,
+            color: COLOR.panelPrimary,
+          });
+          placed++;
+          b++;
         }
       }
+    } else {
+      placed = placePanels(pattern, requested, {
+        push: (p) => placements.push(p),
+        earH,
+        room,
+        idPrefix: "panel",
+      });
     }
     record("Painéis", requested, placed);
   }

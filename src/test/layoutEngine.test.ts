@@ -1,13 +1,16 @@
 import { describe, it, expect } from "vitest";
-import { computeLayout, type Placement, type ProductPlacement } from "@/components/calculadora/layoutEngine";
+import { computeLayout, PANEL_PATTERNS, type Placement, type ProductPlacement } from "@/components/calculadora/layoutEngine";
 
 /**
  * Estes testes existem para provar, e não apenas afirmar, que o motor de layout
  * não sobrepõe peças e mantém alinhamento. Antes da refatoração, os painéis eram
  * distribuídos por espaçamento uniforme de centros, ignorando a largura da peça.
+ *
+ * Cobrem os 30 padrões do catálogo: adicionar um padrão novo que sobreponha peças
+ * quebra a suíte automaticamente.
  */
 
-const PRESETS = ["simetrico", "reflexao", "hibrido"] as const;
+const PRESETS = PANEL_PATTERNS.map((p) => p.id);
 
 /** Salas de teste, do pior caso (apertada) ao generoso. */
 const ROOMS = [
