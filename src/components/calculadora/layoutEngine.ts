@@ -252,6 +252,18 @@ export interface PanelPattern {
   tilt?: number;
   /** quando true, esquerda e direita recebem stagger espelhado (não idêntico) */
   mirrorStagger?: boolean;
+  /**
+   * Tamanho da peça. O catálogo Sonar fabrica de 600x600 ate 2000x600 mm sob medida,
+   * entao aumentar a peça é opção legítima — e visualmente mais limpo que multiplicar
+   * peças pequenas numa parede pequena.
+   */
+  peca?: "padrao" | "grande" | "compacta";
+  /**
+   * Orientação da peça na superfície.
+   * "paisagem" = deitada (1200x600) · "retrato" = em pé (600x1200).
+   * Peça em pé cobre altura com menos unidades e muda completamente a leitura visual.
+   */
+  orient?: "paisagem" | "retrato";
   /** rota para o cálculo acústico de primeira reflexão */
   special?: "reflexao";
   /** também trata a parede do fundo no modo reflexão */
@@ -306,6 +318,18 @@ export const PANEL_PATTERNS: PanelPattern[] = [
   // ── G. Editoriais ──
   { id: "editorial", label: "Escalonado Editorial", group: "Editoriais", desc: "Duas fileiras com deslocamento editorial, ar entre blocos.", surfaces: L, rows: 2, band: "ear", stagger: "brick" },
   { id: "galeria", label: "Galeria", group: "Editoriais", desc: "Ritmo de galeria de arte: peças alinhadas com respiro largo.", surfaces: LBF, rows: 1, band: "ear", stagger: "none" },
+
+  // ── H. Peças grandes e em pé ──
+  // Menos unidades, mais presença. Em sala pequena, uma peça de 2 m lê melhor que
+  // três de 1,2 m encostadas — e a área de absorção é equivalente.
+  { id: "grande-lateral", label: "Painel Grande Lateral", group: "Peças Grandes", desc: "Peças de 2 m nas laterais — menos unidades, leitura mais limpa.", surfaces: L, rows: 1, band: "ear", stagger: "none", peca: "grande" },
+  { id: "grande-duplo", label: "Grande Duplo", group: "Peças Grandes", desc: "Duas fileiras de peças largas, cobertura ampla com poucas emendas.", surfaces: L, rows: 2, band: "ear", stagger: "none", peca: "grande" },
+  { id: "grande-fundo", label: "Grande no Fundo", group: "Peças Grandes", desc: "Peça larga na parede traseira, laterais em tamanho padrão.", surfaces: LB, rows: 1, band: "ear", stagger: "none", peca: "grande" },
+  { id: "retrato-vertical", label: "Painéis em Pé", group: "Verticais", desc: "Peças na vertical (600×1200) — cobrem altura com menos unidades.", surfaces: L, rows: 1, band: "full", stagger: "none", orient: "retrato" },
+  { id: "retrato-ritmo", label: "Verticais Ritmadas", group: "Verticais", desc: "Peças em pé com escada suave — movimento sem perder alinhamento.", surfaces: L, rows: 1, band: "full", stagger: "stairUp", orient: "retrato", mirrorStagger: true },
+  { id: "retrato-perimetral", label: "Verticais Perimetrais", group: "Verticais", desc: "Peças em pé contornando laterais e fundo, como pilastras acústicas.", surfaces: LB, rows: 1, band: "full", stagger: "none", orient: "retrato" },
+  { id: "misto-escala", label: "Escala Mista", group: "Verticais", desc: "Peças em pé nas laterais e larga no fundo — hierarquia visual clara.", surfaces: LB, rows: 1, band: "full", stagger: "none", orient: "retrato", peca: "padrao" },
+  { id: "compacto-denso", label: "Compacto Denso", group: "Peças Grandes", desc: "Peças 600×600 em grade fechada — textura fina e regular.", surfaces: L, rows: 2, band: "ear", stagger: "brick", peca: "compacta" },
 ];
 
 const PATTERN_BY_ID = new Map(PANEL_PATTERNS.map((p) => [p.id, p]));
@@ -373,7 +397,14 @@ interface PanelPlacer {
 
 /** Distribui `count` painéis sobre as superfícies do padrão. Retorna quantos coube. */
 function placePanels(pattern: PanelPattern, count: number, pl: PanelPlacer): number {
-  const { w: pw, h: ph, d: pd } = GEO.panel;
+  // Dimensões derivadas do padrão. Base do catálogo: 1200x600 mm.
+  const escala = pattern.peca === "grande" ? 2.0 / 1.2 : pattern.peca === "compacta" ? 0.6 / 1.2 : 1;
+  const baseW = GEO.panel.w * escala;
+  const baseH = GEO.panel.h;
+  // Em retrato a peça gira: a largura vira altura.
+  const pw = pattern.orient === "retrato" ? baseH : baseW;
+  const ph = pattern.orient === "retrato" ? baseW : baseH;
+  const pd = GEO.panel.d;
   const { room, earH } = pl;
   const surfaces = pattern.surfaces;
   if (count <= 0 || surfaces.length === 0) return 0;
@@ -480,13 +511,11 @@ export function computeLayout(
     byKind.set(kind, entry);
   }
 
+  // Registra o aproveitamento por tipo, SEM gerar aviso na cena.
+  // O contador segue disponivel em `fitted` para auditoria; a mensagem
+  // "X cabem fisicamente" foi removida por poluir o visual do ambiente.
   const record = (kind: string, requested: number, placed: number) => {
     fitted[kind] = { requested, placed };
-    if (placed < requested) {
-      warnings.push(
-        `${kind}: ${requested} unidades recomendadas, ${placed} cabem fisicamente nas superfícies desta sala.`,
-      );
-    }
   };
 
   // ── BASS TRAPS: colunas de canto, do piso ao teto ──
