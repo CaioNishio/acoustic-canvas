@@ -1,9 +1,28 @@
 import { toast } from "sonner";
 
 const SHOPIFY_API_VERSION = '2025-07';
-const SHOPIFY_STORE_PERMANENT_DOMAIN = 'sssonar-f4ae6.myshopify.com';
+// Loja oficial (confirmada pelo dono em 27/07/2026). A antiga
+// 'sssonar-f4ae6.myshopify.com' era loja de TESTE e foi descartada
+// (hoje responde HTTP 402 / congelada).
+const SHOPIFY_STORE_PERMANENT_DOMAIN = 'sonaracusticos.myshopify.com';
 const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-const SHOPIFY_STOREFRONT_TOKEN = '36246b064de1d99f686bab0e2ce19424';
+// Storefront API access token — lido de variavel de ambiente (Vite).
+// Nunca hardcode: o valor antigo ('36246b...') pertencia a loja de TESTE
+// sssonar-f4ae6 e foi removido em 27/07/2026 (retornava 401 na loja nova).
+//
+// Este token roda no NAVEGADOR, portanto usa prefixo VITE_ e e publico por
+// design (token de leitura da Storefront API). O Admin API token JAMAIS pode
+// receber prefixo VITE_ — isso o exporia no bundle publico do site.
+//
+// TODO(shopify): token ainda PENDENTE de geracao pelo dono. Em 27/07/2026 foram
+// fornecidos dois valores que NAO sao Storefront token (um shpss_ = API secret
+// key do app, outro atkn_ = token de outro servico Shopify); ambos deram 401.
+// Gerar o correto em:
+//   Admin da loja > Settings > Apps and sales channels > Develop apps
+//   > (app) > Configuration > Storefront API > Install > Reveal token
+// Formato esperado: 32 caracteres hexadecimais, SEM prefixo.
+// Depois preencher VITE_SHOPIFY_STOREFRONT_TOKEN no .env do site.
+const SHOPIFY_STOREFRONT_TOKEN = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN as string | undefined;
 
 // --- Types ---
 
@@ -54,6 +73,14 @@ export interface ShopifyProduct {
 // --- API Helper ---
 
 export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
+  if (!SHOPIFY_STOREFRONT_TOKEN) {
+    toast.error("Loja indisponivel no momento", {
+      description: "Catalogo temporariamente fora do ar. Fale conosco pelo WhatsApp.",
+    });
+    console.warn('[shopify] VITE_SHOPIFY_STOREFRONT_TOKEN ausente. Defina no .env do site.');
+    return;
+  }
+
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
     method: 'POST',
     headers: {
