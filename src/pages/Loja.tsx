@@ -4,6 +4,7 @@ import { ShoppingBag, Loader2 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { storefrontApiRequest, PRODUCTS_QUERY, type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
+import { formatMoney, isPrecoInvalido } from "@/lib/formatCurrency";
 import { toast } from "sonner";
 
 export default function Loja() {
@@ -28,6 +29,15 @@ export default function Loja() {
   const handleAdd = async (product: ShopifyProduct) => {
     const variant = product.node.variants.edges[0]?.node;
     if (!variant) return;
+    // Rede de seguranca contra produto mal cadastrado: sem isto, um item com
+    // preco 0,00 na Shopify vira pedido de R$ 0,00 que a loja tem de honrar.
+    if (isPrecoInvalido(variant.price)) {
+      toast.error("Produto indisponivel para compra online", {
+        description: "Fale com a gente para receber o preco deste item.",
+        position: "top-center",
+      });
+      return;
+    }
     await addItem({
       product,
       variantId: variant.id,
@@ -64,6 +74,7 @@ export default function Loja() {
               {products.map((product) => {
                 const img = product.node.images.edges[0]?.node;
                 const price = product.node.priceRange.minVariantPrice;
+                const semPreco = isPrecoInvalido(price);
                 return (
                   <div key={product.node.id} className="group rounded-2xl border border-border bg-card overflow-hidden hover:shadow-lg transition-shadow">
                     <Link to={`/loja/${product.node.handle}`} className="block aspect-square overflow-hidden bg-muted">
@@ -82,14 +93,15 @@ export default function Loja() {
                       <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{product.node.description}</p>
                       <div className="flex items-center justify-between mt-4">
                         <span className="text-lg font-bold text-foreground">
-                          {price.currencyCode} {parseFloat(price.amount).toFixed(2)}
+                          {semPreco ? "Sob consulta" : formatMoney(price)}
                         </span>
                         <button
                           onClick={() => handleAdd(product)}
-                          disabled={isLoading}
-                          className="px-4 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50"
+                          disabled={isLoading || semPreco}
+                          title={semPreco ? "Preco sob consulta — fale com a gente" : undefined}
+                          className="px-4 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Comprar"}
+                          {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : semPreco ? "Consultar" : "Comprar"}
                         </button>
                       </div>
                     </div>
