@@ -31,3 +31,6 @@ sonar-acusticos-site.zip
 *.njsproj
 *.sln
 *.sw?
+
+# Pacotes gerados para entrega (build artifacts)
+*.zip
