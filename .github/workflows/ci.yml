@@ -1,0 +1,45 @@
+name: CI
+
+# Roda em todo push e PR. O objetivo e simples: nenhuma branch chega ao deploy
+# com build quebrada ou com o mapa Shopify fora de sincronia com o catalogo
+# local (ver src/test/shopifyCatalog.test.ts).
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      # NAO bloqueante de proposito. O repositorio tem 17 erros de lint
+      # pre-existentes (any explicito em LojaDetalhe/Orcamento, require() no
+      # tailwind.config). Tornar isso bloqueante faria o CI nascer vermelho, e
+      # um CI que sempre falha e um CI que ninguem le. O resultado continua
+      # visivel no PR — a divida fica registrada, nao escondida.
+      # Quando os 17 forem zerados, remover o continue-on-error.
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true
+
+      # Bloqueantes: passam hoje (345 testes), entao vermelho aqui e regressao.
+      - name: Testes
+        run: npm test
+
+      - name: Build
+        run: npm run build
+        env:
+          # Valor de fachada: o build nao precisa de token real, e o token de
+          # Storefront e publico por design. Manter aqui garante que o build do
+          # CI exercite o mesmo caminho de codigo que o de producao.
+          VITE_SHOPIFY_STOREFRONT_TOKEN: ci-placeholder-token

@@ -1,0 +1,62 @@
+# Deploy do site Sonar Acusticos (Vite + React, SPA pura, headless Shopify).
+#
+# Arquitetura: build estatica servida por CDN. Nao ha servidor de aplicacao —
+# a loja fala direto com a Storefront API da Shopify pelo navegador, e o
+# checkout acontece no dominio da Shopify.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Fixa a major do Node para o build nao mudar de comportamento sozinho
+  # quando a Netlify atualizar o default da plataforma.
+  NODE_VERSION = "20"
+
+# --- Roteamento SPA ---
+# Sem esta regra, abrir /calculadora direto (ou dar F5 nela) devolve 404: o
+# roteamento vive no React Router, no cliente, e o servidor procuraria um
+# arquivo que nao existe. O status 200 (e nao 301) preserva a URL na barra.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# --- Cache ---
+# Assets com hash no nome sao imutaveis por definicao: se o conteudo mudar, o
+# nome muda. Podem ficar um ano no cache do navegador.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Modelos 3D da calculadora: arquivos grandes e estaveis. Sao o maior custo de
+# banda do site — cachear aqui e o que evita rebaixar a experiencia 3D.
+[[headers]]
+  for = "/*.glb"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.hdr"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# O index.html NAO pode ser cacheado: ele e o indice que aponta para os bundles
+# com hash. Um index.html velho manda o navegador buscar arquivos que ja sumiram.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# --- Seguranca ---
+# Cabecalhos conservadores: nenhum quebra uma SPA estatica, e todos fecham
+# vetores baratos. CSP fica de fora de proposito — o site carrega scripts de
+# terceiros (Shopify, Supabase) e uma CSP mal calibrada derruba o checkout.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
