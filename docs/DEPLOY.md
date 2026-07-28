@@ -7,10 +7,19 @@
 
 ---
 
-## 0. O unico bloqueio real: o Storefront token
+## 0. Storefront token — RESOLVIDO em 28/07/2026
+
+> **Status: funcionando.** O token valido esta no `.env` local (gitignored) e foi
+> verificado contra a loja: a `/loja` carrega os 22 produtos e o carrinho gera
+> `checkoutUrl` real da Shopify. Falta apenas replicar a variavel nas variaveis
+> de ambiente da hospedagem.
+>
+> Antes de subir qualquer token: `.\scripts\validar-token-shopify.ps1 -Token <valor>`
+
+A secao abaixo fica como referencia para quando o token precisar ser rotacionado.
 
 O site **nao lista produtos** enquanto `VITE_SHOPIFY_STOREFRONT_TOKEN` estiver
-vazio. Tudo o mais ja esta pronto.
+vazio.
 
 Este token nao pode ser gerado por ferramenta de IA — o conector Shopify bloqueia
 `storefrontAccessTokenCreate` por politica de seguranca. Precisa ser feito no
@@ -130,8 +139,15 @@ adicionar produto em `products.ts` e esquecer do mapa, o CI acusa.
 
 ## 5. Pendencias conhecidas
 
-1. **Storefront token** (secao 0) — bloqueia o catalogo. Unica acao manual.
-2. **Preco do `revestimento-ripado`** esta 0,00 na Shopify.
+1. **Replicar `VITE_SHOPIFY_STOREFRONT_TOKEN`** nas variaveis de ambiente da
+   hospedagem escolhida (o `.env` local nao vai junto no deploy).
+2. **Preco do `revestimento-ripado`** esta 0,00 e sem SKU na Shopify. O site ja
+   o mostra como "Sob consulta" com o botao desabilitado (ver
+   `src/lib/formatCurrency.ts`), mas isso e rede de seguranca — a correcao de
+   verdade e por o preco certo na loja.
+3. **Rotacionar credenciais expostas:** a API secret key (`shpss_`) e o Admin API
+   token (`shpat_`) foram compartilhados em chat em 28/07/2026. O Admin token e
+   chave-mestra da operacao comercial — trocar em Develop apps > API credentials.
 3. **Publicar os 23 produtos faltantes** na loja.
 4. **Dominio proprio** — decidir e apontar DNS depois do teste na URL provisoria.
 5. **17 erros de lint pre-existentes** (`any` explicito em `LojaDetalhe.tsx` e
