@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Pacotes do build gerados para entrega manual (saida de `npm run build`)
+sonar-acusticos-site.zip
+
 # Segredos — NUNCA versionar
 .env
 .env.local
