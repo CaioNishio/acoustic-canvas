@@ -85,6 +85,48 @@ function mensagemDeErro(err: unknown): string {
   return "Não conseguimos concluir o envio. Seus dados foram preservados — tente novamente em instantes ou fale conosco pelo WhatsApp.";
 }
 
+const WHATSAPP_NUMBER = "5511967484000"; // mesmo numero usado em QuoteCartDrawer.tsx
+
+/** Protocolo curto e legivel a partir do UUID retornado pelo insert. */
+function protocoloFromId(id: string): string {
+  return `SNR-${id.slice(0, 8).toUpperCase()}`;
+}
+
+/**
+ * Resumo estruturado para o cliente encaminhar por WhatsApp apos o envio.
+ *
+ * So os campos que o formulario de fato coleta — sem inventar quantidade,
+ * prazo ou condicao comercial que nao existem aqui. Campos vazios sao
+ * omitidos, para nao gerar linhas em branco nem link maior que o necessario.
+ */
+function buildWhatsAppMessage(protocolo: string, form: FormState, projectTypeLabel?: string): string {
+  const linhas = [
+    "Olá! Gostaria de solicitar uma avaliação acústica.",
+    "",
+    "PROTOCOLO",
+    protocolo,
+    "",
+    "CLIENTE",
+    `Nome: ${form.name}`,
+    form.company && `Empresa: ${form.company}`,
+    `Telefone: ${form.phone}`,
+    `E-mail: ${form.email}`,
+    `Cidade/UF: ${form.city}`,
+    "",
+    "AMBIENTE",
+    `Tipo: ${projectTypeLabel || "—"}`,
+    form.area && `Área aproximada: ${form.area} m²`,
+    form.description && `Descrição: ${form.description}`,
+    "",
+    "Enviei essas informações pelo formulário de orçamento da Sonar Acústicos.",
+  ];
+  // `campo && texto` vira "" quando o campo opcional esta vazio — mesmo
+  // valor de uma linha em branco intencional, entao o join ja fica correto;
+  // o replace so evita blocos de 3+ linhas em branco quando dois campos
+  // opcionais seguidos estao vazios.
+  return linhas.join("\n").replace(/\n{3,}/g, "\n\n");
+}
+
 type FieldProps = {
   label: string;
   value: string;
@@ -126,6 +168,7 @@ export default function OrcamentoPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [protocolo, setProtocolo] = useState<string | null>(null);
 
   const update = <K extends keyof FormState>(field: K, value: FormState[K]) => {
     setForm((f) => ({ ...f, [field]: value }));
@@ -207,19 +250,24 @@ export default function OrcamentoPage() {
         attachments.push({ path, name: file.name, size: file.size });
       }
 
-      const { error: insertError } = await supabase.from("quote_requests").insert({
-        name: form.name.trim(),
-        email: form.email.trim().toLowerCase(),
-        phone: form.phone.replace(/\D/g, ""),
-        company: form.company.trim() || null,
-        project_type: form.projectType,
-        area: form.area.trim() || null,
-        city: form.city.trim(),
-        description: form.description.trim() || null,
-        attachments,
-      });
+      const { data: inserted, error: insertError } = await supabase
+        .from("quote_requests")
+        .insert({
+          name: form.name.trim(),
+          email: form.email.trim().toLowerCase(),
+          phone: form.phone.replace(/\D/g, ""),
+          company: form.company.trim() || null,
+          project_type: form.projectType,
+          area: form.area.trim() || null,
+          city: form.city.trim(),
+          description: form.description.trim() || null,
+          attachments,
+        })
+        .select("id")
+        .single();
 
       if (insertError) throw insertError;
+      setProtocolo(protocoloFromId(inserted.id));
       setSubmitted(true);
     } catch (err) {
       console.error("Falha ao enviar orçamento:", err);
@@ -228,6 +276,8 @@ export default function OrcamentoPage() {
       setSubmitting(false);
     }
   };
+
+  const projectTypeLabel = PROJECT_TYPES.find((t) => t.value === form.projectType)?.label;
 
   if (submitted) {
     return (
@@ -239,13 +289,29 @@ export default function OrcamentoPage() {
             </motion.div>
             <h2 className="font-display text-3xl font-bold">Orçamento Enviado!</h2>
             <p className="text-muted-foreground mt-3">Recebemos sua solicitação e entraremos em contato em até 24 horas.</p>
+            {protocolo && (
+              <>
+                <p className="text-sm text-muted-foreground mt-4">
+                  Protocolo <span className="font-mono font-semibold text-foreground">{protocolo}</span>
+                </p>
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsAppMessage(protocolo, form, projectTypeLabel))}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-semibold rounded-lg hover:bg-[#20bd5a] transition-colors shadow-lg shadow-[#25D366]/20"
+                >
+                  Enviar resumo por WhatsApp
+                </a>
+                <p className="text-xs text-muted-foreground mt-3">
+                  Opcional — adianta o atendimento, mas seu orçamento já foi registrado com o protocolo acima.
+                </p>
+              </>
+            )}
           </div>
         </section>
       </Layout>
     );
   }
-
-  const projectTypeLabel = PROJECT_TYPES.find((t) => t.value === form.projectType)?.label;
 
   return (
     <Layout>
