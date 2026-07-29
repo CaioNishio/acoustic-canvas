@@ -88,7 +88,10 @@ export const SOLUTION_GUIDES: SolutionGuide[] = [
     icon: Layers,
     principle:
       "Material poroso converte energia sonora em calor por atrito viscoso. A absorção depende da resistividade ao fluxo do material e, principalmente, da espessura em relação ao comprimento de onda.",
-    range: "Médios e agudos (250 Hz a 4 kHz) com 50 mm. Para graves, é preciso mais espessura ou afastamento da parede.",
+    // Sem citar afastamento aqui: este bloco fica logo acima dos links de
+    // produto, e montagem com air gap ainda nao tem SKU nem ensaio proprio.
+    // O conceito segue explicado no glossario, como conteudo educacional.
+    range: "Médios e agudos (250 Hz a 4 kHz) com 50 mm. Para atuar em graves, é preciso maior espessura.",
     whenToUse: [
       "A sala tem eco perceptível ao bater palmas",
       "A fala fica embolada em reuniões ou cultos",
