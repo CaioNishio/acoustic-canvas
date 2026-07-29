@@ -41,6 +41,51 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_requests: {
+        Row: {
+          area: string | null
+          attachments: Json
+          city: string
+          company: string | null
+          created_at: string
+          description: string | null
+          email: string
+          id: string
+          name: string
+          phone: string
+          project_type: string
+          status: string
+        }
+        Insert: {
+          area?: string | null
+          attachments?: Json
+          city: string
+          company?: string | null
+          created_at?: string
+          description?: string | null
+          email: string
+          id?: string
+          name: string
+          phone: string
+          project_type: string
+          status?: string
+        }
+        Update: {
+          area?: string | null
+          attachments?: Json
+          city?: string
+          company?: string | null
+          created_at?: string
+          description?: string | null
+          email?: string
+          id?: string
+          name?: string
+          phone?: string
+          project_type?: string
+          status?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string

@@ -14,14 +14,22 @@ const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${
 // design (token de leitura da Storefront API). O Admin API token JAMAIS pode
 // receber prefixo VITE_ — isso o exporia no bundle publico do site.
 //
-// TODO(shopify): token ainda PENDENTE de geracao pelo dono. Em 27/07/2026 foram
-// fornecidos dois valores que NAO sao Storefront token (um shpss_ = API secret
-// key do app, outro atkn_ = token de outro servico Shopify); ambos deram 401.
-// Gerar o correto em:
+// VALIDADO em 29/07/2026 contra a Storefront API real: token de 32 hex (sem
+// prefixo) retornou shop.name = "SONAR " e a listagem de produtos, com
+// extensions.cost presente (marca de request autenticada). Cadastrado como
+// VITE_SHOPIFY_STOREFRONT_TOKEN no painel da Netlify.
+//
+// O dominio acima ('sonaracusticos.myshopify.com') tambem ficou confirmado no
+// mesmo teste — nao e preciso usar o dominio permanente 'ppwc90-qt.myshopify.com'.
+//
+// Se um dia voltar 401, gerar outro em:
 //   Admin da loja > Settings > Apps and sales channels > Develop apps
 //   > (app) > Configuration > Storefront API > Install > Reveal token
 // Formato esperado: 32 caracteres hexadecimais, SEM prefixo.
-// Depois preencher VITE_SHOPIFY_STOREFRONT_TOKEN no .env do site.
+//
+// Historico: em 27/07/2026 foram fornecidos dois valores que NAO eram
+// Storefront token (um shpss_ = API secret key do app, outro atkn_ = token de
+// outro servico); ambos deram 401.
 const SHOPIFY_STOREFRONT_TOKEN = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN as string | undefined;
 
 // --- Types ---
