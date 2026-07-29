@@ -11,12 +11,17 @@
 #   VITE_SUPABASE_URL, VITE_SUPABASE_PUBLISHABLE_KEY  -> /envio-fotos, /admin-login
 #   VITE_SHOPIFY_STOREFRONT_TOKEN                     -> /loja
 
+# ATENCAO: netlify.toml tem PRECEDENCIA sobre as configuracoes do painel.
+# Os valores abaixo espelham o que ja estava configurado no projeto
+# exquisite-semifreddo-0afa7d (bun, Node 24, functions em netlify/functions).
+# Alterar aqui sobrescreve o painel silenciosamente.
 [build]
-  command = "npm run build"
+  command = "bun run build"
   publish = "dist"
+  functions = "netlify/functions"
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
 
 [[redirects]]
   from = "/*"

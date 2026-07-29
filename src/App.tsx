@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QuoteCartProvider } from "@/contexts/QuoteCartContext";
 import QuoteCartDrawer from "@/components/shared/QuoteCartDrawer";
 import { useCartSync } from "@/hooks/useCartSync";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import Index from "./pages/Index";
 
 const Produtos = lazy(() => import("./pages/Produtos"));
@@ -32,6 +33,7 @@ function AppContent() {
   useCartSync();
   return (
     <Suspense fallback={<div className="min-h-screen" />}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/produtos" element={<Produtos />} />

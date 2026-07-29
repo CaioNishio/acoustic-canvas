@@ -50,6 +50,41 @@ function maskPhone(value: string) {
 const inputClass =
   "w-full bg-secondary border rounded-md px-3 py-2 text-foreground outline-none focus:ring-1 focus:ring-primary";
 
+/**
+ * Traduz a falha real em algo acionavel. Mensagem generica esconde a causa e
+ * faz o cliente tentar de novo contra um erro que nunca vai passar sozinho.
+ *
+ * Os codigos vem do PostgREST (tabela/coluna) e do Storage do Supabase.
+ */
+function mensagemDeErro(err: unknown): string {
+  const e = err as { code?: string; message?: string; statusCode?: string | number };
+  const code = String(e?.code ?? e?.statusCode ?? "");
+  const msg = (e?.message ?? "").toLowerCase();
+
+  // Tabela public.quote_requests ausente no banco: a migracao nao foi aplicada.
+  if (code === "PGRST205" || code === "42P01" || msg.includes("does not exist")) {
+    return "O envio está temporariamente indisponível por uma configuração pendente do servidor. Seus dados foram preservados — fale conosco pelo WhatsApp que damos andamento agora.";
+  }
+  // Bucket quote-attachments ausente.
+  if (msg.includes("bucket not found")) {
+    return "Não foi possível enviar os anexos por uma configuração pendente do servidor. Remova os arquivos e envie sem anexos, ou fale conosco pelo WhatsApp.";
+  }
+  // RLS barrou o insert anonimo.
+  if (code === "42501" || msg.includes("row-level security") || msg.includes("policy")) {
+    return "O envio foi recusado pelo servidor por uma permissão pendente. Seus dados foram preservados — fale conosco pelo WhatsApp.";
+  }
+  if (msg.includes("payload too large") || code === "413") {
+    return `Um dos arquivos excede o limite de ${MAX_FILE_MB} MB. Remova ou substitua o arquivo e tente novamente. Os demais dados foram preservados.`;
+  }
+  if (msg.includes("mime") || msg.includes("content-type")) {
+    return "Um dos arquivos está em um formato não aceito. Envie imagens ou PDF. Os demais dados foram preservados.";
+  }
+  if (msg.includes("failed to fetch") || msg.includes("networkerror") || msg.includes("load failed")) {
+    return "Não conseguimos falar com o servidor. Verifique sua conexão e tente novamente — seus dados foram preservados.";
+  }
+  return "Não conseguimos concluir o envio. Seus dados foram preservados — tente novamente em instantes ou fale conosco pelo WhatsApp.";
+}
+
 type FieldProps = {
   label: string;
   value: string;
@@ -188,7 +223,7 @@ export default function OrcamentoPage() {
       setSubmitted(true);
     } catch (err) {
       console.error("Falha ao enviar orçamento:", err);
-      toast.error("Não conseguimos enviar seu orçamento. Tente novamente em instantes.");
+      toast.error(mensagemDeErro(err), { duration: 8000 });
     } finally {
       setSubmitting(false);
     }
