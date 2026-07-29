@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Loader2, ShoppingBag, ArrowLeft } from "lucide-react";
+import { Loader2, ShoppingBag, ArrowLeft, ArrowRight } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-import { storefrontApiRequest, PRODUCT_BY_HANDLE_QUERY } from "@/lib/shopify";
+import { storefrontApiRequest, PRODUCT_BY_HANDLE_QUERY, isPurchasable } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 
@@ -65,6 +65,11 @@ export default function LojaDetalhe() {
   }
 
   const images = product.images?.edges || [];
+  const purchasable = isPurchasable(
+    selectedVariant?.price?.amount ?? "0",
+    selectedVariant?.availableForSale ?? false,
+    product.sobConsulta
+  );
 
   return (
     <Layout>
@@ -98,7 +103,9 @@ export default function LojaDetalhe() {
             <div>
               <h1 className="text-3xl md:text-4xl font-display font-normal text-foreground">{product.title}</h1>
               <p className="text-2xl font-bold text-foreground mt-4">
-                {selectedVariant?.price.currencyCode} {parseFloat(selectedVariant?.price.amount || "0").toFixed(2)}
+                {purchasable
+                  ? `${selectedVariant?.price.currencyCode} ${parseFloat(selectedVariant?.price.amount || "0").toFixed(2)}`
+                  : "Sob consulta"}
               </p>
               <p className="text-muted-foreground mt-6 leading-relaxed">{product.description}</p>
 
@@ -128,13 +135,25 @@ export default function LojaDetalhe() {
                 </div>
               ))}
 
-              <button
-                onClick={handleAdd}
-                disabled={isLoading || !selectedVariant?.availableForSale}
-                className="mt-8 w-full px-8 py-4 text-lg font-semibold rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50"
-              >
-                {isLoading ? <Loader2 className="w-5 h-5 animate-spin mx-auto" /> : !selectedVariant?.availableForSale ? "Indisponível" : "Adicionar ao Carrinho"}
-              </button>
+              {purchasable ? (
+                <button
+                  onClick={handleAdd}
+                  disabled={isLoading}
+                  className="mt-8 w-full px-8 py-4 text-lg font-semibold rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50"
+                >
+                  {isLoading ? <Loader2 className="w-5 h-5 animate-spin mx-auto" /> : "Adicionar ao Carrinho"}
+                </button>
+              ) : (
+                <Link
+                  to="/orcamento"
+                  className="mt-8 w-full px-8 py-4 text-lg font-semibold rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-colors inline-flex items-center justify-center gap-2"
+                >
+                  Solicitar Orçamento <ArrowRight size={18} />
+                </Link>
+              )}
+              {!purchasable && selectedVariant && !selectedVariant.availableForSale && (
+                <p className="text-sm text-muted-foreground mt-2 text-center">Esta opção está indisponível no momento.</p>
+              )}
             </div>
           </div>
         </div>

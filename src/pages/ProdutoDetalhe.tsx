@@ -243,30 +243,39 @@ export default function ProdutoDetalhePage() {
                 </div>
               </div>
 
-              {/* Actions */}
+              {/* Actions
+                  Regra centralizada: preco > 0 acumula num orcamento real
+                  (QuoteCartContext, com quantidade e subtotal) — e a excecao que
+                  mantem "Adicionar ao Orcamento" como rotulo legitimo, nao
+                  redundante. Preco <= 0 ("Sob consulta") nao tem valor para
+                  acumular, entao mostra so o caminho direto ao formulario. As
+                  duas acoes nunca aparecem juntas para o mesmo produto. */}
               <div className="flex flex-wrap gap-3 mt-8">
-                <button
-                  onClick={() => {
-                    const selectedSizeData = product.sizes?.find((s) => s.label === selectedSize);
-                    addItem({
-                      slug: product.slug,
-                      name: product.name,
-                      image: product.image,
-                      size: selectedSizeData?.dimensions || undefined,
-                      color: selectedColor?.name || undefined,
-                      colorHex: selectedColor?.hex || undefined,
-                      unitPrice: activePrice,
-                      unit: pricing?.unit || "un"
-                    });
-                  }}
-                  className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors inline-flex items-center gap-2 shadow-lg shadow-primary/20">
-                  <ShoppingBag size={16} /> Adicionar ao Orçamento
-                </button>
-                <Link
-                  to="/orcamento"
-                  className="px-6 py-3.5 border-2 border-border text-foreground rounded-lg text-sm font-semibold hover:bg-muted transition-colors inline-flex items-center gap-2">
-                  Solicitar Orçamento <ArrowRight size={16} />
-                </Link>
+                {activePrice > 0 ? (
+                  <button
+                    onClick={() => {
+                      const selectedSizeData = product.sizes?.find((s) => s.label === selectedSize);
+                      addItem({
+                        slug: product.slug,
+                        name: product.name,
+                        image: product.image,
+                        size: selectedSizeData?.dimensions || undefined,
+                        color: selectedColor?.name || undefined,
+                        colorHex: selectedColor?.hex || undefined,
+                        unitPrice: activePrice,
+                        unit: pricing?.unit || "un"
+                      });
+                    }}
+                    className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors inline-flex items-center gap-2 shadow-lg shadow-primary/20">
+                    <ShoppingBag size={16} /> Adicionar ao Orçamento
+                  </button>
+                ) : (
+                  <Link
+                    to="/orcamento"
+                    className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors inline-flex items-center gap-2 shadow-lg shadow-primary/20">
+                    Solicitar Orçamento <ArrowRight size={16} />
+                  </Link>
+                )}
                 <button className="px-6 py-3.5 border-2 border-border text-foreground rounded-lg text-sm font-semibold hover:bg-muted transition-colors inline-flex items-center gap-2">
                   <Download size={16} /> Ficha Técnica
                 </button>
