@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Loader2, ShoppingBag, ArrowLeft, ArrowRight } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { storefrontApiRequest, PRODUCT_BY_HANDLE_QUERY, isPurchasable } from "@/lib/shopify";
+import { formatMoney } from "@/lib/formatCurrency";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 
@@ -104,7 +105,7 @@ export default function LojaDetalhe() {
               <h1 className="text-3xl md:text-4xl font-display font-normal text-foreground">{product.title}</h1>
               <p className="text-2xl font-bold text-foreground mt-4">
                 {purchasable
-                  ? `${selectedVariant?.price.currencyCode} ${parseFloat(selectedVariant?.price.amount || "0").toFixed(2)}`
+                  ? formatMoney(selectedVariant?.price)
                   : "Sob consulta"}
               </p>
               <p className="text-muted-foreground mt-6 leading-relaxed">{product.description}</p>

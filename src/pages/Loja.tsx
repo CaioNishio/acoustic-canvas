@@ -4,6 +4,7 @@ import { ShoppingBag, Loader2, ArrowRight } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { storefrontApiRequest, PRODUCTS_QUERY, isPurchasable, type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
+import { formatMoney } from "@/lib/formatCurrency";
 import { toast } from "sonner";
 
 export default function Loja() {
@@ -28,6 +29,18 @@ export default function Loja() {
   const handleAdd = async (product: ShopifyProduct) => {
     const variant = product.node.variants.edges[0]?.node;
     if (!variant) return;
+    // Rede de seguranca contra produto mal cadastrado: sem isto, um item sob
+    // consulta ou com preco 0,00 na Shopify vira pedido que a loja teria de
+    // honrar. O botao ja fica desabilitado nesse caso (ver `purchasable`
+    // abaixo), mas o clique pode chegar aqui por uma condicao de corrida com
+    // dados recem-carregados — a checagem centralizada e a garantia final.
+    if (!isPurchasable(variant.price.amount, variant.availableForSale, product.node.sobConsulta)) {
+      toast.error("Produto indisponivel para compra online", {
+        description: "Fale com a gente para receber o preco deste item.",
+        position: "top-center",
+      });
+      return;
+    }
     await addItem({
       product,
       variantId: variant.id,
@@ -84,7 +97,7 @@ export default function Loja() {
                       <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{product.node.description}</p>
                       <div className="flex items-center justify-between mt-4">
                         <span className="text-lg font-bold text-foreground">
-                          {purchasable ? `${price.currencyCode} ${parseFloat(price.amount).toFixed(2)}` : "Sob consulta"}
+                          {purchasable ? formatMoney(price) : "Sob consulta"}
                         </span>
                         {purchasable ? (
                           <button

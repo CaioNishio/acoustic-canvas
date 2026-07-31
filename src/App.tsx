@@ -64,7 +64,13 @@ const App = () => (
       <Toaster />
       <Sonner />
       <QuoteCartDrawer />
-      <BrowserRouter>
+      {/*
+        basename vem do BASE_URL do Vite. Em hospedagem na raiz (Netlify,
+        Vercel, dominio proprio) isso e "/" e nada muda. No GitHub Pages o site
+        e servido em /acoustic-canvas/, e sem o basename toda rota do React
+        Router apontaria para fora do subcaminho.
+      */}
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <AppContent />
       </BrowserRouter>
     </QuoteCartProvider>
