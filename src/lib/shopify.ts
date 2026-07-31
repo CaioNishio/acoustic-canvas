@@ -75,7 +75,23 @@ export interface ShopifyProduct {
       name: string;
       values: string[];
     }>;
+    sobConsulta: { value: string } | null;
   };
+}
+
+// --- Regra comercial centralizada ---
+//
+// Um so lugar decide se o CTA e "Comprar/Adicionar ao carrinho" ou
+// "Solicitar orcamento". Nao duplicar esta logica em Loja.tsx, LojaDetalhe.tsx
+// nem em nenhum componente futuro — todos devem chamar esta funcao.
+//
+// price <= 0 cobre o caso de produto sem metafield ainda preenchido (nem todo
+// produto tem comercial.sob_consulta setado); o metafield e o sinal
+// autoritativo quando presente.
+export function isPurchasable(priceAmount: string, availableForSale: boolean, sobConsulta?: { value: string } | null): boolean {
+  if (sobConsulta?.value === "true") return false;
+  if (!availableForSale) return false;
+  return parseFloat(priceAmount) > 0;
 }
 
 // --- API Helper ---
@@ -162,6 +178,9 @@ export const PRODUCTS_QUERY = `
             name
             values
           }
+          sobConsulta: metafield(namespace: "comercial", key: "sob_consulta") {
+            value
+          }
         }
       }
     }
@@ -209,6 +228,9 @@ export const PRODUCT_BY_HANDLE_QUERY = `
       options {
         name
         values
+      }
+      sobConsulta: metafield(namespace: "comercial", key: "sob_consulta") {
+        value
       }
     }
   }

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QuoteCartProvider } from "@/contexts/QuoteCartContext";
 import QuoteCartDrawer from "@/components/shared/QuoteCartDrawer";
 import { useCartSync } from "@/hooks/useCartSync";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import Index from "./pages/Index";
 
 const Produtos = lazy(() => import("./pages/Produtos"));
@@ -33,6 +34,7 @@ function AppContent() {
   useCartSync();
   return (
     <Suspense fallback={<div className="min-h-screen" />}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/produtos" element={<Produtos />} />
@@ -64,7 +66,13 @@ const App = () => (
       <Toaster />
       <Sonner />
       <QuoteCartDrawer />
-      <BrowserRouter>
+      {/*
+        basename vem do BASE_URL do Vite. Em hospedagem na raiz (Netlify,
+        Vercel, dominio proprio) isso e "/" e nada muda. No GitHub Pages o site
+        e servido em /acoustic-canvas/, e sem o basename toda rota do React
+        Router apontaria para fora do subcaminho.
+      */}
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <AppContent />
       </BrowserRouter>
     </QuoteCartProvider>
