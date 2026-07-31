@@ -17,7 +17,8 @@ import imgPainelDestaque from "@/assets/products/painel-acustico-snr3250/image00
 import imgDifusorDestaque from "@/assets/produtos/difusor-skyline/01-capa.png";
 import imgBassTrapDestaque from "@/assets/products/bass-trap-corner-3s-snr6430/bass-trap-01-black-side - Copia.png";
 
-type MenuKey = "produtos" | "espacos" | "recursos" | "sobre" | null;
+// "conhecimento" navega direto, sem dropdown — existe aqui só para o estado ativo.
+type MenuKey = "produtos" | "espacos" | "recursos" | "sobre" | "conhecimento" | null;
 /** cada categoria abre o catálogo já filtrado */
 const catUrl = (label: string) => `/produtos?categoria=${encodeURIComponent(label)}`;
 const productCategories = [
@@ -142,6 +143,9 @@ export default function Header() {
             </div>
             <div onMouseEnter={() => openMenu("recursos")} onMouseLeave={scheduleClose}>
               <Link to="/calculadora" onClick={() => setActiveMenu(null)} className={navItemClass("recursos")}>Calculadora Acústica</Link>
+            </div>
+            <div onMouseEnter={() => openMenu(null)} onMouseLeave={scheduleClose}>
+              <Link to="/conhecimento" onClick={() => setActiveMenu(null)} className={navItemClass("conhecimento")}>Conhecimento</Link>
             </div>
             <div className="relative" onMouseEnter={() => openMenu("sobre")} onMouseLeave={scheduleClose}>
               <Link to="/contato" onClick={() => setActiveMenu(null)} className={navItemClass("sobre")}>Sobre</Link>
@@ -288,7 +292,8 @@ export default function Header() {
           { to: "/produtos", label: "Produtos" },
           { to: "/solucoes", label: "Espaços" },
           { to: "/projetos", label: "Projetos" },
-          { to: "/calculadora", label: "Calculadora" }].
+          { to: "/calculadora", label: "Calculadora" },
+          { to: "/conhecimento", label: "Conhecimento" }].
           map((item) =>
           <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="px-6 py-3 text-base font-light tracking-[0.12em] rounded-full text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 uppercase">
                   {item.label}

@@ -23,6 +23,7 @@ const EnvioFotos = lazy(() => import("./pages/EnvioFotos"));
 const EnvioFotosDetalhe = lazy(() => import("./pages/EnvioFotosDetalhe"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const Artigo = lazy(() => import("./pages/Artigo"));
+const Conhecimento = lazy(() => import("./pages/Conhecimento"));
 const GikHome = lazy(() => import("./pages/GikHome"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -46,6 +47,7 @@ function AppContent() {
         <Route path="/loja" element={<Loja />} />
         <Route path="/loja/:handle" element={<LojaDetalhe />} />
         <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/conhecimento" element={<Conhecimento />} />
         <Route path="/aprender/:slug" element={<Artigo />} />
         <Route path="/envio-fotos" element={<EnvioFotos />} />
         <Route path="/envio-fotos/:slug" element={<EnvioFotosDetalhe />} />
