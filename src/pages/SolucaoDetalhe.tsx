@@ -1,8 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/shared/ProductCard";
+import { Eyebrow, Lead, Reveal, Section, SectionTitle } from "@/components/sonar/primitives";
+import { SonarButton } from "@/components/sonar/Button";
 import { solutions } from "@/data/solutions";
 import { products } from "@/data/products";
 
@@ -13,9 +14,11 @@ export default function SolucaoDetalhePage() {
   if (!solution) {
     return (
       <Layout>
-        <div className="section-padding text-center">
-          <p className="text-muted-foreground">Solução não encontrada.</p>
-          <Link to="/solucoes" className="text-primary mt-4 inline-block">Voltar</Link>
+        <div className="snr-home flex min-h-[50vh] flex-col items-center justify-center gap-3 bg-snr-white text-center">
+          <p className="snr-body text-snr-mineral-700">Solução não encontrada.</p>
+          <Link to="/solucoes" className="text-sm font-medium text-snr-petrol hover:text-snr-ocean">
+            Voltar
+          </Link>
         </div>
       </Layout>
     );
@@ -25,89 +28,89 @@ export default function SolucaoDetalhePage() {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="relative h-[50vh] flex items-end overflow-hidden">
-        <img src={solution.image} alt={solution.title} className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-        <div className="container mx-auto px-4 pb-12 relative z-10">
-          <Link to="/solucoes" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-4">
-            <ArrowLeft size={14} /> Voltar
-          </Link>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-display text-4xl md:text-5xl font-bold">
-            {solution.title}
-          </motion.h1>
-        </div>
-      </section>
-
-      <section className="section-padding">
-        <div className="container mx-auto max-w-4xl">
-          <div className="space-y-10">
-            <div>
-              <h2 className="font-display text-2xl font-bold mb-3">O Problema</h2>
-              <p className="text-muted-foreground leading-relaxed">{solution.problem}</p>
-            </div>
-            <div className="glow-line" />
-            <div>
-              <h2 className="font-display text-2xl font-bold mb-3">Nossa Abordagem</h2>
-              <p className="text-muted-foreground leading-relaxed">{solution.approach}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery */}
-      {solution.gallery && solution.gallery.length > 0 && (
-        <section className="section-padding bg-muted/30">
-          <div className="container mx-auto">
-            <h2 className="font-display text-2xl font-bold mb-8 text-center">Galeria de Projetos</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {solution.gallery.map((img, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="aspect-square rounded-xl overflow-hidden group"
-                >
-                  <img
-                    src={img}
-                    alt={`${solution.title} - Projeto ${i + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                </motion.div>
-              ))}
-            </div>
+      <div className="snr-home bg-snr-white">
+        {/* Hero */}
+        <section className="relative flex h-[56vh] min-h-[420px] items-end overflow-hidden bg-snr-graphite">
+          <img
+            src={solution.image}
+            alt={solution.title}
+            className="absolute inset-0 h-full w-full object-cover"
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-snr-graphite-deep/95 via-snr-graphite-deep/50 to-snr-graphite-deep/10" />
+          <div className="snr-container relative z-10 pb-12">
+            <Link
+              to="/solucoes"
+              className="inline-flex items-center gap-1.5 text-sm text-snr-mineral-300 transition-colors hover:text-snr-white"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" /> Voltar
+            </Link>
+            <p className="snr-caption snr-rule-editorial mt-5 text-snr-white/75">{solution.environment}</p>
+            <h1 className="snr-display-hero mt-4 text-snr-white">{solution.title}</h1>
           </div>
         </section>
-      )}
 
+        <Section tone="paper">
+          <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-2">
+            <Reveal>
+              <Eyebrow>O problema</Eyebrow>
+              <p className="snr-body snr-measure mt-4 text-snr-mineral-700">{solution.problem}</p>
+            </Reveal>
+            <Reveal delay={80}>
+              <Eyebrow>Nossa abordagem</Eyebrow>
+              <p className="snr-body snr-measure mt-4 text-snr-mineral-700">{solution.approach}</p>
+            </Reveal>
+          </div>
+        </Section>
 
-      {/* Recommended Products */}
-      {recommended.length > 0 && (
-        <section className="section-padding bg-secondary/20">
-          <div className="container mx-auto">
-            <h2 className="font-display text-2xl font-bold mb-8 text-center">Produtos Recomendados</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Gallery */}
+        {solution.gallery && solution.gallery.length > 0 && (
+          <Section>
+            <SectionTitle className="mb-8 text-center">Galeria de projetos</SectionTitle>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+              {solution.gallery.map((img, i) => (
+                <Reveal key={img} delay={i * 50}>
+                  <div className="group aspect-square overflow-hidden rounded-2xl bg-snr-paper">
+                    <img
+                      src={img}
+                      alt={`${solution.title} — projeto ${i + 1}`}
+                      className="snr-zoom-media h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </Section>
+        )}
+
+        {/* Recommended Products */}
+        {recommended.length > 0 && (
+          <Section tone="wash">
+            <SectionTitle className="mb-8 text-center">Produtos recomendados</SectionTitle>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {recommended.map((p) => (
                 <ProductCard key={p.slug} product={p} />
               ))}
             </div>
-          </div>
-        </section>
-      )}
+          </Section>
+        )}
 
-      {/* CTA */}
-      <section className="section-padding">
-        <div className="container mx-auto text-center">
-          <h2 className="font-display text-2xl font-bold">Precisa de um projeto para {solution.title.toLowerCase()}?</h2>
-          <p className="text-muted-foreground mt-2">Solicite um orçamento e nossa equipe técnica irá dimensionar a melhor solução.</p>
-          <Link to="/orcamento" className="mt-6 inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors">
-            Solicitar Orçamento <ArrowRight size={16} />
-          </Link>
-        </div>
-      </section>
+        {/* CTA */}
+        <Section>
+          <div className="mx-auto max-w-xl text-center">
+            <SectionTitle>Precisa de um projeto para {solution.title.toLowerCase()}?</SectionTitle>
+            <Lead className="mx-auto mt-3">
+              Solicite um orçamento e nossa equipe técnica irá dimensionar a melhor solução.
+            </Lead>
+            <div className="mt-8 flex justify-center">
+              <SonarButton to="/orcamento" variant="primary" size="lg">
+                Solicitar orçamento <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+              </SonarButton>
+            </div>
+          </div>
+        </Section>
+      </div>
     </Layout>
   );
 }

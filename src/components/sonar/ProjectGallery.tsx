@@ -8,11 +8,11 @@ import { projects } from "@/data/projects";
  * Galeria editorial de projetos — portfólio arquitetônico com estudo de caso.
  * Imagem ocupa 60%, informação 40%, alternando lados a cada projeto.
  */
-export default function ProjectGallery() {
+export default function ProjectGallery({ tone }: { tone?: "light" | "paper" | "wash" | "dark" }) {
   const featured = projects.slice(0, 3);
 
   return (
-    <Section id="projetos">
+    <Section id="projetos" tone={tone}>
       <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <Eyebrow>Projetos realizados</Eyebrow>
