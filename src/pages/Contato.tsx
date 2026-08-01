@@ -40,10 +40,28 @@ export default function ContatoPage() {
       setSent(true);
     } catch (err) {
       console.error("Falha ao enviar mensagem de contato:", err);
-      toast.error(
-        "Não conseguimos registrar sua mensagem. Fale conosco pelo WhatsApp (11) 96748-4000 — seus dados foram preservados.",
-        { duration: 8000 },
-      );
+      // Mesma razão do /orcamento: sem um caminho clicável, a mensagem se perde.
+      toast.error("Não conseguimos registrar sua mensagem — seus dados foram preservados.", {
+        duration: 15000,
+        action: {
+          label: "Enviar por WhatsApp",
+          onClick: () =>
+            window.open(
+              `https://wa.me/5511967484000?text=${encodeURIComponent(
+                [
+                  "Olá! Tentei enviar uma mensagem pelo site, mas o envio falhou.",
+                  "",
+                  `Nome: ${form.name}`,
+                  `E-mail: ${form.email}`,
+                  "",
+                  form.message,
+                ].join("\n"),
+              )}`,
+              "_blank",
+              "noopener,noreferrer",
+            ),
+        },
+      });
     } finally {
       setSending(false);
     }

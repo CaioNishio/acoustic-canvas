@@ -98,12 +98,15 @@ function protocoloFromId(id: string): string {
  * prazo ou condicao comercial que nao existem aqui. Campos vazios sao
  * omitidos, para nao gerar linhas em branco nem link maior que o necessario.
  */
-function buildWhatsAppMessage(protocolo: string, form: FormState, projectTypeLabel?: string): string {
+function buildWhatsAppMessage(protocolo: string | null, form: FormState, projectTypeLabel?: string): string {
   const linhas = [
     "Olá! Gostaria de solicitar uma avaliação acústica.",
     "",
-    "PROTOCOLO",
-    protocolo,
+    // Sem protocolo o envio não chegou ao servidor: avisar isso aqui evita que
+    // o atendimento procure um registro que não existe.
+    ...(protocolo
+      ? ["PROTOCOLO", protocolo]
+      : ["(O envio pelo site falhou — estes dados vieram direto do formulário.)"]),
     "",
     "CLIENTE",
     `Nome: ${form.name}`,
@@ -270,7 +273,24 @@ export default function OrcamentoPage() {
       setSubmitted(true);
     } catch (err) {
       console.error("Falha ao enviar orçamento:", err);
-      toast.error(mensagemDeErro(err), { duration: 8000 });
+      // Falar em "fale conosco pelo WhatsApp" sem dar o caminho deixa o cliente
+      // procurar o número sozinho — na prática, o lead se perde. A ação abre o
+      // WhatsApp já com todos os dados preenchidos que ele acabou de digitar.
+      const tipo = PROJECT_TYPES.find((t) => t.value === form.projectType)?.label;
+      toast.error(mensagemDeErro(err), {
+        duration: 15000,
+        action: {
+          label: "Enviar por WhatsApp",
+          onClick: () =>
+            window.open(
+              `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                buildWhatsAppMessage(null, form, tipo),
+              )}`,
+              "_blank",
+              "noopener,noreferrer",
+            ),
+        },
+      });
     } finally {
       setSubmitting(false);
     }
