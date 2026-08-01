@@ -1,0 +1,54 @@
+name: Supabase Deploy
+
+# Aplica migracoes e publica Edge Functions automaticamente — sem isso, toda
+# migracao criada em supabase/migrations/ fica so no repositorio ate alguem
+# colar o SQL manualmente no dashboard (foi exatamente o que aconteceu com
+# quote_requests, contact_messages e commercial_quotes antes deste workflow
+# existir: a tabela nunca chegou ao banco de producao, e o formulario de
+# orcamento ficou meses respondendo "configuracao pendente do servidor").
+#
+# So dispara quando algo em supabase/ muda push para main, ou sob demanda.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "supabase/migrations/**"
+      - "supabase/functions/**"
+  workflow_dispatch: {}
+
+# Evita duas execucoes aplicando migracao ao mesmo tempo se dois pushes
+# chegarem em sequencia rapida.
+concurrency:
+  group: supabase-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Vincular ao projeto
+        run: supabase link --project-ref "$SUPABASE_PROJECT_REF"
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_REF: zcnasovvuglsxoobfcbt
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+
+      # Idempotente: so aplica migracoes que ainda nao rodaram nesse banco,
+      # na ordem dos timestamps do nome do arquivo. Migracao ja aplicada e
+      # pulada, nunca reexecutada.
+      - name: Aplicar migracoes do banco
+        run: supabase db push
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+
+      - name: Publicar Edge Functions
+        run: supabase functions deploy
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}

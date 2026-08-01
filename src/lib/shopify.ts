@@ -79,6 +79,16 @@ export interface ShopifyProduct {
   };
 }
 
+/* Atalhos derivados de ShopifyProduct.
+   As telas que consomem a Storefront API recebem o produto SEM o envelope
+   `node` (data.product). Derivar daqui, em vez de redeclarar, garante que
+   qualquer mudanca no shape da query se propague sozinha. */
+export type ShopifyProductNode = ShopifyProduct["node"];
+export type ShopifyVariantNode = ShopifyProductNode["variants"]["edges"][number]["node"];
+export type ShopifyImageEdge = ShopifyProductNode["images"]["edges"][number];
+export type ShopifyProductOption = ShopifyProductNode["options"][number];
+export type ShopifySelectedOption = ShopifyVariantNode["selectedOptions"][number];
+
 // --- Regra comercial centralizada ---
 //
 // Um so lugar decide se o CTA e "Comprar/Adicionar ao carrinho" ou

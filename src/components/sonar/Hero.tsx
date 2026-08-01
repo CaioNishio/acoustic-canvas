@@ -27,7 +27,7 @@ export default function Hero() {
             </p>
 
             <h1 className="snr-display-hero mt-6 text-snr-white">
-              Cada ambiente com o som sob controle
+              Forma, função e comportamento sonoro em equilíbrio.
             </h1>
 
             <p className="snr-body mt-6 max-w-[48ch] text-snr-white/80">

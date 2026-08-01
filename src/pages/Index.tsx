@@ -33,7 +33,7 @@ const HomePage = () => (
       <ProblemNavigator />
       <AcousticTools />
       <FeaturedProducts />
-      <ProjectGallery />
+      <ProjectGallery tone="paper" />
       <ProcessLine />
       <TechnicalContent />
       <ProofAndCTA />

@@ -29,7 +29,10 @@ export default function EnvioFotos() {
     <Layout>
       <section className="py-16 md:py-24 px-4 md:px-8 bg-background">
         <div className="container mx-auto">
-          <div className="flex justify-end mb-4">
+          <div className="flex justify-end gap-2 mb-4">
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/admin/orcamentos">Gerador de orçamentos</Link>
+            </Button>
             <Button
               variant="outline"
               size="sm"

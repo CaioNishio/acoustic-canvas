@@ -337,7 +337,7 @@ const WaveField = ({ treated }: { treated: boolean }) => {
           // A frente perde energia ao se espalhar. Sem absorção esse
           // decaimento é lento, então várias frentes coexistem na sala.
           const spread = Math.pow(1 - age, treated ? 1.5 : 0.75);
-          let alpha = base * orderFade * spread;
+          const alpha = base * orderFade * spread;
           if (alpha <= 0.012) continue;
 
           // desenha em segmentos para modular a opacidade ao longo do arco

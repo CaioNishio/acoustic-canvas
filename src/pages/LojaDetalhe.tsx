@@ -2,16 +2,25 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Loader2, ShoppingBag, ArrowLeft, ArrowRight } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-import { storefrontApiRequest, PRODUCT_BY_HANDLE_QUERY, isPurchasable } from "@/lib/shopify";
+import {
+  storefrontApiRequest,
+  PRODUCT_BY_HANDLE_QUERY,
+  isPurchasable,
+  type ShopifyProductNode,
+  type ShopifyVariantNode,
+  type ShopifyImageEdge,
+  type ShopifyProductOption,
+  type ShopifySelectedOption,
+} from "@/lib/shopify";
 import { formatMoney } from "@/lib/formatCurrency";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 
 export default function LojaDetalhe() {
   const { handle } = useParams<{ handle: string }>();
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<ShopifyProductNode | null>(null);
   const [loading, setLoading] = useState(true);
-  const [selectedVariant, setSelectedVariant] = useState<any>(null);
+  const [selectedVariant, setSelectedVariant] = useState<ShopifyVariantNode | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const addItem = useCartStore((s) => s.addItem);
   const isLoading = useCartStore((s) => s.isLoading);
@@ -91,7 +100,7 @@ export default function LojaDetalhe() {
               </div>
               {images.length > 1 && (
                 <div className="flex gap-2 overflow-x-auto">
-                  {images.map((img: any, i: number) => (
+                  {images.map((img: ShopifyImageEdge, i: number) => (
                     <button key={i} onClick={() => setSelectedImage(i)} className={`w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-colors ${i === selectedImage ? 'border-primary' : 'border-transparent'}`}>
                       <img src={img.node.url} alt="" className="w-full h-full object-cover" />
                     </button>
@@ -111,18 +120,18 @@ export default function LojaDetalhe() {
               <p className="text-muted-foreground mt-6 leading-relaxed">{product.description}</p>
 
               {/* Options */}
-              {product.options?.filter((o: any) => o.name !== "Title").map((option: any) => (
+              {product.options?.filter((o: ShopifyProductOption) => o.name !== "Title").map((option: ShopifyProductOption) => (
                 <div key={option.name} className="mt-6">
                   <label className="text-sm font-semibold text-foreground mb-2 block">{option.name}</label>
                   <div className="flex flex-wrap gap-2">
                     {option.values.map((value: string) => {
-                      const isSelected = selectedVariant?.selectedOptions?.some((so: any) => so.name === option.name && so.value === value);
+                      const isSelected = selectedVariant?.selectedOptions?.some((so: ShopifySelectedOption) => so.name === option.name && so.value === value);
                       return (
                         <button
                           key={value}
                           onClick={() => {
-                            const variant = product.variants.edges.find((v: any) =>
-                              v.node.selectedOptions.some((so: any) => so.name === option.name && so.value === value)
+                            const variant = product.variants.edges.find((v) =>
+                              v.node.selectedOptions.some((so: ShopifySelectedOption) => so.name === option.name && so.value === value)
                             );
                             if (variant) setSelectedVariant(variant.node);
                           }}

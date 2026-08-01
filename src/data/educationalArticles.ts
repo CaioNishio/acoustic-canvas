@@ -1,8 +1,8 @@
-import { Ear, MapPin, AlertTriangle, Layers } from "lucide-react";
+import { Ear, MapPin, AlertTriangle, Layers, type LucideIcon } from "lucide-react";
 
 export interface EducationalArticle {
   slug: string;
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
   title: string;
   subtitle: string;
   desc: string;
