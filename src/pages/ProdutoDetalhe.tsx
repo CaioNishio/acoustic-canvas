@@ -9,6 +9,7 @@ import AbsorptionChart from "@/components/shared/AbsorptionChart";
 import { products, type ProductColor } from "@/data/products";
 import { productPrices, formatPrice, unitLabel } from "@/data/productPrices";
 import { useQuoteCart } from "@/contexts/QuoteCartContext";
+import { useShopifyPurchase } from "@/hooks/useShopifyPurchase";
 
 const Product3DViewer = lazy(() => import("@/components/shared/Product3DViewer"));
 
@@ -35,6 +36,7 @@ export default function ProdutoDetalhePage() {
   const [mainImage, setMainImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const { addItem } = useQuoteCart();
+  const shopify = useShopifyPurchase(slug ?? "");
 
   // Auto-select first size on mount
   const pricing = product ? productPrices[product?.slug || ""] : undefined;
@@ -249,8 +251,25 @@ export default function ProdutoDetalhePage() {
                   mantem "Adicionar ao Orcamento" como rotulo legitimo, nao
                   redundante. Preco <= 0 ("Sob consulta") nao tem valor para
                   acumular, entao mostra so o caminho direto ao formulario. As
-                  duas acoes nunca aparecem juntas para o mesmo produto. */}
+                  duas acoes nunca aparecem juntas para o mesmo produto.
+
+                  "Comprar agora" e adicional: so aparece quando o slug tem
+                  contraparte publicada na Shopify (useShopifyPurchase), sem
+                  remover o orcamento — os dois convivem, igual na Loja. */}
               <div className="flex flex-wrap gap-3 mt-8">
+                {shopify.status === "disponivel" && (
+                  <button
+                    onClick={() => shopify.addToCart(1)}
+                    disabled={shopify.isAddingToCart}
+                    className="px-8 py-3.5 bg-[hsl(var(--snr-orange))] text-white font-semibold rounded-lg hover:brightness-95 transition-all inline-flex items-center gap-2 shadow-lg shadow-[hsl(var(--snr-orange))]/20 disabled:opacity-60">
+                    <ShoppingBag size={16} /> Comprar agora
+                  </button>
+                )}
+                {shopify.status === "esgotado" && (
+                  <button disabled className="px-8 py-3.5 bg-muted text-muted-foreground font-semibold rounded-lg inline-flex items-center gap-2 cursor-not-allowed">
+                    Esgotado no momento
+                  </button>
+                )}
                 {activePrice > 0 ? (
                   <button
                     onClick={() => {
