@@ -110,12 +110,12 @@ export default function Header() {
           <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
         </div>
 
-        <div className="container relative h-9 text-xs mx-auto flex items-center justify-between px-6 lg:px-10">
-          <div className="flex items-center gap-[42px] opacity-100 mx-[20px] px-0 py-0 bg-black/0 my-[43px] text-muted">
-            <a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors" aria-label="Instagram"><Instagram size={15} /></a>
-            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors" aria-label="WhatsApp"><WhatsAppIcon size={15} /></a>
+        <div className="container relative mx-auto flex h-9 items-center justify-between px-6 text-xs lg:px-10">
+          <div className="flex items-center gap-3 text-white/60">
+            <a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-micro ease-snr hover:bg-white/[0.08] hover:text-white" aria-label="Instagram"><Instagram size={14} /></a>
+            <a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-micro ease-snr hover:bg-white/[0.08] hover:text-white" aria-label="WhatsApp"><WhatsAppIcon size={14} /></a>
           </div>
-          <div className="flex items-center gap-2 text-muted font-sans text-xs font-normal">
+          <div className="flex items-center gap-2 font-sans text-xs font-normal text-white/60">
             <Phone size={12} className="text-white/40" />
             <span className="tracking-[0.2em] text-[11px] font-light text-white/50 uppercase">Consultoria Acústica Gratuita</span>
           </div>
@@ -128,8 +128,12 @@ export default function Header() {
         <div className="w-full h-16 lg:h-20 px-6 my-0 flex-row flex items-center justify-between gap-[20px] mx-auto lg:px-[77px] py-[10px] text-center bg-[#073b74]/[0.54] rounded-full">
 
           {/* Logo - left */}
-          <Link to="/" className="flex items-center flex-shrink-0">
-            <img alt="Sonar Acústicos" className="h-14 lg:h-20 w-auto" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" width={80} height={80} />
+          <Link to="/" className="group relative flex flex-shrink-0 items-center">
+            <span
+              className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-snr-ocean-light/25 opacity-0 blur-xl transition-opacity duration-ui ease-snr group-hover:opacity-100"
+              aria-hidden="true"
+            />
+            <img alt="Sonar Acústicos" className="h-14 w-auto transition-transform duration-ui ease-snr group-hover:scale-[1.03] lg:h-20" src="/lovable-uploads/3ca143a0-e798-45d3-b9c3-9499e7d7d501.png" width={80} height={80} />
           </Link>
 
           {/* Nav - center */}
