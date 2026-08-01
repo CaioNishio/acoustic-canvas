@@ -116,7 +116,7 @@
 .snr-display {
   font-family: "Lexend Giga", "Lexend", sans-serif;
   font-size: clamp(2rem, 1.5rem + 2vw, 3.25rem); /* 32 → 52px */
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -125,7 +125,7 @@
 .snr-display-hero {
   font-family: "Lexend Giga", "Lexend", sans-serif;
   font-size: clamp(1.875rem, 1.5rem + 1.5vw, 2.75rem); /* 30 → 44px */
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.14;
   letter-spacing: -0.02em;
 }
@@ -133,7 +133,7 @@
 .snr-title {
   font-family: "Lexend Giga", "Lexend", sans-serif;
   font-size: clamp(1.5rem, 1.25rem + 1vw, 1.875rem); /* 24 → 30px */
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.22;
   letter-spacing: -0.015em;
 }

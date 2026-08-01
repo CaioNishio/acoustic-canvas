@@ -132,7 +132,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Lexend Giga', 'Lexend', sans-serif;
-    @apply font-bold;
+    @apply font-semibold;
     letter-spacing: -0.02em;
   }
 
@@ -193,4 +193,21 @@
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Impressao do orcamento (/admin/orcamentos): so o documento vai pro papel,
+   sem cabecalho, rodape ou formulario do site. */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #quote-print-area,
+  #quote-print-area * {
+    visibility: visible;
+  }
+  #quote-print-area {
+    position: absolute;
+    inset: 0;
+    padding: 24px;
+  }
 }
