@@ -101,7 +101,7 @@ export default function Header() {
   };
   // Lexend em caixa alta com espaçamento largo: mais leve e contemporâneo
   // que o peso médio anterior, sem perder legibilidade sobre o azul.
-  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2 text-[12px] lg:text-[13px] font-normal tracking-[0.22em] transition-all duration-300 ease-out rounded-full cursor-pointer whitespace-nowrap uppercase font-[\'Lexend\',sans-serif] ${activeMenu === key ? "text-white bg-white/[0.16] backdrop-blur-xl border border-white/[0.14]" : "text-white/85 hover:text-white hover:bg-white/[0.09] hover:backdrop-blur-xl"}`;
+  const navItemClass = (key: MenuKey) => `px-4 py-2 lg:px-5 lg:py-2 text-[12px] lg:text-[13px] font-normal tracking-[0.22em] transition-all duration-300 ease-out rounded-full cursor-pointer whitespace-nowrap uppercase font-['Lexend',sans-serif] ${activeMenu === key ? "text-white bg-white/[0.16] backdrop-blur-xl border border-white/[0.14]" : "text-white/85 hover:text-white hover:bg-white/[0.09] hover:backdrop-blur-xl"}`;
   return <motion.header initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="fixed top-0 left-0 right-0 z-50 px-0 py-[7px] border-destructive">
       {/* Top Bar — frosted glass */}
       <div className="relative text-white bg-[hsl(205,78%,6%)]/80 backdrop-blur-2xl border-b border-white/[0.06] overflow-hidden">
