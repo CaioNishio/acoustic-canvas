@@ -12,6 +12,9 @@ const badgeFor = (product: Product): string | null => {
 
 export default function ProductCard({ product }: { product: Product }) {
   const badge = badgeFor(product);
+  // O laranja é a cor de energia do sistema (3% da paleta): fica reservado
+  // para o selo de maior apelo comercial, para não competir com o azul.
+  const badgeTone = badge === "Mais vendido" ? "bg-snr-orange" : "bg-snr-petrol";
 
   return (
     <Link
@@ -20,7 +23,7 @@ export default function ProductCard({ product }: { product: Product }) {
     >
       <div className="relative overflow-hidden rounded-xl bg-snr-white">
         {badge && (
-          <span className="snr-caption absolute left-3 top-3 z-10 rounded-full bg-snr-petrol px-3 py-1 text-[10px] tracking-[0.12em] text-snr-white">
+          <span className={`snr-caption absolute left-3 top-3 z-10 rounded-full ${badgeTone} px-3 py-1 text-[10px] tracking-[0.12em] text-snr-white`}>
             {badge}
           </span>
         )}
