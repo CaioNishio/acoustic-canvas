@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShoppingBag } from "lucide-react";
 import type { Product } from "@/data/products";
 import { productPrices, formatPrice, unitLabel } from "@/data/productPrices";
+import { isPurchasable } from "@/lib/shopifyCatalog";
 
 export default function ProductCard({ product }: { product: Product }) {
+  /* Mapa estático, sem request por card — ver nota em sonar/ProductCard.tsx. */
+  const comprable = isPurchasable(product.slug);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -71,8 +75,15 @@ export default function ProductCard({ product }: { product: Product }) {
               </div>
             );
           })()}
-          <div className="flex items-center gap-1.5 mt-3 text-[hsl(var(--snr-ocean))] text-base font-semibold group-hover:gap-2.5 transition-all">
-            Ver detalhes <ArrowRight size={14} />
+          <div className="flex items-center justify-between gap-2 mt-3">
+            <span className="flex items-center gap-1.5 text-[hsl(var(--snr-ocean))] text-base font-semibold group-hover:gap-2.5 transition-all">
+              Ver detalhes <ArrowRight size={14} />
+            </span>
+            {comprable && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--snr-orange))]/10 px-2.5 py-1 text-xs font-semibold text-[hsl(var(--snr-orange))]">
+                <ShoppingBag size={12} /> Comprar
+              </span>
+            )}
           </div>
         </div>
       </Link>

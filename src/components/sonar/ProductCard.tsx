@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import { ShoppingBag } from "lucide-react";
 import type { Product } from "@/data/products";
+import { isPurchasable } from "@/lib/shopifyCatalog";
 
 /** No máximo quatro selos no sistema. */
 const badgeFor = (product: Product): string | null => {
@@ -15,6 +17,10 @@ export default function ProductCard({ product }: { product: Product }) {
   // O laranja é a cor de energia do sistema (3% da paleta): fica reservado
   // para o selo de maior apelo comercial, para não competir com o azul.
   const badgeTone = badge === "Mais vendido" ? "bg-snr-orange" : "bg-snr-petrol";
+  /* Consulta o mapa estático, NÃO a Storefront API: numa grade de dezenas de
+     cards, uma request por card seria regressão de desempenho. O mapa já sabe
+     quais slugs têm contraparte publicada. */
+  const comprable = isPurchasable(product.slug);
 
   return (
     <Link
@@ -45,6 +51,15 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className="mt-auto pt-4 text-[13px] font-medium text-snr-petrol">
           {product.price ? `A partir de ${product.price}` : "Sob consulta"}
         </p>
+
+        {/* Sinaliza a compra direta já na vitrine; a ação em si acontece na
+            página do produto, onde tamanho e cor são escolhidos. */}
+        {comprable && (
+          <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-snr-orange/10 px-3 py-1 text-[12px] font-medium text-snr-orange">
+            <ShoppingBag className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />
+            Comprar agora
+          </span>
+        )}
       </div>
     </Link>
   );
