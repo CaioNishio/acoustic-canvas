@@ -14,6 +14,90 @@ export type Database = {
   }
   public: {
     Tables: {
+      commercial_quotes: {
+        Row: {
+          client_address: string | null
+          client_city: string | null
+          client_document: string | null
+          client_email: string
+          client_name: string
+          client_neighborhood: string | null
+          client_phone: string | null
+          client_state: string | null
+          client_state_registration: string | null
+          client_zip: string | null
+          created_at: string
+          created_by: string | null
+          discount: number
+          doc_number: number
+          email_sent_at: string | null
+          id: string
+          issue_date: string
+          items: Json
+          notes: string | null
+          status: string
+          subtotal: number
+          tax_total: number
+          total: number
+          updated_at: string
+          valid_until: string
+        }
+        Insert: {
+          client_address?: string | null
+          client_city?: string | null
+          client_document?: string | null
+          client_email: string
+          client_name: string
+          client_neighborhood?: string | null
+          client_phone?: string | null
+          client_state?: string | null
+          client_state_registration?: string | null
+          client_zip?: string | null
+          created_at?: string
+          created_by?: string | null
+          discount?: number
+          doc_number?: number
+          email_sent_at?: string | null
+          id?: string
+          issue_date?: string
+          items?: Json
+          notes?: string | null
+          status?: string
+          subtotal?: number
+          tax_total?: number
+          total?: number
+          updated_at?: string
+          valid_until: string
+        }
+        Update: {
+          client_address?: string | null
+          client_city?: string | null
+          client_document?: string | null
+          client_email?: string
+          client_name?: string
+          client_neighborhood?: string | null
+          client_phone?: string | null
+          client_state?: string | null
+          client_state_registration?: string | null
+          client_zip?: string | null
+          created_at?: string
+          created_by?: string | null
+          discount?: number
+          doc_number?: number
+          email_sent_at?: string | null
+          id?: string
+          issue_date?: string
+          items?: Json
+          notes?: string | null
+          status?: string
+          subtotal?: number
+          tax_total?: number
+          total?: number
+          updated_at?: string
+          valid_until?: string
+        }
+        Relationships: []
+      }
       product_images: {
         Row: {
           alt_text: string | null
