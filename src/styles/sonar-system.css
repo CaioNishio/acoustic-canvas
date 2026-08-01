@@ -224,6 +224,34 @@
 }
 
 /* ============================================================
+   PROFUNDIDADE DE SEÇÃO
+   Gradientes de baixíssimo contraste: dão volume sem introduzir
+   cor nova nem competir com o conteúdo. Aplicados pela primitiva
+   Section (ver primitives.tsx).
+   ============================================================ */
+
+/* Seção escura: leve halo azul no topo, como luz indireta na sala.
+   O gradiente é sutil de propósito — o objetivo é tirar a sensação
+   de bloco chapado, não criar um efeito perceptível. */
+.snr-tone-dark {
+  background-image: radial-gradient(
+    120% 80% at 50% 0%,
+    hsl(var(--snr-petrol) / 0.35) 0%,
+    transparent 60%
+  );
+}
+
+/* Seção em papel: clareia de leve na direção do conteúdo, evitando
+   a emenda dura contra as seções brancas vizinhas. */
+.snr-tone-paper {
+  background-image: linear-gradient(
+    180deg,
+    hsl(var(--snr-mineral-100) / 0.5) 0%,
+    transparent 22%
+  );
+}
+
+/* ============================================================
    INTERAÇÃO
    Hover no máximo 1.02, rotação abaixo de 1 grau.
    ============================================================ */

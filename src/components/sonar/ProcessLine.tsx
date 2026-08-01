@@ -37,7 +37,7 @@ export default function ProcessLine() {
   const reached = Math.round(progress * steps.length);
 
   return (
-    <Section id="processo">
+    <Section id="processo" tone="wash">
       <div className="mb-12 max-w-2xl">
         <Eyebrow>Como trabalhamos</Eyebrow>
         <SectionTitle className="mt-3">Cinco etapas, do sintoma ao resultado medido</SectionTitle>
