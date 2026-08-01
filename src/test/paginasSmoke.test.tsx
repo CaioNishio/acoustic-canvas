@@ -99,6 +99,13 @@ describe("páginas montam sem erro de runtime", () => {
     expect(screen.getByRole("button", { name: /enviar mensagem/i })).toBeInTheDocument();
   });
 
+  it("Orçamento", async () => {
+    const { default: Orcamento } = await import("@/pages/Orcamento");
+    renderRoute("/orcamento", <Orcamento />);
+    expect(screen.getByRole("heading", { name: /solicitar orçamento/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /próximo/i })).toBeInTheDocument();
+  });
+
   it("Produto (detalhe)", async () => {
     const { default: ProdutoDetalhe } = await import("@/pages/ProdutoDetalhe");
     renderRoute("/produtos/difusor-skyline", <ProdutoDetalhe />, "/produtos/:slug");

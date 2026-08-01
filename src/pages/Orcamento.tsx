@@ -3,7 +3,6 @@ import { ArrowRight, ArrowLeft, Check, Upload, Loader2, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import Layout from "@/components/layout/Layout";
-import SectionHeading from "@/components/shared/SectionHeading";
 import { supabase } from "@/integrations/supabase/client";
 
 const steps = ["Seus Dados", "Sobre o Projeto", "Arquivos", "Confirmação"];
@@ -48,7 +47,7 @@ function maskPhone(value: string) {
 }
 
 const inputClass =
-  "w-full bg-secondary border rounded-md px-3 py-2 text-foreground outline-none focus:ring-1 focus:ring-primary";
+  "w-full rounded-lg border bg-snr-white px-3 py-2.5 text-sm text-snr-graphite outline-none transition-colors focus:border-snr-ocean";
 
 /**
  * Traduz a falha real em algo acionavel. Mensagem generica esconde a causa e
@@ -145,7 +144,7 @@ type FieldProps = {
 function Field({ label, value, onChange, type = "text", required, error, inputMode, placeholder }: FieldProps) {
   return (
     <div>
-      <label className="text-sm text-muted-foreground mb-1 block">
+      <label className="mb-1.5 block text-xs text-snr-mineral-700">
         {label}{required && " *"}
       </label>
       <input
@@ -155,7 +154,7 @@ function Field({ label, value, onChange, type = "text", required, error, inputMo
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
         aria-invalid={!!error}
-        className={`${inputClass} ${error ? "border-destructive" : "border-border"}`}
+        className={`${inputClass} ${error ? "border-destructive" : "border-snr-mineral-100"}`}
       />
       {error && <p className="text-xs text-destructive mt-1">{error}</p>}
     </div>
@@ -282,17 +281,17 @@ export default function OrcamentoPage() {
   if (submitted) {
     return (
       <Layout>
-        <section className="section-padding">
-          <div className="container mx-auto max-w-lg text-center">
-            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="w-16 h-16 bg-primary/10 rounded-full mx-auto flex items-center justify-center mb-6">
-              <Check className="text-primary" size={32} />
+        <section className="snr-home snr-section bg-snr-white">
+          <div className="snr-container max-w-lg text-center">
+            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-snr-petrol">
+              <Check className="text-snr-white" size={30} strokeWidth={2} />
             </motion.div>
-            <h2 className="font-display text-3xl font-bold">Orçamento Enviado!</h2>
-            <p className="text-muted-foreground mt-3">Recebemos sua solicitação e entraremos em contato em até 24 horas.</p>
+            <h2 className="snr-title text-snr-graphite">Orçamento enviado</h2>
+            <p className="snr-body mt-3 text-snr-mineral-700">Recebemos sua solicitação e entraremos em contato em até 24 horas.</p>
             {protocolo && (
               <>
-                <p className="text-sm text-muted-foreground mt-4">
-                  Protocolo <span className="font-mono font-semibold text-foreground">{protocolo}</span>
+                <p className="mt-4 text-sm text-snr-mineral-700">
+                  Protocolo <span className="font-mono font-semibold text-snr-graphite">{protocolo}</span>
                 </p>
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsAppMessage(protocolo, form, projectTypeLabel))}`}
@@ -302,7 +301,7 @@ export default function OrcamentoPage() {
                 >
                   Enviar resumo por WhatsApp
                 </a>
-                <p className="text-xs text-muted-foreground mt-3">
+                <p className="mt-3 text-xs text-snr-mineral-500">
                   Opcional — adianta o atendimento, mas seu orçamento já foi registrado com o protocolo acima.
                 </p>
               </>
@@ -315,30 +314,41 @@ export default function OrcamentoPage() {
 
   return (
     <Layout>
-      <section className="section-padding">
-        <div className="container mx-auto max-w-2xl">
-          <SectionHeading tag="Orçamento" title="Solicitar Orçamento" description="Preencha o formulário abaixo para receber uma proposta personalizada." />
+      <div className="snr-home bg-snr-white">
+        {/* Abertura em grafite: tira o formulário do branco puro e dá contexto */}
+        <section className="snr-section bg-snr-graphite text-snr-white snr-on-dark snr-tone-dark">
+          <div className="snr-container max-w-2xl">
+            <p className="snr-caption snr-rule-editorial text-snr-ocean-light">Orçamento</p>
+            <h1 className="snr-title mt-3 text-snr-white">Solicitar orçamento</h1>
+            <p className="snr-body mt-4 text-snr-mineral-300">
+              Preencha o formulário e nossa equipe técnica dimensiona a solução para o seu
+              ambiente.
+            </p>
+          </div>
+        </section>
 
+        <section className="snr-section">
+          <div className="snr-container max-w-2xl">
           {/* Steps indicator */}
           <div className="flex items-center justify-center gap-2 mb-8">
             {steps.map((s, i) => (
               <div key={s} className="flex items-center gap-2">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors ${
-                  i <= step ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground"
+                <div className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-medium transition-colors duration-ui ease-snr ${
+                  i <= step ? "bg-snr-petrol text-snr-white" : "bg-snr-paper text-snr-mineral-500"
                 }`}>
                   {i < step ? <Check size={14} /> : i + 1}
                 </div>
-                {i < steps.length - 1 && <div className={`w-8 h-px ${i < step ? "bg-primary" : "bg-border"}`} />}
+                {i < steps.length - 1 && <div className={`w-8 h-px transition-colors duration-ui ease-snr ${i < step ? "bg-snr-petrol" : "bg-snr-mineral-100"}`} />}
               </div>
             ))}
           </div>
 
-          <div className="glass-card p-6 md:p-8">
+          <div className="rounded-2xl bg-snr-paper p-6 md:p-8">
             <AnimatePresence mode="wait">
               <motion.div key={step} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.2 }}>
                 {step === 0 && (
                   <div className="space-y-4">
-                    <h3 className="font-display text-lg font-semibold mb-4">Seus Dados</h3>
+                    <h3 className="snr-card-title mb-5 text-snr-graphite">Seus Dados</h3>
                     <Field label="Nome completo" required value={form.name} error={errors.name} onChange={(v) => update("name", v)} />
                     <Field label="E-mail" type="email" inputMode="email" required value={form.email} error={errors.email} onChange={(v) => update("email", v)} />
                     <Field label="Telefone" type="tel" inputMode="tel" placeholder="(11) 98765-4321" required value={form.phone} error={errors.phone} onChange={(v) => update("phone", maskPhone(v))} />
@@ -347,14 +357,14 @@ export default function OrcamentoPage() {
                 )}
                 {step === 1 && (
                   <div className="space-y-4">
-                    <h3 className="font-display text-lg font-semibold mb-4">Sobre o Projeto</h3>
+                    <h3 className="snr-card-title mb-5 text-snr-graphite">Sobre o Projeto</h3>
                     <div>
-                      <label className="text-sm text-muted-foreground mb-1 block">Tipo de projeto *</label>
+                      <label className="mb-1.5 block text-xs text-snr-mineral-700">Tipo de projeto *</label>
                       <select
                         value={form.projectType}
                         onChange={(e) => update("projectType", e.target.value)}
                         aria-invalid={!!errors.projectType}
-                        className={`${inputClass} ${errors.projectType ? "border-destructive" : "border-border"}`}
+                        className={`${inputClass} ${errors.projectType ? "border-destructive" : "border-snr-mineral-100"}`}
                       >
                         <option value="">Selecione</option>
                         {PROJECT_TYPES.map((t) => (
@@ -366,25 +376,25 @@ export default function OrcamentoPage() {
                     <Field label="Área aproximada (m²)" inputMode="numeric" value={form.area} error={errors.area} onChange={(v) => update("area", v)} />
                     <Field label="Cidade / Estado" required value={form.city} error={errors.city} onChange={(v) => update("city", v)} />
                     <div>
-                      <label className="text-sm text-muted-foreground mb-1 block">Descrição do projeto</label>
+                      <label className="mb-1.5 block text-xs text-snr-mineral-700">Descrição do projeto</label>
                       <textarea
                         value={form.description}
                         onChange={(e) => update("description", e.target.value)}
                         rows={4}
-                        className={`${inputClass} border-border resize-none`}
+                        className={`${inputClass} border-snr-mineral-100 resize-none`}
                       />
                     </div>
                   </div>
                 )}
                 {step === 2 && (
                   <div className="space-y-4">
-                    <h3 className="font-display text-lg font-semibold mb-4">Arquivos (opcional)</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <h3 className="snr-card-title mb-5 text-snr-graphite">Arquivos (opcional)</h3>
+                    <p className="text-sm text-snr-mineral-700">
                       Anexe plantas, fotos ou outros arquivos relevantes. Até {MAX_FILES} arquivos, {MAX_FILE_MB} MB cada.
                     </p>
-                    <label className="glass-card-hover flex flex-col items-center justify-center py-12 cursor-pointer">
-                      <Upload className="text-muted-foreground mb-2" size={32} />
-                      <span className="text-sm text-muted-foreground">Clique para enviar arquivos</span>
+                    <label className="flex cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-snr-mineral-100 bg-snr-white py-12 transition-colors duration-ui ease-snr hover:border-snr-ocean">
+                      <Upload className="mb-2 text-snr-mineral-500" size={32} />
+                      <span className="text-sm text-snr-mineral-700">Clique para enviar arquivos</span>
                       <input
                         type="file"
                         multiple
@@ -398,13 +408,13 @@ export default function OrcamentoPage() {
                     {form.files.length > 0 && (
                       <ul className="space-y-1">
                         {form.files.map((f, i) => (
-                          <li key={`${f.name}-${i}`} className="flex items-center justify-between gap-2 text-sm text-muted-foreground">
+                          <li key={`${f.name}-${i}`} className="flex items-center justify-between gap-2 text-sm text-snr-mineral-700">
                             <span className="truncate">{f.name}</span>
                             <button
                               type="button"
                               onClick={() => removeFile(i)}
                               aria-label={`Remover ${f.name}`}
-                              className="shrink-0 hover:text-foreground transition-colors"
+                              className="shrink-0 transition-colors hover:text-snr-graphite"
                             >
                               <X size={14} />
                             </button>
@@ -416,17 +426,17 @@ export default function OrcamentoPage() {
                 )}
                 {step === 3 && (
                   <div className="space-y-4">
-                    <h3 className="font-display text-lg font-semibold mb-4">Confirme os dados</h3>
-                    <div className="glass-card divide-y divide-border text-sm">
-                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-muted-foreground">Nome</span><span className="text-right">{form.name || "—"}</span></div>
-                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-muted-foreground">E-mail</span><span className="text-right break-all">{form.email || "—"}</span></div>
-                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-muted-foreground">Telefone</span><span className="text-right">{form.phone || "—"}</span></div>
-                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-muted-foreground">Empresa</span><span className="text-right">{form.company || "—"}</span></div>
-                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-muted-foreground">Tipo</span><span className="text-right">{projectTypeLabel || "—"}</span></div>
-                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-muted-foreground">Área</span><span className="text-right">{form.area ? `${form.area} m²` : "—"}</span></div>
-                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-muted-foreground">Cidade</span><span className="text-right">{form.city || "—"}</span></div>
-                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-muted-foreground">Descrição</span><span className="text-right">{form.description || "—"}</span></div>
-                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-muted-foreground">Arquivos</span><span className="text-right">{form.files.length} arquivo(s)</span></div>
+                    <h3 className="snr-card-title mb-5 text-snr-graphite">Confirme os dados</h3>
+                    <div className="divide-y divide-snr-mineral-100 rounded-xl bg-snr-white text-sm">
+                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-snr-mineral-500">Nome</span><span className="text-right">{form.name || "—"}</span></div>
+                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-snr-mineral-500">E-mail</span><span className="text-right break-all">{form.email || "—"}</span></div>
+                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-snr-mineral-500">Telefone</span><span className="text-right">{form.phone || "—"}</span></div>
+                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-snr-mineral-500">Empresa</span><span className="text-right">{form.company || "—"}</span></div>
+                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-snr-mineral-500">Tipo</span><span className="text-right">{projectTypeLabel || "—"}</span></div>
+                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-snr-mineral-500">Área</span><span className="text-right">{form.area ? `${form.area} m²` : "—"}</span></div>
+                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-snr-mineral-500">Cidade</span><span className="text-right">{form.city || "—"}</span></div>
+                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-snr-mineral-500">Descrição</span><span className="text-right">{form.description || "—"}</span></div>
+                      <div className="flex justify-between gap-4 px-4 py-3"><span className="text-snr-mineral-500">Arquivos</span><span className="text-right">{form.files.length} arquivo(s)</span></div>
                     </div>
                   </div>
                 )}
@@ -436,23 +446,24 @@ export default function OrcamentoPage() {
             {/* Nav buttons */}
             <div className="flex justify-between mt-8">
               {step > 0 ? (
-                <button onClick={prev} disabled={submitting} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground disabled:opacity-50">
+                <button onClick={prev} disabled={submitting} className="inline-flex min-h-11 items-center gap-1.5 text-sm text-snr-mineral-700 transition-colors duration-micro ease-snr hover:text-snr-graphite disabled:opacity-50">
                   <ArrowLeft size={14} /> Voltar
                 </button>
               ) : <div />}
               {step < 3 ? (
-                <button onClick={next} className="px-6 py-2 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors inline-flex items-center gap-1 text-sm">
+                <button onClick={next} className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-snr-petrol px-6 text-sm font-medium text-snr-white transition-colors duration-micro ease-snr hover:bg-snr-petrol-light">
                   Próximo <ArrowRight size={14} />
                 </button>
               ) : (
-                <button onClick={submit} disabled={submitting} className="px-6 py-2 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors inline-flex items-center gap-1 text-sm disabled:opacity-60">
-                  {submitting ? <><Loader2 className="animate-spin" size={14} /> Enviando...</> : <>Enviar Orçamento <Check size={14} /></>}
+                <button onClick={submit} disabled={submitting} className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-snr-orange px-6 text-sm font-medium text-snr-white transition-all duration-micro ease-snr hover:brightness-95 disabled:opacity-60">
+                  {submitting ? <><Loader2 className="animate-spin" size={14} /> Enviando…</> : <>Enviar orçamento <Check size={14} /></>}
                 </button>
               )}
             </div>
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
     </Layout>
   );
 }
