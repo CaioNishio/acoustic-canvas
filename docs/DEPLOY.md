@@ -150,9 +150,13 @@ adicionar produto em `products.ts` e esquecer do mapa, o CI acusa.
    chave-mestra da operacao comercial — trocar em Develop apps > API credentials.
 3. **Publicar os 23 produtos faltantes** na loja.
 4. **Dominio proprio** — decidir e apontar DNS depois do teste na URL provisoria.
-5. **17 erros de lint pre-existentes** (`any` explicito em `LojaDetalhe.tsx` e
-   `Orcamento.tsx`, `require()` no `tailwind.config.ts`). O CI os reporta sem
-   bloquear; quando forem zerados, remover o `continue-on-error` do workflow.
+5. ~~17 erros de lint pre-existentes~~ — **resolvido em 01/08/2026.** Zerados e o
+   `continue-on-error` foi removido do CI; lint vermelho agora e regressao real.
+6. **Configurar os secrets do workflow `supabase-deploy.yml`** (ver secao 7) —
+   sem eles, migracoes continuam precisando ser aplicadas a mao.
+7. **Remover o app "Kilo Code"** da integracao do repositorio, se nao for mais
+   usado (ver secao 8) — hoje ele deixa todo PR marcado como `unstable` por
+   falta de creditos na conta, sem bloquear o merge de fato.
 
 ---
 
@@ -176,3 +180,65 @@ Maiores arquivos:
 ninguem baixa a build inteira numa sessao e o cache `immutable` evita rebaixar
 os mesmos assets. Ainda assim, os 4 PNGs acima de 1 MB sao candidatos obvios a
 conversao para WebP/AVIF — sozinhos representam ~6 MB, quase 20% da build.
+
+---
+
+## 7. Automacao do banco — `.github/workflows/supabase-deploy.yml`
+
+**Por que isso existe:** em 01/08/2026 o formulario de `/orcamento` ficou
+respondendo "configuracao pendente do servidor" em producao porque as
+migracoes em `supabase/migrations/` nunca tinham sido aplicadas — elas
+existiam so no repositorio. Alguem precisou colar SQL manualmente no
+dashboard para destravar. Este workflow fecha esse buraco: a partir de agora,
+toda migracao nova e toda mudanca em `supabase/functions/` sao aplicadas
+sozinhas ao dar merge na `main`.
+
+**O que ele faz, nessa ordem:**
+1. Vincula ao projeto (`supabase link`)
+2. `supabase db push` — aplica so as migracoes que ainda nao rodaram nesse
+   banco (idempotente: migracao ja aplicada e pulada, nunca reexecutada)
+3. `supabase functions deploy` — publica todas as Edge Functions da pasta
+   `supabase/functions/`, incluindo a `send-quote-email`
+
+**Configuracao unica, feita uma vez** — GitHub → repositorio → **Settings** →
+**Secrets and variables** → **Actions** → **New repository secret**:
+
+| Secret | Onde conseguir |
+|---|---|
+| `SUPABASE_ACCESS_TOKEN` | supabase.com/dashboard/account/tokens → **Generate new token** |
+| `SUPABASE_DB_PASSWORD` | a senha do banco Postgres do projeto (definida na criacao do projeto; se foi perdida, redefinir em **Project Settings → Database → Reset database password**) |
+
+Sem esses dois secrets o workflow falha com uma mensagem clara de
+autenticacao — nao aplica nada parcialmente.
+
+**Os secrets `GMAIL_USER` e `GMAIL_APP_PASSWORD`** (usados pela
+`send-quote-email` para enviar e-mail, nao pelo deploy em si) continuam sendo
+configurados **separadamente**, direto no projeto Supabase — **Project
+Settings → Edge Functions → Secrets** — porque sao credenciais da funcao em
+runtime, nao do processo de deploy. Ver `supabase/functions/send-quote-email/index.ts`
+para o passo a passo completo (gerar senha de app em
+myaccount.google.com/apppasswords, exige verificacao em duas etapas).
+
+**Rodar manualmente:** aba **Actions** do repositorio → workflow **Supabase
+Deploy** → **Run workflow**. Util para aplicar migracoes existentes sem
+esperar o proximo push em `supabase/`.
+
+---
+
+## 8. Remover a integracao "Kilo Code Review"
+
+O app comenta automaticamente em todo PR, mas a conta esta sem creditos —
+ele aparece como `action_required` e deixa o PR marcado `unstable` no GitHub,
+sem de fato bloquear o merge (nao e um required check). Isso nao e algo que
+uma ferramenta de IA consiga desfazer pela API do GitHub — desinstalar um
+GitHub App e uma acao administrativa que so o dono/admin do repositorio pode
+fazer pela interface:
+
+1. github.com/CaioNishio/acoustic-canvas → **Settings** → **Integrations** →
+   **GitHub Apps** (ou, se instalado a nivel de conta: github.com/settings/installations)
+2. Encontrar **Kilo Code** na lista → **Configure**
+3. Rolar ate o fim → **Uninstall**
+
+Alternativa sem desinstalar: em app.kilo.ai, adicionar creditos ou trocar
+para um modelo gratuito nas configuracoes de revisao de codigo — o app volta
+a rodar normalmente sem precisar mexer na instalacao do GitHub.
