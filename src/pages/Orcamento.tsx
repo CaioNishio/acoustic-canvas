@@ -86,7 +86,7 @@ function mensagemDeErro(err: unknown): string {
 
 const WHATSAPP_NUMBER = "5511967484000"; // mesmo numero usado em QuoteCartDrawer.tsx
 
-/** Protocolo curto e legivel a partir do UUID retornado pelo insert. */
+/** Protocolo curto e legivel a partir do UUID da solicitacao. */
 function protocoloFromId(id: string): string {
   return `SNR-${id.slice(0, 8).toUpperCase()}`;
 }
@@ -252,9 +252,20 @@ export default function OrcamentoPage() {
         attachments.push({ path, name: file.name, size: file.size });
       }
 
-      const { data: inserted, error: insertError } = await supabase
+      // O id e gerado AQUI, nao lido de volta do banco. Motivo: `.select()`
+      // depois de `.insert()` vira `INSERT ... RETURNING id`, e o RETURNING
+      // exige policy de SELECT. A tabela so permite SELECT para admin — de
+      // proposito, porque ela guarda nome, e-mail e telefone de clientes e a
+      // anon key e publica no bundle. Resultado: o visitante anonimo passava
+      // no INSERT e era barrado no retorno, o envio inteiro falhava e o lead
+      // era perdido. Gerando o id no cliente nao ha releitura, nao e preciso
+      // abrir SELECT para anon, e o protocolo sai igual.
+      const requestId = crypto.randomUUID();
+
+      const { error: insertError } = await supabase
         .from("quote_requests")
         .insert({
+          id: requestId,
           name: form.name.trim(),
           email: form.email.trim().toLowerCase(),
           phone: form.phone.replace(/\D/g, ""),
@@ -264,12 +275,10 @@ export default function OrcamentoPage() {
           city: form.city.trim(),
           description: form.description.trim() || null,
           attachments,
-        })
-        .select("id")
-        .single();
+        });
 
       if (insertError) throw insertError;
-      setProtocolo(protocoloFromId(inserted.id));
+      setProtocolo(protocoloFromId(requestId));
       setSubmitted(true);
     } catch (err) {
       console.error("Falha ao enviar orçamento:", err);
