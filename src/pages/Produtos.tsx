@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Search, X } from "lucide-react";
+import { ChevronDown, Search, SlidersHorizontal, X } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/sonar/ProductCard";
+import { useShopifyCatalogMedia } from "@/hooks/useShopifyCatalogMedia";
 import { SonarButton } from "@/components/sonar/Button";
 import {
   products,
@@ -23,6 +24,8 @@ export default function ProdutosPage() {
   const [thick, setThick] = useState("");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<SortKey>("destaque");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const { imagesFor } = useShopifyCatalogMedia();
 
   // a categoria vive na URL: links do menu chegam já filtrados e o
   // endereço continua compartilhável quando o filtro muda aqui
@@ -95,6 +98,28 @@ export default function ProdutosPage() {
         {/* Barra de filtros */}
         <section className="sticky top-0 z-30 border-b border-snr-mineral-100 bg-snr-white/95 py-4 backdrop-blur-md">
           <div className="snr-container">
+            <div className="flex items-center justify-between gap-3 md:hidden">
+              <button
+                type="button"
+                onClick={() => setFiltersOpen((open) => !open)}
+                aria-expanded={filtersOpen}
+                aria-controls="mobile-product-filters"
+                className="inline-flex min-h-11 flex-1 items-center justify-between rounded-full border border-snr-mineral-100 bg-snr-white px-5 text-sm font-semibold text-snr-graphite"
+              >
+                <span className="inline-flex items-center gap-2">
+                  <SlidersHorizontal size={16} aria-hidden="true" />
+                  Filtros {hasFilters ? "ativos" : ""}
+                </span>
+                <ChevronDown
+                  size={16}
+                  aria-hidden="true"
+                  className={`transition-transform ${filtersOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              <span className="shrink-0 text-sm text-snr-mineral-700">{filtered.length} produtos</span>
+            </div>
+
+            <div id="mobile-product-filters" className={`${filtersOpen ? "mt-4 block" : "hidden"} md:block`}>
             <div className="flex flex-wrap items-center justify-between gap-4">
               {/* Pills de categoria */}
               <div className="flex flex-1 flex-wrap items-center gap-2">
@@ -192,6 +217,7 @@ export default function ProdutosPage() {
                 {filtered.length} {filtered.length === 1 ? "produto" : "produtos"}
               </span>
             </div>
+            </div>
           </div>
         </section>
 
@@ -202,7 +228,7 @@ export default function ProdutosPage() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {filtered.map((product, i) => (
                   <Fragment key={product.slug}>
-                    <ProductCard product={product} />
+                    <ProductCard product={product} imageOverride={imagesFor(product.slug)[0]} />
                     {/* cartão de consultoria intercalado, como na referência */}
                     {i === 6 && (
                       <div className="flex flex-col justify-end rounded-2xl bg-snr-graphite p-7 text-snr-white">

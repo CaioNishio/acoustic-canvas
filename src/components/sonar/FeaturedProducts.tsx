@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Eyebrow, Lead, Reveal, Section, SectionTitle } from "./primitives";
 import { SonarButton } from "./Button";
 import { products } from "@/data/products";
+import { useShopifyCatalogMedia } from "@/hooks/useShopifyCatalogMedia";
 
 /** No máximo quatro selos, conforme o sistema definido. */
 const badges: Record<string, string> = {
@@ -20,6 +21,7 @@ const highlighted = [
 ];
 
 export default function FeaturedProducts() {
+  const { imagesFor } = useShopifyCatalogMedia();
   const items = highlighted
     .map((slug) => products.find((p) => p.slug === slug))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
@@ -52,7 +54,7 @@ export default function FeaturedProducts() {
                 )}
                 {/* imagem isolada com área vazia generosa */}
                 <img
-                  src={product.image}
+                  src={imagesFor(product.slug)[0] || product.image}
                   alt={product.name}
                   loading="lazy"
                   className="snr-zoom-media aspect-square w-full object-cover"

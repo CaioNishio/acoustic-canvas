@@ -9,6 +9,7 @@ import { useCartSync } from "@/hooks/useCartSync";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import Index from "./pages/Index";
 import RouteErrorBoundary from "@/components/layout/RouteErrorBoundary";
+import RouteSeo from "@/components/layout/RouteSeo";
 
 const Produtos = lazy(() => import("./pages/Produtos"));
 const ProdutoDetalhe = lazy(() => import("./pages/ProdutoDetalhe"));
@@ -47,6 +48,7 @@ function AppContent() {
   return (
     <Suspense fallback={<RouteLoading />}>
       <ScrollToTop />
+      <RouteSeo />
       <RouteErrorBoundary>
       <Routes>
         <Route path="/" element={<Index />} />

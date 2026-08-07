@@ -9,6 +9,7 @@ import AbsorptionChart from "@/components/shared/AbsorptionChart";
 import { products, type ProductColor } from "@/data/products";
 import { productPrices, formatPrice, unitLabel } from "@/data/productPrices";
 import { useQuoteCart } from "@/contexts/QuoteCartContext";
+import { useShopifyCatalogMedia } from "@/hooks/useShopifyCatalogMedia";
 
 const Product3DViewer = lazy(() => import("@/components/shared/Product3DViewer"));
 
@@ -35,9 +36,13 @@ export default function ProdutoDetalhePage() {
   const [mainImage, setMainImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const { addItem } = useQuoteCart();
+  const { imagesFor } = useShopifyCatalogMedia();
 
   // Auto-select first size on mount
   const pricing = product ? productPrices[product?.slug || ""] : undefined;
+  const shopifyImages = product ? imagesFor(product.slug) : [];
+  const gallery = product && shopifyImages.length > 0 ? shopifyImages : product?.gallery ?? [];
+  const productImage = shopifyImages[0] || product?.image || "";
   const [selectedSize, setSelectedSize] = useState<string | null>(() => {
     if (product?.sizes && product.sizes.length > 0) return product.sizes[0].label;
     return null;
@@ -107,11 +112,11 @@ export default function ProdutoDetalhePage() {
             {/* Gallery */}
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
               <div className="glass-card overflow-hidden rounded-xl">
-                <img src={product.gallery[mainImage] || product.image} alt={product.name} className="w-full aspect-square object-cover" />
+                <img src={gallery[mainImage] || productImage} alt={product.name} className="w-full aspect-square object-cover" />
               </div>
-              {product.gallery.length > 1 &&
+              {gallery.length > 1 &&
               <div className="grid grid-cols-4 gap-3 mt-3">
-                  {product.gallery.map((img, i) =>
+                  {gallery.map((img, i) =>
                 <button
                   key={i}
                   onClick={() => setMainImage(i)}
@@ -258,7 +263,7 @@ export default function ProdutoDetalhePage() {
                       addItem({
                         slug: product.slug,
                         name: product.name,
-                        image: product.image,
+                        image: productImage,
                         size: selectedSizeData?.dimensions || undefined,
                         color: selectedColor?.name || undefined,
                         colorHex: selectedColor?.hex || undefined,
@@ -349,7 +354,7 @@ export default function ProdutoDetalhePage() {
                 )}
                 </motion.div>
                 <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="rounded-xl overflow-hidden">
-                  <img src={product.gallery[1] || product.image} alt="" className="w-full aspect-[4/3] object-cover" loading="lazy" />
+                  <img src={gallery[1] || productImage} alt="" className="w-full aspect-[4/3] object-cover" loading="lazy" />
                 </motion.div>
               </div>
             </div>
@@ -413,11 +418,11 @@ export default function ProdutoDetalhePage() {
           </div>
 
           {/* Gallery mosaic — GIK style */}
-          {product.gallery.length > 2 &&
+          {gallery.length > 2 &&
           <div className="mt-20">
               <h3 className="font-display text-xl font-bold text-foreground mb-6">Galeria de Aplicações</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {product.gallery.map((img, i) =>
+                {gallery.map((img, i) =>
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}

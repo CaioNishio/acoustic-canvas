@@ -10,7 +10,7 @@ const badgeFor = (product: Product): string | null => {
   return null;
 };
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({ product, imageOverride }: { product: Product; imageOverride?: string }) {
   const badge = badgeFor(product);
 
   return (
@@ -25,7 +25,7 @@ export default function ProductCard({ product }: { product: Product }) {
           </span>
         )}
         <img
-          src={product.image}
+          src={imageOverride || product.image}
           alt={product.name}
           loading="lazy"
           className="snr-zoom-media aspect-square w-full object-cover"
