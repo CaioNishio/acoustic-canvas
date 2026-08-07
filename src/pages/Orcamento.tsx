@@ -250,24 +250,24 @@ export default function OrcamentoPage() {
         attachments.push({ path, name: file.name, size: file.size });
       }
 
-      const { data: inserted, error: insertError } = await supabase
-        .from("quote_requests")
-        .insert({
-          name: form.name.trim(),
-          email: form.email.trim().toLowerCase(),
-          phone: form.phone.replace(/\D/g, ""),
-          company: form.company.trim() || null,
-          project_type: form.projectType,
-          area: form.area.trim() || null,
-          city: form.city.trim(),
-          description: form.description.trim() || null,
-          attachments,
-        })
-        .select("id")
-        .single();
+      const { data: requestId, error: insertError } = await supabase.rpc(
+        "submit_quote_request",
+        {
+          p_name: form.name.trim(),
+          p_email: form.email.trim().toLowerCase(),
+          p_phone: form.phone.replace(/\D/g, ""),
+          p_company: form.company.trim() || null,
+          p_project_type: form.projectType,
+          p_area: form.area.trim() || null,
+          p_city: form.city.trim(),
+          p_description: form.description.trim() || null,
+          p_attachments: attachments,
+        },
+      );
 
       if (insertError) throw insertError;
-      setProtocolo(protocoloFromId(inserted.id));
+      if (!requestId) throw new Error("quote request returned no protocol");
+      setProtocolo(protocoloFromId(requestId));
       setSubmitted(true);
     } catch (err) {
       console.error("Falha ao enviar orçamento:", err);
