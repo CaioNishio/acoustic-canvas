@@ -72,7 +72,6 @@ export default function ProcessLine() {
             <li
               key={step.n}
               className="transition-opacity duration-narrative ease-snr"
-              style={{ opacity: i < reached ? 1 : 0.45 }}
             >
               <span className="snr-caption text-snr-ocean">{step.n}</span>
               <h3 className="snr-card-title mt-2 text-snr-graphite">{step.title}</h3>

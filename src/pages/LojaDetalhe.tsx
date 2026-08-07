@@ -18,18 +18,38 @@ export default function LojaDetalhe() {
 
   useEffect(() => {
     if (!handle) return;
-    (async () => {
+    let active = true;
+    const refreshProduct = async () => {
       try {
         const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
         const p = data?.data?.product;
+        if (!active) return;
         setProduct(p);
-        if (p?.variants?.edges?.[0]?.node) setSelectedVariant(p.variants.edges[0].node);
+        setSelectedImage((current) => Math.min(current, Math.max((p?.images?.edges?.length ?? 1) - 1, 0)));
+        setSelectedVariant((current: any) =>
+          p?.variants?.edges?.find((variant: any) => variant.node.id === current?.id)?.node
+          ?? p?.variants?.edges?.[0]?.node
+          ?? null,
+        );
       } catch (e) {
         console.error(e);
       } finally {
-        setLoading(false);
+        if (active) setLoading(false);
       }
-    })();
+    };
+
+    void refreshProduct();
+    const interval = window.setInterval(refreshProduct, 120_000);
+    const refreshWhenVisible = () => {
+      if (document.visibilityState === "visible") void refreshProduct();
+    };
+    document.addEventListener("visibilitychange", refreshWhenVisible);
+
+    return () => {
+      active = false;
+      window.clearInterval(interval);
+      document.removeEventListener("visibilitychange", refreshWhenVisible);
+    };
   }, [handle]);
 
   const handleAdd = async () => {

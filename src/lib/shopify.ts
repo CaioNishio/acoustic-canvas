@@ -107,8 +107,10 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
 
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
     method: 'POST',
+    cache: 'no-store',
     headers: {
       'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
       'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
     },
     body: JSON.stringify({ query, variables }),

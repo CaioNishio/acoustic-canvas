@@ -1,10 +1,8 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ArrowRight, ArrowLeft, Check, Upload, Loader2, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import Layout from "@/components/layout/Layout";
-import SectionHeading from "@/components/shared/SectionHeading";
-import { supabase } from "@/integrations/supabase/client";
 
 const steps = ["Seus Dados", "Sobre o Projeto", "Arquivos", "Confirmação"];
 
@@ -143,12 +141,14 @@ type FieldProps = {
 // desmonta e remonta o <input>, fazendo o campo perder o foco enquanto o
 // usuario digita.
 function Field({ label, value, onChange, type = "text", required, error, inputMode, placeholder }: FieldProps) {
+  const fieldId = useId();
   return (
     <div>
-      <label className="text-sm text-muted-foreground mb-1 block">
+      <label htmlFor={fieldId} className="text-sm text-muted-foreground mb-1 block">
         {label}{required && " *"}
       </label>
       <input
+        id={fieldId}
         type={type}
         value={value}
         inputMode={inputMode}
@@ -169,6 +169,9 @@ export default function OrcamentoPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [protocolo, setProtocolo] = useState<string | null>(null);
+  const projectTypeId = useId();
+  const descriptionId = useId();
+  const [emailDelivery, setEmailDelivery] = useState<"sent" | "pending">("pending");
 
   const update = <K extends keyof FormState>(field: K, value: FormState[K]) => {
     setForm((f) => ({ ...f, [field]: value }));
@@ -235,9 +238,11 @@ export default function OrcamentoPage() {
       toast.error("Revise os campos destacados antes de enviar.");
       return;
     }
-
     setSubmitting(true);
     try {
+      // Carregamento tardio: uma configuração ausente não pode mais derrubar
+      // toda a rota de orçamento antes de ela renderizar.
+      const { supabase } = await import("@/integrations/supabase/client");
       const attachments: { path: string; name: string; size: number }[] = [];
 
       for (const file of form.files) {
@@ -267,6 +272,32 @@ export default function OrcamentoPage() {
 
       if (insertError) throw insertError;
       if (!requestId) throw new Error("quote request returned no protocol");
+      const emailResponse = await fetch("/.netlify/functions/quote-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          requestId,
+          name: form.name.trim(),
+          email: form.email.trim().toLowerCase(),
+          phone: form.phone.replace(/\D/g, ""),
+          company: form.company.trim() || null,
+          projectType: form.projectType,
+          projectTypeLabel,
+          area: form.area.trim() || null,
+          city: form.city.trim(),
+          description: form.description.trim() || null,
+          attachmentCount: attachments.length,
+        }),
+      });
+
+      if (emailResponse.ok) {
+        setEmailDelivery("sent");
+      } else {
+        setEmailDelivery("pending");
+        console.warn("Quote registered but confirmation email failed", await emailResponse.text());
+        toast.warning("Seu pedido foi registrado. A confirmação por e-mail será enviada assim que o serviço de envio estiver disponível.");
+      }
+
       setProtocolo(protocoloFromId(requestId));
       setSubmitted(true);
     } catch (err) {
@@ -288,7 +319,7 @@ export default function OrcamentoPage() {
               <Check className="text-primary" size={32} />
             </motion.div>
             <h2 className="font-display text-3xl font-bold">Orçamento Enviado!</h2>
-            <p className="text-muted-foreground mt-3">Recebemos sua solicitação e entraremos em contato em até 24 horas.</p>
+            <p className="text-muted-foreground mt-3">{emailDelivery === "sent" ? "Enviamos uma confirmação para seu e-mail e nossa equipe entrará em contato em até um dia útil." : "Recebemos sua solicitação e nossa equipe entrará em contato em até um dia útil."}</p>
             {protocolo && (
               <>
                 <p className="text-sm text-muted-foreground mt-4">
@@ -315,9 +346,41 @@ export default function OrcamentoPage() {
 
   return (
     <Layout>
-      <section className="section-padding">
-        <div className="container mx-auto max-w-2xl">
-          <SectionHeading tag="Orçamento" title="Solicitar Orçamento" description="Preencha o formulário abaixo para receber uma proposta personalizada." />
+      <section className="relative isolate overflow-hidden bg-[#061c2a] py-16 text-white md:py-24">
+        <div className="pointer-events-none absolute inset-0 opacity-70" aria-hidden="true">
+          <div className="absolute -left-28 top-16 h-80 w-80 rounded-full bg-[#087ca7]/30 blur-3xl" />
+          <div className="absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-[#0f4e73]/50 blur-3xl" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(151,220,243,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(151,220,243,0.055)_1px,transparent_1px)] bg-[size:32px_32px]" />
+        </div>
+        <div className="snr-container relative grid items-start gap-12 xl:grid-cols-[0.72fr_1.28fr]">
+          <aside className="xl:sticky xl:top-36">
+            <p className="snr-caption text-[#8fd2ee]">Sistema de proposta / 01</p>
+            <h1 className="mt-5 max-w-[12ch] font-display text-4xl font-semibold leading-[1.06] tracking-[-0.045em] text-white md:text-6xl">
+              O próximo ambiente começa pela escuta.
+            </h1>
+            <p className="mt-6 max-w-[48ch] text-base leading-relaxed text-white/70 md:text-lg">
+              Conte o que acontece no espaço. A equipe Sonar transforma contexto, medidas e intenção de uso em uma recomendação técnica clara.
+            </p>
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }} className="mt-10 overflow-hidden rounded-3xl border border-white/15 bg-white/[0.06] p-5 backdrop-blur-xl">
+              <div className="flex items-center justify-between text-[10px] font-medium uppercase tracking-[0.22em] text-white/55">
+                <span>Leitura do ambiente</span><span className="text-[#8fd2ee]">Ativa</span>
+              </div>
+              <div className="mt-6 flex h-20 items-end gap-1.5" aria-hidden="true">
+                {[34, 52, 74, 42, 88, 56, 36, 65, 92, 48, 72, 38, 58, 84, 46, 68].map((height, index) => (
+                  <motion.span key={index} className="flex-1 rounded-full bg-gradient-to-t from-[#1489b7] to-[#b9efff]" initial={{ height: 4 }} animate={{ height }} transition={{ delay: 0.25 + index * 0.025, duration: 0.5 }} />
+                ))}
+              </div>
+              <div className="mt-5 grid grid-cols-3 gap-3 border-t border-white/10 pt-4 text-xs text-white/65">
+                <span>Diagnóstico</span><span>Projeto</span><span>Retorno em 1 dia útil</span>
+              </div>
+            </motion.div>
+          </aside>
+          <div className="min-w-0">
+            <div className="mb-8 max-w-2xl">
+              <p className="snr-caption text-[#8fd2ee]">Orçamento técnico</p>
+              <h2 className="mt-3 font-display text-3xl font-semibold tracking-[-0.035em] text-white md:text-4xl">Vamos estruturar sua solicitação.</h2>
+              <p className="mt-3 text-white/65">Preenchimento em quatro etapas. Você pode voltar e ajustar qualquer dado antes do envio.</p>
+            </div>
 
           {/* Steps indicator */}
           <div className="flex items-center justify-center gap-2 mb-8">
@@ -333,7 +396,7 @@ export default function OrcamentoPage() {
             ))}
           </div>
 
-          <div className="glass-card p-6 md:p-8">
+          <div className="rounded-[2rem] border border-white/10 bg-white p-6 text-foreground shadow-[0_32px_100px_-36px_rgba(0,0,0,0.7)] md:p-9">
             <AnimatePresence mode="wait">
               <motion.div key={step} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.2 }}>
                 {step === 0 && (
@@ -349,8 +412,9 @@ export default function OrcamentoPage() {
                   <div className="space-y-4">
                     <h3 className="font-display text-lg font-semibold mb-4">Sobre o Projeto</h3>
                     <div>
-                      <label className="text-sm text-muted-foreground mb-1 block">Tipo de projeto *</label>
+                      <label htmlFor={projectTypeId} className="text-sm text-muted-foreground mb-1 block">Tipo de projeto *</label>
                       <select
+                        id={projectTypeId}
                         value={form.projectType}
                         onChange={(e) => update("projectType", e.target.value)}
                         aria-invalid={!!errors.projectType}
@@ -366,9 +430,10 @@ export default function OrcamentoPage() {
                     <Field label="Área aproximada (m²)" inputMode="numeric" value={form.area} error={errors.area} onChange={(v) => update("area", v)} />
                     <Field label="Cidade / Estado" required value={form.city} error={errors.city} onChange={(v) => update("city", v)} />
                     <div>
-                      <label className="text-sm text-muted-foreground mb-1 block">Descrição do projeto</label>
+                      <label htmlFor={descriptionId} className="text-sm text-muted-foreground mb-1 block">Descrição do projeto</label>
                       <textarea
                         value={form.description}
+                        id={descriptionId}
                         onChange={(e) => update("description", e.target.value)}
                         rows={4}
                         className={`${inputClass} border-border resize-none`}
@@ -441,14 +506,15 @@ export default function OrcamentoPage() {
                 </button>
               ) : <div />}
               {step < 3 ? (
-                <button onClick={next} className="px-6 py-2 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors inline-flex items-center gap-1 text-sm">
+                <button onClick={next} className="inline-flex items-center gap-2 rounded-full bg-[#0b5f87] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0b5f87]/25 transition-all hover:-translate-y-0.5 hover:bg-[#084f73]">
                   Próximo <ArrowRight size={14} />
                 </button>
               ) : (
-                <button onClick={submit} disabled={submitting} className="px-6 py-2 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors inline-flex items-center gap-1 text-sm disabled:opacity-60">
+                <button onClick={submit} disabled={submitting} className="inline-flex items-center gap-2 rounded-full bg-[#0b5f87] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0b5f87]/25 transition-all hover:-translate-y-0.5 hover:bg-[#084f73] disabled:opacity-60">
                   {submitting ? <><Loader2 className="animate-spin" size={14} /> Enviando...</> : <>Enviar Orçamento <Check size={14} /></>}
                 </button>
               )}
+        </div>
             </div>
           </div>
         </div>
@@ -456,3 +522,4 @@ export default function OrcamentoPage() {
     </Layout>
   );
 }
+

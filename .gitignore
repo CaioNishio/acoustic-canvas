@@ -14,6 +14,8 @@ dist-ssr
 
 # Pacotes do build gerados para entrega manual (saida de `npm run build`)
 sonar-acusticos-site.zip
+playwright-report/
+test-results/
 
 # Segredos — NUNCA versionar
 .env

@@ -6,10 +6,10 @@ import logo from "@/assets/logo-sonar.png";
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-[hsl(205,78%,12%)] text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="snr-container py-14 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-8 gap-y-12">
           <div>
-            <img src={logo} alt="Sonar Acústicos" className="h-44 w-auto mb-4" width={176} height={176} loading="lazy" decoding="async" />
+            <img src={logo} alt="Sonar Acústicos" className="h-24 w-auto mb-5" width={176} height={176} loading="lazy" decoding="async" />
             <p className="text-base text-white/60">
               Soluções profissionais em tratamento acústico para todos os tipos de ambientes.
             </p>
@@ -41,7 +41,7 @@ export default function Footer() {
           <div>
             <h4 className="font-display text-base font-semibold text-secondary mb-3">Contato</h4>
             <ul className="space-y-2 text-base text-white/60">
-              <li><a href="mailto:contato@sonaracusticos.com.br" className="hover:text-white transition-colors">contato@sonaracusticos.com.br</a></li>
+              <li><a href="mailto:contato@sonaracusticos.com.br" className="break-all hover:text-white transition-colors">contato@sonaracusticos.com.br</a></li>
               <li><a href="https://wa.me/5511967484000" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><WhatsAppIcon size={18} /> (11) 96748-4000</a></li>
               <li><a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><Instagram size={20} /> @sonar_acusticos</a></li>
               <li>São Paulo, SP</li>
@@ -49,9 +49,9 @@ export default function Footer() {
           </div>
         </div>
         <div className="h-px bg-white/10 mt-8 mb-4" />
-        <div className="flex items-center justify-center gap-4 text-xs text-white/70">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-xs text-white/70">
           <span>© {new Date().getFullYear()} Sonar Acústicos. Todos os direitos reservados.</span>
-          <Link to="/admin-login" className="text-white/30 hover:text-white/60 transition-colors">Admin</Link>
+          <Link to="/admin-login" className="text-white/70 hover:text-white transition-colors">Admin</Link>
         </div>
       </div>
     </footer>

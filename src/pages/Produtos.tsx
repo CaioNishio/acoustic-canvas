@@ -126,7 +126,7 @@ export default function ProdutosPage() {
                           : "border-snr-mineral-100 text-snr-graphite hover:border-snr-mineral-300"
                       }`}
                     >
-                      {c} <span className="opacity-55">({count})</span>
+                      {c} <span className="font-medium text-foreground">({count})</span>
                     </button>
                   );
                 })}

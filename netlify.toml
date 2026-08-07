@@ -12,6 +12,11 @@
 #   VITE_SHOPIFY_STOREFRONT_TOKEN                     -> /loja
 #
 # ATENCAO: netlify.toml tem PRECEDENCIA sobre o painel. command/NODE_VERSION/
+# Segredos de e-mail ficam apenas no painel da Netlify:
+#   RESEND_API_KEY  -> API do Resend
+#   QUOTE_TO_EMAIL  -> destinatário interno
+#   QUOTE_FROM_EMAIL -> remetente em domínio verificado
+#
 # functions abaixo foram conferidos contra a configuracao real do projeto
 # (bun run build, Node 24.x, netlify/functions) — nao trocar sem verificar
 # de novo no painel, senao o build muda de comportamento silenciosamente.

@@ -7,7 +7,7 @@ export default function Layout({ children }: {children: ReactNode;}) {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 pt-[11.5rem]">{children}</main>
+      <main className="flex-1 pt-[7.25rem] xl:pt-[7.75rem]">{children}</main>
       <Footer />
       <WhatsAppButton />
     </div>);
