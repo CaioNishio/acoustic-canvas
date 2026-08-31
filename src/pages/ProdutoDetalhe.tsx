@@ -10,6 +10,7 @@ import { products, type ProductColor } from "@/data/products";
 import { productPrices, formatPrice, unitLabel } from "@/data/productPrices";
 import { useQuoteCart } from "@/contexts/QuoteCartContext";
 import { useShopifyCatalogMedia } from "@/hooks/useShopifyCatalogMedia";
+import { useShopifyPurchase } from "@/hooks/useShopifyPurchase";
 
 const Product3DViewer = lazy(() => import("@/components/shared/Product3DViewer"));
 
@@ -37,6 +38,7 @@ export default function ProdutoDetalhePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const { addItem } = useQuoteCart();
   const { imagesFor } = useShopifyCatalogMedia();
+  const shopify = useShopifyPurchase(slug ?? "");
 
   // Auto-select first size on mount
   const pricing = product ? productPrices[product?.slug || ""] : undefined;
@@ -256,6 +258,23 @@ export default function ProdutoDetalhePage() {
                   acumular, entao mostra so o caminho direto ao formulario. As
                   duas acoes nunca aparecem juntas para o mesmo produto. */}
               <div className="flex flex-wrap gap-3 mt-8">
+                {shopify.status === "disponivel" && (
+                  <button
+                    onClick={() => shopify.addToCart(1)}
+                    disabled={shopify.isAddingToCart}
+                    className="px-8 py-3.5 bg-[hsl(var(--snr-orange))] text-white font-semibold rounded-lg hover:brightness-95 transition-all inline-flex items-center gap-2 shadow-lg shadow-[hsl(var(--snr-orange))]/20 disabled:opacity-60"
+                  >
+                    <ShoppingBag size={16} /> Adicionar ao Carrinho
+                  </button>
+                )}
+                {shopify.status === "esgotado" && (
+                  <button
+                    disabled
+                    className="px-8 py-3.5 bg-muted text-muted-foreground font-semibold rounded-lg inline-flex items-center gap-2 cursor-not-allowed"
+                  >
+                    Esgotado no momento
+                  </button>
+                )}
                 {activePrice > 0 ? (
                   <button
                     onClick={() => {
