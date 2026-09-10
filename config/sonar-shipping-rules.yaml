@@ -1,0 +1,58 @@
+version: "1.0"
+
+origin:
+  postal_code: "03619100"
+  address: "Avenida São Miguel, 2155"
+  collection_window: "09:00-18:00"
+
+packaging:
+  default_extra_cm: 2
+  maximum_extra_cm: 3
+  tare_kg: 0.05
+
+families:
+  ABSORPTIVE_PANEL_RECT:
+    shipping_mode: automatic
+    max_stack_thickness_cm: 20
+    mix_with: [ABSORPTIVE_PANEL_RECT]
+  PANEL_60X60:
+    shipping_mode: automatic
+    units_per_layer: 2
+    max_units_per_volume: 8
+    packed_base_length_cm: 120
+    packed_base_width_cm: 60
+  DIFFUSER_SKYLINE_50:
+    shipping_mode: automatic
+    max_units_per_volume: 2
+    default_unit_weight_kg: 6
+    exclusive_volume: true
+  BASS_TRAP_CORNER:
+    shipping_mode: automatic
+    exclusive_volume: true
+  BASS_TRAP_MEMBRANE:
+    shipping_mode: automatic
+    max_units_per_volume: 1
+    default_unit_weight_kg: 12
+    exclusive_volume: true
+  RETRACTABLE_SCREEN:
+    shipping_mode: automatic
+    max_units_per_volume: 1
+    exclusive_volume: true
+  MOBILE_SCREEN_TRESTLE:
+    shipping_mode: automatic
+    max_units_per_volume: 1
+    exclusive_volume: true
+  ACOUSTIC_CURTAIN:
+    shipping_mode: automatic_after_validation
+    foldable: true
+    folding_mode: half
+    exclusive_volume: true
+  ACOUSTIC_DOOR:
+    shipping_mode: quote_required
+  EXPANDING_FOAM:
+    shipping_mode: automatic
+    max_units_per_volume: 12
+  ROCK_WOOL:
+    shipping_mode: automatic_after_validation
+    units_per_factory_pack: 6
+    fractional_factory_pack: false

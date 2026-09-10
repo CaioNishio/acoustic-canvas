@@ -11,6 +11,7 @@ import paineisSalaReuniao from "@/assets/gallery/paineis-sala-reuniao.webp";
 import estudioPaineis from "@/assets/gallery/estudio-paineis.webp";
 import escritorioPaineisAzuis from "@/assets/gallery/escritorio-paineis-azuis.webp";
 import painelImagemDigital from "@/assets/gallery/painel-imagem-digital.jpg";
+import painelImagemPlotadaTransparent from "@/assets/products/painel-imagem-plotada-transparent.png";
 import paineisSeminario from "@/assets/gallery/paineis-seminario.jpg";
 import bassTrapCorner from "@/assets/gallery/bass-trap-corner-1.jpg";
 import bassTrapStudio from "@/assets/gallery/bass-trap-studio.jpg";
@@ -161,6 +162,8 @@ export interface Product {
   longDescription?: string;
   image: string;
   gallery: string[];
+  curatedCover?: boolean;
+  curatedMedia?: boolean;
   specs: { label: string; value: string }[];
   materials: string[];
   price?: string;
@@ -436,7 +439,7 @@ export const products: Product[] = [
     thickness: "50mm",
     shortDescription: "Painel acústico revestido com tecido personalizado com impressão de imagem em alta definição.",
     description: "Transforme seu tratamento acústico em arte. O painel com imagem plotada combina a absorção do SNR3250 com um tecido personalizado impresso em alta definição. Envie sua arte, foto ou design e nós produzimos o painel.",
-    image: nvDivisoriaAmarelaDupla,
+    image: painelImagemPlotadaTransparent,
     gallery: [painelImagemDigital, paineisAzuis, paineisSalaReuniao],
     specs: [
       { label: "NRC", value: "0.95" },
@@ -1473,8 +1476,14 @@ export const products: Product[] = [
  */
 for (const product of products) {
   const cover = coverFromFolder(product.slug);
-  if (cover) product.image = cover;
+  if (cover) {
+    product.image = cover;
+    product.curatedCover = true;
+  }
 
   const gallery = galleryFromFolder(product.slug);
-  if (gallery) product.gallery = gallery;
+  if (gallery) {
+    product.gallery = [...new Set([...gallery, ...product.gallery])];
+    product.curatedMedia = true;
+  }
 }

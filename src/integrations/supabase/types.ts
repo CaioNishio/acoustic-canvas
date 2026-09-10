@@ -116,6 +116,20 @@ export type Database = {
         }
         Returns: boolean
       }
+      submit_quote_request: {
+        Args: {
+          p_name: string
+          p_email: string
+          p_phone: string
+          p_company: string | null
+          p_project_type: string
+          p_area: string | null
+          p_city: string
+          p_description: string | null
+          p_attachments?: Json
+        }
+        Returns: string
+      }
     }
     Enums: {
       app_role: "admin" | "user"

@@ -3,8 +3,103 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (max-width: 639px) {
+  .hero-lead-layout {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) !important;
+    grid-template-areas:
+      "copy products"
+      "description description";
+    align-items: center;
+    column-gap: 2px !important;
+    row-gap: 18px !important;
+  }
+
+  .hero-copy-block {
+    display: contents;
+  }
+
+  .hero-copy-block > p:first-child,
+  .hero-copy-block > h1 {
+    grid-column: 1;
+  }
+
+  .hero-copy-block > p:first-child {
+    grid-row: 1;
+    align-self: end;
+    font-size: 10px;
+    line-height: 1.25;
+    letter-spacing: .055em;
+  }
+
+  .hero-copy-block > h1 {
+    grid-row: 2;
+    align-self: start;
+    max-width: 9ch;
+    font-size: clamp(30px, 8.8vw, 36px);
+    line-height: .96;
+  }
+
+  .hero-copy-block > p:last-child {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: 0;
+  }
+
+  .hero-products-visual {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    aspect-ratio: 1 / 1;
+    overflow: visible;
+    background: transparent !important;
+  }
+
+  .hero-products-video,
+  .hero-products-image {
+    background: transparent !important;
+    filter: none;
+    mix-blend-mode: normal;
+  }
+}
+
+.hero-products-visual, .hero-products-video, .hero-products-image { background: transparent; }
+
+/* Responsive foundation: retain approved fonts, colors and local compositions. */
+.ref-home {
+  --snr-home-content-max: 1600px;
+  --snr-home-gutter: clamp(16px, 3.2vw, 51.2px);
+  min-width: 0;
+}
+.ref-home .snr-catalog-art {
+  max-width: var(--snr-home-content-max);
+  margin-inline: auto;
+}
+.ref-home .snr-catalog-intro > *,
+.ref-home .snr-feature-card > * {
+  min-width: 0;
+}
+.ref-home .snr-feature-card :is(dd, h3, p) {
+  overflow-wrap: anywhere;
+}
+
+/* SNR3250 feature only: darker neutral glass and a background-free sand panel. */
+.ref-home .snr-feature-card:has(img[alt*="acabamento areia"]) {
+  background: rgb(185 192 201 / 72%);
+  border-color: rgb(255 255 255 / 80%);
+  box-shadow: 0 28px 80px rgb(32 52 82 / 20%), inset 0 1px 0 rgb(255 255 255 / 82%);
+  backdrop-filter: blur(30px);
+}
+.ref-home .snr-feature-card:has(img[alt*="acabamento areia"]) > div:has(> img[alt*="acabamento areia"]) {
+  background: transparent;
+}
+.ref-home .snr-feature-card img[alt*="acabamento areia"] {
+  mix-blend-mode: normal;
+}
+
+
 @layer base {
   :root {
+    --sonar-font: "Manrope", "Aptos Display", "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
+    --sonar-hero-font: "Aptos Display", "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
 
@@ -53,8 +148,8 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --sidebar: 0 0% 98%;
-    --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    --font-serif: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
     --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
     --shadow-2xs: 1px 1px 0px 0px #000000;
     --shadow-xs: 2px 2px 0px 0px #000000;
@@ -109,11 +204,47 @@
     --shadow-xl: 16px 16px 0px 0px #ffffff;
     --shadow-2xl: 24px 24px 0px 0px #ffffff;
     --radius: 0rem;
-    --font-sans: Roboto, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-    --font-serif: Lora, ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    --font-serif: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
     --font-mono: "Cascadia Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
     --sidebar-background: 210 30% 8%;
   }
+}
+
+.sonar-nav-modern {
+  /* Manrope já é carregada no documento e traz uma leitura mais leve e
+     precisa para a navegação do que a antiga caixa alta quadrada. */
+  font-family: "Manrope", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.018em;
+  text-transform: none;
+}
+
+.sonar-handwritten {
+  font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+  font-weight: 400;
+  letter-spacing: 0.035em;
+  text-transform: none;
+  transform: rotate(-1deg);
+}
+
+.snr-hero-support {
+  font-family: var(--sonar-font);
+  font-size: clamp(0.95rem, 0.88rem + 0.22vw, 1.1rem);
+  font-weight: 430;
+  line-height: 1.58;
+  letter-spacing: -0.01em;
+}
+
+/* Capa de produto: integra fundos claros ao próprio card, sem alterar o arquivo original. */
+.snr-product-cover {
+  background: #f7f9fa;
+  isolation: isolate;
+}
+
+.snr-product-cover > img {
+  mix-blend-mode: multiply;
+  filter: saturate(1.02) contrast(1.01);
 }
 
 @layer base {
@@ -123,17 +254,24 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Lexend', sans-serif;
+    font-family: var(--sonar-font);
     font-size: 16px;
     line-height: 1.65;
     letter-spacing: 0;
-    font-weight: 400;
+    font-weight: 300;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font-family: var(--sonar-font);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lexend Giga', 'Lexend', sans-serif;
-    @apply font-bold;
-    letter-spacing: -0.02em;
+    font-family: var(--sonar-font);
+    font-weight: 300;
+    letter-spacing: -0.025em;
   }
 
   h1 {
@@ -150,6 +288,12 @@
 
   p {
     @apply text-base md:text-lg leading-relaxed;
+  }
+
+  /* Garante a mesma identidade tipográfica inclusive nas páginas legadas
+     que ainda carregavam classes de fontes externas. */
+  body :where(*):not(code):not(pre):not(kbd):not(samp):not(.font-mono) {
+    font-family: var(--sonar-font) !important;
   }
 }
 

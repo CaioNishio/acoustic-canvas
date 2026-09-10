@@ -17,7 +17,7 @@ export default function ProductCard({ product }: { product: Product }) {
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${product.curatedCover ? "bg-white object-contain p-5" : "object-cover"}`}
             loading="lazy"
           />
         </div>

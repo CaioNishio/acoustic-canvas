@@ -11,8 +11,8 @@
  * Nenhuma alteração de código é necessária. Em `npm run dev` a mudança
  * aparece na hora; para produção basta um novo `npm run build`.
  *
- * A primeira imagem da pasta (em ordem alfabética) vira a CAPA do produto.
- * Use um prefixo numérico para controlar: `01-capa.png`, `02-detalhe.jpg`.
+ * Uma capa só é promovida quando o arquivo foi validado como PNG de fundo
+ * branco e recebeu o nome `00-capa-branca-organizada.png`.
  *
  * Produtos sem pasta continuam usando as imagens definidas em products.ts.
  */
@@ -38,8 +38,9 @@ for (const slug of Object.keys(folderImages)) {
   folderImages[slug].sort((a, b) => fileNameOf(a).localeCompare(fileNameOf(b), "pt-BR"));
 }
 
-/** Capa vinda da pasta, se houver. */
-export const coverFromFolder = (slug: string): string | undefined => folderImages[slug]?.[0];
+/** Capa branca validada vinda da pasta, se houver. */
+export const coverFromFolder = (slug: string): string | undefined =>
+  folderImages[slug]?.find((url) => fileNameOf(url).includes("capa-branca-organizada"));
 
 /** Galeria vinda da pasta, se houver. */
 export const galleryFromFolder = (slug: string): string[] | undefined => {

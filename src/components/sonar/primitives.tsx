@@ -9,7 +9,7 @@ type Tone = "light" | "paper" | "wash" | "dark";
 
 const toneClass: Record<Tone, string> = {
   light: "bg-snr-white text-snr-graphite",
-  paper: "bg-snr-paper text-snr-graphite",
+  paper: "bg-snr-ocean-wash text-snr-graphite",
   wash: "bg-snr-ocean-wash text-snr-graphite",
   dark: "bg-snr-graphite text-snr-white snr-on-dark",
 };

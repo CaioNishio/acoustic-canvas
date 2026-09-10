@@ -14,6 +14,8 @@ dist-ssr
 
 # Pacotes do build gerados para entrega manual (saida de `npm run build`)
 sonar-acusticos-site.zip
+playwright-report/
+test-results/
 
 # Segredos — NUNCA versionar
 .env
@@ -34,3 +36,7 @@ sonar-acusticos-site.zip
 
 # Pacotes gerados para entrega (build artifacts)
 *.zip
+.superdesign
+
+# Local Netlify folder
+.netlify

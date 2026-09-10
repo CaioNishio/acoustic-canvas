@@ -182,6 +182,7 @@ export default function CalculadoraPage() {
     <Layout>
       <section className="section-padding bg-gradient-to-b from-background via-muted/30 to-background min-h-screen mx-[3px] bg-transparent">
         <div className="container mx-auto">
+          <h1 className="sr-only">Calculadora Acústica</h1>
           <SectionHeading
             tag="Ferramenta"
             title="Calculadora Acústica"

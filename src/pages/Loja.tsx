@@ -14,16 +14,30 @@ export default function Loja() {
   const isLoading = useCartStore((s) => s.isLoading);
 
   useEffect(() => {
-    (async () => {
+    let active = true;
+    const refreshProducts = async () => {
       try {
         const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 50 });
-        setProducts(data?.data?.products?.edges ?? []);
+        if (active) setProducts(data?.data?.products?.edges ?? []);
       } catch (e) {
         console.error(e);
       } finally {
-        setLoading(false);
+        if (active) setLoading(false);
       }
-    })();
+    };
+
+    void refreshProducts();
+    const interval = window.setInterval(refreshProducts, 120_000);
+    const refreshWhenVisible = () => {
+      if (document.visibilityState === "visible") void refreshProducts();
+    };
+    document.addEventListener("visibilitychange", refreshWhenVisible);
+
+    return () => {
+      active = false;
+      window.clearInterval(interval);
+      document.removeEventListener("visibilitychange", refreshWhenVisible);
+    };
   }, []);
 
   const handleAdd = async (product: ShopifyProduct) => {

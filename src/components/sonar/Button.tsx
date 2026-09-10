@@ -10,7 +10,7 @@ const base =
   "transition-colors duration-micro ease-snr cursor-pointer whitespace-nowrap";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-snr-petrol text-snr-white hover:bg-snr-petrol-light",
+  primary: "bg-snr-petrol text-snr-white ring-1 ring-snr-ocean/35 hover:bg-snr-petrol-light",
   secondary:
     "border border-snr-graphite/25 text-snr-graphite hover:border-snr-graphite hover:bg-snr-graphite hover:text-snr-white",
   ghost: "text-snr-ocean hover:text-snr-petrol underline-offset-4 hover:underline",

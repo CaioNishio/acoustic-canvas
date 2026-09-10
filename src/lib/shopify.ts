@@ -1,5 +1,3 @@
-import { toast } from "sonner";
-
 const SHOPIFY_API_VERSION = '2025-07';
 // Loja oficial (confirmada pelo dono em 27/07/2026). A antiga
 // 'sssonar-f4ae6.myshopify.com' era loja de TESTE e foi descartada
@@ -40,6 +38,9 @@ export interface ShopifyProduct {
     title: string;
     description: string;
     handle: string;
+    productType: string;
+    vendor: string;
+    tags: string[];
     priceRange: {
       minVariantPrice: {
         amount: string;
@@ -98,10 +99,10 @@ export function isPurchasable(priceAmount: string, availableForSale: boolean, so
 
 export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
   if (!SHOPIFY_STOREFRONT_TOKEN) {
-    toast.error("Loja indisponivel no momento", {
-      description: "Catalogo temporariamente fora do ar. Fale conosco pelo WhatsApp.",
-    });
-    console.warn('[shopify] VITE_SHOPIFY_STOREFRONT_TOKEN ausente. Defina no .env do site.');
+    // O catálogo local é a continuidade segura quando a Storefront API não
+    // está configurada no ambiente de hospedagem. Não exibimos um erro ao
+    // visitante nem bloqueamos a abertura das páginas de produto.
+    console.warn('[shopify] Storefront API indisponível; usando catálogo local.');
     return;
   }
 
@@ -143,6 +144,9 @@ export const PRODUCTS_QUERY = `
           title
           description
           handle
+          productType
+          vendor
+          tags
           priceRange {
             minVariantPrice {
               amount
@@ -289,10 +293,13 @@ const CART_LINES_REMOVE_MUTATION = `
 
 // --- Cart Helpers ---
 
-function formatCheckoutUrl(checkoutUrl: string): string {
+export function formatCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
-    url.searchParams.set('channel', 'online_store');
+    // O checkout deve abrir como checkout hospedado pela Shopify, sem forçar o
+    // canal "online_store". Esse parâmetro fazia os links internos apontarem
+    // para a vitrine padrão e simplificada da Shopify.
+    url.searchParams.delete('channel');
     return url.toString();
   } catch {
     return checkoutUrl;
@@ -358,3 +365,4 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
   if (userErrors.length > 0) return { success: false };
   return { success: true };
 }
+import { toast } from "sonner";

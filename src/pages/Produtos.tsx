@@ -1,8 +1,12 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Search, X } from "lucide-react";
+import { ChevronDown, Loader2, Search, SlidersHorizontal, X } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/sonar/ProductCard";
+import ShopifyProductCard from "@/components/sonar/ShopifyProductCard";
+import { useShopifyCatalogMedia } from "@/hooks/useShopifyCatalogMedia";
+import { PRODUCTS_QUERY, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
+import { SHOPIFY_CATALOG_MAP } from "@/lib/shopifyCatalog";
 import { SonarButton } from "@/components/sonar/Button";
 import {
   products,
@@ -23,6 +27,84 @@ export default function ProdutosPage() {
   const [thick, setThick] = useState("");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<SortKey>("destaque");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [shopifyProducts, setShopifyProducts] = useState<ShopifyProduct[]>([]);
+  const [shopifyLoading, setShopifyLoading] = useState(true);
+  const { contentFor, imagesFor } = useShopifyCatalogMedia();
+
+  useEffect(() => {
+    let active = true;
+    const refresh = async () => {
+      try {
+        const response = await storefrontApiRequest(PRODUCTS_QUERY, { first: 100 });
+        if (active) setShopifyProducts(response?.data?.products?.edges ?? []);
+      } catch (error) {
+        console.warn("[shopify] Falha ao atualizar os produtos compráveis.", error);
+      } finally {
+        if (active) setShopifyLoading(false);
+      }
+    };
+    void refresh();
+    const interval = window.setInterval(refresh, 120_000);
+    const refreshWhenVisible = () => {
+      if (document.visibilityState === "visible") void refresh();
+    };
+    document.addEventListener("visibilitychange", refreshWhenVisible);
+    return () => {
+      active = false;
+      window.clearInterval(interval);
+      document.removeEventListener("visibilitychange", refreshWhenVisible);
+    };
+  }, []);
+
+  const localSlugByHandle = useMemo(() => {
+    const entries = Object.entries(SHOPIFY_CATALOG_MAP)
+      .filter((entry): entry is [string, { handle: string; sku: string | null }] => Boolean(entry[1]))
+      .map(([slug, link]) => [link.handle, slug] as const);
+    return new Map(entries);
+  }, []);
+
+  const shopifyByHandle = useMemo(
+    () => new Map(shopifyProducts.map((product) => [product.node.handle, product])),
+    [shopifyProducts],
+  );
+
+  const unmatchedShopifyProducts = useMemo(() => {
+    if (cat || app || mat || thick) return [];
+    const query = search.trim().toLocaleLowerCase("pt-BR");
+    return shopifyProducts.filter((product) => {
+      if (localSlugByHandle.has(product.node.handle)) return false;
+      if (!query) return true;
+      return `${product.node.title} ${product.node.description}`.toLocaleLowerCase("pt-BR").includes(query);
+    });
+  }, [app, cat, localSlugByHandle, mat, search, shopifyProducts, thick]);
+
+  const visibleShopifyProducts = useMemo(() => {
+    const query = search.trim().toLocaleLowerCase("pt-BR");
+    const list = shopifyProducts.filter((product) => {
+      const searchable = `${product.node.title} ${product.node.description} ${product.node.productType} ${product.node.vendor} ${product.node.tags.join(" ")}`.toLocaleLowerCase("pt-BR");
+      if (cat && product.node.productType !== cat && !product.node.tags.includes(cat)) return false;
+      if (app && !searchable.includes(app.toLocaleLowerCase("pt-BR"))) return false;
+      if (mat && !searchable.includes(mat.toLocaleLowerCase("pt-BR"))) return false;
+      if (thick && !searchable.includes(thick.toLocaleLowerCase("pt-BR"))) return false;
+      return !query || searchable.includes(query);
+    });
+    if (sort === "nome") {
+      return [...list].sort((a, b) => a.node.title.localeCompare(b.node.title, "pt-BR"));
+    }
+    if (sort === "categoria") {
+      return [...list].sort((a, b) =>
+        a.node.productType.localeCompare(b.node.productType, "pt-BR") ||
+        a.node.title.localeCompare(b.node.title, "pt-BR"),
+      );
+    }
+    return list;
+  }, [app, cat, mat, search, shopifyProducts, sort, thick]);
+
+  const shopifyCategories = useMemo(
+    () => [...new Set(shopifyProducts.map((product) => product.node.productType).filter(Boolean))].sort((a, b) => a.localeCompare(b, "pt-BR")),
+    [shopifyProducts],
+  );
 
   // a categoria vive na URL: links do menu chegam já filtrados e o
   // endereço continua compartilhável quando o filtro muda aqui
@@ -40,7 +122,16 @@ export default function ProdutosPage() {
   };
 
   const filtered = useMemo(() => {
-    const list = products.filter((p) => {
+    const synchronizedProducts = products.map((product) => {
+      const shopify = contentFor(product.slug);
+      return {
+        ...product,
+        name: shopify?.title || product.name,
+        shortDescription: shopify?.description || product.shortDescription,
+      };
+    });
+
+    const list = synchronizedProducts.filter((p) => {
       if (cat && p.category !== cat) return false;
       if (app && !p.application.includes(app)) return false;
       if (mat && p.material !== mat) return false;
@@ -63,7 +154,7 @@ export default function ProdutosPage() {
         (a, b) => a.category.localeCompare(b.category, "pt-BR") || a.name.localeCompare(b.name, "pt-BR"),
       );
     return list;
-  }, [cat, app, mat, thick, search, sort]);
+  }, [cat, app, mat, thick, search, sort, contentFor]);
 
   const hasFilters = Boolean(cat || app || mat || thick || search);
   const clearAll = () => {
@@ -95,6 +186,28 @@ export default function ProdutosPage() {
         {/* Barra de filtros */}
         <section className="sticky top-0 z-30 border-b border-snr-mineral-100 bg-snr-white/95 py-4 backdrop-blur-md">
           <div className="snr-container">
+            <div className="flex items-center justify-between gap-3 md:hidden">
+              <button
+                type="button"
+                onClick={() => setFiltersOpen((open) => !open)}
+                aria-expanded={filtersOpen}
+                aria-controls="mobile-product-filters"
+                className="inline-flex min-h-11 flex-1 items-center justify-between rounded-full border border-snr-mineral-100 bg-snr-white px-5 text-sm font-semibold text-snr-graphite"
+              >
+                <span className="inline-flex items-center gap-2">
+                  <SlidersHorizontal size={16} aria-hidden="true" />
+                  Filtros {hasFilters ? "ativos" : ""}
+                </span>
+                <ChevronDown
+                  size={16}
+                  aria-hidden="true"
+                  className={`transition-transform ${filtersOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              <span className="shrink-0 text-sm text-snr-mineral-700">{filtered.length} produtos</span>
+            </div>
+
+            <div id="mobile-product-filters" className={`${filtersOpen ? "mt-4 block" : "hidden"} md:block`}>
             <div className="flex flex-wrap items-center justify-between gap-4">
               {/* Pills de categoria */}
               <div className="flex flex-1 flex-wrap items-center gap-2">
@@ -126,7 +239,7 @@ export default function ProdutosPage() {
                           : "border-snr-mineral-100 text-snr-graphite hover:border-snr-mineral-300"
                       }`}
                     >
-                      {c} <span className="opacity-55">({count})</span>
+                      {c} <span className="font-medium text-foreground">({count})</span>
                     </button>
                   );
                 })}
@@ -192,6 +305,7 @@ export default function ProdutosPage() {
                 {filtered.length} {filtered.length === 1 ? "produto" : "produtos"}
               </span>
             </div>
+            </div>
           </div>
         </section>
 
@@ -202,7 +316,22 @@ export default function ProdutosPage() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {filtered.map((product, i) => (
                   <Fragment key={product.slug}>
-                    <ProductCard product={product} />
+                    {(() => {
+                      const link = SHOPIFY_CATALOG_MAP[product.slug as keyof typeof SHOPIFY_CATALOG_MAP];
+                      const liveProduct = link ? shopifyByHandle.get(link.handle) : undefined;
+                      return liveProduct ? (
+                        <ShopifyProductCard
+                          product={liveProduct}
+                          localSlug={product.slug}
+                          coverImage={product.curatedCover ? product.image : undefined}
+                        />
+                      ) : (
+                        <ProductCard
+                          product={product}
+                          imageOverride={product.curatedCover ? undefined : imagesFor(product.slug)[0]}
+                        />
+                      );
+                    })()}
                     {/* cartão de consultoria intercalado, como na referência */}
                     {i === 6 && (
                       <div className="flex flex-col justify-end rounded-2xl bg-snr-graphite p-7 text-snr-white">
@@ -222,6 +351,9 @@ export default function ProdutosPage() {
                     )}
                   </Fragment>
                 ))}
+                {unmatchedShopifyProducts.map((product) => (
+                  <ShopifyProductCard key={product.node.id} product={product} />
+                ))}
               </div>
             ) : (
               <div className="py-20 text-center">
@@ -235,6 +367,11 @@ export default function ProdutosPage() {
                 >
                   Limpar filtros
                 </button>
+              </div>
+            )}
+            {shopifyLoading && (
+              <div className="mt-8 flex items-center justify-center gap-2 text-sm text-snr-mineral-700">
+                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> Atualizando dados da Shopify
               </div>
             )}
           </div>

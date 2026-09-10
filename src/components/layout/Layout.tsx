@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
-import Header from "./Header";
+import SonarSiteHeader from "./SonarSiteHeader";
 import Footer from "./Footer";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
 
-export default function Layout({ children }: {children: ReactNode;}) {
+export default function Layout({ children, hideHeader = false, hideWhatsApp = false }: {children: ReactNode; hideHeader?: boolean; hideWhatsApp?: boolean;}) {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-1 pt-[11.5rem]">{children}</main>
+      {!hideHeader && <SonarSiteHeader />}
+      <main className={`flex-1 ${hideHeader ? "" : ""}`}>{children}</main>
       <Footer />
-      <WhatsAppButton />
+      {!hideWhatsApp && <WhatsAppButton />}
     </div>);
 
 }

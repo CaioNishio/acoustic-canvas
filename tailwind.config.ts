@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -14,30 +15,29 @@ export default {
   	},
   	extend: {
   		fontFamily: {
-  			// Tipografia no padrão GIK Acoustics: Lexend Giga nos títulos, Lexend no texto
-  			display: [
-  				'Lexend Giga',
-  				'Lexend',
-  				'sans-serif'
-  			],
-  			body: [
-  				'Lexend',
-  				'Lexend Giga',
-  				'sans-serif'
-  			],
-  			sans: [
-  				'Lexend',
-  				'ui-sans-serif',
-  				'system-ui',
-  				'-apple-system',
-  				'BlinkMacSystemFont',
-  				'Segoe UI',
-  				'Roboto',
-  				'Helvetica Neue',
-  				'Arial',
-  				'Noto Sans',
-  				'sans-serif'
-  			],
+			// Bahnschrift Light quando disponível; fallback DIN-like seguro.
+			display: [
+				'Bahnschrift Light',
+				'Bahnschrift',
+				'Arial Narrow',
+				'Segoe UI',
+				'sans-serif'
+			],
+			body: [
+				'Bahnschrift Light',
+				'Bahnschrift',
+				'Arial Narrow',
+				'Segoe UI',
+				'sans-serif'
+			],
+			sans: [
+				'Bahnschrift Light',
+				'Bahnschrift',
+				'Arial Narrow',
+				'Segoe UI',
+				'Arial',
+				'sans-serif'
+			],
   			serif: [
   				'Lora',
   				'ui-serif',
@@ -193,5 +193,5 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
