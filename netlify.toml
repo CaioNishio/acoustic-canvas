@@ -31,8 +31,9 @@
 # --- Roteamento e status HTTP ---
 # /loja e apenas um alias legado da listagem local e nao deve competir no
 # indice. Os detalhes Shopify e o fluxo autenticado de envio continuam sendo
-# resolvidos pela SPA. As demais rotas publicas recebem HTML proprio no build;
-# o fallback final devolve um 404 real, eliminando soft-404 para URLs aleatorias.
+# resolvidos pela SPA. As rotas publicas recebem HTML proprio no build; o
+# fallback preserva a aplicacao React para que a pagina inicial, carrinho e
+# rotas internas continuem navegaveis no dominio publico.
 [[redirects]]
   from = "/loja"
   to = "/produtos"
@@ -64,9 +65,9 @@
   force = true
 
 [[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
+from = "/*"
+to = "/index.html"
+status = 200
 
 # --- Cache ---
 # Assets com hash no nome sao imutaveis por definicao: se o conteudo mudar, o
