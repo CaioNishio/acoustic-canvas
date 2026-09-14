@@ -297,11 +297,11 @@
   }
 
   /* Exceções localizadas solicitadas para cópias técnicas e institucionais. */
-  .snr-material-copy {
+  body .snr-material-copy {
     font-family: "Inter Variable", Arial, sans-serif !important;
   }
 
-  .snr-footer-copy {
+  body .snr-footer-copy {
     font-family: system-ui, sans-serif !important;
   }
 }
