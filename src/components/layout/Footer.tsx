@@ -12,7 +12,7 @@ export default function Footer() {
     <div className="relative mx-auto grid max-w-[1280px] gap-10 px-6 pb-16 pt-14 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.05fr_1fr_1fr_1.35fr] lg:gap-12 lg:pb-20 lg:pt-20">
       <div>
         <img src={logo} alt="Sonar Acústicos" className="h-24 w-auto object-contain object-left" loading="lazy" decoding="async" />
-        <p className="mt-4 max-w-[24ch] text-sm leading-6 text-white/72">Soluções profissionais em tratamento acústico para todos os tipos de ambientes.</p>
+        <p className="mt-4 max-w-[24ch] text-sm leading-6 text-white/72" style={{ fontFamily: "system-ui, sans-serif" }}>Soluções profissionais em tratamento acústico para todos os tipos de ambientes.</p>
         <div className="mt-6 flex gap-3"><a href="https://www.instagram.com/sonar_acusticos" target="_blank" rel="noreferrer" aria-label="Instagram da Sonar Acústicos" className="grid size-11 place-items-center rounded-full border border-white/35 transition-colors hover:border-[#d5a14d] hover:text-[#d5a14d]"><Instagram size={20}/></a><a href="https://wa.me/5511967484000" target="_blank" rel="noreferrer" aria-label="WhatsApp da Sonar Acústicos" className="grid size-11 place-items-center rounded-full border border-white/35 transition-colors hover:border-[#d5a14d] hover:text-[#d5a14d]"><WhatsAppIcon size={20}/></a></div>
       </div>
       <FooterColumn title="PRODUTOS">{products.map(label => <Link key={label} to="/produtos" className="border-b border-white/10 py-2.5 transition-colors hover:text-[#d5a14d]">{label}</Link>)}</FooterColumn>

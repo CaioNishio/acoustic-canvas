@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const poster = '/media/hero-products-poster.webp';
 
-/** Mobile uses alpha WebP: no native player, codec fallback background or play overlay. */
+/** The hero animates automatically when visible; reduced-motion keeps a lightweight still image. */
 export default function HeroProductMotion() {
   const host = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -35,10 +35,10 @@ export default function HeroProductMotion() {
     else player.pause();
   }, [motion, visible, mobile]);
 
-  return <div ref={host} className="hero-products-visual relative isolate aspect-[900/470] min-w-0 overflow-hidden md:h-[332.5px] md:aspect-auto">
-    {mobile === false && motion ? <video ref={video} autoPlay loop muted playsInline controls={false} disablePictureInPicture preload="auto" poster={poster} aria-label="Produtos Sonar e propagação de ondas sonoras" className="hero-products-video pointer-events-none absolute inset-0 h-full w-full select-none object-contain">
+  return <div ref={host} className="hero-products-visual relative isolate aspect-[760/470] min-w-0 overflow-hidden md:h-[332.5px] md:aspect-auto">
+    {motion && visible ? <video ref={video} autoPlay loop muted playsInline controls={false} disablePictureInPicture preload={mobile ? "metadata" : "auto"} poster={poster} aria-label="Produtos Sonar e propagação de ondas sonoras" className="hero-products-video pointer-events-none absolute inset-0 h-full w-full origin-center scale-[1.16] select-none object-contain sm:scale-100">
       <source src="/media/hero-products-transparent.webm" type="video/webm" />
       <source src="/media/hero-products-cropped.mp4" type="video/mp4" />
-    </video> : <img src={mobile && motion && visible ? '/media/hero-products-mobile.webp' : poster} width={900} height={470} fetchPriority="high" alt="Produtos Sonar demonstrando absorção, difusão, atenuação e bloqueio das ondas sonoras" className="hero-products-image pointer-events-none absolute inset-0 h-full w-full select-none object-contain" />}
+    </video> : <img src={mobile ? '/media/hero-products-mobile.webp' : poster} width={900} height={470} fetchPriority="high" alt="Produtos Sonar demonstrando absorção, difusão, atenuação e bloqueio das ondas sonoras" className="hero-products-image pointer-events-none absolute inset-0 h-full w-full origin-center scale-[1.16] select-none object-contain sm:scale-100" />}
   </div>;
 }

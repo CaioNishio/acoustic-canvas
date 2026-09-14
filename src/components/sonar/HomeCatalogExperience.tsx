@@ -71,15 +71,15 @@ export default function HomeCatalogExperience() {
         />
       </div>
       <div className="bg-[#07346b] text-[#d9b879]">
-        <div className="mx-auto grid max-w-[1600px] grid-cols-3 px-4 py-1 sm:grid-cols-4 lg:grid-cols-7">
+        <div className="mx-auto grid max-w-[1600px] grid-cols-7 px-2 py-1.5">
           {cats.map(([Icon, label]) => (
             <Link
               to="/solucoes"
               key={label}
-              className="flex min-h-10 flex-col items-center justify-center gap-1 text-center"
+              className="flex min-h-9 flex-col items-center justify-center gap-0.5 border-l border-white/10 text-center first:border-l-0"
             >
-              <Icon size={18} strokeWidth={1.3} />
-              <span className="text-[7px] text-white/75">{label}</span>
+              <Icon size={15} strokeWidth={1.35} />
+              <span className="text-[6px] leading-none text-white/80">{label}</span>
             </Link>
           ))}
         </div>
@@ -222,13 +222,19 @@ function Tech({
   l: string;
   v: string;
 }) {
+  const isMaterial = l === "MATERIAL";
   return (
     <div>
       <dt className="flex items-center gap-3 text-[8px] text-[#59677d]">
         <Icon size={18} aria-hidden="true" />
         <span>{l}</span>
       </dt>
-      <dd className="mt-1 pl-[30px] text-[11px] font-semibold">{v}</dd>
+      <dd
+        className={`mt-1 pl-[30px] font-semibold ${isMaterial ? "text-[8px] leading-[1.35] sm:text-[11px] sm:leading-normal" : "text-[11px]"}`}
+        style={isMaterial ? { fontFamily: '"Inter Variable", Arial, sans-serif' } : undefined}
+      >
+        {v}
+      </dd>
     </div>
   );
 }
