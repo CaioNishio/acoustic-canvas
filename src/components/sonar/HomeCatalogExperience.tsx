@@ -230,8 +230,7 @@ function Tech({
         <span>{l}</span>
       </dt>
       <dd
-        className={`mt-1 pl-[30px] font-semibold ${isMaterial ? "text-[8px] leading-[1.35] sm:text-[11px] sm:leading-normal" : "text-[11px]"}`}
-        style={isMaterial ? { fontFamily: '"Inter Variable", Arial, sans-serif' } : undefined}
+        className={`mt-1 pl-[30px] font-semibold ${isMaterial ? "snr-material-copy text-[8px] leading-[1.35] sm:text-[11px] sm:leading-normal" : "text-[11px]"}`}
       >
         {v}
       </dd>

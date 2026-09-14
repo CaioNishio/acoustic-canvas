@@ -295,6 +295,15 @@
   body :where(*):not(code):not(pre):not(kbd):not(samp):not(.font-mono) {
     font-family: var(--sonar-font) !important;
   }
+
+  /* Exceções localizadas solicitadas para cópias técnicas e institucionais. */
+  .snr-material-copy {
+    font-family: "Inter Variable", Arial, sans-serif !important;
+  }
+
+  .snr-footer-copy {
+    font-family: system-ui, sans-serif !important;
+  }
 }
 
 @layer utilities {
