@@ -1,6 +1,6 @@
 import { useState, lazy, Suspense } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Download, Check, Volume2, Ruler, Palette, Wrench, LayoutGrid, Target, Shield, Award, Leaf, ChevronDown, CheckCircle, Flame, Droplets, FlaskConical, Bug, ShoppingBag } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, Check, Volume2, Ruler, Palette, Wrench, LayoutGrid, Target, Shield, Award, Leaf, ChevronDown, CheckCircle, Flame, Droplets, FlaskConical, Bug, ShoppingBag, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/shared/ProductCard";
@@ -10,6 +10,7 @@ import { products, type ProductColor } from "@/data/products";
 import { productPrices, formatPrice, unitLabel } from "@/data/productPrices";
 import { useQuoteCart } from "@/contexts/QuoteCartContext";
 import { useShopifyCatalogMedia } from "@/hooks/useShopifyCatalogMedia";
+import { useShopifyPurchase } from "@/hooks/useShopifyPurchase";
 
 const Product3DViewer = lazy(() => import("@/components/shared/Product3DViewer"));
 
@@ -37,6 +38,7 @@ export default function ProdutoDetalhePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const { addItem } = useQuoteCart();
   const { contentFor, imagesFor } = useShopifyCatalogMedia();
+  const shopifyPurchase = useShopifyPurchase(product?.slug || slug || "");
 
   // Auto-select first size on mount
   const pricing = product ? productPrices[product?.slug || ""] : undefined;
@@ -263,15 +265,33 @@ export default function ProdutoDetalhePage() {
                 </div>
               </div>
 
-              {/* Actions
-                  Regra centralizada: preco > 0 acumula num orcamento real
-                  (QuoteCartContext, com quantidade e subtotal) — e a excecao que
-                  mantem "Adicionar ao Orcamento" como rotulo legitimo, nao
-                  redundante. Preco <= 0 ("Sob consulta") nao tem valor para
-                  acumular, entao mostra so o caminho direto ao formulario. As
-                  duas acoes nunca aparecem juntas para o mesmo produto. */}
+              {/* Actions: quando existe uma variante publicada na Shopify, o
+                  carrinho e a fonte de verdade. Produtos ainda nao publicados
+                  ou realmente sob medida preservam o fluxo de orcamento, sem
+                  criar um botao de compra que falharia no checkout. */}
               <div className="flex flex-wrap gap-3 mt-8">
-                {activePrice > 0 ? (
+                {shopifyPurchase.status === "disponivel" ? (
+                  <button
+                    onClick={() => shopifyPurchase.addToCart(1)}
+                    disabled={shopifyPurchase.isAddingToCart}
+                    className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors inline-flex items-center gap-2 shadow-lg shadow-primary/20 disabled:cursor-wait disabled:opacity-70">
+                    {shopifyPurchase.isAddingToCart ? <Loader2 size={16} className="animate-spin" /> : <ShoppingBag size={16} />}
+                    Adicionar ao Carrinho
+                  </button>
+                ) : shopifyPurchase.status === "carregando" ? (
+                  <button
+                    disabled
+                    aria-label="Verificando disponibilidade na loja"
+                    className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg inline-flex items-center gap-2 opacity-70 cursor-wait">
+                    <Loader2 size={16} className="animate-spin" /> Verificando disponibilidade
+                  </button>
+                ) : shopifyPurchase.status === "esgotado" ? (
+                  <button
+                    disabled
+                    className="px-8 py-3.5 bg-muted text-muted-foreground font-semibold rounded-lg inline-flex items-center gap-2 cursor-not-allowed">
+                    <ShoppingBag size={16} /> Produto esgotado
+                  </button>
+                ) : activePrice > 0 ? (
                   <button
                     onClick={() => {
                       const selectedSizeData = product.sizes?.find((s) => s.label === selectedSize);
