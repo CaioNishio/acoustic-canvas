@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Eyebrow, Lead, Reveal, Section, SectionTitle } from "./primitives";
-import restaurante from "@/assets/gallery/restaurante-forro-moderno.jpg";
-import igreja from "@/assets/gallery/nuvem-acustica-v2.jpg";
-import escritorio from "@/assets/gallery/escritorio-paineis-coloridos-grande.webp";
-import estudio from "@/assets/gallery/estudio-profissional-v2.webp";
-import auditorio from "@/assets/gallery/auditorio-paineis-acusticos.jpeg";
-import escola from "@/assets/gallery/sala-aula-baffles.jpeg";
+import restaurante from "@/assets/curated/home/ambiente-restaurante.png";
+import igreja from "@/assets/gallery/igreja-templo-paineis.png";
+import escritorio from "@/assets/curated/home/revisao-2026/escritorio-com-paineis.jpeg";
+import estudio from "@/assets/curated/home/revisao-2026/estudio-com-paineis.webp";
+import auditorio from "@/assets/curated/home/ambiente-auditorio.png";
+import escola from "@/assets/curated/home/ambiente-escola.jpg";
+import ImageBandOverlay from "./ImageBandOverlay";
 
 interface Environment {
   name: string;
@@ -16,56 +17,63 @@ interface Environment {
   to: string;
   /** colunas ocupadas no grid de 12 */
   span: string;
+  height: string;
 }
 
 const environments: Environment[] = [
   {
-    name: "Restaurantes",
+    name: "Restaurante",
     problem: "Ruído de fundo que sobe junto com a lotação",
     solution: "Forros e nuvens absorventes",
     image: restaurante,
     to: "/solucoes",
     span: "lg:col-span-7",
+    height: "min-h-[320px] lg:min-h-[430px]",
   },
   {
-    name: "Igrejas",
+    name: "Templo",
     problem: "Palavra pouco inteligível em nave alta",
     solution: "Absorção seletiva sem matar a nave",
     image: igreja,
     to: "/solucoes/igrejas",
     span: "lg:col-span-5",
+    height: "min-h-[360px] lg:min-h-[520px]",
   },
   {
-    name: "Escritórios",
+    name: "Escritório",
     problem: "Conversas cruzadas em planta aberta",
     solution: "Divisórias e absorção entre estações",
     image: escritorio,
     to: "/solucoes/corporativo",
     span: "lg:col-span-4",
+    height: "min-h-[340px] lg:min-h-[390px]",
   },
   {
-    name: "Estúdios",
+    name: "Estúdio",
     problem: "Reflexões primárias borrando a mixagem",
     solution: "Painéis nos pontos de reflexão e bass traps",
     image: estudio,
     to: "/solucoes/estudios",
     span: "lg:col-span-4",
+    height: "min-h-[340px] lg:min-h-[460px]",
   },
   {
-    name: "Auditórios",
+    name: "Auditório",
     problem: "Eco no fundo da plateia",
     solution: "Difusão ao fundo e absorção lateral",
     image: auditorio,
     to: "/solucoes/auditorios",
     span: "lg:col-span-4",
+    height: "min-h-[340px] lg:min-h-[390px]",
   },
   {
-    name: "Escolas",
+    name: "Escola",
     problem: "Esforço de escuta derrubando a atenção",
     solution: "Baffles suspensos em sala de aula",
     image: escola,
     to: "/solucoes",
     span: "lg:col-span-12",
+    height: "min-h-[300px] lg:min-h-[380px]",
   },
 ];
 
@@ -87,7 +95,7 @@ export default function EnvironmentGrid() {
           <Reveal key={env.name} delay={i * 60} className={env.span}>
             <Link
               to={env.to}
-              className="group relative block h-full min-h-[280px] overflow-hidden rounded-2xl bg-snr-graphite lg:min-h-[320px]"
+              className={`group relative block h-full overflow-hidden rounded-2xl bg-snr-graphite transition-[transform,box-shadow] duration-ui ease-snr hover:-translate-y-1 hover:shadow-[0_24px_50px_-22px_hsl(var(--snr-graphite)/0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-snr-ocean ${env.height}`}
             >
               <img
                 src={env.image}
@@ -96,8 +104,9 @@ export default function EnvironmentGrid() {
                 className="snr-zoom-media absolute inset-0 h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-snr-graphite-deep/90 via-snr-graphite-deep/25 to-transparent" />
+              <ImageBandOverlay />
 
-              <div className="absolute inset-x-0 bottom-0 p-6">
+              <div className="absolute inset-x-0 bottom-0 z-[3] p-6">
                 <h3 className="snr-card-title text-snr-white">{env.name}</h3>
 
                 {/* revelado no hover — problema, solução e ação */}

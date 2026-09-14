@@ -36,3 +36,7 @@ test-results/
 
 # Pacotes gerados para entrega (build artifacts)
 *.zip
+.superdesign
+
+# Local Netlify folder
+.netlify

@@ -10,6 +10,7 @@ export default function ProjetosPage() {
     <Layout>
       <section className="section-padding">
         <div className="container mx-auto">
+          <h1 className="sr-only">Projetos realizados pela Sonar Acústicos</h1>
           <SectionHeading tag="Portfólio" title="Nossos Projetos" description="Conheça alguns dos projetos realizados pela Sonar Acústicos." />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {projects.map((p, i) => (

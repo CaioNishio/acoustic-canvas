@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-seo-assets.mjs && node scripts/validate-seo-assets.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "test:e2e:audit": "playwright test --config=playwright.baseline.config.ts e2e/visual-audit.spec.ts"
+    "test:e2e:audit": "playwright test --config=playwright.baseline.config.ts e2e/visual-audit.spec.ts",
+    "test:seo": "node scripts/validate-seo-assets.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

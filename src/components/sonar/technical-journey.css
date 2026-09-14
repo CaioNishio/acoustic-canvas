@@ -1,0 +1,162 @@
+.technical-journey {
+  order: 5;
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(46px, 4.5vw, 72px) clamp(24px, 3.2vw, 54px) clamp(30px, 3vw, 48px);
+  background:
+    linear-gradient(135deg, rgba(50, 149, 255, .07), transparent 38%),
+    linear-gradient(180deg, #fbfdff, #fff 48%, #f5f9fe 100%);
+}
+.technical-journey__mobile {
+  display: grid;
+  width: min(100%, 1560px);
+  margin-inline: auto;
+  row-gap: clamp(38px, 3.2vw, 52px);
+  font-family: var(--font-display, Manrope, sans-serif);
+  color: #071d4c;
+}
+.technical-journey__top {
+  display: grid;
+  grid-template-columns: minmax(300px, .82fr) minmax(0, 1.65fr);
+  align-items: center;
+  gap: clamp(28px, 3.3vw, 54px);
+}
+.technical-journey__intro { max-width: 560px; }
+.technical-journey__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 18px;
+  color: #056cf2;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .22em;
+}
+.technical-journey__eyebrow::after { content: ''; width: 42px; height: 2px; background: currentColor; }
+.technical-journey__intro h2 {
+  max-width: 16ch;
+  margin: 0;
+  font-size: clamp(36px, 3.7vw, 60px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -.048em;
+}
+.technical-journey__lead {
+  max-width: 54ch;
+  margin: 22px 0 0;
+  color: #51678d;
+  font-size: clamp(14px, 1.12vw, 17px);
+  line-height: 1.55;
+}
+.technical-journey__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.technical-journey__actions a {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid #0876ee;
+  border-radius: 10px;
+  padding: 11px 20px;
+  color: #0756c6;
+  font-size: 13px;
+  font-weight: 650;
+}
+.technical-journey__actions a:first-child {
+  border-color: #0069d9;
+  background: linear-gradient(135deg, #073e89, #0076d9);
+  color: white;
+  box-shadow: 0 10px 24px rgba(0, 83, 174, .2);
+}
+.technical-journey__actions svg { width: 17px; height: 17px; }
+.technical-journey__visuals { display: grid; grid-template-columns: minmax(0, 3fr) minmax(150px, 1fr); gap: clamp(14px, 1.5vw, 24px); }
+.technical-journey__hero-crop,
+.technical-journey__side-crop {
+  overflow: hidden;
+  border: 1px solid rgba(0, 103, 220, .16);
+  border-radius: 22px;
+  box-shadow: 0 20px 45px rgba(8, 48, 98, .14);
+}
+.technical-journey__hero-crop svg,
+.technical-journey__side-crop svg { display: block; width: 100%; height: 100%; }
+.technical-journey__hero-crop { aspect-ratio: 1.58; }
+.technical-journey__side-crop { aspect-ratio: .65; }
+.technical-journey__stages { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(10px, 1vw, 16px); }
+.technical-journey__stage {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 133, 255, .22);
+  border-radius: 18px;
+  background: linear-gradient(155deg, #0757a8, #003373 54%, #06275a);
+  color: white;
+  box-shadow: 0 12px 28px rgba(4, 44, 96, .15);
+}
+.technical-journey__stage > svg { display: block; width: 100%; aspect-ratio: 1.44; }
+.technical-journey__stage-copy { position: relative; min-height: 158px; padding: 16px 15px 50px; }
+.technical-journey__stage-copy > span { font-size: 12px; color: rgba(255,255,255,.72); }
+.technical-journey__stage-copy h3 { margin: 6px 0 0; font-size: clamp(17px, 1.35vw, 21px); font-weight: 500; line-height: 1.08; letter-spacing: -.025em; }
+.technical-journey__stage:last-child h3 { font-size: clamp(15px, 1.25vw, 20px); letter-spacing: -.045em; }
+.technical-journey__stage-copy p { margin: 10px 0 0; color: rgba(255,255,255,.78); font-size: clamp(11px, .82vw, 13px); line-height: 1.45; }
+.technical-journey__stage-copy > svg { position: absolute; right: 14px; bottom: 14px; width: 31px; height: 31px; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; padding: 7px; }
+.technical-journey__benefits {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.34);
+  border-radius: 18px;
+  background: rgba(37, 62, 91, .84);
+  box-shadow: 0 16px 36px rgba(21, 47, 76, .16), inset 0 1px rgba(255,255,255,.25);
+  backdrop-filter: blur(18px);
+}
+.technical-journey__benefit-card { display: flex; min-width: 0; gap: 12px; border-right: 1px solid rgba(255,255,255,.13); padding: 17px 15px; color: white; }
+.technical-journey__benefit-card:last-child { border-right: 0; }
+.technical-journey__benefit-card > svg { width: 27px; height: 27px; flex: 0 0 auto; color: #53abff; }
+.technical-journey__benefit-card h3 { margin: 0; font-size: 12px; font-weight: 600; line-height: 1.25; }
+.technical-journey__benefit-card p { margin: 5px 0 0; color: rgba(255,255,255,.65); font-size: 10px; line-height: 1.35; }
+.technical-journey a:focus-visible { outline: 3px solid #50a9ff; outline-offset: 3px; }
+
+@media (max-width: 1023px) {
+  .technical-journey { padding: 48px 18px 30px; }
+  .technical-journey__mobile { width: min(100%, 780px); row-gap: 30px; }
+  .technical-journey__top { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  .technical-journey__intro { max-width: 670px; }
+  .technical-journey__eyebrow { margin-bottom: 14px; }
+  .technical-journey__intro h2 { max-width: 17ch; font-size: clamp(32px, 8.7vw, 52px); font-weight: 500; line-height: 1; }
+  .technical-journey__lead { margin-top: 20px; font-size: clamp(14px, 3.7vw, 17px); }
+  .technical-journey__actions { margin-top: 24px; gap: 10px; }
+  .technical-journey__actions a { padding-inline: 18px; }
+  .technical-journey__visuals { display: block; }
+  .technical-journey__hero-crop { border-radius: 20px; }
+  .technical-journey__side-crop { display: none; }
+  .technical-journey__stages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .technical-journey__stage { border-radius: 17px; }
+  .technical-journey__stage-copy { min-height: 176px; padding: 15px 14px 48px; }
+  .technical-journey__stage-copy h3 { font-size: clamp(17px, 4.6vw, 21px); }
+  .technical-journey__stage-copy p { font-size: 12px; }
+  .technical-journey__benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .technical-journey__benefit-card { gap: 10px; border-right: 1px solid rgba(255,255,255,.13); border-bottom: 1px solid rgba(255,255,255,.13); padding: 15px 12px; }
+  .technical-journey__benefit-card:nth-child(2n) { border-right: 0; }
+  .technical-journey__benefit-card:last-child { grid-column: 1 / -1; border: 0; }
+  .technical-journey__benefit-card > svg { width: 24px; height: 24px; }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .technical-journey { padding-inline: 28px; }
+  .technical-journey__stages { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .technical-journey__benefits { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .technical-journey__benefit-card,
+  .technical-journey__benefit-card:nth-child(2n),
+  .technical-journey__benefit-card:last-child { grid-column: auto; border-right: 1px solid rgba(255,255,255,.13); border-bottom: 0; }
+  .technical-journey__benefit-card:last-child { border-right: 0; }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .technical-journey__stages { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 359px) {
+  .technical-journey { padding-inline: 14px; }
+  .technical-journey__stages { gap: 10px; }
+  .technical-journey__stage-copy { padding-inline: 11px; }
+  .technical-journey__stage:last-child h3 { font-size: 14px; }
+}

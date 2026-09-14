@@ -18,24 +18,55 @@
 #   QUOTE_FROM_EMAIL -> remetente em domínio verificado
 #
 # functions abaixo foram conferidos contra a configuracao real do projeto
-# (bun run build, Node 24.x, netlify/functions) — nao trocar sem verificar
+# (npm run build, Node 24.x, netlify/functions) — nao trocar sem verificar
 # de novo no painel, senao o build muda de comportamento silenciosamente.
 [build]
-  command = "bun run build"
+  command = "npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "24"
 
-# --- Roteamento SPA ---
-# Sem esta regra, abrir /calculadora direto (ou dar F5 nela) devolve 404: o
-# roteamento vive no React Router, no cliente, e o servidor procuraria um
-# arquivo que nao existe. O status 200 (e nao 301) preserva a URL na barra.
+# --- Roteamento e status HTTP ---
+# /loja e apenas um alias legado da listagem local e nao deve competir no
+# indice. Os detalhes Shopify e o fluxo autenticado de envio continuam sendo
+# resolvidos pela SPA. As demais rotas publicas recebem HTML proprio no build;
+# o fallback final devolve um 404 real, eliminando soft-404 para URLs aleatorias.
 [[redirects]]
-  from = "/*"
+  from = "/loja"
+  to = "/produtos"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/loja/*"
   to = "/index.html"
   status = 200
+  force = true
+
+[[redirects]]
+  from = "/produtos/shopify/revestimento-ripado-acustico-em-madeira-parede-premium"
+  to = "/produtos/revestimento-ripado/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/produtos/shopify/*"
+  to = "/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/envio-fotos/*"
+  to = "/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
 
 # --- Cache ---
 # Assets com hash no nome sao imutaveis por definicao: se o conteudo mudar, o
@@ -75,3 +106,4 @@
     X-Frame-Options = "SAMEORIGIN"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"

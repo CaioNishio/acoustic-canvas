@@ -1,0 +1,15 @@
+.projects-editorial { order: 5; color:#10254a; background:linear-gradient(#f8f8f7,#f4f7fa 15%,#fff 85%,#f8f8f7); padding:clamp(28px,4vw,64px) clamp(16px,3vw,48px); font-family:var(--sonar-font); }
+.projects-editorial__inner { display:grid; grid-template-columns:minmax(0, .9fr) minmax(0,1.8fr); align-items:center; gap:clamp(16px,2vw,32px); max-width:1440px; margin-inline:auto; }
+.projects-editorial__copy { min-width:0; }
+.projects-editorial__eyebrow { color:#07346b; text-transform:uppercase; font-size:12px; font-weight:600; letter-spacing:.22em; }
+.projects-editorial__copy h2 { margin:24px 0; font-size:clamp(28px,3.2vw,48px); font-weight:400; line-height:1.15; letter-spacing:-.04em; }
+.projects-editorial__copy h2 span { color:#07346b; }
+.projects-editorial__copy > p:last-of-type { font-size:clamp(15px,1.3vw,18px); line-height:1.6; max-width:40ch; color:#53627d; }
+.projects-editorial__copy a { display:inline-flex; align-items:center; gap:24px; min-height:48px; padding:12px 26px; margin-top:28px; border-radius:999px; background:#07346b; color:#fff; font-size:13px; letter-spacing:.1em; text-transform:uppercase; }
+.projects-editorial__copy a:focus-visible { outline:3px solid #ad7420; outline-offset:4px; }
+/* Independent artwork windows preserve the four photo bounds without surrounding copy. */
+.projects-editorial__visual { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(10px,1.5vw,22px); min-width:0; }
+.projects-editorial__photo { margin:0; min-width:0; border:1px solid #e1e7ef; border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 16px 30px -20px #07346b55; }
+.projects-editorial__photo svg { display:block; width:100%; height:auto; }
+.projects-editorial__photo figcaption { padding:12px; font-size:clamp(12px,1vw,15px); line-height:1.5; color:#07346b; }
+@media(max-width:767px) { .projects-editorial__inner { grid-template-columns:minmax(0,1fr); gap:28px; } .projects-editorial__copy { max-width:44ch; } .projects-editorial__copy h2 { max-width:20ch; } }

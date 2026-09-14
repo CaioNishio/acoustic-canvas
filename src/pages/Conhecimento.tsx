@@ -38,16 +38,17 @@ export default function ConhecimentoPage() {
   return (
     <Layout>
       {/* ── Hero ── */}
-      <section className="section-padding pb-0">
-        <div className="container mx-auto max-w-3xl text-center">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_15%_0%,rgba(48,180,195,.23),transparent_34%),linear-gradient(125deg,#06263c,#0a4560_58%,#0c6a74)] px-4 pb-14 pt-28 text-white md:pt-36">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,.1),transparent_36%,rgba(255,255,255,.03))]" />
+        <div className="container relative mx-auto max-w-3xl text-center">
           <motion.div {...fadeUp}>
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
               <BookOpen size={14} /> Conhecimento
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-medium mt-4 leading-tight">
               Entenda sua sala antes de tratá-la
             </h1>
-            <p className="text-muted-foreground mt-5 text-lg leading-relaxed">
+            <p className="mt-5 text-lg leading-relaxed text-white/78">
               Acústica não é sobre cobrir paredes com espuma. É sobre entender o que o som faz
               no seu ambiente e escolher a resposta certa para cada faixa de frequência.
               Aqui explicamos o raciocínio inteiro — inclusive quando a resposta é não comprar nada.
@@ -57,7 +58,7 @@ export default function ConhecimentoPage() {
       </section>
 
       {/* ── Trilhas ── */}
-      <section className="section-padding">
+      <section className="section-padding bg-[radial-gradient(circle_at_8%_15%,rgba(64,182,197,.16),transparent_25%),linear-gradient(135deg,#edf7f9,#fbfdfe_58%,#e7f2f5)]">
         <div className="container mx-auto">
           <SectionTitle
             tag="Trilhas"
@@ -102,7 +103,7 @@ export default function ConhecimentoPage() {
       </section>
 
       {/* ── Guia de decisão ── */}
-      <section className="section-padding pt-0">
+      <section className="section-padding bg-[linear-gradient(180deg,#f7fbfc,#eef6f8)] pt-0">
         <div className="container mx-auto">
           <SectionTitle
             tag="Guia de decisão"
@@ -167,15 +168,15 @@ export default function ConhecimentoPage() {
       </section>
 
       {/* ── Calculadora ── */}
-      <section className="section-padding pt-0">
+      <section className="section-padding bg-[#eef6f8] pt-0">
         <div className="container mx-auto">
-          <motion.div {...fadeUp} className="glass-card p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6">
-            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-              <Calculator className="text-primary" size={24} />
+          <motion.div {...fadeUp} className="flex flex-col gap-6 rounded-[28px] border border-cyan-200/20 bg-[linear-gradient(115deg,#06283f,#0a5265_64%,#08707a)] p-8 text-white shadow-[0_24px_56px_-30px_rgba(6,35,59,.8)] md:flex-row md:items-center md:p-10">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-cyan-100/30 bg-white/10">
+              <Calculator className="text-cyan-200" size={24} />
             </div>
             <div className="flex-1">
               <h3 className="font-display text-2xl font-semibold">Aplique na sua sala</h3>
-              <p className="text-muted-foreground mt-2 leading-relaxed">
+              <p className="mt-2 leading-relaxed text-white/76">
                 A calculadora usa Sabine e Eyring por banda de oitava, parte do RT60 alvo e
                 desconta o que a sala nua já absorve. O resultado é uma estimativa declarada —
                 com as suposições visíveis, não escondidas.
@@ -183,7 +184,7 @@ export default function ConhecimentoPage() {
             </div>
             <Link
               to="/calculadora"
-              className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors inline-flex items-center gap-2 text-sm shrink-0"
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[#07384e] transition-colors hover:bg-cyan-50"
             >
               Abrir calculadora <ArrowRight size={16} />
             </Link>
@@ -192,7 +193,7 @@ export default function ConhecimentoPage() {
       </section>
 
       {/* ── Glossário ── */}
-      <section className="section-padding pt-0">
+      <section className="section-padding bg-[radial-gradient(circle_at_90%_12%,rgba(48,180,195,.14),transparent_25%),#f6fafb] pt-0">
         <div className="container mx-auto">
           <SectionTitle tag="Glossário" title="Os termos que importam" />
           <div className="grid gap-3 md:grid-cols-2">
@@ -226,7 +227,7 @@ export default function ConhecimentoPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="section-padding pt-0">
+      <section className="section-padding bg-[#f6fafb] pt-0">
         <div className="container mx-auto max-w-3xl">
           <SectionTitle tag="Dúvidas frequentes" title="As perguntas que mais recebemos" />
           <div className="space-y-3">
@@ -257,7 +258,7 @@ export default function ConhecimentoPage() {
       </section>
 
       {/* ── Procedência ── */}
-      <section className="section-padding pt-0">
+      <section className="section-padding bg-[linear-gradient(145deg,#edf7f9,#f9fcfd_58%,#e8f2f5)] pt-0">
         <div className="container mx-auto">
           <SectionTitle
             tag="Procedência"

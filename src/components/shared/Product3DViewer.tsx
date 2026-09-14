@@ -1,6 +1,6 @@
 import { useRef, useMemo, useState, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Environment, ContactShadows } from "@react-three/drei";
+import { OrbitControls, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
 import type { Product, ProductColor } from "@/data/products";
 import { Palette, RotateCcw, Maximize2 } from "lucide-react";
@@ -217,7 +217,6 @@ function Scene({ product, color }: { product: Product; color: string }) {
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI / 1.8}
       />
-      <Environment preset="studio" />
     </>
   );
 }

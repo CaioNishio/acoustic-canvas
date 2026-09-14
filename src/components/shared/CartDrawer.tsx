@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2 } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
+import { formatCheckoutUrl } from "@/lib/shopify";
 
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,10 @@ export const CartDrawer = () => {
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
     if (checkoutUrl) {
-      window.open(checkoutUrl, '_blank');
+      // Abre o checkout hospedado em uma nova aba e preserva a página Sonar
+      // aberta para que o cliente não perca a navegação do site principal.
+      const checkoutWindow = window.open(formatCheckoutUrl(checkoutUrl), '_blank', 'noopener,noreferrer');
+      if (checkoutWindow) checkoutWindow.opener = null;
       setIsOpen(false);
     }
   };

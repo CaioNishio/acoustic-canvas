@@ -1,0 +1,1 @@
+-- A Edge Function usa a service_role apenas no servidor para ler o pedido\n-- recém-criado e registrar a conclusão do envio por e-mail.\ngrant select, update on table public.quote_requests to service_role;\n

@@ -79,7 +79,7 @@ export default function LojaDetalhe() {
         <div className="text-center py-32">
           <ShoppingBag className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-foreground">Produto não encontrado</h2>
-          <Link to="/loja" className="text-primary mt-4 inline-block">Voltar à Loja</Link>
+          <Link to="/produtos" className="text-primary mt-4 inline-block">Voltar aos produtos</Link>
         </div>
       </Layout>
     );
@@ -96,8 +96,8 @@ export default function LojaDetalhe() {
     <Layout>
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <Link to="/loja" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors">
-            <ArrowLeft size={16} /> Voltar à Loja
+          <Link to="/produtos" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors">
+            <ArrowLeft size={16} /> Voltar aos produtos
           </Link>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Images */}

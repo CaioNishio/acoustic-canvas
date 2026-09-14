@@ -10,6 +10,7 @@ export default function SolucoesPage() {
     <Layout>
       <section className="section-padding">
         <div className="container mx-auto">
+          <h1 className="sr-only">Soluções acústicas por ambiente</h1>
           <SectionHeading
             tag="Soluções"
             title="Soluções por Ambiente"

@@ -22,6 +22,8 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === "development" && componentTagger(),
     ViteImageOptimizer({
+      // Already optimized animated WebP: the default optimizer flattens it.
+      exclude: /hero-products-mobile\.webp$/,
       png: { quality: 70 },
       jpeg: { quality: 70 },
       jpg: { quality: 70 },

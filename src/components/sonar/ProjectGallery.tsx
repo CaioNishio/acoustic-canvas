@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Eyebrow, Lead, Reveal, Rule, Section, SectionTitle } from "./primitives";
 import { SonarButton } from "./Button";
 import { projects } from "@/data/projects";
+import ImageBandOverlay from "./ImageBandOverlay";
 
 /**
  * Galeria editorial de projetos — portfólio arquitetônico com estudo de caso.
@@ -43,6 +44,7 @@ export default function ProjectGallery() {
                     loading="lazy"
                     className="snr-zoom-media absolute inset-0 h-full w-full object-cover"
                   />
+                  <ImageBandOverlay />
                 </Link>
 
                 <div className={`lg:col-span-4 ${i % 2 === 1 ? "lg:order-1" : ""}`}>

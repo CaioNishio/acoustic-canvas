@@ -37,14 +37,25 @@ export default function ProdutoDetalhePage() {
   const [mainImage, setMainImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const { addItem } = useQuoteCart();
-  const { imagesFor } = useShopifyCatalogMedia();
+  const { contentFor, imagesFor } = useShopifyCatalogMedia();
   const shopify = useShopifyPurchase(slug ?? "");
 
   // Auto-select first size on mount
   const pricing = product ? productPrices[product?.slug || ""] : undefined;
   const shopifyImages = product ? imagesFor(product.slug) : [];
-  const gallery = product && shopifyImages.length > 0 ? shopifyImages : product?.gallery ?? [];
-  const productImage = shopifyImages[0] || product?.image || "";
+  const shopifyContent = product ? contentFor(product.slug) : undefined;
+  const displayName = shopifyContent?.title || product?.name || "";
+  const displayLongDescription = shopifyContent?.description || product?.longDescription || "";
+  const productImage = product?.curatedCover
+    ? product.image
+    : shopifyImages[0] || product?.image || "";
+  const gallery = product
+    ? [...new Set([
+        productImage,
+        ...(product.curatedMedia ? product.gallery : shopifyImages),
+        ...(product.curatedMedia ? shopifyImages : []),
+      ].filter(Boolean))]
+    : [];
   const [selectedSize, setSelectedSize] = useState<string | null>(() => {
     if (product?.sizes && product.sizes.length > 0) return product.sizes[0].label;
     return null;
@@ -114,7 +125,11 @@ export default function ProdutoDetalhePage() {
             {/* Gallery */}
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
               <div className="glass-card overflow-hidden rounded-xl">
-                <img src={gallery[mainImage] || productImage} alt={product.name} className="w-full aspect-square object-cover" />
+                <img
+                  src={gallery[mainImage] || productImage}
+                  alt={displayName}
+                  className={`w-full aspect-square ${mainImage === 0 && product.curatedCover ? "bg-white object-contain p-8" : "object-cover"}`}
+                />
               </div>
               {gallery.length > 1 &&
               <div className="grid grid-cols-4 gap-3 mt-3">
@@ -136,7 +151,7 @@ export default function ProdutoDetalhePage() {
               <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
                 {product.category}
               </div>
-              <h1 className="font-display text-3xl md:text-4xl font-bold mt-3 text-foreground">{product.name}</h1>
+              <h1 className="font-display text-3xl md:text-4xl font-bold mt-3 text-foreground">{displayName}</h1>
 
               {/* Preço dinâmico */}
               {pricing && pricing.basePrice > 0 && (
@@ -281,7 +296,7 @@ export default function ProdutoDetalhePage() {
                       const selectedSizeData = product.sizes?.find((s) => s.label === selectedSize);
                       addItem({
                         slug: product.slug,
-                        name: product.name,
+                        name: displayName,
                         image: productImage,
                         size: selectedSizeData?.dimensions || undefined,
                         color: selectedColor?.name || undefined,
@@ -361,14 +376,14 @@ export default function ProdutoDetalhePage() {
           </div>
 
           {/* Long Description — GIK editorial style */}
-          {product.longDescription &&
+          {displayLongDescription &&
           <div className="mt-20">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
                   <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
                     Painel Compacto. <em className="text-primary not-italic">Grande Impacto.</em>
                   </h2>
-                  {product.longDescription.split("\n\n").map((p, i) =>
+                  {displayLongDescription.split("\n\n").map((p, i) =>
                 <p key={i} className="text-muted-foreground mt-4 leading-relaxed">{p}</p>
                 )}
                 </motion.div>

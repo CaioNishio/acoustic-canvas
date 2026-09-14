@@ -23,17 +23,17 @@ export default function Hero() {
       <div className="relative z-10 flex min-h-[88vh] items-center">
         <div className="snr-container">
           <div className="max-w-[620px]">
-            <p className="snr-caption snr-rule-editorial text-snr-white/75">
-              Acústica arquitetônica de alta performance
+            <p className="snr-hero-support text-snr-white/80">
+              Engenharia acústica e fabricação própria
             </p>
 
             <h1 className="snr-display-hero mt-6 text-snr-white">
-              Cada ambiente com o som sob controle
+              Cada ambiente merece ser ouvido com clareza
             </h1>
 
-            <p className="snr-body mt-6 max-w-[48ch] text-snr-white/80">
-              Diagnóstico, projeto e fabricação própria de painéis, difusores e bass traps sob
-              medida — do estúdio ao auditório.
+            <p className="snr-hero-support mt-6 max-w-[48ch] !text-white">
+              Projetamos e produzimos soluções acústicas que unem desempenho, estética e
+              integração arquitetônica.
             </p>
 
             <div className="snr-on-dark mt-10 flex flex-wrap items-center gap-4">

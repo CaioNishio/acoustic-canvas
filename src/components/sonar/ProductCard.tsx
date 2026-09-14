@@ -16,9 +16,9 @@ export default function ProductCard({ product, imageOverride }: { product: Produ
   return (
     <Link
       to={`/produtos/${product.slug}`}
-      className="group flex flex-col rounded-2xl bg-snr-paper p-4 transition-shadow duration-ui ease-snr hover:shadow-[0_18px_40px_-22px_hsl(var(--snr-graphite)/0.4)]"
+      className="group relative flex flex-col rounded-2xl border border-snr-mineral-100 bg-snr-paper p-4 transition-all duration-ui ease-snr before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:border before:border-transparent before:transition-all before:duration-ui hover:-translate-y-0.5 hover:border-snr-graphite/35 hover:shadow-[4px_5px_0_0_hsl(var(--snr-graphite)/0.10)] hover:before:-inset-1 hover:before:border-snr-graphite/15"
     >
-      <div className="relative overflow-hidden rounded-xl bg-snr-white">
+      <div className="snr-product-cover relative overflow-hidden rounded-xl">
         {badge && (
           <span className="snr-caption absolute left-3 top-3 z-10 rounded-full bg-snr-petrol px-3 py-1 text-[10px] tracking-[0.12em] text-snr-white">
             {badge}
@@ -28,7 +28,7 @@ export default function ProductCard({ product, imageOverride }: { product: Produ
           src={imageOverride || product.image}
           alt={product.name}
           loading="lazy"
-          className="snr-zoom-media aspect-square w-full object-cover"
+          className="snr-zoom-media aspect-square w-full object-contain p-5"
         />
       </div>
 

@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import { QuoteCartProvider } from "@/contexts/QuoteCartContext";
 import QuoteCartDrawer from "@/components/shared/QuoteCartDrawer";
 import { useCartSync } from "@/hooks/useCartSync";
@@ -20,7 +20,6 @@ const ProjetoDetalhe = lazy(() => import("./pages/ProjetoDetalhe"));
 const Calculadora = lazy(() => import("./pages/Calculadora"));
 const Orcamento = lazy(() => import("./pages/Orcamento"));
 const Contato = lazy(() => import("./pages/Contato"));
-const Loja = lazy(() => import("./pages/Loja"));
 const LojaDetalhe = lazy(() => import("./pages/LojaDetalhe"));
 const EnvioFotos = lazy(() => import("./pages/EnvioFotos"));
 const EnvioFotosDetalhe = lazy(() => import("./pages/EnvioFotosDetalhe"));
@@ -61,8 +60,9 @@ function AppContent() {
         <Route path="/calculadora" element={<Calculadora />} />
         <Route path="/orcamento" element={<Orcamento />} />
         <Route path="/contato" element={<Contato />} />
-        <Route path="/loja" element={<Loja />} />
+        <Route path="/loja" element={<Navigate to="/produtos" replace />} />
         <Route path="/loja/:handle" element={<LojaDetalhe />} />
+        <Route path="/produtos/shopify/:handle" element={<LojaDetalhe />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/conhecimento" element={<Conhecimento />} />
         <Route path="/aprender/:slug" element={<Artigo />} />

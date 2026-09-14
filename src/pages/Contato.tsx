@@ -19,6 +19,7 @@ export default function ContatoPage() {
     <Layout>
       <section className="section-padding">
         <div className="container mx-auto max-w-4xl">
+          <h1 className="sr-only">Contato — Sonar Acústicos</h1>
           <SectionHeading tag="Contato" title="Fale Conosco" description="Estamos prontos para ajudar no seu projeto acústico." />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
