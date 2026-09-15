@@ -35,7 +35,7 @@ export default function HeroProductMotion() {
     else player.pause();
   }, [motion, visible, mobile]);
 
-  return <div ref={host} className="hero-products-visual relative isolate aspect-[900/470] min-w-0 overflow-hidden md:h-[332.5px] md:aspect-auto">
+  return <div ref={host} className="hero-products-visual relative isolate aspect-[900/470] min-w-0 overflow-hidden md:h-[332.5px] md:aspect-auto md:overflow-visible md:scale-[1.3] md:origin-right lg:scale-100">
     {mobile === false && motion ? <video ref={video} autoPlay loop muted playsInline controls={false} disablePictureInPicture preload="auto" poster={poster} aria-label="Produtos Sonar e propagação de ondas sonoras" className="hero-products-video pointer-events-none absolute inset-0 h-full w-full select-none object-contain">
       <source src="/media/hero-products-transparent.webm" type="video/webm" />
       <source src="/media/hero-products-cropped.mp4" type="video/mp4" />
