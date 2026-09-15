@@ -8,7 +8,7 @@ function ResponsiveAcousticHero() {
       <div className="hero-lead-layout grid grid-cols-[minmax(0,.65fr)_minmax(0,1.35fr)] items-center gap-1 bg-white sm:grid-cols-[minmax(0,.72fr)_minmax(0,1.28fr)] sm:gap-5 md:min-h-[332.5px] lg:gap-10">
         <div className="hero-copy-block relative z-30 min-w-0">
           <p className="font-display text-[8px] font-semibold tracking-[.07em] text-[#50617f] sm:text-[13px] sm:tracking-[.03em] lg:text-[15px]">FABRICAÇÃO PRÓPRIA</p>
-          <h1 className="mt-2 max-w-[12ch] text-[clamp(30px,8.8vw,42px)] font-semibold leading-[.94] tracking-[-.055em] text-[#10254a] sm:mt-4 sm:text-[clamp(34px,5.7vw,58px)]">Cada ambiente merece ser ouvido com <span className="text-[#ad7420]">clareza</span></h1>
+          <h1 className="mt-2 max-w-[12ch] text-[clamp(30px,8.8vw,42px)] font-semibold leading-[.94] tracking-[-.055em] text-[#10254a] sm:mt-4 sm:text-[clamp(34px,5.7vw,58px)] md:w-[330px] md:max-w-none lg:w-auto lg:max-w-[12ch]">Cada ambiente merece ser ouvido com <span className="text-[#ad7420]">clareza</span></h1>
           <p style={{ fontFamily: 'Georgia, "Times New Roman", serif' }} className="mt-3 max-w-[42ch] text-[11px] font-normal leading-[1.45] tracking-[-.02em] text-[#53627d] sm:mt-4 sm:text-[14px] sm:leading-6 lg:text-[16px]">Soluções acústicas que unem ciência, design e integração arquitetônica para transformar ambientes em experiências sonoras superiores.</p>
         </div>
 
