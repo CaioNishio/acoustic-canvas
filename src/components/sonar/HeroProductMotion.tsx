@@ -3,6 +3,7 @@ import painelAcustico from '@/assets/curated-products/painel-acustico-snr3250/01
 import difusorSkyline from '@/assets/curated-products/difusor-skyline/01.png';
 import biomboAcustico from '@/assets/curated-products/biombo-acustico-retratil/01.png';
 import portaAcustica from '@/assets/curated-products/porta-acustica-dupla/01.png';
+import heroAcousticComposition from '@/assets/hero-reference/hero-acoustic-composition.jpg';
 import HeroAcousticWaveField from './HeroAcousticWaveField';
 
 type AcousticEffect = 'absorb' | 'diffuse' | 'attenuate' | 'block';
@@ -37,21 +38,6 @@ function MobileAcousticSequence({ motion }: { motion: boolean }) {
   </div>;
 }
 
-function DesktopAcousticShowcase({ motion }: { motion: boolean }) {
-  return <div className="relative h-full w-full" aria-label="Soluções Sonar em absorção, difusão, atenuação e isolamento acústico">
-    <HeroAcousticWaveField active={motion} />
-    <div className="pointer-events-none absolute inset-0 z-10 select-none">
-      <div className="absolute left-[27%] top-[3%] h-[10%] w-[23%] -skew-x-12 rounded-sm bg-[#ca912e] shadow-[0_10px_18px_rgba(113,72,16,.2)]" />
-      <div className="absolute left-[56%] top-[10%] h-[8%] w-[16%] -skew-x-12 rounded-sm bg-[#d5a54a] shadow-[0_8px_16px_rgba(113,72,16,.16)]" />
-      <img src={painelAcustico} alt="" aria-hidden="true" className="absolute bottom-[4%] left-[4%] h-[67%] w-[21%] object-contain mix-blend-multiply [animation:snr-hero-float_5.8s_ease-in-out_infinite]" />
-      <img src={portaAcustica} alt="" aria-hidden="true" className="absolute bottom-[19%] left-[38%] h-[55%] w-[18%] object-contain mix-blend-multiply [animation:snr-hero-float_6.5s_ease-in-out_infinite_.8s]" />
-      <img src={difusorSkyline} alt="" aria-hidden="true" className="absolute bottom-[1%] left-[24%] h-[31%] w-[25%] object-contain mix-blend-multiply [animation:snr-hero-float_5.2s_ease-in-out_infinite_1.2s]" />
-      <img src={biomboAcustico} alt="" aria-hidden="true" className="absolute bottom-[4%] right-[2%] h-[65%] w-[27%] object-contain mix-blend-multiply [animation:snr-hero-float_6.2s_ease-in-out_infinite_.4s]" />
-      <div className="absolute bottom-[6%] left-[55%] h-[29%] w-[13%] rounded-sm bg-[#b7893b] shadow-[inset_0_0_18px_rgba(255,255,255,.35),0_10px_20px_rgba(46,33,12,.18)] [animation:snr-hero-float_5.4s_ease-in-out_infinite_1.6s]" />
-    </div>
-  </div>;
-}
-
 /** The hero animates automatically when visible; reduced-motion keeps a lightweight still image. */
 export default function HeroProductMotion() {
   const host = useRef<HTMLDivElement>(null);
@@ -73,7 +59,10 @@ export default function HeroProductMotion() {
   }, []);
 
   return <div ref={host} className="hero-products-visual relative min-w-0 bg-transparent md:h-[332.5px] md:overflow-hidden">
-    {mobile ? <MobileAcousticSequence motion={motion && visible} /> : <DesktopAcousticShowcase motion={motion && visible} />}
-    <style>{`@keyframes snr-wave-flow { to { stroke-dashoffset: -48; } } @keyframes snr-hero-float { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(0, -6px, 0); } } .snr-wave-path { stroke-dasharray: 9 6; } @media (prefers-reduced-motion: reduce) { .snr-wave-path { animation: none !important; } }`}</style>
+    {mobile ? <MobileAcousticSequence motion={motion && visible} /> : <>
+      <img src={heroAcousticComposition} width={1280} height={960} fetchPriority="high" alt="Soluções Sonar em absorção, difusão, atenuação e isolamento acústico" className="hero-products-image pointer-events-none absolute inset-0 z-10 h-full w-full select-none object-contain mix-blend-multiply" />
+      <HeroAcousticWaveField active={motion && visible} />
+    </>}
+    <style>{`@keyframes snr-wave-flow { to { stroke-dashoffset: -48; } } .snr-wave-path { stroke-dasharray: 9 6; } @media (prefers-reduced-motion: reduce) { .snr-wave-path { animation: none !important; } }`}</style>
   </div>;
 }

@@ -48,7 +48,7 @@ function WaveField({ active }: { active: boolean }) {
 }
 
 export default function HeroAcousticWaveField({ active }: { active: boolean }) {
-  return <div className="pointer-events-none absolute inset-0 hidden overflow-hidden md:block" aria-hidden="true">
+  return <div className="pointer-events-none absolute inset-0 z-20 hidden overflow-hidden md:block" aria-hidden="true">
     <Canvas dpr={[1, 1.35]} gl={{ alpha: true, antialias: true, powerPreference: 'low-power' }} camera={{ position: [0, 0, 5], fov: 42 }}>
       <WaveField active={active} />
     </Canvas>
