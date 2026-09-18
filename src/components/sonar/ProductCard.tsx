@@ -1,3 +1,4 @@
+import { ArrowUpRight, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Product } from "@/data/products";
 
@@ -16,11 +17,12 @@ export default function ProductCard({ product, imageOverride }: { product: Produ
   return (
     <Link
       to={`/produtos/${product.slug}`}
-      className="group relative flex flex-col rounded-2xl border border-snr-mineral-100 bg-snr-paper p-4 transition-all duration-ui ease-snr before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:border before:border-transparent before:transition-all before:duration-ui hover:-translate-y-0.5 hover:border-snr-graphite/35 hover:shadow-[4px_5px_0_0_hsl(var(--snr-graphite)/0.10)] hover:before:-inset-1 hover:before:border-snr-graphite/15"
+      className="group relative flex min-w-0 flex-col overflow-hidden rounded-xl border border-snr-mineral-100 bg-snr-paper p-2 transition-all duration-ui ease-snr hover:-translate-y-0.5 hover:border-snr-graphite/35 hover:shadow-[0_12px_30px_rgba(7,28,61,.12)] sm:rounded-2xl sm:p-3"
     >
-      <div className="snr-product-cover relative overflow-hidden rounded-xl">
+      <div className="snr-product-cover relative overflow-hidden rounded-lg sm:rounded-xl">
+        <span className="absolute right-1.5 top-1.5 z-10 grid size-6 place-items-center rounded-full bg-white/80 text-snr-petrol sm:right-2 sm:top-2 sm:size-7" aria-hidden="true"><Heart size={13} /></span>
         {badge && (
-          <span className="snr-caption absolute left-3 top-3 z-10 rounded-full bg-snr-petrol px-3 py-1 text-[10px] tracking-[0.12em] text-snr-white">
+          <span className="snr-caption absolute left-1.5 top-1.5 z-10 max-w-[80%] truncate rounded-full bg-snr-petrol px-2 py-0.5 text-[7px] tracking-[.06em] text-snr-white sm:left-3 sm:top-3 sm:px-3 sm:py-1 sm:text-[10px]">
             {badge}
           </span>
         )}
@@ -28,20 +30,19 @@ export default function ProductCard({ product, imageOverride }: { product: Produ
           src={imageOverride || product.image}
           alt={product.name}
           loading="lazy"
-          className="snr-zoom-media aspect-square w-full object-contain p-5"
+          className="snr-zoom-media aspect-square w-full object-contain p-1 sm:p-3"
         />
       </div>
 
-      <div className="flex flex-1 flex-col items-center px-2 pb-2 pt-5 text-center">
-        <h3 className="font-display text-[15px] font-semibold leading-snug text-snr-graphite">
+      <div className="flex flex-1 flex-col px-1 pb-1 pt-2 text-left sm:px-2 sm:pb-2 sm:pt-3">
+        <p className="mb-1 truncate text-[7px] font-medium text-snr-mineral-700 sm:text-[10px]">{product.category}</p>
+        <h3 className="line-clamp-2 font-display text-[11px] font-semibold leading-[1.12] text-snr-graphite sm:text-[15px]">
           {product.name}
         </h3>
-        <p className="mt-2 line-clamp-2 text-[13px] leading-snug text-snr-mineral-700">
+        <p className="mt-1 line-clamp-2 text-[8px] leading-snug text-snr-mineral-700 sm:mt-2 sm:text-[12px]">
           {product.shortDescription}
         </p>
-        <p className="mt-auto pt-4 text-[13px] font-medium text-snr-petrol">
-          {product.price ? `A partir de ${product.price}` : "Sob consulta"}
-        </p>
+        <div className="mt-auto flex items-center justify-between gap-1 pt-2 sm:pt-4"><p className="text-[9px] font-semibold text-snr-petrol sm:text-[13px]">{product.price ? `A partir de ${product.price}` : "Sob consulta"}</p><span className="grid size-5 shrink-0 place-items-center rounded-full border border-snr-mineral-200 sm:size-7"><ArrowUpRight size={12}/></span></div>
       </div>
     </Link>
   );

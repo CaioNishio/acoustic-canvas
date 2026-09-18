@@ -2,7 +2,7 @@
   position: relative;
   order: 6;
   overflow: hidden;
-  padding: clamp(52px, 7vw, 96px) clamp(16px, 3.2vw, 48px);
+  padding: clamp(40px, 4.8vw, 72px) clamp(16px, 3.2vw, 48px);
   background:
     radial-gradient(ellipse at 74% 4%, rgb(44 82 128 / 42%), transparent 43%),
     linear-gradient(145deg, #06172c, #020c19 68%, #061326);
@@ -23,7 +23,7 @@
 .materials-showcase__heading h2 span { color: #a9c6e8; }
 .materials-showcase__heading > p:last-child { max-width: 58ch; color: rgb(255 255 255 / 70%); font-size: clamp(13px,1.2vw,16px); line-height: 1.65; }
 .materials-showcase__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
-.materials-showcase__card { position: relative; min-width: 0; aspect-ratio: .78; overflow: hidden; border: 1px solid rgb(255 255 255 / 17%); border-radius: 18px; background: #122238; box-shadow: 0 24px 52px -32px rgb(0 0 0 / 75%), inset 0 1px 0 rgb(255 255 255 / 12%); }
+.materials-showcase__card { position: relative; min-width: 0; aspect-ratio: .92; overflow: hidden; border: 1px solid rgb(255 255 255 / 17%); border-radius: 18px; background: #122238; box-shadow: 0 24px 52px -32px rgb(0 0 0 / 75%), inset 0 1px 0 rgb(255 255 255 / 12%); }
 .materials-showcase__card:last-child:nth-child(odd) { grid-column: 1/-1; aspect-ratio: 1.65; }
 .materials-showcase__card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.22,.61,.36,1); }
 .materials-showcase__card:hover img { transform: scale(1.035); }
@@ -40,7 +40,7 @@
 @media (min-width: 1120px) {
   .materials-showcase__grid { grid-template-columns: repeat(5,minmax(0,1fr)); gap: 15px; }
   .materials-showcase__card,
-  .materials-showcase__card:last-child:nth-child(odd) { grid-column: auto; aspect-ratio: .72; }
+  .materials-showcase__card:last-child:nth-child(odd) { grid-column: auto; aspect-ratio: .88; }
 }
 @media (max-width: 679px) {
   .materials-showcase__heading { grid-template-columns: 1fr; }

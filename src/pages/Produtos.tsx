@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { ChevronDown, Loader2, Search, SlidersHorizontal, X } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/sonar/ProductCard";
+import ProductCategoryShowcase from "@/components/sonar/ProductCategoryShowcase";
 import ShopifyProductCard from "@/components/sonar/ShopifyProductCard";
 import { useShopifyCatalogMedia } from "@/hooks/useShopifyCatalogMedia";
 import { PRODUCTS_QUERY, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
@@ -170,16 +171,13 @@ export default function ProdutosPage() {
 
   return (
     <Layout>
-      <div className="snr-home bg-snr-white text-snr-graphite">
+      {!cat ? <ProductCategoryShowcase categories={categories} products={products} onSelect={selectCategory} /> : <div className="snr-home bg-snr-white text-snr-graphite">
         {/* Cabeçalho da coleção */}
         <section className="border-b border-snr-mineral-100 bg-snr-paper py-14">
-          <div className="snr-container">
-            <p className="snr-caption snr-rule-editorial text-snr-mineral-700">Catálogo</p>
-            <h1 className="snr-display mt-4">Todos os produtos</h1>
-            <p className="snr-body snr-measure mt-4 text-snr-mineral-700">
-              Painéis, bass traps, difusores e soluções completas — fabricados sob medida para o seu
-              ambiente.
-            </p>
+          <div className="snr-container flex flex-wrap items-end justify-between gap-5">
+            <div><p className="snr-caption snr-rule-editorial text-snr-mineral-700">Catálogo</p>
+            <h1 className="snr-display mt-3">{cat}</h1></div>
+            <p className="snr-body text-snr-mineral-700">{filtered.length} {filtered.length === 1 ? "produto" : "produtos"}</p>
           </div>
         </section>
 
@@ -313,7 +311,7 @@ export default function ProdutosPage() {
         <section className="snr-section">
           <div className="snr-container">
             {filtered.length > 0 ? (
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
                 {filtered.map((product, i) => (
                   <Fragment key={product.slug}>
                     {(() => {
@@ -376,7 +374,7 @@ export default function ProdutosPage() {
             )}
           </div>
         </section>
-      </div>
+      </div>}
     </Layout>
   );
 }

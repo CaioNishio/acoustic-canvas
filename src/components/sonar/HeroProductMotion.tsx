@@ -19,7 +19,7 @@ export default function HeroProductMotion() {
     return () => { observer.disconnect(); reduced.removeEventListener('change', sync); document.removeEventListener('visibilitychange', sync); };
   }, []);
 
-  return <div ref={host} className="hero-products-visual relative aspect-[4/3] min-w-0 bg-transparent md:-ml-[30%] md:h-[432px] md:w-[130%] md:aspect-auto md:overflow-hidden lg:ml-0 lg:h-[332.5px] lg:w-full">
+  return <div ref={host} className="hero-products-visual relative aspect-[4/3] min-w-0 bg-transparent md:-ml-[22%] md:h-[clamp(390px,40vw,560px)] md:w-[122%] md:aspect-auto md:overflow-hidden lg:ml-0 lg:h-[clamp(390px,37vw,530px)] lg:w-full">
     <img src={heroAcousticComposition} width={1280} height={960} fetchPriority="high" alt="Soluções Sonar em absorção, difusão, atenuação e isolamento acústico" className="hero-products-image pointer-events-none absolute inset-0 z-10 h-full w-full select-none object-contain mix-blend-multiply" />
     <HeroAcousticWaveField active={motion && visible} />
   </div>;
