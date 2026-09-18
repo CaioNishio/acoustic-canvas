@@ -332,7 +332,7 @@ export default function ProdutosPage() {
                     })()}
                     {/* cartão de consultoria intercalado, como na referência */}
                     {i === 6 && (
-                      <div className="flex flex-col justify-end rounded-2xl bg-snr-graphite p-7 text-snr-white">
+                      <div className="hidden flex-col justify-end rounded-2xl bg-snr-graphite p-7 text-snr-white sm:flex">
                         <h3 className="snr-card-title text-snr-white">
                           Não sabe por onde começar?
                         </h3>

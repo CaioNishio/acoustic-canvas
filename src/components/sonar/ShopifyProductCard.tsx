@@ -40,8 +40,8 @@ export default function ShopifyProductCard({ product, localSlug, coverImage }: P
   };
 
   return (
-    <article className="group relative flex flex-col rounded-2xl border border-snr-mineral-100 bg-snr-paper transition-all duration-ui ease-snr before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:border before:border-transparent before:transition-all before:duration-ui hover:-translate-y-0.5 hover:border-snr-graphite/35 hover:shadow-[4px_5px_0_0_hsl(var(--snr-graphite)/0.10)] hover:before:-inset-1 hover:before:border-snr-graphite/15">
-      <Link to={detailUrl} className="snr-product-cover block aspect-square overflow-hidden rounded-t-2xl p-4">
+    <article className="group relative flex min-w-0 flex-col overflow-hidden rounded-xl border border-snr-mineral-100 bg-snr-paper transition-all duration-ui ease-snr hover:-translate-y-0.5 hover:border-snr-graphite/35 hover:shadow-[0_12px_30px_rgba(7,28,61,.12)] sm:rounded-2xl">
+      <Link to={detailUrl} className="snr-product-cover block aspect-square overflow-hidden rounded-t-xl p-1.5 sm:rounded-t-2xl sm:p-4">
         {coverImage || shopifyImage ? (
           <img
             src={coverImage || shopifyImage?.url}
@@ -55,16 +55,16 @@ export default function ShopifyProductCard({ product, localSlug, coverImage }: P
           </span>
         )}
       </Link>
-      <div className="flex flex-1 flex-col p-5 text-center">
+      <div className="flex flex-1 flex-col p-2 text-left sm:p-5 sm:text-center">
         <Link to={detailUrl}>
-          <h3 className="font-display text-[15px] font-semibold leading-snug text-snr-graphite transition-colors group-hover:text-snr-ocean">
+          <h3 className="line-clamp-3 font-display text-[10px] font-semibold leading-[1.13] text-snr-graphite transition-colors group-hover:text-snr-ocean sm:line-clamp-2 sm:text-[15px] sm:leading-snug">
             {product.node.title}
           </h3>
         </Link>
-        <p className="mt-2 line-clamp-2 text-[13px] leading-snug text-snr-mineral-700">
+        <p className="mt-2 hidden line-clamp-2 text-[13px] leading-snug text-snr-mineral-700 sm:block">
           {product.node.description}
         </p>
-        <p className="mt-auto pt-4 text-[15px] font-semibold text-snr-petrol">
+        <p className="mt-auto pt-2 text-[10px] font-semibold text-snr-petrol sm:pt-4 sm:text-[15px]">
           {purchasable ? formatMoney(price) : "Sob consulta"}
         </p>
         {purchasable ? (
@@ -72,14 +72,14 @@ export default function ShopifyProductCard({ product, localSlug, coverImage }: P
             type="button"
             onClick={handleAdd}
             disabled={isLoading}
-            className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-snr-petrol px-5 text-sm font-semibold text-white transition-colors hover:bg-snr-ocean disabled:opacity-50"
+            className="mt-4 hidden min-h-11 items-center justify-center rounded-full bg-snr-petrol px-5 text-sm font-semibold text-white transition-colors hover:bg-snr-ocean disabled:opacity-50 sm:inline-flex"
           >
             {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Adicionar ao carrinho"}
           </button>
         ) : (
           <Link
             to="/orcamento"
-            className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-snr-petrol px-5 text-sm font-semibold text-snr-petrol transition-colors hover:bg-snr-petrol hover:text-white"
+            className="mt-4 hidden min-h-11 items-center justify-center gap-2 rounded-full border border-snr-petrol px-5 text-sm font-semibold text-snr-petrol transition-colors hover:bg-snr-petrol hover:text-white sm:inline-flex"
           >
             Solicitar orçamento <ArrowRight size={14} />
           </Link>
