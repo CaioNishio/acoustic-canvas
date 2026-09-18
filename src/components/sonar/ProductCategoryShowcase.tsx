@@ -74,11 +74,11 @@ export default function ProductCategoryShowcase({ categories, products, onSelect
     return () => host.removeEventListener("scroll", onScroll);
   }, []);
 
-  return <section className="relative isolate min-h-[700px] overflow-hidden bg-[#123f6b] py-7 text-white sm:min-h-[760px] sm:py-10">
-    <img src={showroomBackground} alt="" aria-hidden="true" className="absolute inset-0 size-full object-cover object-center opacity-70" />
-    <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,25,49,.68),rgba(15,66,108,.18)_36%,rgba(4,25,49,.32)),linear-gradient(0deg,rgba(2,20,42,.52),transparent_42%)]" />
+  return <section className="relative isolate min-h-[700px] overflow-hidden bg-[#dcecf8] py-7 text-white sm:min-h-[760px] sm:py-10">
+    <img src={showroomBackground} alt="" aria-hidden="true" className="absolute inset-0 size-full object-cover object-center opacity-95" />
+    <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,rgba(225,243,255,.48),rgba(128,193,238,.10)_36%,rgba(216,240,255,.22)),linear-gradient(0deg,rgba(3,35,66,.34),transparent_48%)]" />
     <div className="relative mx-auto flex min-h-[646px] max-w-[1680px] flex-col px-4 sm:min-h-[680px] sm:px-8 lg:px-12">
-      <div className="pointer-events-none absolute left-5 top-7 z-10 sm:left-10 sm:top-10"><p className="text-[10px] font-semibold tracking-[.25em] text-white/80">SONAR ACÚSTICOS</p><h1 className="mt-2 max-w-[18ch] font-display text-xl font-medium tracking-[-.035em] text-white sm:text-2xl">Soluções que transformam espaços.</h1></div>
+      <div className="pointer-events-none absolute left-5 top-7 z-10 sm:left-10 sm:top-10"><p className="text-[10px] font-semibold tracking-[.25em] text-[#12395d]">SONAR ACÚSTICOS</p><h1 className="mt-2 max-w-[18ch] font-display text-xl font-medium tracking-[-.035em] text-[#102f4d] sm:text-2xl">Soluções que transformam espaços.</h1></div>
       <div className="relative">
         <button type="button" onClick={() => go(active - 1)} aria-label="Categoria anterior" className="absolute left-0 top-1/2 z-20 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-[#0e4f93]/80 shadow-lg backdrop-blur-md transition hover:bg-white hover:text-[#07326a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><ArrowLeft size={22}/></button>
         <div ref={rail} role="region" aria-label="Famílias de produtos" tabIndex={0}
