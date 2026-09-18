@@ -119,7 +119,8 @@ export default function ProdutosPage() {
     const params = new URLSearchParams(searchParams);
     if (next) params.set("categoria", next);
     else params.delete("categoria");
-    setSearchParams(params, { replace: true });
+    params.set("catalogo", "1");
+    setSearchParams(params);
   };
 
   const filtered = useMemo(() => {
@@ -141,6 +142,7 @@ export default function ProdutosPage() {
         const q = search.toLowerCase();
         return (
           p.name.toLowerCase().includes(q) ||
+          p.slug.toLowerCase().includes(q) ||
           p.shortDescription.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q) ||
           Boolean(p.subcategory?.toLowerCase().includes(q))
@@ -171,18 +173,18 @@ export default function ProdutosPage() {
 
   return (
     <Layout>
-      {!cat ? <ProductCategoryShowcase categories={categories} products={products} onSelect={selectCategory} /> : <div className="snr-home bg-snr-white text-snr-graphite">
+      {!cat && searchParams.get("catalogo") !== "1" ? <ProductCategoryShowcase categories={categories} products={products} onSelect={selectCategory} /> : <div className="snr-home bg-snr-white text-snr-graphite">
         {/* Cabeçalho da coleção */}
-        <section className="border-b border-snr-mineral-100 bg-snr-paper py-14">
+        <section className="bg-snr-paper pb-4 pt-6 sm:pt-8">
           <div className="snr-container flex flex-wrap items-end justify-between gap-5">
             <div><p className="snr-caption snr-rule-editorial text-snr-mineral-700">Catálogo</p>
-            <h1 className="snr-display mt-3">{cat}</h1></div>
+            <h1 className="mt-2 font-display text-2xl font-semibold tracking-tight sm:text-4xl">{cat || "Todos os produtos"}</h1></div>
             <p className="snr-body text-snr-mineral-700">{filtered.length} {filtered.length === 1 ? "produto" : "produtos"}</p>
           </div>
         </section>
 
         {/* Barra de filtros */}
-        <section className="sticky top-0 z-30 border-b border-snr-mineral-100 bg-snr-white/95 py-4 backdrop-blur-md">
+        <section className="border-b border-snr-mineral-100 bg-snr-white py-4">
           <div className="snr-container">
             <div className="flex items-center justify-between gap-3 md:hidden">
               <button
@@ -205,15 +207,15 @@ export default function ProdutosPage() {
               <span className="shrink-0 text-sm text-snr-mineral-700">{filtered.length} produtos</span>
             </div>
 
-            <div id="mobile-product-filters" className={`${filtersOpen ? "mt-4 block" : "hidden"} md:block`}>
+            <div id="mobile-product-filters" className="mt-4 md:mt-0">
             <div className="flex flex-wrap items-center justify-between gap-4">
               {/* Pills de categoria */}
-              <div className="flex flex-1 flex-wrap items-center gap-2">
+              <div className="flex w-full items-center gap-2 overflow-x-auto pb-2 [scrollbar-width:thin]">
                 <button
                   type="button"
                   onClick={() => selectCategory("")}
                   aria-pressed={!cat}
-                  className={`min-h-11 cursor-pointer rounded-full border px-5 text-sm font-medium transition-colors duration-micro ease-snr ${
+                  className={`min-h-11 shrink-0 cursor-pointer rounded-full border px-4 text-xs font-medium transition-colors duration-micro ease-snr ${
                     !cat
                       ? "border-snr-petrol bg-snr-petrol text-snr-white"
                       : "border-snr-mineral-100 text-snr-graphite hover:border-snr-mineral-300"
@@ -229,9 +231,9 @@ export default function ProdutosPage() {
                     <button
                       key={c}
                       type="button"
-                      onClick={() => selectCategory(active ? "" : c)}
+                      onClick={() => selectCategory(c)}
                       aria-pressed={active}
-                      className={`min-h-11 cursor-pointer rounded-full border px-5 text-sm font-medium transition-colors duration-micro ease-snr ${
+                      className={`min-h-11 shrink-0 cursor-pointer rounded-full border px-4 text-xs font-medium transition-colors duration-micro ease-snr ${
                         active
                           ? "border-snr-petrol bg-snr-petrol text-snr-white"
                           : "border-snr-mineral-100 text-snr-graphite hover:border-snr-mineral-300"
@@ -260,7 +262,7 @@ export default function ProdutosPage() {
 
             {/* Busca e filtros secundários */}
             <div className="mt-3 flex flex-wrap items-center gap-3">
-              <div className="relative">
+              <div className="relative w-full sm:w-auto sm:flex-1">
                 <Search
                   size={16}
                   className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-snr-mineral-500"
@@ -272,19 +274,19 @@ export default function ProdutosPage() {
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Buscar produto"
                   aria-label="Buscar produto"
-                  className="min-h-11 w-60 rounded-full border border-snr-mineral-100 bg-snr-white pl-11 pr-4 text-sm text-snr-graphite placeholder:text-snr-mineral-500 transition-colors duration-micro ease-snr hover:border-snr-mineral-300"
+                  className="min-h-11 w-full rounded-full border border-snr-mineral-100 bg-snr-white pl-11 pr-4 text-sm text-snr-graphite placeholder:text-snr-mineral-500 transition-colors duration-micro ease-snr hover:border-snr-mineral-300"
                 />
               </div>
 
-              <select value={app} onChange={(e) => setApp(e.target.value)} aria-label="Aplicação" className={selectClass}>
+              <select value={app} onChange={(e) => setApp(e.target.value)} aria-label="Aplicação" className={`${selectClass} ${filtersOpen ? "" : "hidden md:block"}`}>
                 <option value="">Aplicação</option>
                 {applications.map((o) => <option key={o} value={o}>{o}</option>)}
               </select>
-              <select value={mat} onChange={(e) => setMat(e.target.value)} aria-label="Material" className={selectClass}>
+              <select value={mat} onChange={(e) => setMat(e.target.value)} aria-label="Material" className={`${selectClass} ${filtersOpen ? "" : "hidden md:block"}`}>
                 <option value="">Material</option>
                 {materialsFilter.map((o) => <option key={o} value={o}>{o}</option>)}
               </select>
-              <select value={thick} onChange={(e) => setThick(e.target.value)} aria-label="Espessura" className={selectClass}>
+              <select value={thick} onChange={(e) => setThick(e.target.value)} aria-label="Espessura" className={`${selectClass} ${filtersOpen ? "" : "hidden md:block"}`}>
                 <option value="">Espessura</option>
                 {thicknesses.map((o) => <option key={o} value={o}>{o}</option>)}
               </select>
@@ -308,7 +310,7 @@ export default function ProdutosPage() {
         </section>
 
         {/* Grade */}
-        <section className="snr-section">
+        <section className="py-5 sm:py-6">
           <div className="snr-container">
             {filtered.length > 0 ? (
               <div className="grid grid-cols-3 gap-2 sm:gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
