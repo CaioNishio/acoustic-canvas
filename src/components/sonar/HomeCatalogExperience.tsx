@@ -45,7 +45,7 @@ const items = [
 
 export default function HomeCatalogExperience() {
   return (
-    <section className="relative z-0 order-2 overflow-hidden bg-[#fbfaf7] text-[#071b3d]">
+    <section className="relative z-0 order-2 flex flex-col overflow-hidden bg-[#fbfaf7] text-[#071b3d]">
       <style>{`.snr-catalog-intro{display:grid;gap:34px;align-items:stretch}.snr-feature-card{display:grid;grid-template-columns:minmax(0,38fr) minmax(0,62fr)}.snr-feature-card>dl{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;border-left:0;border-top:1px solid rgba(7,27,61,.1)}.snr-engineering{display:grid}@media(min-width:560px){.snr-feature-card{grid-template-columns:42% 58%;min-height:340px}.snr-feature-card>dl{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}}@media(min-width:900px){.snr-catalog-intro{grid-template-columns:minmax(0,32fr) minmax(0,68fr)}.snr-feature-card{grid-template-columns:40% 34% 26%}.snr-feature-card>dl{grid-column:auto;display:flex;border-left:1px solid rgba(7,27,61,.1);border-top:0}.snr-engineering{grid-template-columns:repeat(3,minmax(0,1fr))}}`}</style>
       <div className="h-2 bg-[#020d1d]" />
       <div className="snr-catalog-art relative isolate aspect-[2134/737] w-full overflow-hidden bg-[#031a38] text-white">
@@ -86,7 +86,7 @@ export default function HomeCatalogExperience() {
       </div>
       <div className="h-3 bg-[#f8f8f7]" />
       <div
-        className="mx-auto max-w-[1600px] pb-16 pt-7"
+        className="order-first mx-auto max-w-[1600px] pb-16 pt-7"
         style={{ paddingInline: "var(--snr-home-gutter)" }}
       >
         <div className="snr-catalog-intro">
