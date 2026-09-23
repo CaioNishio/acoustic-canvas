@@ -3,21 +3,15 @@ import exactHero from '@/assets/hero-reference/hero-exato-gold.png';
 import HeroProductMotion from './HeroProductMotion';
 
 function ResponsiveAcousticHero() {
-  return <section className="relative overflow-hidden bg-white pb-6 pt-5 font-display text-[#0b2144] sm:pb-7 sm:pt-7">
-    <div className="mx-auto max-w-[1180px] bg-white px-4 sm:px-8">
-      <div className="hero-lead-layout grid min-h-[clamp(330px,46vw,560px)] grid-cols-[minmax(0,.62fr)_minmax(0,1.38fr)] items-center gap-1 bg-white sm:grid-cols-[minmax(0,.68fr)_minmax(0,1.32fr)] sm:gap-5 lg:grid-cols-[minmax(0,.72fr)_minmax(0,1.28fr)] lg:gap-7">
-        <div className="hero-copy-block relative z-30 min-w-0">
-          <p className="font-display text-[8px] font-semibold tracking-[.07em] text-[#50617f] sm:text-[13px] sm:tracking-[.03em] lg:text-[15px]">FABRICAÇÃO PRÓPRIA</p>
-          <h1 className="mt-2 max-w-[12ch] text-[clamp(30px,8.8vw,44px)] font-semibold leading-[.94] tracking-[-.055em] text-[#10254a] sm:mt-4 sm:text-[clamp(34px,5.7vw,60px)] md:w-[330px] md:max-w-none lg:w-auto lg:max-w-[12ch]">Cada ambiente merece ser ouvido com <span className="text-[#ad7420]">clareza</span></h1>
-          <p style={{ fontFamily: 'Georgia, "Times New Roman", serif' }} className="mt-3 max-w-[42ch] text-[11px] font-normal leading-[1.45] tracking-[-.02em] text-[#53627d] sm:mt-4 sm:text-[14px] sm:leading-6 lg:text-[16px]">Soluções acústicas que unem ciência, design e integração arquitetônica para transformar ambientes em experiências sonoras superiores.</p>
-        </div>
-
-        <HeroProductMotion />
+  return <section className="relative isolate min-h-[calc(100svh-7.25rem)] overflow-hidden bg-[#edf4f8] font-display text-[#0b2144] lg:min-h-[calc(100svh-8.75rem)]">
+    <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,#f9fcff_0%,rgba(249,252,255,.96)_28%,rgba(249,252,255,.18)_56%,rgba(249,252,255,.04)_100%)]" />
+    <div className="relative mx-auto grid min-h-[inherit] max-w-[1920px] grid-rows-[auto_1fr] px-5 pb-7 pt-10 sm:px-8 sm:pt-14 lg:grid-cols-[minmax(300px,.82fr)_minmax(620px,1.7fr)] lg:grid-rows-1 lg:px-[clamp(2.5rem,4vw,4.5rem)] lg:py-[clamp(3rem,6vw,7rem)]">
+      <div className="relative z-10 flex max-w-[520px] flex-col justify-center lg:pb-[8%]">
+        <p className="text-[10px] font-semibold tracking-[.18em] text-[#536986] sm:text-xs">FABRICAÇÃO PRÓPRIA</p>
+        <h1 className="mt-4 max-w-[10ch] text-[clamp(2.8rem,5.1vw,6.6rem)] font-semibold leading-[.92] tracking-[-.065em] text-[#0c356c]">Cada ambiente merece ser ouvido com <span className="text-[#ae741a]">clareza</span></h1>
+        <p className="mt-6 max-w-[32ch] text-[clamp(1rem,1.55vw,1.55rem)] font-normal leading-[1.28] tracking-[-.025em] text-[#385f9c]">Soluções acústicas que unem ciência, design e integração arquitetônica para transformar ambientes em experiências sonoras superiores.</p>
       </div>
-
-      <div className="mt-5 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/55 bg-[#58616c]/80 p-1 shadow-[0_15px_40px_rgba(27,39,55,.18),inset_0_1px_0_rgba(255,255,255,.3)] backdrop-blur-xl sm:grid-cols-4">
-        {[["PRECISÃO ACÚSTICA", "Desempenho comprovado"], ["TECNOLOGIA E DESIGN", "Materiais premium"], ["SOLUÇÕES PERSONALIZADAS", "Para cada projeto"], ["SUSTENTABILIDADE", "Baixo impacto"]].map(([title, text]) => <div key={title} className="border-white/15 px-3 py-2.5 text-white even:border-l sm:border-l sm:first:border-l-0"><strong className="block text-[10px] leading-3">{title}</strong><span className="mt-1.5 block text-[10px] leading-3 text-white/70">{text}</span></div>)}
-      </div>
+      <HeroProductMotion />
     </div>
   </section>;
 }

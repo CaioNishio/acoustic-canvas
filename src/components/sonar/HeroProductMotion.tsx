@@ -1,26 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import heroAcousticComposition from '@/assets/hero-reference/hero-acoustic-composition.jpg';
-import HeroAcousticWaveField from './HeroAcousticWaveField';
+import heroSonarAmbient from '@/assets/hero-reference/hero-sonar-ambient.webp';
 
-/** The hero animates automatically when visible; reduced-motion keeps a lightweight still image. */
+/** Keeps the decorative composition outside the readable copy column. */
 export default function HeroProductMotion() {
-  const host = useRef<HTMLDivElement>(null);
-  const [motion, setMotion] = useState(false);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const sync = () => setMotion(!reduced.matches && !document.hidden);
-    sync();
-    reduced.addEventListener('change', sync);
-    document.addEventListener('visibilitychange', sync);
-    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
-    if (host.current) observer.observe(host.current);
-    return () => { observer.disconnect(); reduced.removeEventListener('change', sync); document.removeEventListener('visibilitychange', sync); };
-  }, []);
-
-  return <div ref={host} className="hero-products-visual relative aspect-[4/3] min-w-0 bg-transparent md:-ml-[22%] md:h-[clamp(390px,40vw,560px)] md:w-[122%] md:aspect-auto md:overflow-hidden lg:ml-0 lg:h-[clamp(390px,37vw,530px)] lg:w-full">
-    <img src={heroAcousticComposition} width={1280} height={960} fetchPriority="high" alt="Soluções Sonar em absorção, difusão, atenuação e isolamento acústico" className="hero-products-image pointer-events-none absolute inset-0 z-10 h-full w-full select-none object-contain mix-blend-multiply" />
-    <HeroAcousticWaveField active={motion && visible} />
+  return <div className="relative mt-7 min-h-[300px] overflow-hidden sm:min-h-[390px] lg:mt-0 lg:min-h-0">
+    <img src={heroSonarAmbient} width={1042} height={941} fetchPriority="high" alt="Soluções Sonar de absorção, difusão, atenuação e isolamento acústico" className="absolute inset-0 size-full select-none object-cover object-[53%_center] lg:object-center" draggable={false} />
+    <div aria-hidden="true" className="absolute inset-y-0 left-0 w-[18%] bg-gradient-to-r from-[#f9fcff]/95 to-transparent lg:hidden" />
   </div>;
 }
