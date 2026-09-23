@@ -3,7 +3,20 @@ import exactHero from '@/assets/hero-reference/hero-exato-gold.png';
 import HeroProductMotion from './HeroProductMotion';
 
 function ResponsiveAcousticHero() {
-  return <section className="relative isolate min-h-[calc(100svh-7.25rem)] overflow-hidden bg-[#edf4f8] font-display text-[#0b2144] lg:min-h-[calc(100svh-8.75rem)]">
+  return <>
+    <section className="relative hidden overflow-hidden bg-[#edf4f8] md:block" aria-label="Sonar Acústicos — soluções integradas">
+      <h1 className="sr-only">Cada ambiente merece ser ouvido com clareza</h1>
+      <img
+        src="/media/hero-home-master.png"
+        width={1672}
+        height={941}
+        fetchPriority="high"
+        decoding="sync"
+        alt="Cada ambiente merece ser ouvido com clareza — soluções acústicas Sonar integradas à arquitetura"
+        className="block h-auto w-full"
+      />
+    </section>
+    <section className="relative isolate min-h-[calc(100svh-7.25rem)] overflow-hidden bg-[#edf4f8] font-display text-[#0b2144] md:hidden">
     <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,#f9fcff_0%,rgba(249,252,255,.96)_28%,rgba(249,252,255,.18)_56%,rgba(249,252,255,.04)_100%)]" />
     <div className="relative mx-auto grid min-h-[inherit] max-w-[1920px] grid-rows-[auto_1fr] px-5 pb-7 pt-10 sm:px-8 sm:pt-14 lg:grid-cols-[minmax(300px,.82fr)_minmax(620px,1.7fr)] lg:grid-rows-1 lg:px-[clamp(2.5rem,4vw,4.5rem)] lg:py-[clamp(3rem,6vw,7rem)]">
       <div className="relative z-10 flex max-w-[520px] flex-col justify-center lg:pb-[8%]">
@@ -13,7 +26,8 @@ function ResponsiveAcousticHero() {
       </div>
       <HeroProductMotion />
     </div>
-  </section>;
+    </section>
+  </>;
 }
 
 export default function AcousticHeroExperience() {
