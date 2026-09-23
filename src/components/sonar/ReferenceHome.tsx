@@ -13,7 +13,7 @@ import appOffice from "@/assets/curated/home/ambiente-escritorio.jpg";
 import appStudio from "@/assets/curated/home/ambiente-estudio.jpg";
 import appAuditorium from "@/assets/curated/home/ambiente-auditorio.png";
 import AcousticHeroExperience from "./AcousticHeroExperience";
-import HomeCatalogExperience from "./HomeCatalogExperience";
+import HomeCatalogExperience, { CatalogBenefitsStrip } from "./HomeCatalogExperience";
 import DiffusionCuration from "./DiffusionCuration";
 import ProjectsEditorial from "./ProjectsEditorial";
 import SolutionsCatalog from "./SolutionsCatalog";
@@ -43,6 +43,7 @@ const applications = [
 export default function ReferenceHome() {
   return <div className="ref-home flex flex-col bg-[#f8f8f7] text-[#071b3d]">
     <AcousticHeroExperience />
+    <CatalogBenefitsStrip />
     {/* <section className="relative overflow-hidden bg-[radial-gradient(circle_at_53%_58%,#fff_0,#f0f0f3_44%,#e8e9ee_100%)]">
       <div className="mx-auto grid min-h-[650px] max-w-[1600px] grid-cols-1 px-6 pb-8 pt-12 lg:grid-cols-[.85fr_1.65fr] lg:px-10">
         <div className="relative z-10 flex flex-col justify-center py-12"><p className="mb-7 text-[12px] font-semibold tracking-[.22em] text-[#60708a]">ENGENHARIA ACÚSTICA<br/>E FABRICAÇÃO PRÓPRIA</p><h1 className="max-w-[520px] font-serif text-5xl leading-[.95] tracking-[-.04em] md:text-7xl">Cada ambiente<br/>merece ser<br/>ouvido com <span className="text-[#2863ee]">clareza</span></h1><p className="mt-7 max-w-[330px] text-sm leading-6 text-[#52617b]">Soluções acústicas que unem ciência, design e integração arquitetônica para transformar ambientes em experiências sonoras superiores.</p><div className="mt-7 flex gap-3"><Link to="/produtos" className="inline-flex items-center gap-4 rounded-full bg-[#06224a] px-5 py-3 text-[10px] font-bold text-white">ENCONTRE A SOLUÇÃO IDEAL <ArrowRight size={16}/></Link><Link to="/contato" className="rounded-full border border-[#071b3d]/35 px-5 py-3 text-[10px] font-bold">FALE COM UM ESPECIALISTA</Link></div></div>

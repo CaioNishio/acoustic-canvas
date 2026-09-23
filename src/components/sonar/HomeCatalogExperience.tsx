@@ -187,28 +187,22 @@ export default function HomeCatalogExperience() {
             draggable={false}
           />
         </div>
-        <div className="mt-7 grid gap-4 rounded-[20px] bg-[linear-gradient(100deg,#073c7c,#062654)] px-7 py-5 text-white md:grid-cols-2 lg:grid-cols-4">
-          <Benefit
-            icon={MessageCircle}
-            t="ATENDIMENTO ESPECIALIZADO"
-            x="Suporte técnico para seu projeto"
-          />
-          <Benefit
-            icon={Ruler}
-            t="FABRICAÇÃO SOB MEDIDA"
-            x="Painéis e soluções personalizadas"
-          />
-          <Benefit
-            icon={Truck}
-            t="ENVIO PARA TODO O BRASIL"
-            x="Logística segura e ágil"
-          />
-          <Benefit
-            icon={Recycle}
-            t="SUSTENTABILIDADE"
-            x="Materiais recicláveis e responsáveis"
-          />
-        </div>
+      </div>
+    </section>
+  );
+}
+export function CatalogBenefitsStrip() {
+  return (
+    <section
+      aria-label="Benefícios Sonar"
+      className="order-1 w-full bg-[#fbfaf7] py-7"
+      style={{ paddingInline: "var(--snr-home-gutter)" }}
+    >
+      <div className="mx-auto grid max-w-[1600px] gap-4 rounded-[20px] bg-[linear-gradient(100deg,#073c7c,#062654)] px-7 py-5 text-white md:grid-cols-2 lg:grid-cols-4">
+        <Benefit icon={MessageCircle} t="ATENDIMENTO ESPECIALIZADO" x="Suporte técnico para seu projeto" />
+        <Benefit icon={Ruler} t="FABRICAÇÃO SOB MEDIDA" x="Painéis e soluções personalizadas" />
+        <Benefit icon={Truck} t="ENVIO PARA TODO O BRASIL" x="Logística segura e ágil" />
+        <Benefit icon={Recycle} t="SUSTENTABILIDADE" x="Materiais recicláveis e responsáveis" />
       </div>
     </section>
   );
