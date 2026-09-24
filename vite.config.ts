@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
     ViteImageOptimizer({
       // Already optimized animated WebP: the default optimizer flattens it.
-      exclude: /(?:hero-products-mobile\.webp|hero-home-master\.png|showroom-reference-clean(?:-[\w]+)?\.png)$/,
+      exclude: /(?:hero-products-mobile\.webp|hero-home-(?:master\.png|(?:mobile-)?4k\.webp)|showroom-reference-clean(?:-[\w]+)?\.png)$/,
       png: { quality: 70 },
       jpeg: { quality: 70 },
       jpg: { quality: 70 },
