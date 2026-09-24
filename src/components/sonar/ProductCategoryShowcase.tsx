@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { Product } from "@/data/products";
-import showroomBackground from "@/assets/gallery/escritorio-neutros-v2.jpg";
+import showroomBackground from "@/assets/category-showcase/showroom-reference-clean.png";
 import allProducts from "@/assets/category-showcase/todos.webp";
 import absorptionPanels from "@/assets/category-showcase/paineis.webp";
 import diffusion from "@/assets/category-showcase/difusao.webp";
@@ -32,6 +32,7 @@ const description = (category: string) => {
 export default function ProductCategoryShowcase({ categories, products, onSelect }: Props) {
   const rail = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [activeRail, setActiveRail] = useState(0);
   const [dragging, setDragging] = useState(false);
   const drag = useRef({ x: 0, left: 0, moved: false });
   const categoryCards = [
@@ -48,11 +49,18 @@ export default function ProductCategoryShowcase({ categories, products, onSelect
     { category: "Absorção Suspensa", label: "Absorção suspensa", image: suspendedAbsorption, copy: description("Absorção Suspensa") },
     { category: "Consultoria & Projetos", label: "Consultoria e projetos", image: consulting, copy: "Orientação técnica para a solução adequada ao seu espaço." },
   ].filter((item) => !item.category || products.some((product) => product.category === item.category));
+  const cardCount = categoryCards.length;
+  const carouselCards = [...categoryCards, ...categoryCards, ...categoryCards];
   const go = (next: number) => {
-    const index = (next + categoryCards.length) % categoryCards.length;
+    const index = (next + carouselCards.length) % carouselCards.length;
     const target = rail.current?.children[index] as HTMLElement | undefined;
-    target?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? "auto" : "smooth", block: "nearest", inline: "center" });
-    setActive(index);
+    const host = rail.current;
+    if (target && host) host.scrollTo({
+      left: target.offsetLeft + target.offsetWidth / 2 - host.clientWidth / 2,
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? "auto" : "smooth",
+    });
+    setActiveRail(index);
+    setActive(index % categoryCards.length);
   };
 
   useEffect(() => {
@@ -67,22 +75,31 @@ export default function ProductCategoryShowcase({ categories, products, onSelect
         const current = Math.abs(element.offsetLeft + element.offsetWidth / 2 - middle);
         if (current < distance) { distance = current; closest = index; }
       });
-      setActive(closest);
+      setActiveRail(closest);
+      setActive(closest % cardCount);
     };
     host.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => host.removeEventListener("scroll", onScroll);
-  }, []);
+    const frame = requestAnimationFrame(() => {
+      const target = host.children[cardCount] as HTMLElement | undefined;
+      if (target) host.scrollLeft = target.offsetLeft + target.offsetWidth / 2 - host.clientWidth / 2;
+      setActiveRail(cardCount);
+      setActive(0);
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      host.removeEventListener("scroll", onScroll);
+    };
+  }, [cardCount]);
 
-  return <section className="relative isolate min-h-[700px] overflow-hidden bg-[#dcecf8] py-7 text-white sm:min-h-[760px] sm:py-10">
-    <img src={showroomBackground} alt="" aria-hidden="true" className="absolute inset-0 size-full object-cover object-center opacity-95" />
-    <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,rgba(225,243,255,.48),rgba(128,193,238,.10)_36%,rgba(216,240,255,.22)),linear-gradient(0deg,rgba(3,35,66,.34),transparent_48%)]" />
-    <div className="relative mx-auto flex min-h-[646px] max-w-[1680px] flex-col px-4 sm:min-h-[680px] sm:px-8 lg:px-12">
-      <div className="pointer-events-none absolute left-5 top-7 z-10 sm:left-10 sm:top-10"><p className="text-[10px] font-semibold tracking-[.25em] text-[#12395d]">SONAR ACÚSTICOS</p><h1 className="mt-2 max-w-[18ch] font-display text-xl font-medium tracking-[-.035em] text-[#102f4d] sm:text-2xl">Soluções que transformam espaços.</h1></div>
+  return <section className="relative isolate min-h-[610px] overflow-hidden bg-[#dcecf8] py-5 text-white sm:min-h-[650px] sm:py-7">
+    <img src={showroomBackground} alt="" aria-hidden="true" className="absolute inset-0 size-full object-cover object-center" />
+    <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,rgba(225,238,249,.2),transparent_38%,rgba(219,233,245,.1)),linear-gradient(0deg,rgba(15,31,50,.16),transparent_54%)]" />
+    <div className="relative mx-auto flex min-h-[570px] max-w-[1680px] flex-col justify-center px-3 sm:min-h-[596px] sm:px-6 lg:px-8">
+      <h1 className="sr-only">Soluções acústicas por família de produtos</h1>
       <div className="relative">
-        <button type="button" onClick={() => go(active - 1)} aria-label="Categoria anterior" className="absolute left-0 top-1/2 z-20 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-[#0e4f93]/80 shadow-lg backdrop-blur-md transition hover:bg-white hover:text-[#07326a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><ArrowLeft size={22}/></button>
+        <button type="button" onClick={() => go(activeRail - 1)} aria-label="Categoria anterior" className="absolute left-1 top-1/2 z-30 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/70 bg-[#0e4f93]/88 shadow-[0_8px_0_rgba(0,18,45,.72)] backdrop-blur-md transition hover:bg-white hover:text-[#07326a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-3"><ArrowLeft size={22}/></button>
         <div ref={rail} role="region" aria-label="Famílias de produtos" tabIndex={0}
-          onKeyDown={(event) => { if (event.key === "ArrowRight" || event.key === "ArrowLeft") { event.preventDefault(); go(active + (event.key === "ArrowRight" ? 1 : -1)); } }}
+          onKeyDown={(event) => { if (event.key === "ArrowRight" || event.key === "ArrowLeft") { event.preventDefault(); go(activeRail + (event.key === "ArrowRight" ? 1 : -1)); } }}
           onPointerDown={(event) => {
             drag.current.moved = false;
             if (event.pointerType !== "mouse" || event.button !== 0 || (event.target as HTMLElement).closest("button,a")) return;
@@ -101,18 +118,18 @@ export default function ProductCategoryShowcase({ categories, products, onSelect
           onPointerUp={() => setDragging(false)}
           onPointerCancel={() => setDragging(false)}
           onLostPointerCapture={() => setDragging(false)}
-          className="relative mt-auto flex snap-x snap-mandatory gap-4 overflow-x-auto px-[11vw] pb-4 pt-2 [scrollbar-width:none] sm:px-[17vw] lg:px-[25vw]">
-          {categoryCards.map(({ category, label, image, copy }, index) => <article key={`${category}-${label}`} onClick={(event) => { if (!drag.current.moved && !(event.target as HTMLElement).closest("button,a")) onSelect(category); }} className={`group relative flex h-[410px] w-[min(78vw,440px)] shrink-0 cursor-pointer snap-center flex-col justify-end overflow-hidden rounded-[25px] border border-white/75 bg-[linear-gradient(145deg,rgba(187,225,252,.44),rgba(35,100,157,.28)_48%,rgba(16,64,113,.42))] p-6 shadow-[0_28px_70px_rgba(0,16,42,.30),inset_0_1px_0_rgba(255,255,255,.8),inset_0_-1px_0_rgba(255,255,255,.18)] backdrop-blur-2xl transition duration-500 sm:h-[535px] sm:w-[min(45vw,470px)] sm:p-8 ${index === active ? "scale-100 opacity-100" : "scale-[.89] opacity-65"}`}>
+          className={`relative flex snap-x snap-mandatory gap-0 overflow-x-auto px-[calc(50%-min(41vw,163px))] py-4 [scrollbar-width:none] sm:px-[calc(50%-175px)] ${dragging ? "cursor-grabbing select-none snap-none" : "cursor-grab"}`}>
+          {carouselCards.map(({ category, label, image, copy }, index) => <article key={`${index}-${category}-${label}`} onClick={(event) => { if (!drag.current.moved && !(event.target as HTMLElement).closest("button,a")) onSelect(category); }} className={`group relative flex h-[430px] w-[min(82vw,326px)] shrink-0 cursor-pointer snap-center flex-col justify-end overflow-hidden rounded-[22px] border border-white/85 bg-[linear-gradient(145deg,rgba(236,245,251,.28),rgba(194,213,228,.14)_52%,rgba(100,126,151,.2))] p-5 shadow-[0_20px_46px_rgba(29,43,57,.17),inset_0_1px_0_rgba(255,255,255,.88),inset_0_-1px_0_rgba(255,255,255,.3)] backdrop-blur-[18px] transition-[transform,opacity,filter] duration-500 sm:h-[470px] sm:w-[350px] sm:p-6 ${index === activeRail ? "z-20 scale-100 opacity-100" : "z-10 scale-[.82] opacity-80 saturate-[.9]"}`}>
             <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(122deg,rgba(255,255,255,.30),transparent_25%,transparent_63%,rgba(109,191,255,.2))]" />
-            <img src={image} alt="" draggable={false} className="absolute inset-x-4 top-4 h-[61%] w-[calc(100%-2rem)] object-contain mix-blend-multiply transition duration-700 group-hover:scale-105 sm:inset-x-7 sm:top-6 sm:w-[calc(100%-3.5rem)]" />
-            <div className="absolute inset-x-0 bottom-0 h-[52%] bg-[linear-gradient(180deg,transparent,rgba(3,25,53,.9)_44%)]" />
-            <div className="relative"><p className="text-[10px] font-semibold tracking-[.18em] text-[#cdeaff]">{String(index + 1).padStart(2, "0")}</p><h2 className="mt-2 font-display text-2xl font-semibold leading-[1.02] tracking-[-.04em] sm:text-[2rem]">{label}</h2><p className="mt-3 max-w-[30ch] text-sm leading-5 text-white/82">{copy}</p><button type="button" onClick={() => onSelect(category)} className="mt-5 inline-flex min-h-11 items-center gap-3 rounded-full bg-white px-5 text-sm font-semibold text-[#08346e] transition hover:bg-[#d7edff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Explorar soluções <ArrowRight size={18}/></button></div>
+            <img src={image} alt="" draggable={false} className="pointer-events-none absolute inset-x-4 top-3 h-[59%] w-[calc(100%-2rem)] object-contain drop-shadow-[0_18px_22px_rgba(5,24,45,.18)] transition duration-700 group-hover:scale-105 sm:inset-x-6 sm:top-4 sm:w-[calc(100%-3rem)]" />
+            <div className="absolute inset-x-0 bottom-0 h-[49%] bg-[linear-gradient(180deg,transparent,rgba(33,48,63,.44)_35%,rgba(26,40,55,.68))]" />
+            <div className="relative min-h-[168px]"><p className="text-[10px] font-semibold tracking-[.18em] text-[#d9efff]">{String((index % categoryCards.length) + 1).padStart(2, "0")}</p><h2 className="mt-1.5 font-display text-[1.65rem] font-medium leading-[1.02] tracking-[-.035em] sm:text-[1.8rem]">{label}</h2><p className="mt-2.5 line-clamp-2 max-w-[30ch] text-[13px] leading-[1.35] text-white/82">{copy}</p><button type="button" onClick={() => onSelect(category)} className="mt-4 inline-flex min-h-10 items-center gap-3 rounded-lg border border-white/45 bg-white/10 px-4 text-sm font-medium text-white backdrop-blur-md transition hover:bg-white hover:text-[#08346e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Explorar solução <ArrowRight size={17}/></button></div>
           </article>)}
         </div>
-        <button type="button" onClick={() => go(active + 1)} aria-label="Próxima categoria" className="absolute right-0 top-1/2 z-20 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-[#0e4f93]/80 shadow-lg backdrop-blur-md transition hover:bg-white hover:text-[#07326a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><ArrowRight size={22}/></button>
+        <button type="button" onClick={() => go(activeRail + 1)} aria-label="Próxima categoria" className="absolute right-1 top-1/2 z-30 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-white/70 bg-[#0e4f93]/88 shadow-[0_8px_0_rgba(0,18,45,.72)] backdrop-blur-md transition hover:bg-white hover:text-[#07326a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-3"><ArrowRight size={22}/></button>
       </div>
-      <div className="mt-4 flex justify-center gap-2" aria-label={`Categoria ${active + 1} de ${categoryCards.length}`}>{categoryCards.map((item, index) => <button key={item.category} type="button" onClick={() => go(index)} aria-label={`Ir para ${item.category}`} aria-current={active === index} className={`h-2.5 rounded-full transition-all ${active === index ? "w-7 bg-[#8ed1ff]" : "w-2.5 bg-white/55 hover:bg-white"}`} />)}</div>
-      <p className="mt-4 text-center text-xs text-white/78">Arraste para explorar ou use as setas do teclado.</p>
+      <div className="mt-2 flex justify-center gap-2" aria-label={`Categoria ${active + 1} de ${categoryCards.length}`}>{categoryCards.map((item, index) => <button key={`${item.category}-${item.label}`} type="button" onClick={() => go(categoryCards.length + index)} aria-label={`Ir para ${item.label}`} aria-current={active === index} className={`size-2.5 rounded-full border border-white/70 transition-all ${active === index ? "bg-[#78b4d9] ring-2 ring-white/70" : "bg-white/20 hover:bg-white/70"}`} />)}</div>
+      <p className="mt-5 text-center text-xs text-[#173b5d]">Arraste para explorar</p>
     </div>
   </section>;
 }
