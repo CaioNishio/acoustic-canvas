@@ -4,6 +4,7 @@ import { ChevronDown, Loader2, Search, SlidersHorizontal, X } from "lucide-react
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/sonar/ProductCard";
 import ProductCategoryShowcase from "@/components/sonar/ProductCategoryShowcase";
+import CatalogCollectionHero from "@/components/sonar/CatalogCollectionHero";
 import ShopifyProductCard from "@/components/sonar/ShopifyProductCard";
 import { useShopifyCatalogMedia } from "@/hooks/useShopifyCatalogMedia";
 import { PRODUCTS_QUERY, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
@@ -174,6 +175,7 @@ export default function ProdutosPage() {
   return (
     <Layout>
       {!cat && searchParams.get("catalogo") !== "1" ? <ProductCategoryShowcase categories={categories} products={products} onSelect={selectCategory} /> : <div className="snr-home bg-snr-white text-snr-graphite">
+        <CatalogCollectionHero category={cat} product={filtered[0] || products[0]} />
         {/* Cabeçalho da coleção */}
         <section className="bg-snr-paper pb-4 pt-6 sm:pt-8">
           <div className="snr-container flex flex-wrap items-end justify-between gap-5">
@@ -310,7 +312,7 @@ export default function ProdutosPage() {
         </section>
 
         {/* Grade */}
-        <section className="py-5 sm:py-6">
+        <section id="catalogo-produtos" className="scroll-mt-28 py-5 sm:py-6">
           <div className="snr-container">
             {filtered.length > 0 ? (
               <div className="grid grid-cols-3 gap-2 sm:gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">

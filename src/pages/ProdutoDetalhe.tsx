@@ -1,6 +1,6 @@
 import { useState, lazy, Suspense } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Download, Check, Volume2, Ruler, Palette, Wrench, LayoutGrid, Target, Shield, Award, Leaf, ChevronDown, CheckCircle, Flame, Droplets, FlaskConical, Bug, ShoppingBag } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, Check, Volume2, Ruler, Palette, Wrench, LayoutGrid, Target, Shield, ChevronDown, CheckCircle, Flame, Droplets, FlaskConical, Bug, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/shared/ProductCard";
@@ -91,53 +91,29 @@ export default function ProdutoDetalhePage() {
 
   return (
     <Layout>
-      {/* Highlights strip — GIK style */}
-      {product.highlights && product.highlights.length > 0 &&
-      <section className="border-b border-border py-10 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {product.highlights.map((h) => {
-              const Icon = highlightIcons[h.icon] || Volume2;
-              return (
-                <div key={h.title} className="flex flex-col items-center text-center gap-2">
-                    <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
-                      <Icon size={20} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-foreground leading-tight">{h.title}</p>
-                      <p className="text-[10px] text-muted-foreground mt-0.5">{h.desc}</p>
-                    </div>
-                  </div>);
-
-            })}
-            </div>
-          </div>
-        </section>
-      }
-
-      <section className="section-padding relative">
-        <div className="container mx-auto">
-          <Link to="/produtos" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8">
+      <section className="relative bg-[#fbfcfe] py-6 sm:py-8 lg:py-10">
+        <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
+          <Link to="/produtos?catalogo=1" className="mb-5 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[.1em] text-[#526783] hover:text-[#073b82]">
             <ArrowLeft size={14} /> Voltar aos produtos
           </Link>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1.15fr)_minmax(25rem,.85fr)] xl:gap-10">
             {/* Gallery */}
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-              <div className="glass-card overflow-hidden rounded-xl">
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="grid gap-3 sm:grid-cols-[5.5rem_minmax(0,1fr)]">
+              <div className="order-1 overflow-hidden rounded-xl border border-[#dce3ec] bg-white shadow-[0_18px_60px_rgba(6,33,73,.08)] sm:order-2">
                 <img
                   src={gallery[mainImage] || productImage}
                   alt={displayName}
-                  className={`w-full aspect-square ${mainImage === 0 && product.curatedCover ? "bg-white object-contain p-8" : "object-cover"}`}
+                  className={`aspect-[1.12/1] w-full ${mainImage === 0 && product.curatedCover ? "bg-white object-contain p-8" : "object-cover"}`}
                 />
               </div>
               {gallery.length > 1 &&
-              <div className="grid grid-cols-4 gap-3 mt-3">
-                  {gallery.map((img, i) =>
+              <div className="order-2 grid grid-cols-4 gap-2 sm:order-1 sm:grid-cols-1 sm:content-start">
+                  {gallery.slice(0, 8).map((img, i) =>
                 <button
                   key={i}
                   onClick={() => setMainImage(i)}
-                  className={`glass-card overflow-hidden rounded-lg transition-all ${mainImage === i ? "ring-2 ring-primary" : "opacity-70 hover:opacity-100"}`}>
+                  className={`overflow-hidden rounded-lg border bg-white transition-all ${i >= 4 ? "hidden sm:block" : ""} ${mainImage === i ? "border-[#0b3f91] ring-1 ring-[#0b3f91]" : "border-[#dce3ec] opacity-75 hover:opacity-100"}`}>
 
                       <img src={img} alt="" className="w-full aspect-square object-cover" loading="lazy" />
                     </button>
@@ -147,11 +123,11 @@ export default function ProdutoDetalhePage() {
             </motion.div>
 
             {/* Info */}
-            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-              <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="flex flex-col">
+              <div className="inline-block self-start text-xs font-semibold uppercase tracking-[.12em] text-[#0b3f91]">
                 {product.category}
               </div>
-              <h1 className="font-display text-3xl md:text-4xl font-bold mt-3 text-foreground">{displayName}</h1>
+              <h1 className="mt-3 max-w-[18ch] font-display text-3xl font-semibold leading-[1.02] tracking-[-.035em] text-[#082c68] md:text-5xl">{displayName}</h1>
 
               {/* Preço dinâmico */}
               {pricing && pricing.basePrice > 0 && (
@@ -160,7 +136,7 @@ export default function ProdutoDetalhePage() {
                   initial={{ opacity: 0, y: -4 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.25 }}
-                  className="mt-4 p-4 rounded-xl bg-primary/5 border border-primary/15"
+                  className="mt-4 rounded-xl border border-[#dce3ec] bg-white p-4"
                 >
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl font-bold text-primary">{formatPrice(activePrice)}</span>
@@ -172,7 +148,7 @@ export default function ProdutoDetalhePage() {
                 </motion.div>
               )}
 
-              <p className="text-muted-foreground mt-4 leading-relaxed text-lg">{product.description}</p>
+              <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-[#536783]">{product.description}</p>
 
               {/* Size Selector */}
               {product.sizes && product.sizes.length > 0 && (
@@ -333,20 +309,20 @@ export default function ProdutoDetalhePage() {
             </motion.div>
           </div>
 
-          {/* Trust badges — GIK style */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
-            {[
-            { icon: Award, label: "Design Sonar Comprovado" },
-            { icon: FlaskConical, label: "Performance Verificada em Lab" },
-            { icon: Leaf, label: "Materiais Eco-Friendly" },
-            { icon: Shield, label: "Garantia de 2 Anos" }].
-            map((b) =>
-            <div key={b.label} className="flex items-center gap-3 glass-card rounded-xl px-4 py-3">
-                <b.icon size={20} className="text-primary flex-shrink-0" />
-                <span className="text-xs font-semibold text-foreground">{b.label}</span>
-              </div>
-            )}
-          </div>
+          {product.highlights && product.highlights.length > 0 && (
+            <div className="mt-8 grid grid-cols-2 gap-3 border-t border-[#dce3ec] pt-6 md:grid-cols-3 lg:grid-cols-6">
+              {product.highlights.map((highlight) => {
+                const Icon = highlightIcons[highlight.icon] || Volume2;
+                return (
+                  <div key={highlight.title} className="rounded-xl border border-[#dce3ec] bg-white p-4">
+                    <Icon size={19} className="text-[#0b3f91]" />
+                    <p className="mt-3 text-xs font-semibold leading-tight text-[#082c68]">{highlight.title}</p>
+                    <p className="mt-1 text-[10px] leading-relaxed text-[#64748b]">{highlight.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          )}
 
           {/* 3D Viewer Section */}
           <div className="mt-16">
@@ -362,7 +338,7 @@ export default function ProdutoDetalhePage() {
                 Performance em que Você Pode <em className="text-primary not-italic">Confiar</em>
               </h2>
               <p className="text-muted-foreground mt-3 max-w-2xl mx-auto text-sm">
-                Todos os produtos Sonar são testados seguindo normas ISO/R 354 e ASTM C 423. Essa abordagem científica garante total transparência sobre como nossos produtos performam e impulsiona nosso processo de P&D.
+                Os dados abaixo são exibidos somente quando constam na ficha técnica cadastrada para este modelo.
               </p>
             </div>
 

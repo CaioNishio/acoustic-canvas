@@ -23,10 +23,10 @@ function ResponsiveAcousticHero() {
         className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,251,254,.98)_0%,rgba(247,251,254,.94)_36%,rgba(247,251,254,.82)_48%,rgba(247,251,254,.22)_58%,rgba(247,251,254,0)_64%)] md:bg-[linear-gradient(90deg,rgba(247,251,254,.98)_0%,rgba(247,251,254,.92)_24%,rgba(247,251,254,.33)_39%,rgba(247,251,254,0)_52%)]"
       />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1920px] items-start px-5 pt-[clamp(1.75rem,5.5vh,3rem)] sm:px-8 md:items-center md:px-[clamp(2.5rem,4vw,4.5rem)] md:pt-0">
+      <div className="relative z-10 mx-auto flex h-full max-w-[1920px] items-start px-5 pt-[clamp(1.75rem,5.5vh,3rem)] sm:px-8 md:items-center md:px-[clamp(2.5rem,4vw,4.5rem)] md:pt-0 md:max-lg:mt-[25px] md:max-lg:px-[18px] md:max-lg:pb-[88px]">
         <div className="max-w-[32rem] md:w-[34%] md:max-w-none md:-translate-y-[2%]">
           <p className="text-[10px] font-semibold tracking-[.18em] text-[#536986] sm:text-xs">FABRICAÇÃO PRÓPRIA</p>
-          <h1 className="mt-3 max-w-[10ch] text-[clamp(2.65rem,11vw,4.25rem)] font-semibold leading-[.92] tracking-[-.065em] text-[#0c356c] md:mt-4 md:text-[clamp(3.1rem,4.5vw,5.45rem)]">
+          <h1 className="mt-3 max-w-[10ch] text-[clamp(2.65rem,11vw,4.25rem)] font-semibold leading-[.92] tracking-[-.065em] text-[#0c356c] md:mt-4 md:text-[41.6px] lg:text-[clamp(3.1rem,4.5vw,5.45rem)]">
             Cada ambiente merece ser ouvido com <span className="text-[#ae741a]">clareza</span>
           </h1>
           <p className="mt-5 max-w-[31ch] text-[clamp(.98rem,4vw,1.2rem)] font-normal leading-[1.3] tracking-[-.025em] text-[#385f9c] md:mt-7 md:text-[clamp(1rem,1.45vw,1.45rem)]">
