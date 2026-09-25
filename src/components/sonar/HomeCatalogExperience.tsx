@@ -46,14 +46,14 @@ const items = [
 export default function HomeCatalogExperience() {
   return (
     <section className="relative z-0 order-2 flex flex-col overflow-hidden bg-[#fbfaf7] text-[#071b3d]">
-      <style>{`.snr-catalog-intro{display:grid;gap:34px;align-items:stretch}.snr-feature-card{display:grid;grid-template-columns:minmax(0,38fr) minmax(0,62fr)}.snr-feature-card>dl{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;border-left:0;border-top:1px solid rgba(7,27,61,.1)}.snr-engineering{display:grid}@media(min-width:560px){.snr-feature-card{grid-template-columns:42% 58%;min-height:340px}.snr-feature-card>dl{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}}@media(min-width:900px){.snr-catalog-intro{grid-template-columns:minmax(0,32fr) minmax(0,68fr)}.snr-feature-card{grid-template-columns:40% 34% 26%}.snr-feature-card>dl{grid-column:auto;display:flex;border-left:1px solid rgba(7,27,61,.1);border-top:0}.snr-engineering{grid-template-columns:repeat(3,minmax(0,1fr))}}`}</style>
-      <div className="h-2 bg-[#020d1d]" />
-      <div className="snr-catalog-art relative isolate aspect-[2134/737] w-full overflow-hidden bg-[#031a38] text-white">
+      <style>{`.snr-catalog-intro{display:grid;gap:28px;align-items:stretch;width:100%}.snr-feature-card{display:grid;grid-template-columns:minmax(0,1fr)}.snr-feature-card>dl{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px;border-left:0;border-top:1px solid rgba(7,27,61,.1)}.snr-engineering-mobile-panel{position:relative;overflow:hidden}.snr-engineering-mobile-panel>img{position:absolute;inset:0;height:100%;max-width:none}.snr-engineering-mobile-panel:nth-child(1){aspect-ratio:528/845}.snr-engineering-mobile-panel:nth-child(1)>img{width:352.651515%}.snr-engineering-mobile-panel:nth-child(2){aspect-ratio:786/845}.snr-engineering-mobile-panel:nth-child(2)>img{width:236.895674%;transform:translateX(-28.356606%)}.snr-engineering-mobile-panel:nth-child(3){aspect-ratio:548/845}.snr-engineering-mobile-panel:nth-child(3)>img{width:339.781022%;transform:translateX(-70.56928%)}@media(min-width:560px){.snr-catalog-intro{gap:34px}.snr-feature-card{grid-template-columns:42% 58%;min-height:340px}.snr-feature-card>dl{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}}@media(min-width:900px){.snr-catalog-intro{grid-template-columns:minmax(0,32fr) minmax(0,68fr)}.snr-feature-card{grid-template-columns:40% 34% 26%}.snr-feature-card>dl{grid-column:auto;display:flex;border-left:1px solid rgba(7,27,61,.1);border-top:0}}`}</style>
+      <div className="h-2 bg-[#031a38] md:bg-[#020d1d]" />
+      <div className="snr-catalog-art relative isolate hidden aspect-[2134/737] w-full overflow-hidden bg-[#031a38] text-white md:block">
         <img
           src={catalogLayout}
           width={2134}
           height={737}
-          fetchPriority="high"
+          fetchpriority="high"
           alt="Catálogo Sonar — Performance que se vê, com painéis e difusores acústicos"
           className="block h-full w-full select-none object-contain"
           draggable={false}
@@ -69,6 +69,28 @@ export default function HomeCatalogExperience() {
           aria-label="Ver aplicações"
           className="absolute left-[20.4%] top-[68%] h-[12%] w-[12%] rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-white"
         />
+      </div>
+      <div className="relative isolate aspect-[4/5] w-full overflow-hidden bg-[#031a38] text-white md:hidden">
+        <img
+          src={catalogLayout}
+          width={2134}
+          height={737}
+          loading="lazy"
+          decoding="async"
+          alt="Painéis e difusores do catálogo Sonar"
+          className="absolute inset-0 size-full select-none object-cover object-[63%_center]"
+          draggable={false}
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,26,56,.96)_0%,rgba(3,26,56,.7)_27%,rgba(3,26,56,.05)_58%,rgba(3,26,56,.76)_100%)]" />
+        <div className="absolute inset-x-0 top-0 z-10 p-6">
+          <p className="text-[10px] tracking-[.28em] text-white/70">CATÁLOGO SONAR</p>
+          <h2 className="mt-3 max-w-[8ch] font-display text-[clamp(36px,11vw,48px)] leading-[.96] tracking-[-.045em]">Performance que se vê.</h2>
+          <p className="mt-4 max-w-[25ch] text-[14px] leading-5 text-white/78">Soluções acústicas que unem ciência, design e materiais premium.</p>
+        </div>
+        <div className="absolute inset-x-6 bottom-6 z-10 flex gap-3">
+          <Link to="/produtos" className="inline-flex min-h-11 flex-1 items-center justify-between rounded-sm bg-[#c99a59] px-4 text-[10px] font-semibold text-white">EXPLORAR PRODUTOS <ArrowRight size={16} /></Link>
+          <Link to="/solucoes" className="inline-flex min-h-11 items-center border border-white/45 px-4 text-[10px] font-semibold text-white">APLICAÇÕES</Link>
+        </div>
       </div>
       <div className="bg-[#07346b] text-[#d9b879]">
         <div className="mx-auto grid max-w-[1600px] grid-cols-7 px-2 py-1.5">
@@ -86,7 +108,7 @@ export default function HomeCatalogExperience() {
       </div>
       <div className="h-3 bg-[#f8f8f7]" />
       <div
-        className="order-first mx-auto max-w-[1600px] pb-16 pt-7"
+        className="order-first mx-auto w-full max-w-[1600px] pb-12 pt-7 sm:pb-16"
         style={{ paddingInline: "var(--snr-home-gutter)" }}
       >
         <div className="snr-catalog-intro">
@@ -94,10 +116,10 @@ export default function HomeCatalogExperience() {
             <p className="text-[10px] tracking-[.16em] text-[#5d6b82]">
               — &nbsp; CATÁLOGO COMPLETO
             </p>
-            <h2 className="mt-7 max-w-[12ch] font-display text-[clamp(28px,2.6vw,40px)] leading-[1.04]">
+            <h2 className="mt-5 max-w-[12ch] font-display text-[clamp(31px,8vw,40px)] leading-[1.02] sm:mt-7 sm:text-[clamp(28px,2.6vw,40px)] sm:leading-[1.04]">
               Todos os produtos em um só lugar.
             </h2>
-            <p className="mt-6 max-w-[34ch] text-[15px] leading-7 text-[#5d697f]">
+            <p className="mt-5 max-w-[34ch] text-[16px] leading-7 text-[#5d697f] sm:mt-6 sm:text-[15px]">
               Painéis, bass traps, difusores e soluções completas — fabricados
               sob medida para o seu ambiente.
             </p>
@@ -116,26 +138,26 @@ export default function HomeCatalogExperience() {
             <span className="absolute left-3 top-3 z-20 rounded-full bg-[#275e65] px-3 py-2 text-[9px] font-bold text-white shadow-sm sm:left-5 sm:top-5 sm:px-5 sm:text-[10px]">
               MAIS VENDIDO
             </span>
-            <div className="relative z-10 m-3 flex items-center justify-center rounded-[18px] border border-white/75 bg-white/28 p-3 pt-12 shadow-[inset_0_1px_0_rgba(255,255,255,.78),0_18px_42px_rgba(56,67,78,.08)] backdrop-blur-xl sm:m-5 sm:p-6">
+            <div className="relative z-10 m-3 flex min-h-[245px] items-center justify-center rounded-[18px] border border-white/75 bg-white/28 p-4 pt-14 shadow-[inset_0_1px_0_rgba(255,255,255,.78),0_18px_42px_rgba(56,67,78,.08)] backdrop-blur-xl sm:m-5 sm:min-h-0 sm:p-6">
               <img
                 loading="lazy"
                 decoding="async"
                 src={panelSand}
                 alt="Painel Acústico SNR3250 em acabamento areia"
-                className="h-[150px] w-full object-contain drop-shadow-[0_16px_20px_rgba(70,55,36,.18)] transition-transform duration-500 hover:scale-105 sm:h-[210px]"
+                className="h-[205px] w-full object-contain drop-shadow-[0_16px_20px_rgba(70,55,36,.18)] transition-transform duration-500 hover:scale-105 sm:h-[210px]"
               />
             </div>
-            <div className="relative z-10 flex min-w-0 flex-col justify-center px-3 py-5 sm:px-6 sm:py-8">
-              <p className="text-[9px] font-medium text-[#46566e] sm:text-[10px]">
+            <div className="relative z-10 flex min-w-0 flex-col justify-center px-5 py-5 sm:px-6 sm:py-8">
+              <p className="text-[10px] font-medium tracking-[.08em] text-[#46566e]">
                 PAINEL ACÚSTICO
               </p>
-              <h3 className="mt-1 text-[24px] text-[#071b3d] sm:mt-2 sm:text-[32px]">
+              <h3 className="mt-1 text-[34px] leading-none text-[#071b3d] sm:mt-2 sm:text-[32px]">
                 SNR3250
               </h3>
-              <p className="text-[15px] text-[#40526d] sm:text-[18px]">
+              <p className="mt-2 text-[17px] text-[#40526d] sm:mt-0 sm:text-[18px]">
                 Absorção High-Mid
               </p>
-              <p className="mt-3 text-[11px] leading-[1.45] text-[#4f5e74] sm:mt-6 sm:text-[12px] sm:leading-5">
+              <p className="mt-4 text-[13px] leading-5 text-[#4f5e74] sm:mt-6 sm:text-[12px]">
                 Alta performance em médias e altas frequências. Medidas de 60×60
                 até 200×60 cm.
               </p>
@@ -146,7 +168,7 @@ export default function HomeCatalogExperience() {
                 VER DETALHES <ArrowRight size={14} />
               </Link>
             </div>
-            <dl className="relative z-10 flex flex-col justify-center gap-5 border-t border-white/55 bg-white/14 px-4 py-5 sm:px-6 sm:py-8 md:border-l md:border-t-0">
+            <dl className="relative z-10 flex flex-col justify-center gap-5 border-t border-white/55 bg-white/14 px-5 py-6 sm:px-6 sm:py-8 md:border-l md:border-t-0">
               <Tech icon={Ruler} l="ESPESSURA" v="50 mm" />
               <Tech icon={Gauge} l="DENSIDADE" v="32, 64 e 96 kg/m³" />
               <Tech icon={Monitor} l="APLICAÇÃO" v="Parede / Teto" />
@@ -177,7 +199,7 @@ export default function HomeCatalogExperience() {
             </Link>
           ))}
         </div>
-        <div className="mt-6 overflow-hidden border-y border-[#071b3d]/10 bg-white">
+        <div className="mt-6 hidden overflow-hidden border-y border-[#071b3d]/10 bg-white sm:block">
           <img
             src={engineeringReference}
             alt="Desempenho comprovado, tecnologia e visualização do painel acústico no ambiente"
@@ -186,6 +208,13 @@ export default function HomeCatalogExperience() {
             decoding="async"
             draggable={false}
           />
+        </div>
+        <div className="mt-6 grid gap-3 sm:hidden" aria-label="Desempenho, tecnologia e aplicação do painel acústico">
+          {["Desempenho acústico", "Tecnologia e materiais", "Aplicação no ambiente"].map((label) => (
+            <div key={label} className="snr-engineering-mobile-panel rounded-[18px] border border-[#071b3d]/10 bg-white shadow-[0_14px_34px_rgba(27,45,72,.08)]">
+              <img src={engineeringReference} alt={label} loading="lazy" decoding="async" draggable={false} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

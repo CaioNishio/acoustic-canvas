@@ -10,7 +10,7 @@ function ResponsiveAcousticHero() {
           src="/media/hero-home-4k.webp"
           width={3840}
           height={2160}
-          fetchPriority="high"
+          fetchpriority="high"
           decoding="async"
           alt="Soluções Sonar de absorção, difusão, atenuação e isolamento acústico integradas à arquitetura"
           className="size-full select-none object-cover object-[52%_center] md:object-center"
@@ -20,10 +20,10 @@ function ResponsiveAcousticHero() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,251,254,.98)_0%,rgba(247,251,254,.96)_43%,rgba(247,251,254,.62)_52%,rgba(247,251,254,.08)_68%,rgba(247,251,254,0)_76%)] md:bg-[linear-gradient(90deg,rgba(247,251,254,.98)_0%,rgba(247,251,254,.92)_24%,rgba(247,251,254,.33)_39%,rgba(247,251,254,0)_52%)]"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,251,254,.98)_0%,rgba(247,251,254,.94)_36%,rgba(247,251,254,.82)_48%,rgba(247,251,254,.22)_58%,rgba(247,251,254,0)_64%)] md:bg-[linear-gradient(90deg,rgba(247,251,254,.98)_0%,rgba(247,251,254,.92)_24%,rgba(247,251,254,.33)_39%,rgba(247,251,254,0)_52%)]"
       />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1920px] items-start px-5 pt-[clamp(2.25rem,7vh,4.25rem)] sm:px-8 md:items-center md:px-[clamp(2.5rem,4vw,4.5rem)] md:pt-0">
+      <div className="relative z-10 mx-auto flex h-full max-w-[1920px] items-start px-5 pt-[clamp(1.75rem,5.5vh,3rem)] sm:px-8 md:items-center md:px-[clamp(2.5rem,4vw,4.5rem)] md:pt-0">
         <div className="max-w-[32rem] md:w-[34%] md:max-w-none md:-translate-y-[2%]">
           <p className="text-[10px] font-semibold tracking-[.18em] text-[#536986] sm:text-xs">FABRICAÇÃO PRÓPRIA</p>
           <h1 className="mt-3 max-w-[10ch] text-[clamp(2.65rem,11vw,4.25rem)] font-semibold leading-[.92] tracking-[-.065em] text-[#0c356c] md:mt-4 md:text-[clamp(3.1rem,4.5vw,5.45rem)]">
