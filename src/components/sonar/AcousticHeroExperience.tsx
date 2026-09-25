@@ -42,7 +42,11 @@ export default function AcousticHeroExperience() {
   return (
     <div className="relative z-10 order-1 isolate bg-white">
       <ResponsiveAcousticHero />
-      <div aria-hidden="true" className="relative z-10 h-14 sm:h-16 xl:h-20" style={{ background: "linear-gradient(180deg,#eef0f5 0%,#dfe5ee 48%,#020d1d 100%)" }} />
+      <div
+        aria-hidden="true"
+        className="relative z-10 h-10 sm:h-12 xl:h-14"
+        style={{ background: "linear-gradient(180deg,#eef5f9 0%,#f7fafc 55%,#fbfaf7 100%)" }}
+      />
     </div>
   );
 }

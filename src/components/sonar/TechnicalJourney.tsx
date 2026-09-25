@@ -1,6 +1,7 @@
 import { ArrowRight, BarChart3, Factory, Headphones, ShieldCheck, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import artwork from '@/assets/home-reference/technical-journey-layout.png';
+import installationPhoto from '@/assets/home-reference/installation-stage-hq.webp';
 import './technical-journey.css';
 import DeferredSvgImage from './DeferredSvgImage';
 
@@ -56,7 +57,18 @@ export default function TechnicalJourney() {
         <div className="technical-journey__stages">
           {stages.map((stage) => (
             <Link key={stage.title} to={stage.to} className="technical-journey__stage">
-              <ArtworkCrop x={stage.cropX} y={444} width={252} height={174} label={stage.title} />
+              {stage.title === 'Instalação' ? (
+                <img
+                  src={installationPhoto}
+                  width={1450}
+                  height={1000}
+                  loading="lazy"
+                  decoding="async"
+                  alt="Instalador nivelando painel acústico em parede"
+                />
+              ) : (
+                <ArtworkCrop x={stage.cropX} y={444} width={252} height={174} label={stage.title} />
+              )}
               <div className="technical-journey__stage-copy">
                 <span>{stage.number}</span>
                 <h3>{stage.title}</h3>

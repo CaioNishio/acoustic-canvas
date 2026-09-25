@@ -92,6 +92,7 @@
   box-shadow: 0 12px 28px rgba(4, 44, 96, .15);
 }
 .technical-journey__stage > svg { display: block; width: 100%; aspect-ratio: 1.44; }
+.technical-journey__stage > img { display: block; width: 100%; aspect-ratio: 1.44; object-fit: cover; object-position: center 38%; }
 .technical-journey__stage-copy { position: relative; min-height: 158px; padding: 16px 15px 50px; }
 .technical-journey__stage-copy > span { font-size: 12px; color: rgba(255,255,255,.72); }
 .technical-journey__stage-copy h3 { margin: 6px 0 0; font-size: clamp(17px, 1.35vw, 21px); font-weight: 500; line-height: 1.08; letter-spacing: -.025em; }

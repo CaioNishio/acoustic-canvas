@@ -195,10 +195,10 @@ export function CatalogBenefitsStrip() {
   return (
     <section
       aria-label="Benefícios Sonar"
-      className="order-1 w-full bg-[#fbfaf7] py-7"
-      style={{ paddingInline: "var(--snr-home-gutter)" }}
+      className="relative z-20 order-1 -mt-10 w-full bg-transparent pb-7 pt-0 sm:-mt-12 sm:pb-8 xl:-mt-14"
+      style={{ paddingInline: "clamp(8px, 1.8vw, 28px)" }}
     >
-      <div className="mx-auto grid max-w-[1600px] gap-4 rounded-[20px] bg-[linear-gradient(100deg,#073c7c,#062654)] px-7 py-5 text-white md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid w-full max-w-[1880px] grid-cols-2 gap-x-3 gap-y-2 rounded-[16px] border border-white/20 bg-[linear-gradient(105deg,#0b4a91_0%,#073873_38%,#062654_100%)] px-3 py-3 text-white shadow-[0_18px_45px_rgba(5,38,83,.22),inset_0_1px_0_rgba(255,255,255,.2)] sm:px-5 md:grid-cols-4 md:gap-0 md:px-4 md:py-2.5">
         <Benefit icon={MessageCircle} t="ATENDIMENTO ESPECIALIZADO" x="Suporte técnico para seu projeto" />
         <Benefit icon={Ruler} t="FABRICAÇÃO SOB MEDIDA" x="Painéis e soluções personalizadas" />
         <Benefit icon={Truck} t="ENVIO PARA TODO O BRASIL" x="Logística segura e ágil" />
@@ -241,11 +241,11 @@ function Benefit({
   x: string;
 }) {
   return (
-    <div className="flex items-center gap-4">
-      <Icon size={28} className="text-[#d7b276]" />
+    <div className="flex min-w-0 items-center gap-2 px-1 py-1 md:justify-center md:border-l md:border-white/10 md:first:border-l-0">
+      <Icon size={22} className="shrink-0 text-[#d7b276]" />
       <div>
-        <p className="text-[9px]">{t}</p>
-        <p className="mt-1 text-[11px] text-white/75">{x}</p>
+        <p className="text-[7px] leading-tight sm:text-[8px]">{t}</p>
+        <p className="mt-0.5 text-[9px] leading-tight text-white/75 sm:text-[10px]">{x}</p>
       </div>
     </div>
   );
