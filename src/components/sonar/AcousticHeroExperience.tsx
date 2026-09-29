@@ -29,7 +29,7 @@ function ResponsiveAcousticHero() {
           <h1 className="mt-3 max-w-[10ch] text-[clamp(2.65rem,11vw,4.25rem)] font-semibold leading-[.92] tracking-[-.065em] text-[#0c356c] md:mt-4 md:text-[41.6px] lg:text-[clamp(3.1rem,4.5vw,5.45rem)]">
             Cada ambiente merece ser ouvido com <span className="text-[#ae741a]">clareza</span>
           </h1>
-          <p className="mt-5 max-w-[31ch] text-[clamp(.98rem,4vw,1.2rem)] font-normal leading-[1.3] tracking-[-.025em] text-[#385f9c] md:mt-7 md:text-[clamp(1rem,1.45vw,1.45rem)]">
+          <p className="mt-5 hidden max-w-[31ch] text-[clamp(.98rem,4vw,1.2rem)] font-normal leading-[1.3] tracking-[-.025em] text-[#385f9c] md:mt-7 md:block md:text-[clamp(1rem,1.45vw,1.45rem)]">
             Soluções acústicas que unem ciência, design e integração arquitetônica para transformar ambientes em experiências sonoras superiores.
           </p>
         </div>
